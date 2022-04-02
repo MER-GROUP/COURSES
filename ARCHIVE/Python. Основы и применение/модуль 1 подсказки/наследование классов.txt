@@ -1,0 +1,35 @@
+Было забавно, очень помог тест:
+
+
+
+12
+G : F
+A
+B : A
+C : A
+D : B C
+E : D
+F : D
+X
+Y : X A
+Z : X
+V : Z Y
+W : V
+8
+A G
+A Z
+A W
+X W
+X QWE
+A X
+X X
+1 1
+
+Yes
+No
+Yes
+Yes
+No
+No
+Yes
+No

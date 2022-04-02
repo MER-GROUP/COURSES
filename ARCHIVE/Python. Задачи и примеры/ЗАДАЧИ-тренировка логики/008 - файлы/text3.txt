@@ -1,0 +1,2 @@
+if a > b:
+print(c)\n\nwhile c > 0:\n\tn = c % 10\n\tif n > 5:\n\t\tprint(n)\n\tc %= 10    \n

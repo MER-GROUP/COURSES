@@ -1,0 +1,5 @@
+s = input()
+# print(s[:-5])
+# print(s[-5:])
+# print(s[-5:][::-1])
+print(int(s[:-5] + s[-5:][::-1]))

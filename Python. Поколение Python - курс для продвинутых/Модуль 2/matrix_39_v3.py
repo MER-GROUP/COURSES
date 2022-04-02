@@ -1,0 +1,31 @@
+class Matrix:
+	def __init__(self, s):
+		self.arr = [ ['.'] * 8 for i in range(8)]
+		self.y = 8 - int(s[1])
+		self.x = ord(s[0]) - ord('a')
+		self.arr[self.y][self.x] = 'Q'
+		self.__matrix_alg__()
+		self.__matrix_print__()
+		
+	def __matrix_print__(self):
+		for i in self.arr:
+			print(*i)
+		
+	def __matrix_alg__(self):
+		left = self.x - self.y
+		right = self.x + self.y
+		for i in range(8):
+			for j in range(8):
+				if i == self.y and not 'Q' == self.arr[i][j]:
+					self.arr[i][j] = '*'
+				if j == self.x and not 'Q' == self.arr[i][j]:
+					self.arr[i][j] = '*'
+				if 0 <= left and 8 > left:
+					self.arr[i][left] = '*'
+				if 0 <= right and 8 > right:
+					self.arr[i][right] = '*'
+			left += 1
+			right -= 1
+		
+if __name__ == '__main__':
+	Matrix(input())

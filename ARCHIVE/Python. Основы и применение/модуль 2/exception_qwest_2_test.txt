@@ -1,0 +1,441 @@
+4
+base
+second : base
+otherbase
+first : otherbase
+4
+base
+otherbase
+first
+second
+
+Вывод должен быть:
+
+
+
+first
+
+second
+
+Снова не понимаю...
+
+По условию этого теста, Костя посмотрел на этот код, и сказал Антону, что исключение FileNotFoundError можно не ловить, ведь мы уже ловим OSError -- предок FileNotFoundError
+
+Sample Input:
+
+4
+ArithmeticError
+ZeroDivisionError : ArithmeticError
+OSError
+FileNotFoundError : OSError
+4
+ZeroDivisionError
+OSError
+ArithmeticError
+FileNotFoundError
+
+Sample Output:
+
+FileNotFoundError
+
+Почему в ответе нет ZeroDivisionError, если мы ловим его предка ArithmeticError?
+
+@Антон_Руденков, или только потому, что ZeroDivisionError стоит раньше и тогда эта запись типа обретает смысл?
+
+@Антон_Руденков, да
+
+используется и множественное наследование
+
+10
+1 : 2 3 4
+2 : 5 3 6 7 8 9 
+5 : 8
+3 : 4 9 
+10 : 7 
+4
+6 : 3 4 
+7 : 6 
+8 : 10 4 6 7 
+9
+10
+6
+9
+4
+5
+10
+1
+3
+2
+8
+7
+
+5
+10
+1
+3
+2
+8
+7
+
+test final
+
+14
+a
+b : a
+c : a
+f : a
+d : c b
+g : d f
+i : g
+m : i
+n : i
+z : i
+e : m n
+y : z
+x : z
+w : e y z
+9
+y
+m
+n
+m
+d
+e
+g
+a
+f
+
+m
+e
+g
+f
+
+Для "Test #12":
+
+5
+A : B C
+B : D
+C : D
+D : E
+E
+5
+E
+A
+B
+C
+D
+
+
+
+Ответ:
+
+A
+B
+C
+D
+
+[Program finished]
+
+test ###
+
+4
+winter
+is
+coming
+OMG : winter is coming
+4
+winter
+is
+coming
+OMG
+
+ответ
+OMG
+
+test ###
+
+4
+BaseException
+Exception : BaseException
+LookupError : Exception
+KeyError : LookupError
+2
+BaseException
+KeyError
+
+ответ
+KeyError
+
+test ###
+
+3
+a
+b : c d a
+c
+2
+a
+b
+
+ответ
+b
+
+test ###
+
+6
+10
+11 : 10
+12 : 11
+2013,11,21,12
+13 : 11 20
+21 : 20
+6
+20
+13
+10
+11
+21
+12
+
+ответ
+13
+11
+21
+12
+
+test ###
+
+4
+b : a
+c : b
+d : c
+e : d
+2
+a
+e
+
+ответ
+e
+
+test ###
+
+10
+1 : 2 3 4 5 6
+7 : 8 3 5
+8 : 3 9
+2 : 7 3 5 10 9
+3 : 5 9
+4 : 10
+5 : 9
+10
+6 : 4 10
+9 : 6
+5
+5
+9
+1
+7
+8
+
+ответ
+1
+7
+8
+
+test ###
+
+7
+A
+B : A
+C : B
+D : C
+G
+F : G A J
+J
+3
+A
+D
+F
+
+ответ
+D
+F
+
+test ###
+
+10
+a
+b
+c : a b
+d : c b
+e : d
+f : e
+g : f a d e
+h : g
+j : h c d e g b
+k : j c a
+10
+d
+b
+a
+h
+f
+k
+c
+j
+g
+e
+
+ответ
+h
+f
+k
+c
+j
+g
+e
+
+test ###
+
+3
+c
+a : b
+b : c
+2
+c
+a
+
+ответ
+a
+
+###  Тест 3  ### Обратите внимание: в данном тесте в отличие от первых двух уже в первой строке назначаются родители для исключений. У меня к примеру тут из-за этого тоже ошибки возникали.
+
+
+
+10
+k : j i h
+j : g i e d c b 
+g : c
+i : h b 
+a : d 
+h
+e : i h 
+d : e 
+c : a h e d 
+b
+10
+e
+b
+h
+g
+a
+k
+i
+j
+c
+d
+
+
+
+output:
+
+g 
+a 
+k
+i
+j
+c
+d
+
+Test ----------------------
+
+17
+DH : D BF DE AE
+D : AE
+B
+AE : F
+BG : H CH
+H
+E : CG B
+BH : CG
+CE
+CH : E
+C : CE
+A
+DE : BH
+F
+CG : C G
+G
+BF : F
+17
+DH
+D
+B
+AE
+BG
+H
+E
+BH
+CE
+CH
+C
+A
+DE
+F
+CG
+G
+BF
+
+Answer test ---------------------
+BG
+E
+CH
+C
+DE
+CG
+BF
+
+test 2 -----------------------
+
+17
+DH : D BF DE AE
+D : AE
+B
+AE : F
+BG : H CH
+H
+E : CG B
+BH : CG
+CE
+CH : E
+C : CE
+A
+DE : BH
+F
+CG : C G
+G
+BF : F
+17
+DH
+BH
+DE
+A
+E
+CH
+B
+H
+BG
+C
+CG
+CE
+D
+AE
+F
+BF
+G
+
+Answer 2 -----------------------
+DE
+CH
+BG
+CG
+BF

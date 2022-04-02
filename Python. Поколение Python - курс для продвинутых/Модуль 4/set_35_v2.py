@@ -1,0 +1,2 @@
+words = ['Plum', 'Grapefruit', 'apple', 'orange', 'pomegranate', 'Cranberry', 'lime', 'Lemon', 'grapes', 'persimmon', 'tangerine', 'Watermelon', 'currant', 'Almond']
+print(*sorted(set(map(lambda x: x[0].lower(), words))))

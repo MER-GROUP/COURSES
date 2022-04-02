@@ -1,0 +1,204 @@
+Help on package simplecrypt:
+
+NAME
+    simplecrypt
+
+PACKAGE CONTENTS
+    example-file
+    example-interactive
+    tests
+
+CLASSES
+    builtins.Exception(builtins.BaseException)
+        DecryptionException
+        EncryptionException
+
+    class DecryptionExcepti
+ion(builtins.Exception)
+     |  Common base class for all non-exit exceptions.
+     |
+     |  Method resolution order:
+     |      DecryptionException
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |
+     |  Data descriptors defined here:
+     |
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |
+     |  __init__(self, /, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from builtins.Exception:
+     |
+     |  __new__(*args, **kwargs) from builtins
+.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |
+     |  __getattribute__(sel
+f, name, /)
+     |      Return getattr(self, name).
+     |
+     |  __reduce__(...)
+     |      Helper for pickle.
+     |
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |
+     |  __setattr__(self, name, value,
+ /)
+     |      Implement setattr(self, name, value).
+     |
+     |  __setstate__(...)
+     |
+     |  __str__(self, /)
+     |      Return str(self).
+     |
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |
+     |  __cause__
+     |      exception cause
+     |
+     |  __context__
+     |      exception context
+     |
+     |  __dict__
+     |
+     |  __suppress_context
+t__
+     |
+     |  __traceback__
+     |
+     |  args
+
+    class EncryptionExcepti
+ion(builtins.Exception)
+     |  Common base class for all non-exit exceptions.
+     |
+     |  Method resolution order:
+     |      EncryptionException
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |
+     |  Data descriptors defined here:
+     |
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |
+     |  __init__(self, /, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from builtins.Exception:
+     |
+     |  __new__(*args, **kwargs) from builtins
+.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |
+     |  __getattribute__(sel
+f, name, /)
+     |      Return getattr(self, name).
+     |
+     |  __reduce__(...)
+     |      Helper for pickle.
+     |
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |
+     |  __setattr__(self, name, value,
+ /)
+     |      Implement setattr(self, name, value).
+     |
+     |  __setstate__(...)
+     |
+     |  __str__(self, /)
+     |      Return str(self).
+     |
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |
+     |  __cause__
+     |      exception cause
+     |
+     |  __context__
+     |      exception context
+     |
+     |  __dict__
+     |
+     |  __suppress_context
+t__
+     |
+     |  __traceback__
+     |
+     |  args
+
+FUNCTIONS
+    decrypt(password, data)
+        Decrypt some data.  Input must be bytes.
+
+        @param password: The secret value used as the basis for a key.
+        This should be as long as varied as possible.  Try to avoid common words.
+
+        @param data: The data to be decrypted, typically as bytes.
+
+        @return: The decrypted data, as bytes.  If the original message was a
+        string you can re-create that using `result.decode('utf8')`.
+
+    encrypt(password, data)
+        Encrypt some data.  Input can be bytes or a string (which will be encoded
+        using UTF-8).
+
+        @param password: The secret value used as the basis for a key.
+        This should be as long as varied as possible.  Try to avoid common words.
+
+        @param data: The data to be encrypted.
+
+        @return: The encrypted data, as bytes.
+
+DATA
+    AES_KEY_LEN = 256
+    EXPANSION_COUNT = (10000,
+10000, 100000)
+    HALF_BLOCK = 64
+    HEADER = (b'sc\x00\x00', b'sc\x00\x01', b'sc
+\x00\x02')
+    HEADER_LEN = 4
+    LATEST = 2
+    PREFIX = b'sc'
+    SALT_LEN = (128, 256, 256)
+    header = b'sc\x00\x02'
+    salt_len = 256
+
+FILE
+    /data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.8/site-packages/simplecrypt/__init__.py

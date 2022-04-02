@@ -1,0 +1,6 @@
+print(hex(10))
+print(hex(128))
+print(hex(150))
+print(hex(18765))
+print(hex(18765)[2 : ])
+print(hex(18765).upper())

@@ -1,0 +1,5 @@
+print(oct(10))
+print(oct(128))
+print(oct(150))
+print(oct(18765))
+print(oct(18765)[2 : ])
