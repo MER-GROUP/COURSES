@@ -30,6 +30,18 @@ class Seq:
 			res += str(i) * i
 			i += 1
 		print(' '.join(res[: n]))
+
+	def __algo0(self, n):
+		s = ''
+		c = ''
+		for i in range(1, n + 1):
+			s += str(i) * i
+			if n < len(s):
+				if 1 == n % 2:
+					c += str(i)
+				break
+			c += f'{i}' * i
+		print(' '.join(c))
 		
 if __name__ == '__main__':
 	Seq(int(input()))
