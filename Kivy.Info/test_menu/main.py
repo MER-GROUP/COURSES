@@ -112,14 +112,14 @@ class Application(App):
         # причина: в нем могут быть данные из предыдущих вызовов
         # unload the content of the .kv file
         # reason: it could have data from previous calls
-        Builder.unload_file('./KV/' + filename)
+        Builder.unload_file('./kv/' + filename)
         # clear the container
         # очистите контейнер 
         # (переменная достура к свойствам класса Menu в файле root.kv)
         self.root.menu.clear_widgets()
         # load the content of the .kv file
         # загрузить содержимое файла .kv
-        info = Builder.load_file('./KV/' + filename)
+        info = Builder.load_file('./kv/' + filename)
         # add the content of the .kv file to the container
         # добавьте содержимое файла .kv в контейнер
         self.root.menu.add_widget(info)
