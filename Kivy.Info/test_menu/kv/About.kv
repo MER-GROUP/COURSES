@@ -1,0 +1,65 @@
+# версия kivi
+#:kivy 2.0.0
+# импорт hex цветов
+#:import hex kivy.utils.get_color_from_hex
+# Описываем класс class Menu(BoxLayout) для файла MainGUI.py
+Menu:
+    # ----------------------------------------------------------------------
+    # параметры конструктора
+    # Эти свойства мы указываем в кострукторе при создании объекта
+    # если бы не использавли язык графической разметки KV - Kivy Language 
+    #
+    # создаем ссылку на объект
+    # тем самым получая доступ ко всем параметрам BoxLayout 3-го уровня в KV файле
+    menu: menu
+    # ----------------------------------------------------------------------
+    # дизайн окна - расположение созданных классов (унаследованных)
+    #
+    # коробочный макет
+    BoxLayout:
+        # даем доступ к изменению свойств BoxLayout
+        # ориентация коробочного макета
+        # расстояние от содержимого до границы
+        # расстояние между границами
+        id: menu
+        orientation: 'vertical'
+        padding: 0
+        spacing: 2
+        # статистика
+        BoxLayout:
+            # ориентация коробочного макета
+            orientation: 'vertical'
+            LabelAboutBox:
+                # переопределяем размер виджета
+                size_hint: 1, 0.15
+                LabelAboutInfo:
+                    text: 'О ПРОГРАММЕ'
+                    font_size: dp(20)
+                    valign: 'middle'
+                    color: hex('#808080') # Grey
+            LabelAboutBox:
+                # переопределяем размер виджета
+                size_hint: 1, 1
+                LabelAboutInfo:
+                    text: 'РАЗРАБОТЧИК И АВТОР:\n Максим Романенко (Red Alert) \n\nПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ:\n проприетарное\n\nИНСТРУМЕНТЫ РАЗРАБОТКИ:\n python (python.org)\n kivy (kivy.org)\n git (git-scm.com)\n vscode (code.visualstudio.com)\n debian (debian.org)\n\nКОНТАКТЫ:\n i@mer-group.ru\n github.com/mer-group' 
+                    valign: 'top'
+                    halign: 'center'
+                    color: hex('#A9A9A9') # DarkGray
+            # BoxLayout:
+                # пустота
+        ChoiseBox: 
+            # переопределяем размер виджета
+            size_hint: 1, 0.1
+            # кнопки меню
+            ButtonMenu:
+                # содержимое текста
+                # переход к пункту В МЕНЮ
+                text: 'В МЕНЮ'
+                on_release: root.next_screen('./MenuEnd')
+    # ----------------------------------------------------------------------
+    # вызываем методы
+    #
+    # ----------------------------------------------------------------------
+
+# декорируемые классы
+# смотреть в файле MenuStart.kv

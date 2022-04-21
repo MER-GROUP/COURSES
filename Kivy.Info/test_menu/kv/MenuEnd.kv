@@ -1,0 +1,62 @@
+# версия kivi
+#:kivy 2.0.0
+# импорт hex цветов
+#:import hex kivy.utils.get_color_from_hex
+# Описываем класс class Menu(BoxLayout) для файла MainGUI.py
+Menu:
+    # ----------------------------------------------------------------------
+    # параметры конструктора
+    # Эти свойства мы указываем в кострукторе при создании объекта
+    # если бы не использавли язык графической разметки KV - Kivy Language 
+    #
+    # создаем ссылку на объект
+    # тем самым получая доступ ко всем параметрам BoxLayout 3-го уровня в KV файле
+    menu: menu
+    # ----------------------------------------------------------------------
+    # дизайн окна - расположение созданных классов (унаследованных)
+    #
+    # коробочный макет
+    BoxLayout:
+        # даем доступ к изменению свойств BoxLayout
+        # ориентация коробочного макета
+        # расстояние от содержимого до границы
+        # расстояние между границами
+        id: menu
+        orientation: 'vertical'
+        padding: 0
+        spacing: 2
+        #       
+        # кнопки меню
+        ButtonMenu:
+            # содержимое текста
+            # переход в МАЛЫЕ КОТЛЫ
+            # инициализируем переменную topic с выбранной темой
+            text: 'МАЛЫЕ КОТЛЫ'
+            on_release: root.next_screen('./Topic')
+            on_release: root.topic_set(self.text)
+        ButtonMenu:
+            text: 'БОЛЬШИЕ КОТЛЫ'
+            on_release: root.next_screen('./Topic')
+            on_release: root.topic_set(self.text)
+        ButtonMenu:
+            text: 'БОЛЬШИЕ КОТЛЫ. ТРУБОПРОВОДЫ ПАРА И ГОРЯЧЕЙ ВОДЫ'
+            on_release: root.next_screen('./Topic')
+            on_release: root.topic_set(self.text)
+        ButtonMenu:
+            text: 'БОЛЬШИЕ КОТЛЫ. СОСУДЫ'
+            on_release: root.next_screen('./Topic')
+            on_release: root.topic_set(self.text)
+        ButtonMenu:
+            text: 'ГАЗ. ГАЗОСНАБЖЕНИЕ'
+            on_release: root.next_screen('./Topic')
+            on_release: root.topic_set(self.text)
+        ButtonMenu:
+            text: 'О ПРОГРАММЕ'
+            on_release: root.next_screen('./About')         
+    # ----------------------------------------------------------------------
+    # вызываем методы
+    #
+    # ----------------------------------------------------------------------
+
+# декорируемые классы
+# смотреть в файле MenuStart.kv
