@@ -57,6 +57,34 @@ class Menu(BoxLayout):
     qwest_get = str()
     # список с ответами (список словарей)
     ans_list = dict()
+    
+# *****************************************************************************************
+class Application(App):
+    # ----------------------------------------------------------------------
+    # создаем стандартный конструктор Kivy: build(self)
+    def build(self):
+        return Builder.load_file('./kv/MenuStart.kv')
+    # ----------------------------------------------------------------------
+    # метод - прокрутка экранов (меню)
+    def next_screen(self, screen):
+        # определение имени KV файла
+        filename = screen + '.kv'
+        # выгрузить содержимое файла .kv
+        # причина: в нем могут быть данные из предыдущих вызовов
+        # unload the content of the .kv file
+        # reason: it could have data from previous calls
+        Builder.unload_file('./kv/' + filename)
+        # clear the container
+        # очистите контейнер 
+        # (переменная достура к свойствам класса Menu в файле root.kv)
+        self.root.menu.clear_widgets()
+        # load the content of the .kv file
+        # загрузить содержимое файла .kv
+        info = Builder.load_file('./kv/' + filename)
+        # add the content of the .kv file to the container
+        # добавьте содержимое файла .kv в контейнер
+        self.root.menu.add_widget(info)
+    # ----------------------------------------------------------------------
     # ----------------------------------------------------------------------
     # метод - определение выбранной темы в обучении
     # сброс на начальные значения глобальных переменных
@@ -96,33 +124,6 @@ class Menu(BoxLayout):
         else:
             # создаем информацию о вопросах
             self.info_db = 'ГАЗ'
-    # ----------------------------------------------------------------------
-# *****************************************************************************************
-class Application(App):
-    # ----------------------------------------------------------------------
-    # создаем стандартный конструктор Kivy: build(self)
-    def build(self):
-        return Builder.load_file('./kv/MenuStart.kv')
-    # ----------------------------------------------------------------------
-    # метод - прокрутка экранов (меню)
-    def next_screen(self, screen):
-        # определение имени KV файла
-        filename = screen + '.kv'
-        # выгрузить содержимое файла .kv
-        # причина: в нем могут быть данные из предыдущих вызовов
-        # unload the content of the .kv file
-        # reason: it could have data from previous calls
-        Builder.unload_file('./kv/' + filename)
-        # clear the container
-        # очистите контейнер 
-        # (переменная достура к свойствам класса Menu в файле root.kv)
-        self.root.menu.clear_widgets()
-        # load the content of the .kv file
-        # загрузить содержимое файла .kv
-        info = Builder.load_file('./kv/' + filename)
-        # add the content of the .kv file to the container
-        # добавьте содержимое файла .kv в контейнер
-        self.root.menu.add_widget(info)
     # ----------------------------------------------------------------------
 # *****************************************************************************************
 # если программа не модуль, то выполнить
