@@ -104,19 +104,19 @@ class Menu(BoxLayout):
         # определение темы
         if self.dictor_menu['МАЛЫЕ КОТЛЫ'] == topic:
             # создаем информацию о вопросах
-            self.info_db = DB.DBBoilerSmall.__doc__
+            self.info_db = 'МАЛЫЕ КОТЛЫ'
         elif self.dictor_menu['БОЛЬШИЕ КОТЛЫ'] == topic:
             # создаем информацию о вопросах
-            self.info_db = DB.DBBoilerBig.__doc__
+            self.info_db = 'БОЛЬШИЕ КОТЛЫ'
         elif self.dictor_menu['БОЛЬШИЕ КОТЛЫ. ТРУБОПРОВОДЫ ПАРА И ГОРЯЧЕЙ ВОДЫ'] == topic:
             # создаем информацию о вопросах
-            self.info_db = DB.DBBoilerBigPipe.__doc__
+            self.info_db = 'БОЛЬШИЕ КОТЛЫ. ТРУБОПРОВОДЫ ПАРА И ГОРЯЧЕЙ ВОДЫ'
         elif self.dictor_menu['БОЛЬШИЕ КОТЛЫ. СОСУДЫ'] == topic:
             # создаем информацию о вопросах
-            self.info_db = DB.DBBoilerBigVessel.__doc__
+            self.info_db = 'БОЛЬШИЕ КОТЛЫ. СОСУДЫ'
         else:
             # создаем информацию о вопросах
-            self.info_db = DB.DBBoilerGas.__doc__
+            self.info_db = 'ГАЗ'
     # ----------------------------------------------------------------------
 # *****************************************************************************************
 class Application(App):
