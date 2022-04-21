@@ -13,27 +13,6 @@ class Menu(BoxLayout):
     # доступ к переменным и свойствам класса в KV файлах
     menu = ObjectProperty(None)
     # ----------------------------------------------------------------------
-    # метод - прокрутка экранов (меню)
-    def next_screen(self, screen):
-        # определение имени KV файла
-        filename = screen + '.kv'
-        # выгрузить содержимое файла .kv
-        # причина: в нем могут быть данные из предыдущих вызовов
-        # unload the content of the .kv file
-        # reason: it could have data from previous calls
-        Builder.unload_file('./KV/' + filename)
-        # clear the container
-        # очистите контейнер 
-        # (переменная достура к свойствам класса Menu в файле root.kv)
-        self.root.menu.clear_widgets()
-        # load the content of the .kv file
-        # загрузить содержимое файла .kv
-        info = Builder.load_file('./KV/' + filename)
-        # add the content of the .kv file to the container
-        # добавьте содержимое файла .kv в контейнер
-        self.root.menu.add_widget(info)
-    # ----------------------------------------------------------------------
-    # ----------------------------------------------------------------------
     # ----------------------------------------------------------------------
     # ----------------------------------------------------------------------
     # ----------------------------------------------------------------------
@@ -124,6 +103,26 @@ class Application(App):
     # создаем стандартный конструктор Kivy: build(self)
     def build(self):
         return Builder.load_file('./kv/MenuStart.kv')
+    # ----------------------------------------------------------------------
+    # метод - прокрутка экранов (меню)
+    def next_screen(self, screen):
+        # определение имени KV файла
+        filename = screen + '.kv'
+        # выгрузить содержимое файла .kv
+        # причина: в нем могут быть данные из предыдущих вызовов
+        # unload the content of the .kv file
+        # reason: it could have data from previous calls
+        Builder.unload_file('./KV/' + filename)
+        # clear the container
+        # очистите контейнер 
+        # (переменная достура к свойствам класса Menu в файле root.kv)
+        self.root.menu.clear_widgets()
+        # load the content of the .kv file
+        # загрузить содержимое файла .kv
+        info = Builder.load_file('./KV/' + filename)
+        # add the content of the .kv file to the container
+        # добавьте содержимое файла .kv в контейнер
+        self.root.menu.add_widget(info)
     # ----------------------------------------------------------------------
 # *****************************************************************************************
 # если программа не модуль, то выполнить

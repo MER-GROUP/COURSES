@@ -54,27 +54,27 @@ Menu:
             # переход в МАЛЫЕ КОТЛЫ
             # инициализируем переменную topic с выбранной темой
             text: 'МАЛЫЕ КОТЛЫ'
-            on_release: root.next_screen('./Topic')
+            on_release: app.next_screen('./Topic')
             on_release: root.topic_set(self.text)
         ButtonMenu:
             text: 'БОЛЬШИЕ КОТЛЫ'
-            on_release: root.next_screen('./Topic')
+            on_release: app.next_screen('./Topic')
             on_release: root.topic_set(self.text)
         ButtonMenu:
             text: 'БОЛЬШИЕ КОТЛЫ. ТРУБОПРОВОДЫ ПАРА И ГОРЯЧЕЙ ВОДЫ'
-            on_release: root.next_screen('./Topic')
+            on_release: app.next_screen('./Topic')
             on_release: root.topic_set(self.text)
         ButtonMenu:
             text: 'БОЛЬШИЕ КОТЛЫ. СОСУДЫ'
-            on_release: root.next_screen('./Topic')
+            on_release: app.next_screen('./Topic')
             on_release: root.topic_set(self.text)
         ButtonMenu:
             text: 'ГАЗ. ГАЗОСНАБЖЕНИЕ'
-            on_release: root.next_screen('./Topic')
+            on_release: app.next_screen('./Topic')
             on_release: root.topic_set(self.text)
         ButtonMenu:
             text: 'О ПРОГРАММЕ'
-            on_release: root.next_screen('./About')         
+            on_release: app.next_screen('./About')         
     # ----------------------------------------------------------------------
     # вызываем методы
     #
