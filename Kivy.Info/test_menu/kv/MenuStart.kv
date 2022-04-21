@@ -1,0 +1,210 @@
+# версия kivi
+#:kivy 2.1.0
+# импорт hex цветов
+#:import hex kivy.utils.get_color_from_hex
+# Описываем класс class Menu(BoxLayout) для файла MainGUI.py
+Menu:
+    # ----------------------------------------------------------------------
+    # параметры конструктора
+    # Эти свойства мы указываем в кострукторе при создании объекта
+    # если бы не использавли язык графической разметки KV - Kivy Language 
+    #
+    # создаем ссылку на объект
+    # тем самым получая доступ ко всем параметрам BoxLayout 3-го уровня в KV файле
+    menu: menu
+    # ----------------------------------------------------------------------
+    # дизайн окна - расположение созданных классов (унаследованных)
+    #
+    # ориентация коробочного макета
+    # размер виджета
+    orientation: 'vertical'
+    size_hint: 1, 1
+    # определяем холс и цвет фона (белый) Menu
+    canvas.before:
+        Color:
+            rgba: hex('#dcdcdc') # Gainsboro - серый тон
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    # коробочный макет
+    BoxTitle:
+        Label:
+            text: 'ПРОМЫШЛЕННАЯ БЕЗОПАСНОСТЬ'
+            # автоматически переносить/растягивать текст
+            text_size: self.size
+            font_size: dp(25)
+            bold: True
+            halign: 'center'
+            valign: 'middle'
+            color: hex('#afeeee') # PaleTurquoise
+    # коробочный макет
+    BoxLayout:
+        # даем доступ к изменению свойств BoxLayout
+        # ориентация коробочного макета
+        # расстояние от содержимого до границы
+        # расстояние между границами
+        id: menu
+        orientation: 'vertical'
+        padding: 2
+        spacing: 2
+        #       
+        # кнопки меню
+        ButtonMenu:
+            # содержимое текста
+            # переход в МАЛЫЕ КОТЛЫ
+            # инициализируем переменную topic с выбранной темой
+            text: 'МАЛЫЕ КОТЛЫ'
+            on_release: app.next_screen('./Topic')
+            on_release: app.topic_set(self.text)
+        ButtonMenu:
+            text: 'БОЛЬШИЕ КОТЛЫ'
+            on_release: app.next_screen('./Topic')
+            on_release: app.topic_set(self.text)
+        ButtonMenu:
+            text: 'БОЛЬШИЕ КОТЛЫ. ТРУБОПРОВОДЫ ПАРА И ГОРЯЧЕЙ ВОДЫ'
+            on_release: app.next_screen('./Topic')
+            on_release: app.topic_set(self.text)
+        ButtonMenu:
+            text: 'БОЛЬШИЕ КОТЛЫ. СОСУДЫ'
+            on_release: app.next_screen('./Topic')
+            on_release: app.topic_set(self.text)
+        ButtonMenu:
+            text: 'ГАЗ. ГАЗОСНАБЖЕНИЕ'
+            on_release: app.next_screen('./Topic')
+            on_release: app.topic_set(self.text)
+        ButtonMenu:
+            text: 'О ПРОГРАММЕ'
+            on_release: app.next_screen('./About')         
+    # ----------------------------------------------------------------------
+    # вызываем методы
+    #
+    # ----------------------------------------------------------------------
+
+# декорируемые классы
+# 
+# BoxTitle - наименование программы
+<BoxTitle@BoxLayout>:
+    canvas.before:
+        Color:
+            rgba: hex('#20b2aa') # LightSeaGreen
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    # размер виджета
+    size_hint: 1, 0.1
+#
+# ButtonMenu - общие свойства кнопок меню
+<ButtonMenu@Button>:
+    background_normal: 'darkcyan'
+    background_color: 'darkcyan'
+    font_size: dp(25)
+    color: hex('#66cdaa') # MediumAquamarine
+    bold: True
+    # автоматически переносить/растягивать текст
+    text_size: self.size
+    halign: 'center'
+    valign: 'middle'
+#
+# LabelQwest - текст с информацией и вопросами
+<LabelQwest@Label>:
+    font_size: dp(15)
+    color: 'black'
+    bold: False
+    # автоматически переносить/растягивать текст
+    text_size: self.size
+    halign: 'left'
+    valign: 'top'
+#
+# RightLeftBox - кнопки 1) в меню 2)продолжить
+# кнопки выбора ответа - 1, 2, 3
+<RightLeftBox@BoxLayout>:
+    # размер виджета
+    size_hint: 1, 0.1
+    orientation: 'horizontal'
+    padding: 0
+    spacing: 2
+#
+# ChoiseBox - кнопки 1) Обучение 2) Экзамен 
+# 3) Количество вопросов 4) назад
+<ChoiseBox@BoxLayout>:
+    size_hint: 1, 0.6
+    orientation: 'vertical'
+    padding: 0
+    spacing: 2
+#
+# AnswerButton - кнопки ответов 1, 2, 3
+<AnswerButton@ButtonMenu>:
+    # состояние нажатия кнопки
+    # True - кнопка отключена
+    # False - кнопка включена
+    font_size: dp(45)
+#
+# NextQwestButton - кнопка ДАЛЬШЕ/ВЫБЕРИТЕ ОТВЕТ
+<NextQwestButton@ButtonMenu>:
+    # состояние нажатия кнопки
+    # True - кнопка отключена
+    # False - кнопка включена
+    disabled: True
+#
+# InfoBox - информация: 1) номер вопроса, 2) неверныx ответов, 3) правильных ответов
+# информация о правильности ответа
+<InfoBox@BoxLayout>:
+    # размер виджета
+    size_hint: 1, 0.05
+    orientation: 'horizontal'
+    padding: 0
+    spacing: 2
+#
+# InfoLabel - этикетка для: 1) номер вопроса, 2) неверныx ответов, 3) правильных ответов
+<InfoLabel@Label>:
+    # размер шрифта
+    # выравнивание по вертикали
+    # выравнивание по горизонтали
+    # жирность шрифта
+    # цвет шрифта
+    font_size: dp(20)
+    halign: 'center'
+    valign: 'middle'
+    bold: True
+    color: hex('#c0c0c0') # Silver
+#
+# LabelQwestBox - коробочный макет для этикеток LabelQwestInfo
+<LabelQwestBox@BoxLayout>:
+    # переопределяем размер виджета
+    size_hint: 1, 0.2
+    padding: 0
+    spacing: 2
+    # автоматически переносить/растягивать текст
+    text_size: self.size
+#
+# LabelQwestInfo - текст с информацией о количестве правильных ответов
+<LabelQwestInfo@Label>:
+    font_size: dp(40)
+    # если отвечено не более чем с 4 ошибками
+    # color: (0, 128, 0, 0.5) if 4 >= app.negative_get() else (128, 0, 0, 0.5) # Green or Maroon
+    # если отвечено не более чем с 4 ошибками и выбран экзамен то цвет текста Green or Maroon
+    # иначе Silver
+    color: hex(app.pos_neg_color) if app.is_exam() else hex(app.pos_neg_color) # Green or Maroon or Silver
+    bold: True
+    # автоматически переносить/растягивать текст
+    text_size: self.size
+    halign: 'center'
+    valign: 'top'
+#
+# LabelAboutBox - коробочный макет для этикеток LabelAboutInfo (О программе)
+<LabelAboutBox@BoxLayout>:
+    # переопределяем размер виджета
+    size_hint: 1, 1
+    padding: 0
+    spacing: 2
+    # автоматически переносить/растягивать текст
+    text_size: self.size
+#
+# LabelAboutInfo - текст с информацией о программе
+<LabelAboutInfo@Label>:
+    bold: True
+    color: 'black'
+    # автоматически переносить/растягивать текст
+    text_size: self.size
+    halign: 'center'
+    valign: 'top'
