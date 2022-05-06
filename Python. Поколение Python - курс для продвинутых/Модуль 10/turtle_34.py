@@ -18,25 +18,38 @@ if __name__ == '__main__':
 	t.shape('classic')
 	t.speed(0)
 	color = ('orange', 'blue')
-	r1 = 250
-	r2 = 100
-	d = 3
-	x = 325
-	y = 250
-	circle(r1, color[0])
-	goto_over(t.xcor() + x, t.ycor() + y)
 	t.left(90)
+	r1 = 150
+	r2 = 150
+	d = 5
+	x = 150
+	y = 0
+	goto_over(t.xcor() + x, t.ycor() + y)
+	circle(r1, color[0])
+	x = 300
+	goto_over(t.xcor() + x, t.ycor() + y)
 	circle(r2, color[1])
 	while True:
-		# goto_over(t.xcor() - d, t.ycor())
-		r2 +=5
+		goto_over(t.xcor() - d, t.ycor())
 		circle(r2, color[1])
-		if 290 == r2:
+		print(int(t.xcor()))
+		if (150 == int(t.xcor())):
 			break
 	goto_over(0, 0)
+	x = 150
+	goto_over(t.xcor() + x, t.ycor() + y)
 	circle(r1, color[0])
-	circle(r2, color[1])
+	x2 = 150
+	xd = 150
+	# новое перо (второй верхний слой)
+	t2 = t.Turtle()
 	while True:
-		pass
+		print(xd)
+		if (-120 == int(t.xcor())):
+			break
+		xd -= d
+		goto_over(xd, t.ycor())
+		circle(r2, color[1])
+
 	t.hideturtle()
 	t.done()
