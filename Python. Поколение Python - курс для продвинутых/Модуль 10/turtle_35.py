@@ -31,6 +31,12 @@ def settings(obj, bgcolor, pencolor):
 	obj.speed(0)
 	obj.hideturtle()
 
+def speed(obj):
+	try:
+		obj.tracer()
+	except (AttributeError):
+		obj._tracer()
+
 def goto(x, y, obj):
 	obj.penup()
 	obj.goto(x, y)
@@ -42,22 +48,28 @@ def circle(r, color, obj):
 	obj.circle(r)
 	obj.end_fill()
 
-def star(length, obj, color):
-	angle = 0
-	t.fillcolor(color)
-	t.begin_fill()
+def star(length, angle, obj, bgcolor, pencolor):
+	obj.left(angle)
+	obj.pencolor(pencolor)
+	obj.fillcolor(bgcolor)
+	obj.begin_fill()
 	for i in range(10):
-		t.forward(length)
-		t.right(144)
-	t.end_fill()
+		if 0 == i % 2:
+			obj.forward(length)
+			obj.left(72)
+		else:
+			obj.forward(length)
+			obj.right(144)
+	obj.end_fill()
+	obj.pencolor('black')
 	
 if __name__ == '__main__':
 	# settings turtle
-	print('main type(t)', type(t))
 	settings(t, 'white', 'black')
+	speed(t)
 
 	# algorithm
-	star(100, t, 'red')
+	star(50, 25, t, 'red', 'red')
 
 	pass
 
