@@ -33,9 +33,9 @@ def settings(obj, bgcolor, pencolor):
 
 def speed(obj):
 	try:
-		obj.tracer()
+		obj.tracer(8)
 	except (AttributeError):
-		obj._tracer()
+		obj._tracer(8)
 
 def goto(x, y, obj):
 	obj.penup()
@@ -69,8 +69,15 @@ if __name__ == '__main__':
 	speed(t)
 
 	# algorithm
-	star(50, 25, t, 'red', 'red')
-
-	pass
+	# goto(320, 240, t)
+	from random import randint as r
+	for _ in range(100):
+		x = r(-320, 320)
+		y = r(-240, 240)
+		goto(x, y, t)
+		angle = r(0, 360)
+		length = r(5, 20)
+		color = (r(0, 255), r(0, 255), r(0, 255))
+		star(length, angle, t, color, color)
 
 	t.done()
