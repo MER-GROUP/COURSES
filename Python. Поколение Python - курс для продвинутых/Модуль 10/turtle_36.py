@@ -22,6 +22,7 @@
 '''
 import turtle as t
 import math as m
+import random as r
 
 class MyExeption(BaseException):
 	pass
@@ -119,8 +120,21 @@ if __name__ == '__main__':
 
 	# algorithm
 	# polygon(50, 9, t, 'red', 'green')
-	length = int()
-	for count in range(3, 15):
-		goto(-300, -200)
+	length = 100
+	delta = length + int(length/ 10)
+	side = 3
+	goto(-300, -200, t)
+	x, y = 0, 0
+	row = 5
+	s_triangle = square_polygon(length, side)
+	for _ in range(25):
+		goto(-300 + x, -200 + y, t)
+		side = r.randint(3, 7)
+		length = len_side_polygon(s_triangle, side)
+		polygon(length, side, t, (r.randrange(256), r.randrange(256), r.randrange(256)), 'green')
+		x += delta
+		if x == (delta * row):
+			y += delta
+			x = 0
 
 	t.done()
