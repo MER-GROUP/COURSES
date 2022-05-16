@@ -58,14 +58,16 @@ class Algo:
         my_dict = dict()
         for i in s:
             my_dict[i] = my_dict.get(i, 0) + 1
-        step = int()
+        check = True
         res = int()
         for i in my_dict.values():
-            res += 1
-            if 2 == step:
-                break
-            if i % 2:
-                step += 1
+            if i % 2 and check:
+                res += i
+                check = False
+            elif 0 == i % 2:
+                res += i
+            else:
+                res += (i -1)
         print(res)
 
 if __name__ == '__main__':
