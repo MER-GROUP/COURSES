@@ -49,24 +49,22 @@ Sample Output 3:
 нечетное число раз и расположить по центру, как например в строке 
 abbba, букв a - четное количество, букв b - нечетное количество. 
 '''
-
+# авторское решение
 class Algo:
     def __init__(self, s) -> None:
         self.__algo(s)
 
     def __algo(self, s):
-        my_dict = dict()
-        for i in s:
-            my_dict[i] = my_dict.get(i, 0) + 1
-        step = int()
-        res = int()
-        for i in my_dict.values():
-            res += 1
-            if 2 == step:
-                break
-            if i % 2:
-                step += 1
-        print(res)
+        import collections
+        dict1 = collections.Counter(s)
+        flag, result = False, 0
+        for key in dict1:
+            if dict1[key] % 2 == 1:
+                flag = True
+            result += dict1[key] - dict1[key] % 2
+        if flag:
+            result += 1
+        print(result)
 
 if __name__ == '__main__':
     Algo(input())
