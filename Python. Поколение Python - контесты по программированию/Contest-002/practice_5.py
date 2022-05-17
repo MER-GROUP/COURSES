@@ -23,11 +23,21 @@ Sample Output 3:
 '''
 
 class Algo:
-    def __init__(self, s) -> None:
-        self.__algo(s)
+    def __init__(self, coord_arr, color_arr) -> None:
+        my_dict = dict()
+        for key, val in zip(color_arr, coord_arr):
+            # my_dict[key] = my_dict.get(key, list()).extend([val])
+            my_dict[key] = my_dict.get(key, list()) + [val]
+        self.__algo(my_dict)
 
-    def __algo(self, s):
-        pass
+    def __algo(self, my_dict):
+        res_arr = list()
+        for key in my_dict.keys():
+            if 1 < len(my_dict[key]):
+                res_arr.append(max(my_dict[key]) - min(my_dict[key]))
+                pass
+        print(max(res_arr) if res_arr else 0)
 
 if __name__ == '__main__':
-    Algo(input())
+    Algo(list(map(int, input().strip().split())), 
+            list(map(str, input().strip().split())))
