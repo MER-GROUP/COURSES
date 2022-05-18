@@ -60,10 +60,35 @@ Sample Output 6:
 
 class Algo:
     def __init__(self, s) -> None:
-        self.__algo()
+        self.__algo(s)
 
-    def __algo(self, ):
-        pass
+    # максимальное количество подстрок
+    def __algo(self, s):
+        length = len(s)
+        word = str()
+        half = int(length / 2)
+        res = int(1)
+        for i in range(0, half + 1):
+            word += s[i]
+            cnt = s.count(word)
+            if (len(word) * cnt) == length:
+                res = cnt
+                break
+        print(res)
+
+    # минимальное количество подстрок
+    def __algo2(self, s):
+        length = len(s)
+        word = str()
+        half = int(length / 2)
+        res = int(1)
+        for i in range(half, -1 , -1):
+            word = s[: i + 1]
+            cnt = s.count(word)
+            if (len(word) * cnt) == length:
+                res = cnt
+                break
+        print(res)
 
 if __name__ == '__main__':
     Algo(input())
