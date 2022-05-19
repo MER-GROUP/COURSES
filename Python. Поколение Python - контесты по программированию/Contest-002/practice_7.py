@@ -61,10 +61,15 @@ hhhhhh
 
 class Algo:
     def __init__(self, s) -> None:
-        self.__algo(s)
+        print(self.__algo(s))
 
     def __algo(self, s):
-        pass
+        import re
+        m = re.search(r'\d+\(\w+\)', s)
+        if m:
+            clean = m[0][:-1].split('(')
+            return self.__algo(str[:m.start()] + clean[1] * int(clean[0]) + s[m.end():])
+        return s
 
 if __name__ == '__main__':
     Algo(input())
