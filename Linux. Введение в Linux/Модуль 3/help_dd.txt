@@ -1,0 +1,14 @@
+["x]d{motion}		Delete text that {motion} moves over [into register
+			x].  See below for exceptions.
+
+							*dd*
+["x]dd			Delete [count] lines [into register x] |linewise|.
+
+							*D*
+["x]D			Delete the characters under the cursor until the end
+			of the line and [count]-1 more lines [into register
+			x]; synonym for "d$".
+			(not |linewise|)
+			When the '#' flag is in 'cpoptions' the count is
+			ignored.
+
