@@ -1,5 +1,5 @@
 '''
-
+Напишите программу, которая рисует изображение шахматной доски по образцу.
 '''
 import turtle as t
 import math as m
@@ -93,30 +93,32 @@ def len_side_polygon(s, count_sides):
 	# print('length =', length)
 	return length
 
-	
+def box(length, bgcolor, pencolor, obj):
+	obj.pencolor(pencolor)
+	obj.fillcolor(bgcolor)
+	obj.begin_fill()
+	for i in range(4):
+		obj.forward(length)
+		obj.right(90)
+	obj.end_fill()
+	obj.pencolor('black')
+
 if __name__ == '__main__':
 	# settings turtle
 	settings(t, 'white', 'black')
 	speed(t)
 
 	# algorithm
-	# polygon(50, 9, t, 'red', 'green')
-	length = 100
-	delta = length + int(length/ 10)
-	side = 3
-	goto(-300, -200, t)
-	x, y = 0, 0
-	row = 5
-	s_triangle = square_polygon(length, side)
-	for _ in range(25):
-		goto(-300 + x, -200 + y, t)
-		side = r.randint(3, 7)
-		length = len_side_polygon(s_triangle, side)
-		polygon(length, side, t, (r.randrange(256), r.randrange(256), r.randrange(256)), 'green')
-		x += delta
-		if x == (delta * row):
-			y += delta
-			x = 0
+	# goto(-250, 250, t)
+	# box(100, 'black', 'black', t)
+	color = int()
+	for y in range(250, -250, -100):
+		# print('y =', y)
+		for x in range(-250, 250, 100):
+			# print('x =', x)
+			goto(x, y, t)
+			box(100, ['black', 'white'][color % 2], 'black', t)
+			color += 1
 
 	# pause
 	t.done()
