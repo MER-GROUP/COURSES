@@ -115,13 +115,13 @@ def text(*arr, obj, side):
 	font_size_part = font_size - 10
 	side_part = side // 10
 	goto(-side - side_part, -font_size + font_size_part, obj)
-	t.write(arr[0], move=False, align='right', font=('Time New Roman', font_size, 'normal'))
+	obj.write(arr[0], move=False, align='right', font=('Time New Roman', font_size, 'normal'))
 	goto(0, -side - side_part * 2, obj)
-	t.write(arr[1], move=False, align='center', font=('Time New Roman', font_size, 'normal'))
+	obj.write(arr[1], move=False, align='center', font=('Time New Roman', font_size, 'normal'))
 	goto(side + side_part, -font_size + font_size_part, obj)
-	t.write(arr[2], move=False, align='left', font=('Time New Roman', font_size, 'normal'))
+	obj.write(arr[2], move=False, align='left', font=('Time New Roman', font_size, 'normal'))
 	goto(0, side + side_part, obj)
-	t.write(arr[3], move=False, align='center', font=('Time New Roman', font_size, 'normal'))
+	obj.write(arr[3], move=False, align='center', font=('Time New Roman', font_size, 'normal'))
 
 if __name__ == '__main__':
 	# settings turtle
