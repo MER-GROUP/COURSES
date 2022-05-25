@@ -103,22 +103,38 @@ def box(length, bgcolor, pencolor, obj):
 	obj.end_fill()
 	obj.pencolor('black')
 
+def cross(side, pencolor, obj):
+	obj.pencolor(pencolor)
+	for _ in range(4):
+		obj.forward(side)
+		goto(0, 0, obj)
+		obj.left(90)
+
+def text(*arr, obj, side):
+	font_size = 15
+	font_size_part = font_size - 10
+	side_part = side // 10
+	goto(-side - side_part, -font_size + font_size_part, obj)
+	t.write(arr[0], move=False, align='right', font=('Time New Roman', font_size, 'normal'))
+	goto(0, -side - side_part * 2, obj)
+	t.write(arr[1], move=False, align='center', font=('Time New Roman', font_size, 'normal'))
+	goto(side + side_part, -font_size + font_size_part, obj)
+	t.write(arr[2], move=False, align='left', font=('Time New Roman', font_size, 'normal'))
+	goto(0, side + side_part, obj)
+	t.write(arr[3], move=False, align='center', font=('Time New Roman', font_size, 'normal'))
+
 if __name__ == '__main__':
 	# settings turtle
 	settings(t, 'white', 'black')
 	speed(t)
 
 	# algorithm
-	# goto(-250, 250, t)
-	# box(100, 'black', 'black', t)
-	color = int()
-	for y in range(250, -250, -100):
-		# print('y =', y)
-		for x in range(-250, 250, 100):
-			# print('x =', x)
-			goto(x, y, t)
-			box(100, ['black', 'white'][color % 2], 'black', t)
-			color += 1
+	length = 200
+	r = 75
+	cross(length, 'black', t)
+	goto(0, -r, t)
+	t.circle(r)
+	text('Запад', 'Юг', 'Восток', 'Север', obj=t, side=length)
 
 	# pause
 	t.done()
