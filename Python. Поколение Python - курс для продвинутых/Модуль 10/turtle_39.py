@@ -37,11 +37,13 @@ def goto(x, y, obj):
 	obj.goto(x, y)
 	obj.pendown()
 	
-def circle(r, color, obj):
-	obj.fillcolor(color)
+def circle(r, bgcolor, pencolor, obj):
+	obj.pencolor(pencolor)
+	obj.fillcolor(bgcolor)
 	obj.begin_fill()
 	obj.circle(r)
 	obj.end_fill()
+	obj.pencolor('black')
 
 def star(length, angle, obj, bgcolor, pencolor):
 	obj.left(angle)
@@ -129,12 +131,7 @@ if __name__ == '__main__':
 	speed(t)
 
 	# algorithm
-	length = 200
-	r = 75
-	cross(length, 'black', t)
-	goto(0, -r, t)
-	t.circle(r)
-	text('Запад', 'Юг', 'Восток', 'Север', obj=t, side=length)
+	pass
 
 	# pause
 	t.done()
