@@ -135,8 +135,9 @@ if __name__ == '__main__':
 	x = -280
 	y = 0
 	delta = 30
+	font_size = 10
 	radius_arr = [50, 20, 30, 25, 15, 40, 45, 35, 33, 10]
-	bg_color_arr = ['yellow', 
+	bg_colors_arr = ['yellow', 
 					'orange', 
 					'orange' , 
 					'green', 
@@ -146,14 +147,27 @@ if __name__ == '__main__':
 					'gray',
 					'blue',
 					'orange']
+	planets = ['Солнце',
+				'Меркурий',
+				'Венера',
+				'Земля',
+				'Марс',
+				'Юпитер',
+				'Сатурн',
+				'Уран',
+				'Нептун',
+				'Плутон']
 
 	# algorithm
 	goto(x, y, t)
-	for radius, bg_color in zip(radius_arr, bg_color_arr):
+	for radius, bg_color, planet in zip(radius_arr, bg_colors_arr, planets):
 		goto(int(t.xcor()), int(t.ycor()) - int(radius), t)
 		print('x =', t.xcor()) ###
 		print('y =', t.ycor()) ###
 		circle(radius, bg_color, 'black', t)
+		goto(int(t.xcor()), int(t.ycor()) - 20, t)
+		t.write(planet, move=False, align='center', font=('Time New Roman', font_size, 'normal'))
+		goto(int(t.xcor()), int(t.ycor()) + 20, t)
 		if delta > radius:
 			goto(int(t.xcor()) + int(radius) + int(delta) + 15, y, t)
 		else:
