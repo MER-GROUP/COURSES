@@ -45,6 +45,28 @@ def circle(r, bgcolor, pencolor, obj):
 	obj.end_fill()
 	obj.pencolor('black')
 
+def oval(r, bgcolor, pencolor, obj):
+	obj.pencolor(pencolor)
+	obj.fillcolor(bgcolor)
+	obj.begin_fill()
+	obj.right(45)
+	for _ in range(2):
+		obj.circle(r, 90)
+		obj.circle(r / 2, 90)
+	obj.end_fill()
+	obj.pencolor('black')
+
+def oval_line(r, obj):
+	a = r + int(r / 2)
+	b = r - int(r / 4)
+	dx = obj.xcor()
+	dy = obj.ycor()
+	for deg in range(361):
+		rad = m.radians(deg)
+		x = a * m.sin(rad) + dx
+		y = -b * m.cos(rad) + b + dy
+		obj.goto(x, y)
+
 def star(length, angle, obj, bgcolor, pencolor):
 	obj.left(angle)
 	obj.pencolor(pencolor)
@@ -167,7 +189,10 @@ if __name__ == '__main__':
 		print('y =', t.ycor()) ###
 		circle(radius, bg_color, 'black', t)
 		if 7 == step:
-			t.stamp()
+			# oval(radius + int(radius * 1 / 4), 'white', 'black', t)
+			goto(int(t.xcor()), int(t.ycor() + int(radius/ 4)), t)
+			oval_line(radius, t)
+			goto(int(t.xcor()), int(t.ycor() - int(radius/ 4)), t)
 		goto(int(t.xcor()), int(t.ycor()) - 20, t)
 		t.write(planet, move=False, align='center', font=('Time New Roman', font_size, 'normal'))
 		goto(int(t.xcor()), int(t.ycor()) + 20, t)
