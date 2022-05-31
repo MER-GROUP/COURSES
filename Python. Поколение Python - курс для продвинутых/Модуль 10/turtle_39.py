@@ -157,14 +157,17 @@ if __name__ == '__main__':
 				'Уран',
 				'Нептун',
 				'Плутон']
+	steps = list(range(1, 11))
 
 	# algorithm
 	goto(x, y, t)
-	for radius, bg_color, planet in zip(radius_arr, bg_colors_arr, planets):
+	for radius, bg_color, planet, step in zip(radius_arr, bg_colors_arr, planets, steps):
 		goto(int(t.xcor()), int(t.ycor()) - int(radius), t)
 		print('x =', t.xcor()) ###
 		print('y =', t.ycor()) ###
 		circle(radius, bg_color, 'black', t)
+		if 7 == step:
+			t.stamp()
 		goto(int(t.xcor()), int(t.ycor()) - 20, t)
 		t.write(planet, move=False, align='center', font=('Time New Roman', font_size, 'normal'))
 		goto(int(t.xcor()), int(t.ycor()) + 20, t)
