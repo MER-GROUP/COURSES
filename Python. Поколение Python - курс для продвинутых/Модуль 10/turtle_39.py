@@ -134,6 +134,7 @@ if __name__ == '__main__':
 	bg_color_arr = []
 	x = -280
 	y = 0
+	delta = 30
 	radius_arr = [50, 20, 30, 25, 15, 40, 45, 35, 33, 10]
 	bg_color_arr = ['yellow', 
 					'orange', 
@@ -148,8 +149,15 @@ if __name__ == '__main__':
 
 	# algorithm
 	goto(x, y, t)
-	for radius in radius_arr:
-		pass
+	for radius, bg_color in zip(radius_arr, bg_color_arr):
+		goto(int(t.xcor()), int(t.ycor()) - int(radius), t)
+		print('x =', t.xcor()) ###
+		print('y =', t.ycor()) ###
+		circle(radius, bg_color, 'black', t)
+		if delta > radius:
+			goto(int(t.xcor()) + int(radius) + int(delta) + 15, y, t)
+		else:
+			goto(int(t.xcor()) + int(radius) + int(delta) + 25, y, t)
 
 	# pause
 	t.done()
