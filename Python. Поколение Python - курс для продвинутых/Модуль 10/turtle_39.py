@@ -5,7 +5,7 @@ import turtle as t
 import math as m
 import random as r
 
-class MyExeption(BaseException):
+class MyExeption(Exception):
 	pass
 
 def check(obj):
