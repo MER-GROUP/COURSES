@@ -1,5 +1,5 @@
 '''
-Напишите программу, которая рисует солнечную систему по образцу.
+Напишите программу, которая рисует знак STOP по образцу.
 '''
 import turtle as t
 import math as m
@@ -153,53 +153,10 @@ if __name__ == '__main__':
 	speed(t)
 
 	# var
-	bg_color_arr = []
-	x = -280
-	y = 0
-	delta = 30
-	font_size = 10
-	radius_arr = [50, 20, 30, 25, 15, 40, 45, 35, 33, 10]
-	bg_colors_arr = ['yellow', 
-					'orange', 
-					'orange' , 
-					'green', 
-					'red', 
-					'orange', 
-					'orange', 
-					'gray',
-					'blue',
-					'orange']
-	planets = ['Солнце',
-				'Меркурий',
-				'Венера',
-				'Земля',
-				'Марс',
-				'Юпитер',
-				'Сатурн',
-				'Уран',
-				'Нептун',
-				'Плутон']
-	steps = list(range(1, 11))
+	pass
 
 	# algorithm
-	goto(x, y, t)
-	for radius, bg_color, planet, step in zip(radius_arr, bg_colors_arr, planets, steps):
-		goto(int(t.xcor()), int(t.ycor()) - int(radius), t)
-		print('x =', t.xcor()) ###
-		print('y =', t.ycor()) ###
-		circle(radius, bg_color, 'black', t)
-		if 7 == step:
-			# oval(radius + int(radius * 1 / 4), 'white', 'black', t)
-			goto(int(t.xcor()), int(t.ycor() + int(radius/ 4)), t)
-			oval_line(radius, t)
-			goto(int(t.xcor()), int(t.ycor() - int(radius/ 4)), t)
-		goto(int(t.xcor()), int(t.ycor()) - 20, t)
-		t.write(planet, move=False, align='center', font=('Time New Roman', font_size, 'normal'))
-		goto(int(t.xcor()), int(t.ycor()) + 20, t)
-		if delta > radius:
-			goto(int(t.xcor()) + int(radius) + int(delta) + 15, y, t)
-		else:
-			goto(int(t.xcor()) + int(radius) + int(delta) + 25, y, t)
+	pass
 
 	# pause
 	t.done()
