@@ -130,8 +130,26 @@ if __name__ == '__main__':
 	settings(t, 'white', 'black')
 	speed(t)
 
+	# var
+	bg_color_arr = []
+	x = -280
+	y = 0
+	radius_arr = [50, 20, 30, 25, 15, 40, 45, 35, 33, 10]
+	bg_color_arr = ['yellow', 
+					'orange', 
+					'orange' , 
+					'green', 
+					'red', 
+					'orange', 
+					'orange', 
+					'gray',
+					'blue',
+					'orange']
+
 	# algorithm
-	pass
+	goto(x, y, t)
+	for radius in radius_arr:
+		pass
 
 	# pause
 	t.done()
