@@ -156,7 +156,15 @@ if __name__ == '__main__':
 	pass
 
 	# algorithm
-	pass
+	goto(-50, 100, t)
+	polygon(100, 8, t, 'black', 'black')
+	goto(int(t.xcor() + 3), int(t.ycor()) - 5, t)
+	polygon(95, 8, t, 'white', 'white')
+	goto(int(t.xcor() + 3), int(t.ycor()) - 5, t)
+	polygon(90, 8, t, 'red', 'red')
+	goto(-85, -60, t)
+	t.color('white')
+	t.write('STOP', move=False, align='left', font=('Time New Roman', 50, 'normal'))
 
 	# pause
 	t.done()
