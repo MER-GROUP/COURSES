@@ -1,5 +1,11 @@
 '''
-Напишите программу, которая рисует знак STOP по образцу.
+Напишите программу, которая рисует силуэты многоэтажек по образцу. 
+Разделите программу на функции:
+
+рисования контуров зданий;
+рисования нескольких окон в зданиях;
+рисования случайно разбросанных звезд в виде точек 
+(убедитесь, что звезды появляются на небе, а не на зданиях).
 '''
 import turtle as t
 import math as m
@@ -156,15 +162,7 @@ if __name__ == '__main__':
 	pass
 
 	# algorithm
-	goto(-50, 100, t)
-	polygon(100, 8, t, 'black', 'black')
-	goto(int(t.xcor() + 3), int(t.ycor()) - 5, t)
-	polygon(95, 8, t, 'white', 'white')
-	goto(int(t.xcor() + 3), int(t.ycor()) - 5, t)
-	polygon(90, 8, t, 'red', 'red')
-	goto(-85, -60, t)
-	t.color('white')
-	t.write('STOP', move=False, align='left', font=('Time New Roman', 50, 'normal'))
+	pass
 
 	# pause
 	t.done()
