@@ -200,7 +200,7 @@ if __name__ == '__main__':
 		h = r.randint(h_min, h_max)
 		if w_setup >= w_general:
 			# draw houses
-			rectangle(w, h, 'blue', 'blue', t)
+			rectangle(w, h, 'MediumBlue', 'MediumBlue', t)
 			# save coords
 			x = int(t.xcor()) + w
 			y = int(t.ycor())
@@ -229,7 +229,33 @@ if __name__ == '__main__':
 		else:
 			# w_end = w_general - w_setup
 			w_end = w_setup - w_back
-			rectangle(w_end, h, 'blue', 'blue', t)
+			rectangle(w_end, h, 'MediumBlue', 'MediumBlue', t)
+			# save coords
+			# x = int(t.xcor()) + w
+			x = int(t.xcor()) + w_end
+			y = int(t.ycor())
+			# draw windows
+			step2_x = 5
+			step2_y = 15
+			# x2 = x - w
+			x2 = x - w_end
+			x2_begin = x2
+			y2 = y
+			x2_end = x
+			y2_end = y + h
+			while True:
+				x2 += step2_x
+				goto(x2, y2, t)
+				if (r.randint(0, 1)):
+					rectangle(10, 10, 'yellow', 'yellow', t)
+					x2 += 10
+				else:
+					x2 += 10				
+				if x2 + step2_x + 10>= x2_end:
+					x2 = x2_begin
+					y2 += step2_y
+				if y2 + step2_y >= y2_end:
+					break
 			break
 
 
