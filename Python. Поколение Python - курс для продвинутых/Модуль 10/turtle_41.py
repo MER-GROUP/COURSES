@@ -207,16 +207,31 @@ if __name__ == '__main__':
 			y = int(t.ycor())
 
 			# draw windows
-			step2 = 5
 			w2_general = 0
 			w2_back = w2_general
-			x2 = int(t.xcor()) + w
-			y2 = int(t.ycor())
-			while True:
-				w2_back = w2_general
-				w2_general += w
 
-				rectangle(10, 10, 'yellow', 'yellow', t)
+			step2_x = 5
+			step2_y = 15
+			x2 = x - w
+			x2_begin = x2
+			y2 = y
+			x2_end = x
+			y2_end = y + h
+			while True:
+				x2 += step2_x
+				goto(x2, y2, t)
+				if (r.randint(0, 1)):
+					rectangle(10, 10, 'yellow', 'yellow', t)
+					x2 += 10
+				else:
+					x2 += 10
+				
+				if x2 >= x2_end:
+					x2 = x2_begin
+					y2 += step2_y
+
+				if y2 >= y2_end:
+					break				
 
 			# rectangle(10, 10, 'yellow', 'yellow', t)
 			goto(x, y,t)
