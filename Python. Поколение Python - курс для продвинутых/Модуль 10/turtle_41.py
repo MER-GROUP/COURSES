@@ -153,16 +153,68 @@ def text(*arr, obj, side):
 	goto(0, side + side_part, obj)
 	obj.write(arr[3], move=False, align='center', font=('Time New Roman', font_size, 'normal'))
 
+def rectangle(a, b, bgcolor, pencolor, obj):
+	obj.pencolor(pencolor)
+	obj.fillcolor(bgcolor)
+	obj.begin_fill()
+	for i in range(4):
+		obj.forward([a, b][i % 2])
+		obj.left(90)
+	obj.end_fill()
+	obj.pencolor('black')
+
 if __name__ == '__main__':
 	# settings turtle
 	settings(t, 'white', 'black')
 	speed(t)
 
+	# over set
+	t.Screen().bgcolor('MidnightBlue')
+	# set screen size
+	# t.Screen().setup(640, 480)
+	t.Screen().setup(645, 495)
+
 	# var
 	pass
 
 	# algorithm
-	pass
+	# draw stars
+	for _ in range(100):
+		x = r.randint(-320, 320)
+		y = r.randint(-240, 240)
+		goto(x, y, t)
+		radius = r.randint(1, 3)
+		circle(radius, 'yellow', 'yellow', t)
+	# draw rectangle
+	goto(-320, -240, t)
+	h_min = 200
+	h_max = 400
+	w_min = 50
+	w_max = 150
+	w_general = 0
+	w_setup = 640
+	# rectangle(50, 100, 'red', 'red', t)
+	while True:
+		w = r.randint(w_min, w_max)
+		w_back = w_general
+		w_general += w
+		h = r.randint(h_min, h_max)
+		if w_setup >= w_general:
+			# draw houses
+			rectangle(w, h, 'blue', 'blue', t)
+			# draw windows
+			while True:
+				
+				rectangle(10, 10, 'yellow', 'yellow', t)
+
+
+			goto(int(t.xcor()) + w, int(t.ycor()),t)
+		else:
+			# w_end = w_general - w_setup
+			w_end = w_setup - w_back
+			rectangle(w_end, h, 'blue', 'blue', t)
+			break
+
 
 	# pause
 	t.done()
