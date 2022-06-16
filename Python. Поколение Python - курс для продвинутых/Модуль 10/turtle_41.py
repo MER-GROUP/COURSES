@@ -202,13 +202,24 @@ if __name__ == '__main__':
 		if w_setup >= w_general:
 			# draw houses
 			rectangle(w, h, 'blue', 'blue', t)
+			# save coords
+			x = int(t.xcor()) + w
+			y = int(t.ycor())
+
 			# draw windows
+			step2 = 5
+			w2_general = 0
+			w2_back = w2_general
+			x2 = int(t.xcor()) + w
+			y2 = int(t.ycor())
 			while True:
-				
+				w2_back = w2_general
+				w2_general += w
+
 				rectangle(10, 10, 'yellow', 'yellow', t)
 
-
-			goto(int(t.xcor()) + w, int(t.ycor()),t)
+			# rectangle(10, 10, 'yellow', 'yellow', t)
+			goto(x, y,t)
 		else:
 			# w_end = w_general - w_setup
 			w_end = w_setup - w_back
