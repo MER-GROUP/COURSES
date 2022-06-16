@@ -193,7 +193,6 @@ if __name__ == '__main__':
 	w_max = 150
 	w_general = 0
 	w_setup = 640
-	# rectangle(50, 100, 'red', 'red', t)
 	while True:
 		w = r.randint(w_min, w_max)
 		w_back = w_general
@@ -205,11 +204,7 @@ if __name__ == '__main__':
 			# save coords
 			x = int(t.xcor()) + w
 			y = int(t.ycor())
-
 			# draw windows
-			w2_general = 0
-			w2_back = w2_general
-
 			step2_x = 5
 			step2_y = 15
 			x2 = x - w
@@ -224,16 +219,12 @@ if __name__ == '__main__':
 					rectangle(10, 10, 'yellow', 'yellow', t)
 					x2 += 10
 				else:
-					x2 += 10
-				
-				if x2 >= x2_end:
+					x2 += 10				
+				if x2 + step2_x + 10>= x2_end:
 					x2 = x2_begin
 					y2 += step2_y
-
-				if y2 >= y2_end:
-					break				
-
-			# rectangle(10, 10, 'yellow', 'yellow', t)
+				if y2 + step2_y >= y2_end:
+					break
 			goto(x, y,t)
 		else:
 			# w_end = w_general - w_setup
