@@ -1,11 +1,5 @@
 '''
-Напишите программу, которая рисует силуэты многоэтажек по образцу. 
-Разделите программу на функции:
-
-рисования контуров зданий;
-рисования нескольких окон в зданиях;
-рисования случайно разбросанных звезд в виде точек 
-(убедитесь, что звезды появляются на небе, а не на зданиях).
+Напишите программу, которая рисует изображение сердца по образцу.
 '''
 import turtle as t
 import math as m
@@ -178,86 +172,7 @@ if __name__ == '__main__':
 	pass
 
 	# algorithm
-	# draw stars
-	for _ in range(100):
-		x = r.randint(-320, 320)
-		y = r.randint(-240, 240)
-		goto(x, y, t)
-		radius = r.randint(1, 3)
-		circle(radius, 'yellow', 'yellow', t)
-	# draw rectangle
-	goto(-320, -240, t)
-	h_min = 200
-	h_max = 400
-	w_min = 50
-	w_max = 150
-	w_general = 0
-	w_setup = 640
-	while True:
-		w = r.randint(w_min, w_max)
-		w_back = w_general
-		w_general += w
-		h = r.randint(h_min, h_max)
-		if w_setup >= w_general:
-			# draw houses
-			rectangle(w, h, 'MediumBlue', 'MediumBlue', t)
-			# save coords
-			x = int(t.xcor()) + w
-			y = int(t.ycor())
-			# draw windows
-			step2_x = 5
-			step2_y = 15
-			x2 = x - w
-			x2_begin = x2
-			y2 = y
-			x2_end = x
-			y2_end = y + h
-			while True:
-				x2 += step2_x
-				goto(x2, y2, t)
-				if (r.randint(0, 1)):
-					rectangle(10, 10, 'yellow', 'yellow', t)
-					x2 += 10
-				else:
-					x2 += 10				
-				if x2 + step2_x + 10>= x2_end:
-					x2 = x2_begin
-					y2 += step2_y
-				if y2 + step2_y >= y2_end:
-					break
-			goto(x, y,t)
-		else:
-			# w_end = w_general - w_setup
-			w_end = w_setup - w_back
-			rectangle(w_end, h, 'MediumBlue', 'MediumBlue', t)
-			# save coords
-			# x = int(t.xcor()) + w
-			x = int(t.xcor()) + w_end
-			y = int(t.ycor())
-			# draw windows
-			step2_x = 5
-			step2_y = 15
-			# x2 = x - w
-			x2 = x - w_end
-			x2_begin = x2
-			y2 = y
-			x2_end = x
-			y2_end = y + h
-			while True:
-				x2 += step2_x
-				goto(x2, y2, t)
-				if (r.randint(0, 1)):
-					rectangle(10, 10, 'yellow', 'yellow', t)
-					x2 += 10
-				else:
-					x2 += 10				
-				if x2 + step2_x + 10>= x2_end:
-					x2 = x2_begin
-					y2 += step2_y
-				if y2 + step2_y >= y2_end:
-					break
-			break
-
+	pass
 
 	# pause
 	t.done()
