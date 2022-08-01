@@ -157,18 +157,17 @@ def rectangle(a, b, bgcolor, pencolor, obj):
 	obj.end_fill()
 	obj.pencolor('black')
 
-def heart(r, obj):
-	# a = r + int(r / 2)
-	# b = r - int(r / 4)
-	# dx = obj.xcor()
-	# dy = obj.ycor()
-	# for deg in range(361):
-	# 	rad = m.radians(deg)
-	# 	x = a * m.sin(rad) + dx
-	# 	y = -b * m.cos(rad) + b + dy
-	# 	obj.goto(x, y)
-	
-	pass
+def heart(obj, bgcolor, pencolor):
+	obj.pencolor(pencolor)
+	obj.fillcolor(bgcolor)
+	obj.begin_fill()
+	for deg in range(360):
+		rad = m.radians(deg)
+		x = 128*m.sin(rad)**3
+		y = 8*(13*m.cos(rad)-5*m.cos(2*rad)-2*m.cos(3*rad)-m.cos(4*rad) - 5)
+		obj.goto(x, y)
+	obj.end_fill()
+	obj.pencolor('black')
 
 if __name__ == '__main__':
 	# settings turtle
@@ -176,16 +175,15 @@ if __name__ == '__main__':
 	speed(t)
 
 	# over set
-	t.Screen().bgcolor('MidnightBlue')
+	t.Screen().bgcolor('white')
 	# set screen size
-	# t.Screen().setup(640, 480)
-	t.Screen().setup(645, 495)
+	t.Screen().setup(640, 480)
 
 	# var
 	pass
 
 	# algorithm
-	pass
+	heart(t, 'red', 'red')
 
 	# pause
 	t.done()
