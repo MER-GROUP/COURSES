@@ -157,6 +157,19 @@ def rectangle(a, b, bgcolor, pencolor, obj):
 	obj.end_fill()
 	obj.pencolor('black')
 
+def heart(r, obj):
+	# a = r + int(r / 2)
+	# b = r - int(r / 4)
+	# dx = obj.xcor()
+	# dy = obj.ycor()
+	# for deg in range(361):
+	# 	rad = m.radians(deg)
+	# 	x = a * m.sin(rad) + dx
+	# 	y = -b * m.cos(rad) + b + dy
+	# 	obj.goto(x, y)
+	
+	pass
+
 if __name__ == '__main__':
 	# settings turtle
 	settings(t, 'white', 'black')
