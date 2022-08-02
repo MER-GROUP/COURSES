@@ -171,13 +171,83 @@ def heart(obj, bgcolor, pencolor):
 	obj.end_fill()
 	obj.pencolor('black')
 
+def random_color():
+	return r.randrange(256), r.randrange(256), r.randrange(256) 
+
+def random_length():
+	return r.randint(1, 20)
+
+def random_angle():
+	return r.randrange(360)
+
+def draw_circle(x, y, r):
+	t.penup()
+	t.goto(x, y - r)
+	t.pendown()
+	color = random_color()
+	t.pencolor(color)
+	t.fillcolor(color)
+	t.begin_fill()
+	t.circle(r)
+	t.end_fill()
+	t.speed(0)
+
+def left_mouse_click(x, y):
+	draw_circle(x, y, 10)
+
+def draw_star(pencolor, bgcolor, obj):
+	length = random_length()
+	angle = random_angle()	
+	obj.left(angle)
+	obj.pencolor(pencolor)
+	obj.fillcolor(bgcolor)
+	obj.begin_fill()
+	for i in range(10):
+		if 0 == i % 2:
+			obj.forward(length)
+			obj.left(72)
+		else:
+			obj.forward(length)
+			obj.right(144)
+	obj.end_fill()
+	obj.pencolor('black')
+
+def draw_poly_star(pencolor, bgcolor, obj):
+	import random as ra
+	obj.pencolor(pencolor)
+	obj.fillcolor(bgcolor)
+	obj.begin_fill()
+	obj.left(ra.randrange(360))
+	R, r = ra.randint(30, 70), ra.randint(5, 20)
+	x = int(obj.xcor())
+	y = int(obj.ycor())
+	pi = m.pi
+	i = 1
+	n = ra.randint(3, 10)
+	while (i<=n*2):
+		goto(x+m.cos(i*pi/n)*r, y+m.sin(i*pi/n)*r, obj)
+		i=i+1
+		goto(x+m.cos(i*pi/n)*R, y+m.sin(i*pi/n)*R, obj)
+		i=i+1
+	goto(x+m.cos(i*pi/n)*r, y+m.sin(i*pi/n)*r, obj)
+	i=i+1
+	obj.end_fill()
+	obj.pencolor('black')
+
+def left_mouse_click_for_star(x, y):
+	goto(x, y, t)
+	color = random_color()
+	# draw_star(color, color, t)
+	draw_poly_star(color, color, t)
+
 if __name__ == '__main__':
 	# settings turtle
-	settings(t, 'white', 'black')
+	# settings(t, 'white', 'black')
+	settings(t, 'black', 'white')
 	speed(t)
 
 	# over set
-	t.Screen().bgcolor('white')
+	# t.Screen().bgcolor('white')
 	# set screen size
 	t.Screen().setup(640, 480)
 
@@ -185,7 +255,8 @@ if __name__ == '__main__':
 	pass
 
 	# algorithm
-	pass
+	t.Screen().onclick(left_mouse_click_for_star)
+	t.Screen().listen()
 
 	# pause
 	t.done()
