@@ -4,11 +4,13 @@
 # рисунок в виде математических формул
 # задаем правое вращение
 a=a+1
-zrot=(zrot+10)%360
-set view xrot,zrot
+zrot=(zrot+350)%360
+# set view xrot,zrot
+set view xrot, zrot
 # начинаем рисовать 3D
-splot x**2+y**2
+splot x**2-y**2
 # делаем пайзу в 2 сотых секунды
-pause 0.2
+# скорость обновления
+pause 0.1
 # перерисовываем картинку
 if (a<50) reread
