@@ -6,4 +6,4 @@ a=0
 xrot=60
 zrot=0
 # закружаем файл для анимации
-load "plot_animation_2.gnu"
+load "plot_animation_2.rot"
