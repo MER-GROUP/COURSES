@@ -119,3 +119,35 @@ print('---------------------------------')
 for e in __builtins__.__dict__:
     print(e)
 print('---------------------------------')
+s1 = 'python'
+s2 = 'stepicon'
+s3 = 'beegeek'
+ 
+print(min(s1, s2, s3))
+print(max(s1, s2, s3))
+print('---------------------------------')
+print(-2**2+1)
+print('---------------------------------')
+from statistics import mean
+numbers = [(10, 10, 10), (30, 45, 56), (81, 39), (1, 2, 3), (12,), (-2, -4, 100), (1, 2, 99), (89, 9, 34), (10, 20, 30, -2), (50, 40, 50), (34, 78, 65), (-5, 90, -1, -5), (1, 2, 3, 4, 5, 6), (-9, 8, 4), (90, 1, -45, -21)]
+
+print(*(func(numbers, key=mean) for func in (min, max)), sep='\n')
+print('---------------------------------')
+numbers = [(10, 10, 10), (30, 45, 56), (81, 39), (1, 2, 3), (12,), (-2, -4, 100), (1, 2, 99), (89, 9, 34), (10, 20, 30, -2), (50, 40, 50), (34, 78, 65), (-5, 90, -1, -5), (1, 2, 3, 4, 5, 6), (-9, 8, 4), (90, 1, -45, -21)]
+
+def num(*args):
+  min_arg = []
+  def fmean(x):
+    return sum(x) / len(x)
+  for i in args:
+    print(f'len = {len(args)}')
+    print(f'args = {args}')
+    print(type(args))
+    min_arg.append(min(i,key=fmean))
+    min_arg.append(max(i,key=fmean))
+    print(f'min_arg = {min_arg}')
+
+  return min_arg
+
+print(*num(numbers),sep='\n')
+print('---------------------------------')
