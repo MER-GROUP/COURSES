@@ -20,3 +20,7 @@ print('----------------------------------------------')
 print([256] * 4)
 print(*range(3, -1, -1))
 print('----------------------------------------------')
+import ipaddress
+l = [input() for _ in range(int(input()))]
+print(*sorted(l, key = ipaddress.ip_address), sep='\n')
+print('----------------------------------------------')
