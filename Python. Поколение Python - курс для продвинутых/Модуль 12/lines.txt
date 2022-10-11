@@ -1,6 +1,20 @@
-Which of the following functions do you use to write data in the binary format?
-Python provides a wide range of built-in functions for file handling. It makes it really easy to create, update, read, and delete files.
-Open a File
-Remember! While specifying the exact path
-для указания внезапной остановки повествования;
-Иногда среднее тире называют коротким тире
+future belongs
+to those who
+believe in their..
+dreams
+Life begins
+at the end
+of your comfort
+zone
+Life is what 12345
+happens while you
+are busy making
+other plans
+Beautiful is
+better than ugly!!
+Explicit is better
+than implicit
+Simple is better
+than complex
+Complex is better
+than complicated
