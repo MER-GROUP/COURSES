@@ -32,36 +32,33 @@ Sample Input 3:
 100
 Sample Output 3:
 5
-'''
-class ExamTimer:
-    def __init__(self, n: int) -> None:
-        from threading import Timer
-        self.t = Timer(n, self.exit)
-
-    def cancel(self):
-        self.t.cancel()
-
-    def exit(self):
-        print('Алгоритм не успел решить задачу по времени')
-        __import__('os').abort()
-
-    def start(self):
-        self.t.start()
-    
+'''   
 class OdinDvaTri:
     def __init__(self, n: int) -> None:
-        self.my_list = range(1, n + 1)
         self.n = n
 
     def algo(self) -> str:
-        timer = ExamTimer(2)
-        timer.start()
-        my_list = map(
-            lambda x: str(x) if(1 == len(str(x))) else str(x)[::-1],
-            self.my_list
-        )
-        timer.cancel()
-        return ''.join(list(my_list))[self.n - 1]
+        res = str()
+        count = int()
+        check = False
+        for i in range(1, self.n + 1):
+            s = str(i)
+            if(1 < len(s)):
+                rev = s[::-1]
+                for c in rev:
+                    count += 1
+                    if(self.n == count):
+                        res = c
+                        check = True
+                        break
+            else:
+                count += 1
+                if(self.n == count):
+                        res = s
+                        break
+            if check:
+                break
+        return res
 
 if __name__ == '__main__':
     print(OdinDvaTri(int(input())).algo())
