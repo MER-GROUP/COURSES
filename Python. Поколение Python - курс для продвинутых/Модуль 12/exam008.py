@@ -71,7 +71,18 @@ greet
 при этом вложенных функций в файле нет. 
 '''
 # Решение
-# with open(input(), 'rt', encoding='utf-8') as file_in:
-with open('test007.txt', 'rt', encoding='utf-8') as file_in:
+with open(input(), 'rt', encoding='utf-8') as file_in:
+# with open('test008.txt', 'rt', encoding='utf-8') as file_in:
     code = list(file_in)
-    print(code.)
+    a, b = ' ', ' '
+    arr = list()
+    for line in code:
+        b = a
+        a = line
+        if (a.startswith('def ')) and ('#' != b[0]):
+            temp = a.split()
+            arr.append(temp[1].split('(')[0])
+    if not 0 == len(arr):
+        print(*arr, sep='\n')
+    else:
+        print('Best Programming Team')
