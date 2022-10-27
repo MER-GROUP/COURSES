@@ -54,36 +54,51 @@ class Seq:
         1 2 4
         '''
         print('----------')###
-        print(*arr)
+        print(*arr) # test
         print('----------')###
         res_dict = dict()
         res_arr = list()
         len_arr = len(arr)
-        step = 0
-        for i in arr:
-            check = True
-            temp_arr = [i]
-            if not (step + 1 == len_arr):
-                for j in arr[step + 1 :]:
-                    # print(f'j = {j}, temp_arr[-1] = {temp_arr[-1]}')###
-                    if check:
-                        temp_arr.append(j)
-                        check = False
-                    else:
-                        if (j <= temp_arr[-1]):
-                            temp_arr[-1] = j
-                        pass
-                        # if (j <= temp_arr[-1]):
-                        #     temp_arr[-1] = j
-                        # else:
-                        #     temp_arr.append(j)
-            res_arr.append(temp_arr)
-            res_dict[len(temp_arr)] = temp_arr
-            step += 1
+
+        array = list(arr)
+        i = 0
+        while 0 < len(array): ###
+            array_copy = array.copy()
+            while 1 < len(array_copy):
+                temp_arr = [array_copy[i]]
+                if not (i + 1 == len(array_copy)):
+                    for j in range(i + 1, len(array_copy)):
+                        if (array_copy[j] > temp_arr[-1]):
+                            temp_arr.append(array_copy[j])
+                res_arr.append(temp_arr)
+                res_dict[len(temp_arr)] = temp_arr
+                if not (i + 1 == len(array_copy)):
+                    del array_copy[i + 1]
+            del array[0] ###
+
+        # step = 0
+        # for i in arr:
+        #     check = True
+        #     temp_arr = [i]
+        #     if not (step + 1 == len_arr):
+        #         for j in arr[step + 1 :]:
+        #             if check:
+        #                 if (j > temp_arr[-1]):
+        #                     temp_arr.append(j)
+        #                     check = False
+        #             else:
+        #                 if (j <= temp_arr[-1]) and (j > temp_arr[-2]):
+        #                     temp_arr[-1] = j
+        #                 elif (j > temp_arr[-1]):
+        #                     temp_arr.append(j)
+        #     res_arr.append(temp_arr)
+        #     res_dict[len(temp_arr)] = temp_arr
+        #     step += 1
+
         print('----------')###
-        print(*res_arr, sep='\n')
+        print(*res_arr, sep='\n') # test
         print('----------')###
-        print(*res_dict.items(), sep='\n')
+        print(*res_dict.items(), sep='\n') # test
         print('----------')###
 
 if __name__ == '__main__':
