@@ -37,54 +37,60 @@ Sample Output 3:
 5
 '''
 # Решение
-class Seq:
-    def __init__(self, *args: list) -> None:
-        self.algo(args)
+def subsequence(seq):
+    if not seq:
+        return seq
 
-    def algo(self, arr: list) -> None:
-        '''
-        Sample Input 1:
-        2 5 3 4 6 1
-        Sample Output 1:
-        2 3 4 6
+    # offset by 1 (j -> j-1)
+    M = [None] * len(seq)    
+    P = [None] * len(seq)
 
-        Sample Input 2:
-        1 3 5 2 4
-        Sample Output 2:
-        1 2 4
-        '''
-        print('----------')###
-        print(*arr) # test
-        print('----------')###
-        res_dict = dict()
-        res_arr = list()
+    # Since we have at least one element in our list, we can start by 
+    # knowing that the there's at least an increasing subsequence of length one:
+    # the first element.
+    L = 1
+    M[0] = 0
 
-        len_arr = len(arr)
+    # Looping over the sequence starting from the second element
+    for i in range(1, len(seq)):
+        # Binary search: we want the largest j <= L
+        # such that seq[M[j]] < seq[i] (default j = 0),
+        # hence we want the lower bound at the end of the search process.
+        lower = 0
+        upper = L
 
-        array = list(arr)
-        i = 0
-        while 0 < len(array): ###
-            array_copy = array.copy()
-            while 1 < len(array_copy):
-                temp_arr = [array_copy[i]]
-                if not (i + 1 == len(array_copy)):
-                    for j in range(i + 1, len(array_copy)):
-                        if (array_copy[j] > temp_arr[-1]):
-                            temp_arr.append(array_copy[j])
-                res_arr.append(temp_arr)
-                res_dict[len(temp_arr)] = temp_arr
-                if not (i + 1 == len(array_copy)):
-                    del array_copy[i + 1]
-            if (1 == len(array)):
-                res_arr.append(array)
-                res_dict[len(array)] = [array[i]]
-            del array[i] ###
+        # Since the binary search will not look at the upper bound value,
+        # we'll have to check that manually
+        if seq[M[upper-1]] < seq[i]:
+            j = upper
 
-        print('----------')###
-        print(*res_arr, sep='\n') # test
-        print('----------')###
-        print(*res_dict.items(), sep='\n') # test
-        print('----------')###
+        else:
+            # actual binary search loop
+            while upper - lower > 1:
+                mid = (upper + lower) // 2
+                if seq[M[mid-1]] < seq[i]:
+                    lower = mid
+                else:
+                    upper = mid
+
+            # this will also set the default value to 0
+            j = lower 
+
+        P[i] = M[j-1]
+
+        if j == L or seq[i] < seq[M[j]]:
+            M[j] = i
+            L = max(L, j+1)
+
+    # Building the result: [seq[M[L-1]], seq[P[M[L-1]]], seq[P[P[M[L-1]]]], ...]
+    result = []
+    pos = M[L-1]
+    for _ in range(L):
+        result.append(seq[pos])
+        pos = P[pos]
+
+    # reversing
+    return result[::-1]    
 
 if __name__ == '__main__':
-    Seq(*map(int, input().split()))
+    print(*subsequence(list(map(int, input().split()))))
