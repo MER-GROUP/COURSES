@@ -39,17 +39,30 @@ True
 # Решение
 def find_partition(int_list):
     """
-    Разбиваем `int_list` на два множества с одинаковыми суммами
+    Использование множества set()
     Время работы O(n log n)
     """
-    A=list()
-    B=list()
-    for n in sorted(int_list, reverse=True):
-        if sum(A) < sum(B):
-           A.append(n)
-        else:
-           B.append(n)
-    return sum(A) == sum(B)
+    n = sum(int_list)
+    if n % 2 == 1:
+        return False
+    elif max(int_list) > n // 2:
+        return False
+    elif n // 2 in int_list:
+        return True
+    elif len(int_list) < 2:
+        return False
+    else:
+        possible_sums = set()
+        for num in int_list:
+            sums_to_add = set()
+            for s in possible_sums:
+                if (s + num) not in possible_sums:
+                    sums_to_add.add(s+num)
+                    if s + num == n // 2:
+                        return True
+            possible_sums.add(num)
+            possible_sums.update(sums_to_add)
+        return False
 
 if __name__ == '__main__':
     print(find_partition(list(map(int, input().split()))))

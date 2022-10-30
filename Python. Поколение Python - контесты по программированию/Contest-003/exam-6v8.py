@@ -37,19 +37,16 @@ Sample Output 3:
 True
 '''
 # Решение
-def find_partition(int_list):
-    """
-    Разбиваем `int_list` на два множества с одинаковыми суммами
-    Время работы O(n log n)
-    """
-    A=list()
-    B=list()
-    for n in sorted(int_list, reverse=True):
-        if sum(A) < sum(B):
-           A.append(n)
+def defequal_parts(numbers):
+    lst1 = []
+    lst2 = []
+    numbers.sort(reverse = True)
+    for i in numbers:
+        if sum(lst1) < sum(lst2):
+            lst1.append(i)
         else:
-           B.append(n)
-    return sum(A) == sum(B)
+            lst2.append(i)
+    return lst1, lst2
 
-if __name__ == '__main__':
-    print(find_partition(list(map(int, input().split()))))
+numbers = list(map(int, input().split()))
+print(sum(defequal_parts(numbers)[0]) == sum(defequal_parts(numbers)[1]))

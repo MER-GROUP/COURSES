@@ -37,19 +37,34 @@ Sample Output 3:
 True
 '''
 # Решение
+from itertools import combinations
+
 def find_partition(int_list):
     """
-    Разбиваем `int_list` на два множества с одинаковыми суммами
+    Решение методом полного перебора всех допустимых вариантов
     Время работы O(n log n)
     """
-    A=list()
-    B=list()
-    for n in sorted(int_list, reverse=True):
-        if sum(A) < sum(B):
-           A.append(n)
+    lst = sorted(int_list, reverse=True)
+    n = len(lst)
+    sum_0_5 = sum(lst) // 2
+
+    # нахождение минимальной длины набора - если набор меньше, 
+    # то он в любом случае не подойдет
+    b_min = 0 
+    while sum(lst[:b_min]) < sum_0_5:
+        b_min += 1           
+
+    if sum(lst) % 2 != 0 or len(lst) <= 1:
+        return False
+    else:
+        # максимальная длина набора - n // 2
+        for b in range(b_min, n // 2 + 1): 
+            nabor = combinations(lst, b)
+            for elem in nabor:            
+                if sum(elem) == sum_0_5:
+                    return True
         else:
-           B.append(n)
-    return sum(A) == sum(B)
+            return False
 
 if __name__ == '__main__':
     print(find_partition(list(map(int, input().split()))))

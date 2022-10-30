@@ -37,19 +37,17 @@ Sample Output 3:
 True
 '''
 # Решение
-def find_partition(int_list):
-    """
-    Разбиваем `int_list` на два множества с одинаковыми суммами
-    Время работы O(n log n)
-    """
-    A=list()
-    B=list()
-    for n in sorted(int_list, reverse=True):
-        if sum(A) < sum(B):
-           A.append(n)
-        else:
-           B.append(n)
-    return sum(A) == sum(B)
-
-if __name__ == '__main__':
-    print(find_partition(list(map(int, input().split()))))
+'''
+решение методом полного перебора всех допустимых вариантов
+'''
+m = list(sorted(map(int, input().split())))[::-1]
+s = sum(m)//2
+s0 = s
+i = 0
+while i<len(m):
+    if s<m[i]:
+        i += 1
+    else:        
+        s -= m[i]
+        m.pop(i)    
+print(sum(m)==s0) 

@@ -44,6 +44,10 @@ arr = [1, 2, 3, 4, 6]
 arr = [5, 8, 9]
 arr = [4, 2, 5, 2, 7, 3, 9, 3, 6, 2, 3, 43, 1, 44, 123, 1]
 arr = [1, 7, 4, 5, 9, 9, 6, 8, 8, 6] # logn time
+arr = [5, 4, 3, 2, 2, 2, 2]
+# arr = [1, 1, 10, 10, 100, 100, 1000, 1000]
+# arr = [10, 8, 5, 3, 3, 3]
+# arr = [20, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2]
 # arr = [9, 7, 1, 7, 4, 7, 6, 4, 3, 6]
 # arr = [1, 0, 7, 9, 7, 9, 2, 7, 2, 9, 8, 3, 1, 3, 3, 5, 2, 6, 9] # very logn time
 
@@ -52,12 +56,12 @@ for el in it.permutations(arr):
     i = 1
     check = False
     for _ in el:
-        # print(el[ : i])
-        # print(el[i : ])
+        print(el[ : i])
+        print(el[i : ])
         x = sum(el[ : i])
         y = sum(el[i : ])
-        # print('x =', x)
-        # print('y =', y)
+        print('x =', x)
+        print('y =', y)
         if (x == y):
             check = True
             print('True')
