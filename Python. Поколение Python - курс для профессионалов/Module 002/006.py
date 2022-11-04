@@ -51,7 +51,26 @@ print(filter_anagrams('стекло', []))
 Sample Output 4:
 []
 '''
-pass
+# def filter_anagrams(word, *words):
+#     return list(
+#         filter(
+#             lambda x: sorted(word) == sorted(x),
+#             *words
+#         )
+#     )
+
+def filter_anagrams(word, anagrams):
+    return [
+        anagram for anagram in anagrams if sorted(anagram) == sorted(word)
+    ]
 
 if __name__ == '__main__':
-    pass
+    word = 'abba'
+    anagrams = ['aabb', 'abcd', 'bbaa', 'dada']
+    print(filter_anagrams(word, anagrams))
+    print(filter_anagrams('отсечка', ['сеточка', 'стоечка', 'тесачок', 'чесотка']))
+    print(filter_anagrams('tommarvoloriddle', ['iamlordvoldemort', 'iamdevolremort', 'mortmortmortmort', 'remortvolremort']))
+    print(filter_anagrams('стекло', []))
+    word = 'abba'
+    anagrams = ['aaab', 'dbcd', 'bdaa', 'badb']
+    print(filter_anagrams(word, anagrams)) # []
