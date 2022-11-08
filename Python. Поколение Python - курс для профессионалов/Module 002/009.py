@@ -34,7 +34,22 @@ print(spell(*words))
 Sample Output 3:
 {'f': 8}
 '''
-pass
+def spell(*args: tuple) -> dict:
+    words_arr = list(map(str.lower ,args))
+    res_dict = dict()
+
+    for word in words_arr:
+        res_dict[word[0]] = res_dict.get(word[0], list()) + [word]
+
+    for k, v in res_dict.items():
+        res_dict[k] = len(max(v, key=len))
+    
+    return res_dict
 
 if __name__ == '__main__':
-    pass
+    words = ['россия', 'Австрия', 'австралия', 'РумыниЯ', 'Украина', 'КИТай', 'УЗБЕКИСТАН']
+    print(spell(*words))
+    print(spell('Математика', 'История', 'химия', 'биология', 'Информатика'))
+    words = ['fruit', 'football', 'February', 'forest', 'Family']
+    print(spell(*words))
+    print(spell())
