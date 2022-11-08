@@ -18,4 +18,7 @@ Sample Input:
 Sample Output:
 2 30
 '''
-pass
+print(
+    # *(lambda x: (x // 60, x % 60) if 24 > x // 60 else (x // 60 % 24, x % 60))(int(input()))
+    *(lambda x: ((x // 60 % 24, x % 60)))(int(input()))
+)
