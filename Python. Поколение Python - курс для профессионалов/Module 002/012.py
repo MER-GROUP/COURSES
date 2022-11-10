@@ -47,4 +47,18 @@ Sample Input 3:
 Sample Output 3:
 134
 '''
-pass
+def houses(*args):
+    return min(
+        [
+            args[0] + args[1] + args[2],
+            (args[0] + args[1]) * 2,
+            (args[0] + args[2]) * 2,
+            (args[1] + args[2]) * 2,
+        ]
+    )
+
+print(
+    houses(
+        *(int(input()) for _ in range(3))
+    )
+)
