@@ -40,4 +40,14 @@ Sample Input 3:
 Sample Output 3:
 3 2 1 5 4
 '''
-pass
+def perevorator(s):
+    n, x, y, a, b = map(int, s.split())
+    x -= 1
+    a -= 1
+    seq = list(range(1, n + 1))
+    seq = seq[: x] + seq[x : y][::-1] + seq[y : ]
+    seq = seq[: a] + seq[a : b][::-1] + seq[b : ]
+    return ' '.join(map(str, seq))
+
+if __name__ == '__main__':
+    print(perevorator(input()))
