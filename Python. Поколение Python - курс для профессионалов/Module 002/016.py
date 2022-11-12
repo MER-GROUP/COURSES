@@ -41,7 +41,25 @@ Sample Input 3:
 Sample Output 3:
 3
 '''
-pass
+
+"""
+Посчитать сумму цифр каждого числа, потом подсчитать 
+количество повторений сумм цифр и вывести максимальное.
+
+Мы рассмотрели числа от 1 до 20, числа 2, 11 и 20 попали 
+в одну группу, так как имеют одну и ту же сумму цифр, равную 2
+"""
+def max_group(n: int) -> int:
+    arr = list(range(1, n + 1))
+    dictionary = dict()
+    for i in arr:
+        for j in arr:
+            dictionary[i] = dictionary.get(i, 0) + 1\
+                            if\
+                                (i == sum(map(int, str(j))))\
+                            else\
+                                dictionary.get(i, 0) + 0 
+    return max(dictionary.values())
     
 if __name__ == '__main__':
-    pass
+    print(max_group(int(input())))
