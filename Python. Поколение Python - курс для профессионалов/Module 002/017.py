@@ -49,7 +49,34 @@ python, испанский, эсперанто, латышский, польск
 Sample Output 2:
 Сериал снять не удастся
 '''
-pass
+def translate(n: int) -> str:
+    arr = [input() for _ in range(n)]
+
+    arr_min = min(
+        arr,
+        key=lambda x: len(x.split(', '))
+    ).split(', ')
+
+    res = set(arr_min)
+
+    for seq in arr:
+        if 0 == len(set(seq.split(', ')).intersection(res)):
+            return 'Сериал снять не удастся'
+        elif len(set(seq.split(', ')).intersection(res)) < len(res):
+            res = set(seq.split(', ')).intersection(res)
+    else:
+        return ', '.join(sorted(res))
     
 if __name__ == '__main__':
-    pass
+    print(translate(int(input())))
+
+# n = int(input())
+# langs = set(input().split(', '))
+
+# for _ in range(n - 1):
+#     langs &= set(input().split(', '))
+
+# if langs:
+#     print(*sorted(langs), sep=', ')
+# else:
+#     print('Фильм снять не удастся')
