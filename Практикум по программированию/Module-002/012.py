@@ -14,11 +14,20 @@
 Выходные данные
 Выведите ответ на задачу, соблюдая требуемый формат.
 
-Sample Input:
+Sample Input 1:
 3602
-Sample Output:
+Sample Output 1:
 1:00:02
+
+Sample Input 2:
+323925
+Sample Outpu 2:
+17:58:45
 '''
-print(
-    *(lambda x: ((x // 60 // 60 % 60 ,x // 60 % 60, x % 60)))(int(input()))
-)
+n = int(input())
+sec = n % 60
+sec = sec if 2 == len(str(sec)) else '0' + str(sec)
+min = n // 60 % 60
+min = min if 2 == len(str(min)) else '0' + str(min)
+hour = n // 60 // 60 % 60
+print(f'{hour}:{min}:{sec}')
