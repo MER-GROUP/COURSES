@@ -29,5 +29,5 @@ sec = n % 60
 sec = sec if 2 == len(str(sec)) else '0' + str(sec)
 min = n // 60 % 60
 min = min if 2 == len(str(min)) else '0' + str(min)
-hour = n // 60 // 60 % 60
+hour = n // 60 // 60 % 24
 print(f'{hour}:{min}:{sec}')
