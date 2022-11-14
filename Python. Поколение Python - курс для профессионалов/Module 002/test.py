@@ -31,3 +31,15 @@ print(set(arr_sub).intersection(arr))
 arr = ['454']
 arr_sub = ['2', '45', '3']
 print(set(arr_sub).intersection(arr))
+
+print('------------------')
+
+word = '12345'
+for i in range(len(word)-1, -1, -1):
+    print(word[i], end='')
+print()
+
+print('------------------')
+
+s = [1, 1, 0, 0, 1]
+print(s[ : len(s) - s[::-1].index(1)])
