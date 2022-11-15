@@ -58,7 +58,49 @@ timyr-guev@beegeek.bzz
 timyr-guev1@beegeek.bzz
 anri-tabuev1@beegeek.bzz
 '''
-pass
+def mail():
+    # begin vars
+    n = int(input())
+    mails_old_arr = [input() for _ in range(n)]
+    m = int(input())
+    new_users = [input() for _ in range(m)]
+
+    # DB vars
+    mails_old_dict = dict()
+    for mail_old in mails_old_arr:
+        name, domen = mail_old.split('@')
+        end = 0
+        check = False
+        for i, c in enumerate(name):
+            if (c.isdigit()):
+                end = i
+                check = True
+                break
+        if check:
+            mails_old_dict[name[ : end]] = mails_old_dict.get(name[ : end], []) + [name]
+        else:
+            mails_old_dict[name] = mails_old_dict.get(name, []) + [name]
+    # print(mails_old_dict) # test
+
+    # add new users in mail
+    for user in new_users:
+        i = 0
+        while True:
+            new_user = user if 0 == i else user + str(i)
+            if new_user not in mails_old_dict and 0 == i:
+                mails_old_dict[user] = mails_old_dict.get(user, [])
+            if new_user not in mails_old_dict[user]:
+                mails_old_arr.append(new_user+'@beegeek.bzz')
+                mails_old_dict[user] = mails_old_dict.get(user, []) + [new_user]
+                break
+            i += 1
+    # print(*mails_old_arr, sep='\n') # test
+
+    # print new users mail
+    # print('----------') # delimeter
+    length = len(mails_old_arr) - m
+    print(*mails_old_arr[length :], sep='\n')
+    
     
 if __name__ == '__main__':
-    pass
+    mail()
