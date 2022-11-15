@@ -18,4 +18,6 @@ Sample Input:
 Sample Output:
 5 8
 '''
-pass
+a, b = input(), input()
+a, b = b, a
+print(a, b)
