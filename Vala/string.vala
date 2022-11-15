@@ -66,16 +66,27 @@ public static int main (string[] args) {
     double d = double.parse("6.67428E-11"); // => 6.67428E-11
     stdout.printf(@"$d\n");
     stdout.printf("%g\n", d);
-    //  string s1 = true.to_string(); // => "true"
-    //  stdout.printf(s1 + "\n");
-    //  string s2 = 21.to_string(); // => "21"
-    //  stdout.printf(s2 + "\n");
+    string s3 = true.to_string(); // => "true"
+    stdout.printf(s3 + "\n");
+    stdout.printf(@"$s3\n");
+    stdout.printf("%s\n", s3);
+    string s4 = 21.to_string(); // => "21"
+    stdout.printf(s4 + "\n");
+    stdout.printf(@"$s4\n");
+    stdout.printf("%s\n", s4);
 
     bool t1 = true;
 	bool t2 = false;
 	bool t3 = (10 > 100 || 100 < 10);
 	// Output: ``true, false, false``
 	print (@"$t1, $t2, $t3\n");
+
+    stdout.printf("Привет, мир!\n");
+    stdout.printf("%d %g %s\n", 42, 3.1415, "Vala");
+    string input = stdin.read_line();
+    int number = stdin.read_line().to_int();
+    stdout.printf(@"$input\n");
+    stdout.printf(@"$number\n");
 
     return 0;
 }
