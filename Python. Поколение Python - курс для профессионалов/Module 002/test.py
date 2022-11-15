@@ -43,3 +43,10 @@ print('------------------')
 
 s = [1, 1, 0, 0, 1]
 print(s[ : len(s) - s[::-1].index(1)])
+
+print('------------------')
+
+digits = '0123456789'
+name = 'max274'
+name = name.rstrip(digits)
+print(name)
