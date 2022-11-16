@@ -72,8 +72,6 @@ https://stepik.org/media/attachments/lesson/569749/clue.txt
 
 Примечание 6. При открытии файла используйте явное указание кодировки UTF-8.
 '''
-pass
-    
 if __name__ == '__main__':
     # get name files
     arr = list()
@@ -91,8 +89,13 @@ if __name__ == '__main__':
         dictonary[end][end] = dictonary.get(end, dict()).get(end, []) + [name]
         # dictonary.setdefault(end, dict()).setdefault(unit, []).append(int(size))
         # dictonary.setdefault(end, dict()).setdefault(end, []).append(name)
-    # print(dictonary, sep='\n') # test
+    print(dictonary, sep='\n') # test
     for k, v in dictonary.items():
         for k2, v2 in v.items():
             print(k2, v2)
         print('----------')
+
+    # # output
+    # for k, v in dictonary.items():
+    #     names_files = list()
+    #     res = str()
