@@ -50,3 +50,42 @@ digits = '0123456789'
 name = 'max274'
 name = name.rstrip(digits)
 print(name)
+
+print('------------------')
+
+my_dict = dict()
+my_dict['mp3'] = {'111': 1, '222': 2}
+print(my_dict)
+
+print('------------------')
+
+print('####################')
+info = {'name': 'Bob', 'age': 25}
+# параметр default не задан
+name1 = info.setdefault('name')
+# параметр default задан
+name2 = info.setdefault('name', 'Max')
+print(name1)
+print(type(name1))
+print(name2)
+print(type(name2))
+print('####################')
+info = {'name': 'Bob', 'age': 25}
+job = info.setdefault('job', 'Dev')
+print(info)
+print(type(info))
+print(job)
+print(type(job))
+
+print('------------------')
+
+print('####################')
+numbers = [9, 8, 32, 1, 10, 1, 10, 23, 1, 4, 10, 4, 2, 2, 2, 2, 1, 10, 1, 2, 2, 32, 23, 23]
+result = {}
+for num in numbers:
+    result[num] = result.get(num, 0) + 1
+print(result)
+result = {}
+for num in numbers:
+    result[num] = result.setdefault(num, 0) + 1
+print(result)
