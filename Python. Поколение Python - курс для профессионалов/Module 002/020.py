@@ -72,8 +72,30 @@ https://stepik.org/media/attachments/lesson/569749/clue.txt
 
 Примечание 6. При открытии файла используйте явное указание кодировки UTF-8.
 '''
-pass
-    
-
 if __name__ == '__main__':
-    pass
+    # get name files
+    arr = list()
+    with open('files.txt', 'rt', encoding='utf-8') as file:
+        arr = list(map(str.strip ,file.readlines()))
+    # print(arr) # test
+
+    # DB
+    dictonary = dict()
+    for line in arr:
+        name, size, unit = line.split()
+        start, end = name.split('.')
+        dictonary[end] = dictonary.get(end, dict())
+        dictonary[end][unit] = dictonary.get(end, dict()).get(unit, []) + [int(size)]
+        dictonary[end][end] = dictonary.get(end, dict()).get(end, []) + [name]
+        # dictonary.setdefault(end, dict()).setdefault(unit, []).append(int(size))
+        # dictonary.setdefault(end, dict()).setdefault(end, []).append(name)
+    print(dictonary, sep='\n') # test
+    for k, v in dictonary.items():
+        for k2, v2 in v.items():
+            print(k2, v2)
+        print('----------')
+
+    # # output
+    # for k, v in dictonary.items():
+    #     names_files = list()
+    #     res = str()
