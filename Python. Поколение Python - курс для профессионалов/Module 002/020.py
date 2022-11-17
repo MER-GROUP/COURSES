@@ -106,35 +106,40 @@ if __name__ == '__main__':
         'GB': 1 * 1024 ** 3
         }
 
-    # name of bytes
-    name_of_bytes_dict = {
-        'B': 1,
-        'KB': 2,
-        'MB': 3,
-        'GB': 4
+    # init for convert
+    len_dict = {
+        1: 'B',
+        2: 'B',
+        3: 'B',
+        4: 'KB',
+        5: 'KB',
+        6: 'KB',
+        7: 'MB',
+        8: 'MB',
+        9: 'MB',
+        10: 'GB',
+        11: 'GB',
+        12: 'GB'
     }
 
     # sorted and count in DB
     for k, v in dictonary.items():
         size_bytes = 0
-        name_of_bytes = 'B'
-        convert_of_bytes = 0
         for k2, v2 in v.items():
             if k == k2:
                 dictonary[k][k2] = sorted(v2)
             else:
-                if (name_of_bytes_dict[name_of_bytes] < name_of_bytes_dict[k2]):
-                    name_of_bytes = k2
+                # if (name_of_bytes_dict[name_of_bytes] < name_of_bytes_dict[k2]):
+                #     name_of_bytes = k2
                 dictonary[k][k2] = sum(v2)
                 if k2 in size_dict.keys():
                     size_bytes += dictonary[k][k2] * size_dict[k2]
         dictonary[k]['size_bytes'] = dictonary.get('size_bytes', 0) + size_bytes
-        dictonary[k]['name_of_bytes'] = dictonary.get('name_of_bytes', str()) + name_of_bytes
-        dictonary[k]['convert_of_bytes'] = round(
-                                            dictonary.get('convert_of_bytes', 0) \
-                                            + dictonary[k]['size_bytes'] \
-                                            / size_dict[dictonary[k]['name_of_bytes']]
-                                            )
+        dictonary[k]['result'] = round(
+                                    dictonary[k]['size_bytes'] \
+                                    / size_dict[len_dict[len(str(dictonary[k]['size_bytes']))]]
+                                )
+        dictonary[k]['size_name'] = len_dict[len(str(dictonary[k]['size_bytes']))]
     # print(dictonary, sep='\n') # test
     print_dict(dictonary) # test
 
