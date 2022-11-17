@@ -83,6 +83,12 @@ def print_arr(arr): # for tests
         print(line)
         print('----------')
 
+def print_result_arr(arr): # final output
+    for line in arr:
+        print(*line[0], sep='\n')
+        print('----------')
+        print(f'Summary: {line[1]}{line[2]}\n')
+
 if __name__ == '__main__':
     # get name files
     arr = list()
@@ -143,6 +149,7 @@ if __name__ == '__main__':
                                     / size_dict[len_dict[len(str(dictonary[k]['size_bytes']))]]
                                 )
         dictonary[k]['size_name'] = len_dict[len(str(dictonary[k]['size_bytes']))]
+        dictonary[k]['end'] = k
     # print(dictonary, sep='\n') # test
     # print_dict(dictonary) # test
 
@@ -151,7 +158,7 @@ if __name__ == '__main__':
     for k, v in dictonary.items():
         buff = list()
         for k2, v2 in v.items():
-            if k2 == k or 'result' == k2 or 'size_name' == k2:
+            if k2 == k or 'result' == k2 or 'size_name' == k2 or 'end' == k2:
                 buff.append(v2)
         finish.append(buff)
     # print(finish) # test
@@ -160,6 +167,9 @@ if __name__ == '__main__':
     # sort arr
     finish = sorted(
         finish,
-        key=lambda x: x[0][0]
+        key=lambda x: x[3]
     )
-    print_arr(finish) # test
+    # print_arr(finish) # test
+
+    # output
+    print_result_arr(finish)
