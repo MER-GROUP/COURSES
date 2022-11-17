@@ -78,6 +78,17 @@ def print_dict(d): # for tests
             print(k2, v2)
         print('----------')
 
+def print_arr(arr): # for tests
+    for line in arr:
+        print(line)
+        print('----------')
+
+def print_result_arr(arr): # final output
+    for line in arr:
+        print(*line[0], sep='\n')
+        print('----------')
+        print(f'Summary: {line[1]} {line[2]}\n')
+
 if __name__ == '__main__':
     # get name files
     arr = list()
@@ -106,39 +117,59 @@ if __name__ == '__main__':
         'GB': 1 * 1024 ** 3
         }
 
-    # name of bytes
-    name_of_bytes_dict = {
-        'B': 1,
-        'KB': 2,
-        'MB': 3,
-        'GB': 4
+    # init for convert
+    len_dict = {
+        1: 'B',
+        2: 'B',
+        3: 'B',
+        4: 'KB',
+        5: 'KB',
+        6: 'KB',
+        7: 'MB',
+        8: 'MB',
+        9: 'MB',
+        10: 'GB',
+        11: 'GB',
+        12: 'GB'
     }
 
     # sorted and count in DB
     for k, v in dictonary.items():
         size_bytes = 0
-        name_of_bytes = 'B'
-        convert_of_bytes = 0
         for k2, v2 in v.items():
             if k == k2:
                 dictonary[k][k2] = sorted(v2)
             else:
-                if (name_of_bytes_dict[name_of_bytes] < name_of_bytes_dict[k2]):
-                    name_of_bytes = k2
                 dictonary[k][k2] = sum(v2)
                 if k2 in size_dict.keys():
                     size_bytes += dictonary[k][k2] * size_dict[k2]
         dictonary[k]['size_bytes'] = dictonary.get('size_bytes', 0) + size_bytes
-        dictonary[k]['name_of_bytes'] = dictonary.get('name_of_bytes', str()) + name_of_bytes
-        dictonary[k]['convert_of_bytes'] = round(
-                                            dictonary.get('convert_of_bytes', 0) \
-                                            + dictonary[k]['size_bytes'] \
-                                            / size_dict[dictonary[k]['name_of_bytes']]
-                                            )
+        dictonary[k]['result'] = round(
+                                    dictonary[k]['size_bytes'] \
+                                    / size_dict[len_dict[len(str(dictonary[k]['size_bytes']))]]
+                                )
+        dictonary[k]['size_name'] = len_dict[len(str(dictonary[k]['size_bytes']))]
+        dictonary[k]['end'] = k
     # print(dictonary, sep='\n') # test
-    print_dict(dictonary) # test
+    # print_dict(dictonary) # test
 
-    # # output
-    # for k, v in dictonary.items():
-    #     names_files = list()
-    #     res = str()
+    # convert DB dict to arr
+    finish = list()
+    for k, v in dictonary.items():
+        buff = list()
+        for k2, v2 in v.items():
+            if k2 == k or 'result' == k2 or 'size_name' == k2 or 'end' == k2:
+                buff.append(v2)
+        finish.append(buff)
+    # print(finish) # test
+    # print_arr(finish) # test
+
+    # sort arr
+    finish = sorted(
+        finish,
+        key=lambda x: x[3]
+    )
+    # print_arr(finish) # test
+
+    # output
+    print_result_arr(finish)
