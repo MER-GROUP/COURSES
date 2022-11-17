@@ -87,7 +87,7 @@ def print_result_arr(arr): # final output
     for line in arr:
         print(*line[0], sep='\n')
         print('----------')
-        print(f'Summary: {line[1]}{line[2]}\n')
+        print(f'Summary: {line[1]} {line[2]}\n')
 
 if __name__ == '__main__':
     # get name files
