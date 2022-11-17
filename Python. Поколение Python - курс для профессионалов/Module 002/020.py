@@ -78,6 +78,11 @@ def print_dict(d): # for tests
             print(k2, v2)
         print('----------')
 
+def print_arr(arr): # for tests
+    for line in arr:
+        print(line)
+        print('----------')
+
 if __name__ == '__main__':
     # get name files
     arr = list()
@@ -129,8 +134,6 @@ if __name__ == '__main__':
             if k == k2:
                 dictonary[k][k2] = sorted(v2)
             else:
-                # if (name_of_bytes_dict[name_of_bytes] < name_of_bytes_dict[k2]):
-                #     name_of_bytes = k2
                 dictonary[k][k2] = sum(v2)
                 if k2 in size_dict.keys():
                     size_bytes += dictonary[k][k2] * size_dict[k2]
@@ -141,9 +144,22 @@ if __name__ == '__main__':
                                 )
         dictonary[k]['size_name'] = len_dict[len(str(dictonary[k]['size_bytes']))]
     # print(dictonary, sep='\n') # test
-    print_dict(dictonary) # test
+    # print_dict(dictonary) # test
 
-    # # output
-    # for k, v in dictonary.items():
-    #     names_files = list()
-    #     res = str()
+    # convert DB dict to arr
+    finish = list()
+    for k, v in dictonary.items():
+        buff = list()
+        for k2, v2 in v.items():
+            if k2 == k or 'result' == k2 or 'size_name' == k2:
+                buff.append(v2)
+        finish.append(buff)
+    # print(finish) # test
+    # print_arr(finish) # test
+
+    # sort arr
+    finish = sorted(
+        finish,
+        key=lambda x: x[0][0]
+    )
+    print_arr(finish) # test
