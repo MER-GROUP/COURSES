@@ -16,5 +16,38 @@ Sample Input:
 3
 Sample Output:
 11 35
+
+для проверок (номер урока, начало урока, конец урока)
+1    9:00    9:45
+2    9:50    10:35
+3    10:50    11:35
+4    11:40    12:25
+5    12:40    13:25
+6    13:30    14:15
+7    14:30    15:15
+8    15:20    16:05
+9    16:20    17:05
+10    17:10    17:55
+
+никаких циклов:
+1) 45 минут проходит за каждый урок
+2) перемен 5 минут будет на 1 меньше чем уроков
+3) перемен 15-5=10 минут будет в 2 раза меньше чем 5 минутных перемен
 '''
-pass
+n = int(input())
+# start minutes
+begin = 9 * 60 
+lesson_45_min = n * 45
+change_5_min = n * 5 - 5
+change_15_min = n // 2 * (15 - 5) - (10 * (change_5_min % 2))
+
+# print('begin =', begin) # test
+# print('lesson_45_min =', lesson_45_min) # test
+# print('change_5_min =', change_5_min) # test
+# print('change_15_min =', change_15_min) # test
+
+# lesson minutes
+time_end = begin + lesson_45_min + change_5_min + change_15_min
+
+# print('time_end =', time_end) # test
+print('{} {}'.format(*divmod(time_end, 60))) # base minutes
