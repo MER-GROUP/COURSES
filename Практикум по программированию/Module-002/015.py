@@ -17,4 +17,7 @@ Sample Input:
 Sample Output:
 20 30
 '''
-pass
+a, b, n = (int(input()) for _ in range(3))
+kopecks = (a * 100 + b) * n
+# print('{} {}'.format(*divmod(kopecks, 100)))
+print(*divmod(kopecks, 100))
