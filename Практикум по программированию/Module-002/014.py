@@ -37,9 +37,17 @@ Sample Output:
 n = int(input())
 # start minutes
 begin = 9 * 60 
+lesson_45_min = n * 45
+change_5_min = n * 5 - 5
+change_15_min = n // 2 * (15 - 5) - (10 * (change_5_min % 2))
+
+# print('begin =', begin) # test
+# print('lesson_45_min =', lesson_45_min) # test
+# print('change_5_min =', change_5_min) # test
+# print('change_15_min =', change_15_min) # test
+
 # lesson minutes
-time_end = begin\
-            + (n * 45)\
-            + ((n * 5) - 5)\
-            + (n // 2 * (15 - 5))
+time_end = begin + lesson_45_min + change_5_min + change_15_min
+
+# print('time_end =', time_end) # test
 print('{} {}'.format(*divmod(time_end, 60))) # base minutes
