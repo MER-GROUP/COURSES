@@ -19,4 +19,18 @@ Sample Input:
 Sample Output:
 2
 '''
-pass
+# from math import ceil
+# n, m = int(input()), int(input())
+# print(ceil(m / n))
+
+# n, m = int(input()), int(input())
+# print((m + n - 1) // n)
+
+# n, m = int(input()), int(input())
+# print(-(m // -n))
+
+# n, m = int(input()), int(input())
+# print(abs(m // -n))
+
+a, b = int(input()), int(input())
+print(b // a + (b % a > 0))
