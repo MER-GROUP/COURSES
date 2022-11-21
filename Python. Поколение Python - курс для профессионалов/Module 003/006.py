@@ -37,7 +37,14 @@ Sample Output 2:
 '''
 from datetime import date
 
-pass
+def get_date_range(start: date, end: date) -> list[date]:
+    return [date.fromordinal(d) for d in range(start.toordinal(), end.toordinal() + 1)]
 
 if __name__ == '__main__':
-    pass
+    date1 = date(2021, 10, 1)
+    date2 = date(2021, 10, 5)
+    print(*get_date_range(date1, date2), sep='\n')
+    print('----------')
+    date1 = date(2019, 6, 5)
+    date2 = date(2019, 6, 5)
+    print(get_date_range(date1, date2))
