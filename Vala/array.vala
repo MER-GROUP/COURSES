@@ -26,11 +26,27 @@ public static int main (string[] args) {
     }
 
     stdout.printf("----------\n");
-    int[,] c = new int[3,4];
-    int[,] d = {{2, 4, 6, 8},
+    int[,] c2 = new int[3,4];
+    int[,] d2 = {{2, 4, 6, 8},
                 {3, 5, 7, 9},
                 {1, 3, 5, 7}};
-    d[2,3] = 42;
+    for (int i=0; i<3 ; i++){
+        for (int j=0; j<4 ; j++){
+            stdout.printf(c2[i,j].to_string());
+        }
+        print("\n");
+    }
+
+    stdout.printf("----------\n");
+    for (int i=0; i<c2.length[0] ; i++){
+        for (int j=0; j<4 ; j++){
+            stdout.printf(c2[i,j].to_string());
+        }
+        print("\n");
+    }
+
+    stdout.printf("----------\n");
+    d2[2,3] = 42;
 
     return 0;
 }
