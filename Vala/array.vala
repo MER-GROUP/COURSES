@@ -39,14 +39,30 @@ public static int main (string[] args) {
 
     stdout.printf("----------\n");
     for (int i=0; i<c2.length[0] ; i++){
-        for (int j=0; j<4 ; j++){
+        for (int j=0; j<c2.length[1] ; j++){
             stdout.printf(c2[i,j].to_string());
         }
         print("\n");
     }
 
     stdout.printf("----------\n");
+    for (int i=0; i<c2.length[0] ; i++){
+        for (int j=0; j<c2.length[1] ; j++){
+            //  stdout.printf(d2[i,j].to_string());
+            stdout.printf("%d ", d2[i,j]);
+        }
+        print("\n");
+    }
+
+    stdout.printf("----------\n");
     d2[2,3] = 42;
+    for (int i=0; i<c2.length[0] ; i++){
+        for (int j=0; j<c2.length[1] ; j++){
+            //  stdout.printf(d2[i,j].to_string());
+            stdout.printf("%d ", d2[i,j]);
+        }
+        print("\n");
+    }
 
     return 0;
 }
