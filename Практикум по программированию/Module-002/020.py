@@ -20,4 +20,4 @@ Sample Input:
 Sample Output:
 1
 '''
-pass
+(lambda x: print(f'{int(x == x[::-1])}'))(input().rjust(4, '0'))
