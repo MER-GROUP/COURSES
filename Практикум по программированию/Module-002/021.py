@@ -18,4 +18,5 @@ Sample Input:
 Sample Output:
 1
 '''
-pass
+n, m = (int(input()) for _ in '12')
+print(int(any((0 == n % m, 0 == m % n))))
