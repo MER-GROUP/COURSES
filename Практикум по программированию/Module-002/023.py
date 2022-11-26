@@ -13,4 +13,4 @@ Sample Input:
 Sample Output:
 23
 '''
-pass
+(lambda a, b: print(a if a > b else b))(int(input()), int(input()))
