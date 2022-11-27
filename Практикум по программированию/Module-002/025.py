@@ -34,4 +34,16 @@ Sample Input 2:
 Sample Output 2:
 NO
 '''
-print
+"""
+Суть вот в чем. 
+YES выводим, если оба числа равны 1 
+или оба числа не равны 1. Иначе NO.
+"""
+(
+    lambda a, b: 
+        print(
+            ['NO', 'YES'][
+                (1 == a and 1 == b) or (1 != a and 1 != b)
+            ]
+        )
+)(*(int(input()) for _ in '12'))
