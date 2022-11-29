@@ -15,4 +15,5 @@ Sample Input:
 Sample Output:
 2
 '''
-pass
+a, b = int(input()), int(input())
+print([[1, 0][b == a], 2][b > a])
