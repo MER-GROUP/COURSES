@@ -20,4 +20,9 @@ Sample Input:
 Sample Output:
 YES
 '''
-pass
+h1, v1, h2, v2 = (int(input()) for _ in range(4))
+print(
+    'YES' if (h1 == h2 or v1 == v2)\
+            or (abs(h2 - h1) == abs(v2 - v1))
+            else 'NO'
+)
