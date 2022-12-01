@@ -21,4 +21,6 @@ Sample Input:
 Sample Output:
 NO
 '''
-pass
+rook_x, rook_y = int(input()), int(input())
+x, y = int(input()), int(input())
+print('YES' if rook_x == x or rook_y == y else 'NO')
