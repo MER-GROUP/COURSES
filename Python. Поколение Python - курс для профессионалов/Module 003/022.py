@@ -61,4 +61,36 @@ https://stepik.org/media/attachments/lesson/611754/clue.txt
 
 Примечание 3. При открытии файла используйте явное указание кодировки UTF-8.
 '''
-pass
+from datetime import datetime
+
+with open('022-diary.txt', 'rt', encoding='utf-8') as fout:
+    pattern = '%d.%m.%Y; %H:%M'
+    dictonary = dict()
+    key_line = None
+    for line in fout:
+        date_line = None
+        try:
+            date_line = datetime.strptime(line.strip(), pattern)
+        except:
+            date_line = line.strip()
+
+        if isinstance(date_line, datetime):
+            dictonary[date_line] = []
+            key_line = date_line
+        elif date_line in ('', '\n'):
+            continue
+        else:
+            dictonary[key_line] = dictonary[key_line] +  [date_line]
+
+for i, k in enumerate(sorted(dictonary.keys()), 1):
+    print(datetime.strftime(k, pattern))
+    # print(dictonary[k])
+    if not i == len(dictonary):
+        print(*dictonary[k], sep='\n', end='\n')
+        print()
+    else:
+        for j, s in enumerate(dictonary[k], 1):
+            if not j == len(dictonary[k]):
+                print(s)
+            else:
+                print(s, end='')
