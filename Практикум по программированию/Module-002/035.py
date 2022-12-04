@@ -18,4 +18,7 @@ Sample Input:
 Sample Output:
 YES
 '''
-pass
+n = int(input())
+print(
+    'YES' if 0 == n % 4 or 1 == n else 'NO'
+)
