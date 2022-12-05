@@ -55,9 +55,11 @@ def is_available_date(booked_dates: list[str], date_for_booking: str):
         arr = s.split('-')
         arr = list(map(lambda x: datetime.strptime(x, '%d.%m.%Y'), arr))
         if 1 == len(arr):
-            dates_dict['one'] = arr
+            # dates_dict['one'] = arr
+            dates_dict.setdefault('one', []).append(tuple(arr))
         else:
-            dates_dict['two'] = arr
+            # dates_dict['two'] = arr
+            dates_dict.setdefault('two', []).append(tuple(arr))
     
     my_dates_dict = {'one': [], 'two': []}
     arr = date_for_booking.split('-')
@@ -67,49 +69,58 @@ def is_available_date(booked_dates: list[str], date_for_booking: str):
     else:
         my_dates_dict['two'] = arr
 
-    print(dates_dict) # test
+    # print(dates_dict) # test
     # print(my_dates_dict) # test
 
-    # res_arr = list()
-    # if 1 == len(arr):
-    #     for date_booked in dates_dict['one']:
-    #         if my_dates_dict['one'] == date_booked:
-    #             res_arr.append(False)
-    #         else:
-    #             res_arr.append(True)
-    #     for date_booked_1, date_booked_2 in dates_dict['two']:        #############
-    #         if date_booked_1 <= my_dates_dict['one'] <= date_booked_2:
-    #             res_arr.append(False)
-    #         else:
-    #             res_arr.append(True)
-    # else:
-    #     my_dates_1, my_dates_2 = my_dates_dict['two']
-    #     for date_booked in dates_dict['one']:
-    #         if my_dates_1 <= date_booked <= my_dates_2:
-    #             res_arr.append(False)
-    #         else:
-    #             res_arr.append(True)
-    #     for date_booked_1, date_booked_2 in dates_dict['two']:        ############
-    #         if my_dates_1 <= date_booked_1 <= date_booked_2 <= my_dates_2:
-    #             res_arr.append(False)
-    #         else:
-    #             res_arr.append(True)
+    res_arr = list()
+    if 1 == len(arr):
+        for date_booked in dates_dict['one']:
+            if my_dates_dict['one'] == date_booked[0]:
+                res_arr.append(False)
+            else:
+                res_arr.append(True)
+        for date_booked_1, date_booked_2 in dates_dict['two']:
+            if date_booked_1 <= my_dates_dict['one'][0] <= date_booked_2:
+                res_arr.append(False)
+            else:
+                res_arr.append(True)
+    else:
+        my_dates_1, my_dates_2 = my_dates_dict['two']
+        for date_booked in dates_dict['one']:
+            if my_dates_1 <= date_booked[0] <= my_dates_2:
+                res_arr.append(False)
+            else:
+                res_arr.append(True)
+        for date_booked_1, date_booked_2 in dates_dict['two']:
+            if my_dates_1 <= date_booked_1 <= date_booked_2 <= my_dates_2: #######
+                res_arr.append(False)
+            else:
+                res_arr.append(True)
 
-    # return all(res_arr)
+    return all(res_arr)
 
 if __name__ == '__main__':
+    # True
     dates = ['04.11.2021', '05.11.2021-09.11.2021']
     some_date = '01.11.2021'
     print(is_available_date(dates, some_date))
 
+    # False
     dates = ['04.11.2021', '05.11.2021-09.11.2021']
     some_date = '01.11.2021-04.11.2021'
     print(is_available_date(dates, some_date))
 
+    # False
     dates = ['04.11.2021', '05.11.2021-09.11.2021']
     some_date = '06.11.2021'
     print(is_available_date(dates, some_date))
 
+    # False
     dates = ['01.11.2021', '05.11.2021-09.11.2021', '12.11.2021', '15.11.2021-21.11.2021']
     some_date = '09.11.2021'
+    print(is_available_date(dates, some_date))
+
+    # 13 False
+    dates = ['01.11.2021', '05.11.2021-09.11.2021', '12.11.2021', '15.11.2021-21.11.2021'] ##### True
+    some_date = '09.11.2021-10.11.2021'
     print(is_available_date(dates, some_date))
