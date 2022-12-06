@@ -64,5 +64,18 @@ public static int main (string[] args) {
         print("\n");
     }
 
+    stdout.printf("----------\n");
+    int[,] arr = new int[4,5];
+    for (int i=0; i<arr.length[0]; i++){
+        for (int j=0; j<arr.length[1]; j++){
+            stdout.printf(arr[i,j].to_string());
+        }
+        print("\n");
+    }
+    int r = arr.length[0];
+    int c3 = arr.length[1];
+    stdout.printf(r.to_string() + "\n");
+    stdout.printf(c3.to_string() + "\n");
+
     return 0;
 }
