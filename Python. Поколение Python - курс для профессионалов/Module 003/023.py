@@ -55,10 +55,8 @@ def is_available_date(booked_dates: list[str], date_for_booking: str):
         arr = s.split('-')
         arr = list(map(lambda x: datetime.strptime(x, '%d.%m.%Y'), arr))
         if 1 == len(arr):
-            # dates_dict['one'] = arr
             dates_dict.setdefault('one', []).append(tuple(arr))
         else:
-            # dates_dict['two'] = arr
             dates_dict.setdefault('two', []).append(tuple(arr))
     
     my_dates_dict = {'one': [], 'two': []}
@@ -75,7 +73,7 @@ def is_available_date(booked_dates: list[str], date_for_booking: str):
     res_arr = list()
     if 1 == len(arr):
         for date_booked in dates_dict['one']:
-            if my_dates_dict['one'] == date_booked[0]:
+            if my_dates_dict['one'][0] == date_booked[0]:
                 res_arr.append(False)
             else:
                 res_arr.append(True)
@@ -92,11 +90,14 @@ def is_available_date(booked_dates: list[str], date_for_booking: str):
             else:
                 res_arr.append(True)
         for date_booked_1, date_booked_2 in dates_dict['two']:
-            if my_dates_1 <= date_booked_1 <= date_booked_2 <= my_dates_2: #######
+            if date_booked_1 <= my_dates_1 <= date_booked_2 or\
+                date_booked_1 <= my_dates_2 <= date_booked_2 or\
+                my_dates_1 <= date_booked_1 <= date_booked_2 <= my_dates_2:
                 res_arr.append(False)
             else:
                 res_arr.append(True)
 
+    # print(f'res_arr = {res_arr}') # test
     return all(res_arr)
 
 if __name__ == '__main__':
@@ -120,7 +121,17 @@ if __name__ == '__main__':
     some_date = '09.11.2021'
     print(is_available_date(dates, some_date))
 
-    # 13 False
-    dates = ['01.11.2021', '05.11.2021-09.11.2021', '12.11.2021', '15.11.2021-21.11.2021'] ##### True
+    # False
+    dates = ['01.11.2021', '05.11.2021-09.11.2021', '12.11.2021', '15.11.2021-21.11.2021']
     some_date = '09.11.2021-10.11.2021'
+    print(is_available_date(dates, some_date))
+
+    # False
+    dates = ['01.11.2021', '05.11.2021-09.11.2021', '12.11.2021', '15.11.2021-21.11.2021']
+    some_date = '12.11.2021'
+    print(is_available_date(dates, some_date))
+
+    # False
+    dates = ['01.11.2021', '05.11.2021-09.11.2021', '12.11.2021', '15.11.2021-21.11.2021'] # True
+    some_date = '14.11.2021-22.11.2021'
     print(is_available_date(dates, some_date))
