@@ -17,4 +17,5 @@ Sample Input:
 Sample Output:
 10
 '''
-pass
+k, m, n = (int(input()) for _ in range(3))
+print((n // k) * (m * 2) + (n % k) * (m * 2))
