@@ -18,4 +18,12 @@ Sample Output:
 10
 '''
 k, m, n = (int(input()) for _ in range(3))
-print((n // k) * (m * 2) + (n % k) * (m * 2))
+# print((n // k) * (m * 2) + (n % k) * (m * 2))
+if 0 == n:
+    print(0)
+elif n <= k and n != 0:
+    print(2 * m)
+elif 0 == n * 2 % k:
+  print(m * (n * 2 // k))
+else:
+  print(m * (1 + (n * 2 // k)))
