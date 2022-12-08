@@ -18,4 +18,16 @@ Sample Input:
 Sample Output:
 YES
 '''
-pass
+def what_quarter(x: int, y: int) -> int:
+    if 0 < x and 0 < y:
+        return 1
+    elif 0 > x and 0 < y:
+        return 2
+    elif 0 > x and 0 > y:
+        return 3
+    elif 0 < x and 0 > y:
+        return 4
+
+if __name__ == '__main__':
+    x1, y1, x2, y2 = (int(input()) for _ in range(4))
+    print(['NO', 'YES'][what_quarter(x1, y1) == what_quarter(x2, y2)])
