@@ -29,4 +29,6 @@ Sample Input 3:
 Sample Output 3:
 43932
 '''
-pass
+from datetime import datetime, timedelta
+t = (datetime.strptime(input(), '%H:%M:%S') - datetime(year=1900, month=1, day=1)).total_seconds()
+print(int(t))
