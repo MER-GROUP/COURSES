@@ -1,7 +1,7 @@
 '''
 Таймер
 Часы показывают время в формате HH:MM:SS. 
-На этих часах запустили таймер, который прозвенит через nn секунд. 
+На этих часах запустили таймер, который прозвенит через n секунд. 
 Напишите программу, которое определит, какое время будет на часах, 
 когда прозвенит таймер.
 
@@ -36,4 +36,12 @@ Sample Input 3:
 Sample Output 3:
 13:42:22
 '''
-pass
+from datetime import time, timedelta
+
+timer, sec = time.fromisoformat(input()), timedelta(seconds=int(input()))
+total_sec = (
+    timedelta(hours=timer.hour, minutes=timer.minute, seconds=timer.second) + sec
+).total_seconds()
+print(
+    f'{str(int(total_sec // 60 // 60 % 24)).zfill(2)}:{str(int(total_sec // 60 % 60)).zfill(2)}:{str(int(total_sec % 60)).zfill(2)}'
+)

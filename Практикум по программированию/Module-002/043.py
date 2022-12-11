@@ -16,4 +16,10 @@ Sample Input:
 Sample Output:
 2
 '''
-pass
+a, b, c = (int(input()) for _ in range(3))
+if (a == b == c):
+    print(3)
+elif a == b or a == c or b == c:
+    print(2)
+else:
+    print(0)
