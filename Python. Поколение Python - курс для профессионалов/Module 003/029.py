@@ -29,4 +29,21 @@ print(num_of_sundays(768))
 Sample Output 3:
 52
 '''
-pass
+from datetime import date, datetime, timedelta
+
+def num_of_sundays(year: int) -> int:
+    start = date(year=year, month=1, day=1).toordinal()
+    end = date(year=year + 1, month=1, day=1).toordinal()
+    count = 0
+    for i in range(start, end):
+        if 7 == date.fromordinal(i).isoweekday():
+            count += 1
+    return count
+
+if __name__ == '__main__':
+    print(num_of_sundays(2021))
+
+    year = 2000
+    print(num_of_sundays(year))
+
+    print(num_of_sundays(768))
