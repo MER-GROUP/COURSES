@@ -44,4 +44,24 @@ print(fill_up_missing_dates(dates))
 Sample Output 2:
 ['01.11.2021', '02.11.2021', '03.11.2021', '04.11.2021', '05.11.2021', '06.11.2021', '07.11.2021', '08.11.2021', '09.11.2021', '10.11.2021', '11.11.2021', '12.11.2021', '13.11.2021', '14.11.2021', '15.11.2021']
 '''
-pass
+from datetime import datetime, timedelta
+
+def fill_up_missing_dates(dates: list[str]) -> list[str]:
+    pattern = '%d.%m.%Y'
+    dates_arr = list(map(lambda x: datetime.strptime(x, pattern).date(), dates))
+    res_arr = list()
+    start_date = min(dates_arr)
+    end_date = max(dates_arr)
+    i = 0
+    while start_date < end_date:
+        start_date = (min(dates_arr) + timedelta(days=i))
+        res_arr.append(start_date.strftime(pattern))
+        i += 1
+    return res_arr
+
+if __name__ == '__main__':
+    dates = ['01.11.2021', '07.11.2021', '04.11.2021', '03.11.2021']
+    print(fill_up_missing_dates(dates))
+
+    dates = ['01.11.2021', '04.11.2021', '09.11.2021', '15.11.2021']
+    print(fill_up_missing_dates(dates))
