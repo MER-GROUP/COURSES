@@ -13,6 +13,11 @@
 одно целое число – при наличии одного корня. 
 При отсутствии целых корней ничего выводить не нужно.
 
+дискриминант d = b^2 - 4ac
+если d = 0, то корень 1, -b / 2a
+если d > 0, то корней 2: x1,2 = (-b +/- √d) / 2a
+если d < 0, то корней "нет"
+
 Sample Input:
 1
 0
@@ -20,4 +25,16 @@ Sample Input:
 Sample Output:
 0
 '''
-pass
+a, b, c = (int(input()) for _ in range(3))
+d = b**2 - 4*a*c
+if 0 == d:
+    x = -b / (2 * a)
+    if x == int(x):
+        print(int(x))
+elif 0 < d:
+    x1 = (-b - (d)**0.5)/(2 * a)
+    x2 = (-b + (d)**0.5)/(2 * a)
+    if x1 == int(x1) and x2 == int(x2):
+        print(min(int(x1), int(x2)), max(int(x1), int(x2)))
+else:
+    pass
