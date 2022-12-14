@@ -18,4 +18,13 @@ Sample Input:
 Sample Output:
 right
 '''
-pass
+triangle = sorted(int(input()) for _ in range(3))
+if triangle[-1] < sum(triangle[:-1]):
+    if triangle[-1]**2 == sum(map(lambda x: x**2, triangle[:-1])):
+        print('right')
+    elif triangle[-1]**2 > sum(map(lambda x: x**2, triangle[:-1])):
+        print('obtuse')
+    else:
+        print('acute')
+else:
+    print('impossible')
