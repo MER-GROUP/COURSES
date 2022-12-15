@@ -23,5 +23,40 @@
 
 Примечание. Тестовые данные доступны по ссылке.
 https://stepik.org/media/attachments/lesson/571244/tests_2506803.zip
+
+Sample Input 1:
+01.11.2021 20:45
+Sample Output 1:
+15
+
+Sample Input 2:
+02.11.2021 21:15
+Sample Output 2:
+Магазин не работает
+
+Sample Input 3:
+07.11.2021 10:00
+Sample Output 3:
+480
 '''
-pass
+from datetime import datetime
+
+current_date = datetime.strptime(input() ,'%d.%m.%Y %H:%M')
+shop_times = {
+    1: (current_date.replace(hour=9, minute=0), current_date.replace(hour=21, minute=0)),
+    2: (current_date.replace(hour=9, minute=0), current_date.replace(hour=21, minute=0)),
+    3: (current_date.replace(hour=9, minute=0), current_date.replace(hour=21, minute=0)),
+    4: (current_date.replace(hour=9, minute=0), current_date.replace(hour=21, minute=0)),
+    5: (current_date.replace(hour=9, minute=0), current_date.replace(hour=21, minute=0)),
+    6: (current_date.replace(hour=10, minute=0), current_date.replace(hour=18, minute=0)),
+    7: (current_date.replace(hour=10, minute=0), current_date.replace(hour=18, minute=0))
+}
+
+if (shop_times[current_date.isoweekday()][0].time() \
+        <= current_date.time() \
+        < shop_times[current_date.isoweekday()][1].time()):
+    print(
+        int((shop_times[current_date.isoweekday()][1] - current_date).total_seconds() // 60)
+    )
+else:
+    print('Магазин не работает')
