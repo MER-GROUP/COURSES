@@ -36,4 +36,25 @@ Sample Input 2:
 Sample Output 2:
 01.05.1995 2
 '''
-pass
+from datetime import datetime
+
+count_staff = int(input())
+data_base = list()
+pattern = '%d.%m.%Y'
+for _ in range(count_staff):
+    data_base.append(
+        tuple(
+            map(
+                lambda x: datetime.strptime(x, pattern) if x[0].isdigit() else x,
+                input().split()
+            )
+        )
+    )
+
+min_date = min(data_base, key=lambda x: x[2])
+count_min_date = sum(1 for i in data_base if min_date[2] == i[2])
+
+if 1 == count_min_date:
+    print(f'{min_date[-1].strftime(pattern)} {min_date[0]} {min_date[1]}')
+else:
+    print(f'{min_date[-1].strftime(pattern)} {count_min_date}')
