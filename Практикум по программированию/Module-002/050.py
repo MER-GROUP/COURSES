@@ -21,4 +21,14 @@ Sample Input:
 Sample Output:
 15 bochek
 '''
-pass
+def choose_plural(amount: int, declensions: tuple):
+    if str(amount).endswith(('0', '5', '6', '7', '8', '9', '11', '12', '13', '14')):
+        return f'{amount} {declensions[2]}'
+    elif str(amount).endswith('1'):
+        return f'{amount} {declensions[0]}'
+    else:
+        return f'{amount} {declensions[1]}'
+
+if __name__ == '__main__':
+    # print(choose_plural(int(input()), ('пример', 'примера', 'примеров')))
+    print(choose_plural(int(input()), ('bochka', 'bochki', 'bochek')))
