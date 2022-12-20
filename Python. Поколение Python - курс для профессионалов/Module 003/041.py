@@ -72,3 +72,35 @@ def choose_plural(amount: int, declensions: tuple):
         return f'{amount} {declensions[0]}'
     else:
         return f'{amount} {declensions[1]}'
+
+if __name__ == '__main__':
+    course_datetime = datetime(year=2022, month=11, day=8, hour=12, minute=0)
+    pattern_date = '%d.%m.%Y'
+    pattern_time = '%H:%M'
+    current_datetime = datetime.strptime(input(), f'{pattern_date} {pattern_time}')
+    days_tuple = ('день', 'дня', 'дней')
+    hours_tuple = ('час', 'часа', 'часов')
+    minutes_tuple = ('минута', 'минуты', 'минут')
+
+    if current_datetime < course_datetime:
+        delta = abs(current_datetime - course_datetime)
+        # print(f'delta = {delta}') # test
+        days = delta.days
+        # print(f'days = {days}') # test
+        hours = int(delta.total_seconds() // 60 // 60 % 24)
+        # print(f'hours = {hours}') # test
+        minutes = int(delta.total_seconds() // 60 % 60)
+        # print(f'minutes = {minutes}') # test
+
+        if 0 != days and 0 != hours:
+            print(f'До выхода курса осталось: {choose_plural(days, days_tuple)} и {choose_plural(hours, hours_tuple)}')
+        elif 0 != days and 0 == hours:
+            print(f'До выхода курса осталось: {choose_plural(days, days_tuple)}')
+        elif 0 == days and 0 != hours and 0 != minutes:
+            print(f'До выхода курса осталось: {choose_plural(hours, hours_tuple)} и {choose_plural(minutes, minutes_tuple)}')
+        elif 0 == days and 0 != hours and 0 == minutes:
+            print(f'До выхода курса осталось: {choose_plural(hours, hours_tuple)}')
+        elif 0 == days and 0 == hours and 0 != minutes:
+            print(f'До выхода курса осталось: {choose_plural(minutes, minutes_tuple)}')
+    else:
+        print('Курс уже вышел!')
