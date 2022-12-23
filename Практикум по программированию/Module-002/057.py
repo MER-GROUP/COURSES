@@ -1,6 +1,6 @@
 '''
 Число сочетаний
-По данным натуральным n и k вычислите значение C^k_n = n!/(k!-(n-k)!)
+По данным натуральным n и k вычислите значение C^k_n = n!/(k!*(n-k)!)
 
 (число сочетаний из n элементов по k).
 
@@ -18,4 +18,6 @@ Sample Output:
 '''
 from math import factorial
 
-pass
+n, k = (int(input()) for _ in range(2))
+res = int(factorial(n)/(factorial(k) * factorial(n - k)))
+print(res)
