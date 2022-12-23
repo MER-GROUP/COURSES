@@ -14,4 +14,22 @@ Sample Input:
 Sample Output:
 120
 '''
-pass
+from functools import reduce
+from operator import mul
+
+n = int(input())
+print(
+    reduce(
+        mul,
+        range(2, n+1),
+        1
+    )
+)
+
+f = 1
+for i in range(2, n+1):
+    f *= i
+print(f)
+
+from math import factorial
+print(factorial(n))
