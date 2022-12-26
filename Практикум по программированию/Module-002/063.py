@@ -13,4 +13,13 @@ Sample Input:
 Sample Output:
 2 4
 '''
-pass
+a, b = (int(input()) for _ in range(2))
+
+print(
+    *filter(
+        lambda x: 0 == x % 2,
+        range(a, b+1)
+    )
+)
+
+print(*(i for i in range(a, b+1) if 0 == i % 2))
