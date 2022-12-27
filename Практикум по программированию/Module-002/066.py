@@ -14,4 +14,11 @@ Sample Input:
 Sample Output:
 2
 '''
-pass
+n = int(input())
+my_set = set()
+# for i in range(2, n+1):
+for i in range(2, n//2):
+    if not n % i:
+        my_set.add(i)
+        break
+print(min(my_set) if my_set else n)
