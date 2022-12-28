@@ -28,4 +28,9 @@ Sample Input 3:
 Sample Output 3:
 31
 '''
-pass
+from datetime import datetime
+from calendar import monthrange
+
+pattern = '%Y %m'
+d = datetime.strptime(input(), pattern).date()
+print(monthrange(d.year, d.month)[1])
