@@ -14,4 +14,5 @@ Sample Input:
 Sample Output:
 1 2 4 8 16 32
 '''
-pass
+n = int(input())
+print(*(i for i in range(1, n+1) if not n % i))
