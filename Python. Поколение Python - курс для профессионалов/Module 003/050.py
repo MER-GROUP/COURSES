@@ -22,4 +22,31 @@ datetime.date(2021, 12, 20), datetime.date(2021, 12, 27)]
 Примечание 3. Тестовые данные доступны по ссылке.
 https://stepik.org/media/attachments/lesson/570049/tests_2575895.zip
 '''
-from calendar import Calendar
+# from datetime import datetime, timedelta
+
+# def get_all_mondays(year):
+#     arr = list()
+#     d = datetime(year=year, month=1, day=1)
+#     while year == d.year:
+#         if 1 == d.isoweekday():
+#             arr.append(d.date())
+#         d = d + timedelta(days=1)
+#     return arr
+
+# if __name__ == '__main__':
+#     print(get_all_mondays(2021))
+
+import calendar
+from datetime import date
+
+def get_all_mondays(year):
+    mondays = []
+    for month in range(1, 13):
+        for week in calendar.monthcalendar(year, month):
+            monday = week[0]
+            if monday:
+                mondays.append(date(year, month, monday))
+    return mondays
+
+if __name__ == '__main__':
+    print(get_all_mondays(2021))
