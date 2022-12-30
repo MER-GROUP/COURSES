@@ -18,4 +18,16 @@ Sample Input:
 Sample Output:
 4 1 0
 '''
-pass    
+def counts(arr):
+    zero, plus, minus = [0] * 3
+    for i in arr:
+        if 0 == i:
+            zero += 1
+        elif 0 < i:
+            plus += 1
+        else:
+            minus += 1
+    return zero, plus, minus
+
+arr = (int(input()) for _ in range(int(input())))
+print(*counts(arr))
