@@ -77,5 +77,9 @@ public static int main (string[] args) {
     stdout.printf(r.to_string() + "\n");
     stdout.printf(c3.to_string() + "\n");
 
+    int[] arr2 = new int[10];
+    int r2 = arr2.length;
+    stdout.printf(r2.to_string() + "\n");
+
     return 0;
 }
