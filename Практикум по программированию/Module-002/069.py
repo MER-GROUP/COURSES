@@ -20,4 +20,4 @@ Sample Input:
 Sample Output:
 41405
 '''
-pass
+print(sum(map(int, input().split())))
