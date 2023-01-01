@@ -18,4 +18,12 @@ Sample Input:
 Sample Output:
 0
 '''
-pass
+a, b, c, d, e = (int(input()) for _ in range(5))
+count = 0
+for x in range(1001):
+    try:
+        if 0 == (a*x**3 + b*x**2 + c*x + d) / (x - e):
+            count += 1
+    except ZeroDivisionError:
+        pass
+print(count)
