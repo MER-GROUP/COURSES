@@ -49,4 +49,5 @@ for i in s:
 '''
 import sys
 
-pass
+arr = [i for i in sys.stdin if not i.strip().startswith('#')]
+sys.stdout.writelines(arr)
