@@ -43,4 +43,16 @@ Sample Output 2:
 '''
 import sys
 
-pass
+arr = tuple(
+    map(
+        int,
+        sys.stdin,
+    )
+)
+
+if not len(arr):
+    print('нет учеников')
+else:
+    print(f'Рост самого низкого ученика: {min(arr)}')
+    print(f'Рост самого высокого ученика: {max(arr)}')
+    print(f'Средний рост: {sum(arr)/len(arr)}')
