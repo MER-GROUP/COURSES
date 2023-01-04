@@ -19,4 +19,11 @@ Sample Input:
 Sample Output:
 8
 '''
-pass
+x, p, y = (int(input()) for _ in '123')
+count = 0
+
+while x < y:
+    x += x/100*p
+    count += 1
+
+print(count)
