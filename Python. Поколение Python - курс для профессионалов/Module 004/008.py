@@ -46,5 +46,19 @@ Sample Output 3:
 MIX
 '''
 import sys
+from datetime import datetime
 
-pass
+pattern = '%d.%m.%Y'
+arr = list(
+    map(
+        lambda x: datetime.strptime(x.strip(), pattern).date(),
+        sys.stdin
+    )
+)
+
+if sorted(set(arr)) == arr:
+    print('ASC')
+elif sorted(set(arr), reverse=True) == arr:
+    print('DESC')
+else:
+    print('MIX')
