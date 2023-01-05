@@ -15,4 +15,12 @@ Sample Input:
 Sample Output:
 8
 '''
-pass
+def fibo(n):
+    f1, f0 = 1, 0
+    while n:
+        f1, f0 = f1 + f0, f1
+        n -= 1
+    return f0
+
+if __name__ == '__main__':
+    print(fibo(int(input())))
