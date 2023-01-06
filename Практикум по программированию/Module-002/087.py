@@ -26,4 +26,12 @@ Sample Output:
 -1
 -1
 '''
-pass
+a, b = (int(input()) for _ in '12')
+
+while a > b:
+    if not a % 2 and a // 2 >= b:
+        a //= 2
+        print(':2')
+    else:
+        a -= 1
+        print('-1')
