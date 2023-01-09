@@ -39,3 +39,34 @@ OFT group
 Примечание 5. При открытии файла используйте явное указание кодировки UTF-8.
 '''
 import csv
+
+# with open('013-salary_data.csv', 'rt', encoding='utf-8', newline='') as file_opener:
+with open('salary_data.csv', 'rt', encoding='utf-8', newline='') as file_opener:
+    csv_opener = csv.DictReader(file_opener, delimiter=';', quoting=csv.QUOTE_NONE)
+    salary_sum = dict()
+    salary_count = dict()
+
+    for line in csv_opener:
+        salary_sum[line[list(line.keys())[0]]] = salary_sum.get(line[list(line.keys())[0]], 0) \
+                                            + int(line[list(line.keys())[1]])
+        salary_count[line[list(line.keys())[0]]] = salary_count.get(line[list(line.keys())[0]], 0) + 1
+    # print(salary_sum) # test
+    # print(salary_count) # test
+
+    average = list(
+            map(
+            lambda x, y: {x[0]: int(x[1])/int(y[1])},
+            salary_sum.items(), 
+            salary_count.items()
+        )
+    )
+    # print(average) # test
+    # print(type(average)) # test
+
+    answer = sorted(
+        average, 
+        key=lambda x: ((x[list(x.keys())[0]]), list(x.keys())[0])
+    )
+
+    for i in answer:
+        print(list(i.keys())[0])
