@@ -38,4 +38,67 @@ A>B
 >A
 A>B
 '''
-pass
+a, b, n = (int(input()) for _ in range(3))
+sosud_a, sosud_b = 0, 0
+
+arr = list()
+answer = False
+
+if a > b:
+    # a > b
+    while True:
+        print('>A')
+        arr.append('>A')
+        sosud_a = a
+        if n == sosud_a:
+            answer = True
+            break
+
+        print('A>B')
+        arr.append('A>B')
+        sosud_a = 0
+        sosud_b = b
+        if n == sosud_b:
+            answer = True
+            break
+
+        break
+
+print(f'answer = {answer}')
+# a < b
+if not answer:
+    arr.clear()
+    sosud_a, sosud_b = 0, 0
+    while True:
+        print('>B')
+        arr.append('>B')
+        sosud_b = b
+        print(f'sosud_b = {sosud_b}') ###
+        if n == sosud_b:
+            print('00000000000000000000000')
+            answer = True
+            break
+
+        print('B>A')
+        arr.append('B>A')
+        sosud_b = 0 if sosud_a + b <= a else a - b
+        print(f'sosud_b = {sosud_b}') ###
+        if n == sosud_b:
+            print('11111111111111111111111')
+            answer = True
+            break
+        sosud_a = sosud_a + b if sosud_a + b <= a else a
+        print(f'sosud_a = {sosud_a}') ###
+        if n == sosud_a:
+            print('22222222222222222222222')
+            answer = True
+            break
+        if sosud_a == a:
+            break
+
+
+print(f'answer = {answer}')
+if answer:
+    print(*arr, sep='\n')
+else:
+    print('Impossible')
