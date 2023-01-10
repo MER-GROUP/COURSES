@@ -39,3 +39,23 @@ iCloud.com,29
 Примечание 4. При открытии файла используйте явное указание кодировки UTF-8.
 '''
 import csv
+
+# with open('015-data.csv', 'rt', encoding='utf-8', newline='') as file_opener:
+with open('data.csv', 'rt', encoding='utf-8', newline='') as file_opener:
+    csv_opener = csv.DictReader(file_opener)
+
+    db = dict()
+    for d in csv_opener:
+        key = d[csv_opener.fieldnames[2]].split('@')[1]
+        db[key] = db.get(key, 0) + 1
+
+fieldnames = ['domain', 'count']
+
+with open('domain_usage.csv', 'wt', encoding='utf-8', newline='') as file_writener:
+    csv_writener = csv.DictWriter(file_writener, fieldnames=fieldnames)
+    csv_writener.writeheader()
+    csv_writener.writerows(
+        [{fieldnames[0]: v1, fieldnames[1]: v2} for v1, v2 in sorted(
+            db.items(), key=lambda x: (x[1], x[0])
+        )]
+    )
