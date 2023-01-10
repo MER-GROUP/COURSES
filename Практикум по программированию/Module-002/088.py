@@ -140,7 +140,7 @@ if __name__ == '__main__':
     flag = False
     check = False
     
-    if not check: 
+    if not check and not flag: 
         check, arr = a_ge_b(a, b, n)
         print('a_ge_b')
         if check: print(*arr, sep='\n')
