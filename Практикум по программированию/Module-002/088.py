@@ -38,67 +38,135 @@ A>B
 >A
 A>B
 '''
-a, b, n = (int(input()) for _ in range(3))
-sosud_a, sosud_b = 0, 0
-
-arr = list()
-answer = False
-
-if a > b:
-    # a > b
-    while True:
-        print('>A')
-        arr.append('>A')
-        sosud_a = a
-        if n == sosud_a:
-            answer = True
-            break
-
-        print('A>B')
-        arr.append('A>B')
-        sosud_a = 0
-        sosud_b = b
-        if n == sosud_b:
-            answer = True
-            break
-
-        break
-
-print(f'answer = {answer}')
-# a < b
-if not answer:
-    arr.clear()
+###################################
+def a_ge_b(a, b, n):
+    print('---a_ge_b---') # test
+    arr = list()
     sosud_a, sosud_b = 0, 0
-    while True:
-        print('>B')
-        arr.append('>B')
-        sosud_b = b
-        print(f'sosud_b = {sosud_b}') ###
-        if n == sosud_b:
-            print('00000000000000000000000')
-            answer = True
-            break
+    check = False
 
-        print('B>A')
-        arr.append('B>A')
-        sosud_b = 0 if sosud_a + b <= a else a - b
-        print(f'sosud_b = {sosud_b}') ###
-        if n == sosud_b:
-            print('11111111111111111111111')
-            answer = True
-            break
-        sosud_a = sosud_a + b if sosud_a + b <= a else a
-        print(f'sosud_a = {sosud_a}') ###
-        if n == sosud_a:
-            print('22222222222222222222222')
-            answer = True
-            break
-        if sosud_a == a:
-            break
+    if a >= b:
+        while True:
+            print('>A') # test
+            arr.append('>A')
+            sosud_a = a
+            if n == sosud_a:
+                check = True
+                break
 
+            print('A>B') # test
+            arr.append('A>B')
+            sosud_a = 0
+            sosud_b = b
+            if n == sosud_b:
+                check = True
+                break
 
-print(f'answer = {answer}')
-if answer:
-    print(*arr, sep='\n')
-else:
-    print('Impossible')
+            break
+    
+    print('-----end----') # test
+    return check, arr
+###################################
+def b_ge_a(a, b, n):
+    print('---b_ge_a---') # test
+    arr = list()
+    sosud_a, sosud_b = 0, 0
+    check = False
+
+    if b >= a:
+        while True:
+            print('>B') # test
+            arr.append('>B')
+            sosud_b = b
+            if n == sosud_b:
+                check = True
+                break
+
+            print('B>A') # test
+            arr.append('B>A')
+            sosud_b = 0
+            sosud_a = a
+            if n == sosud_a:
+                check = True
+                break
+
+            break
+    
+    print('-----end----') # test
+    return check, arr
+###################################
+def a_le_b(a, b, n):
+    print('---a_le_b---') # test
+    arr = list()
+    sosud_a, sosud_b = 0, 0
+    check = False
+
+    if a <= b:
+        while True:
+            print('>A')
+            arr.append('>A')
+            sosud_a = a
+            if n == sosud_a:
+                check = True
+                break
+
+            print('A>B')
+            arr.append('A>B')
+            sosud_a = 0 if sosud_b + a <= b else sosud_b + a - b
+            if n == sosud_a:
+                check = True
+                break
+            sosud_b = sosud_b + a if sosud_b + a <= b else b
+            if n == sosud_b:
+                check = True
+                break
+            if sosud_b == b: # exit func
+                break
+
+    print('-----end----') # test
+    return check, arr
+###################################
+def b_le_a(a, b, n):
+    pass
+###################################
+def a_le_2_b(a, b, n):
+    pass
+###################################
+def b_le_2_a(a, b, n):
+    pass
+###################################
+if __name__ == '__main__':
+    a, b, n = (int(input()) for _ in range(3))
+    flag = False
+    check = False
+    
+    if not check: 
+        check, arr = a_ge_b(a, b, n)
+        print('a_ge_b')
+        if check: print(*arr, sep='\n')
+        if check: flag = True
+
+    if not check and not flag:
+        check, arr = b_ge_a(a, b, n)
+        print('b_ge_a')
+        if check: print(*arr, sep='\n')
+        if check: flag = True 
+
+    if not check and not flag:
+        check, arr = a_le_b(a, b, n)
+        print('a_le_b')
+        if check: print(*arr, sep='\n')
+        if check: flag = True 
+
+    if not check and not flag:
+        print('b_le_a')
+
+    if not check and not flag:
+        print('a_le_2_b')
+
+    if not check and not flag:
+        print('b_le_2_a')
+
+    if not check and not flag:
+        print('Impossible')
+###################################
