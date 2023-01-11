@@ -36,4 +36,17 @@ Miss. Marguerite Rut Sandstrom
 '''
 import csv
 
-pass
+# with open(file='017-titanic.csv', mode='rt', encoding='utf-8', newline='') as file_opener:
+with open(file='titanic.csv', mode='rt', encoding='utf-8', newline='') as file_opener:
+    csv_opener = csv.reader(file_opener, delimiter=';', quoting=csv.QUOTE_NONE)
+    next(csv_opener)
+    arr = list(
+        filter(
+            # lambda x: '1' == x[0] and float(x[3]).is_integer() and 18 > int(x[3]),
+            lambda x: '1' == x[0] and 18 > float(x[3]),
+            csv_opener
+        )
+    )
+# print(*arr, sep='\n') # test
+arr.sort(key=lambda x: x[2], reverse=True)
+[print(x[1]) for x in arr]
