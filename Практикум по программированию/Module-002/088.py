@@ -158,7 +158,74 @@ def b_le_a(a, b, n):
     return check, arr
 ###################################
 def a_le_2_b(a, b, n):
-    pass
+    print('---a_le_2_b---') # test
+    arr = list()
+    sosud_a, sosud_b = 0, 0
+    check = False
+
+    if a <= b:
+        while True:
+            print('>A') # test
+            arr.append('>A')
+            sosud_a = a
+            if n == sosud_a:
+                check = True
+                break
+
+            print('A>B') # test
+            arr.append('A>B')
+            sosud_a = 0 if sosud_b + a <= b else sosud_b + a - b
+            if n == sosud_a:
+                check = True
+                break
+            sosud_b = sosud_b + a if sosud_b + a <= b else b
+            if n == sosud_b:
+                check = True
+                break
+            if sosud_b == b: # exit func
+                flag = True
+                while True:
+                    if flag:
+                        print('B>') # test
+                        arr.append('B>')
+                        sosud_b = 0
+                        # flag = False
+
+                    print('A>B') # test
+                    arr.append('A>B')  
+
+                    if flag:
+                        sosud_a_remainder = sosud_a
+                        sosud_a = 0
+                        # flag = False
+                    else:
+                        sosud_a = 0 if sosud_b + a <= b else sosud_b + a - b
+                        if n == sosud_a:
+                            check = True
+                            break
+
+                    if flag:
+                        sosud_b = sosud_a_remainder
+                        flag = False
+                    else:
+                        sosud_b = sosud_b + a if sosud_b + a <= b else b
+                        if n == sosud_b:
+                            check = True
+                            break                 
+
+                    print('>A') # test
+                    arr.append('>A')
+                    sosud_a = a
+                    if n == sosud_a:
+                        check = True
+                        break
+
+                    if sosud_b == b: # exit func
+                        break
+                break
+
+    print('-----end----') # test
+    return check, arr
 ###################################
 def b_le_2_a(a, b, n):
     pass
@@ -193,7 +260,10 @@ if __name__ == '__main__':
         if check: flag = True 
 
     if not check and not flag:
+        check, arr = a_le_2_b(a, b, n)
         print('a_le_2_b')
+        if check: print(*arr, sep='\n')
+        if check: flag = True 
 
     if not check and not flag:
         print('b_le_2_a')
