@@ -40,21 +40,21 @@ A>B
 '''
 ###################################
 def a_ge_b(a, b, n):
-    print('---a_ge_b---') # test
+    # print('---a_ge_b---') # test
     arr = list()
     sosud_a, sosud_b = 0, 0
     check = False
 
     if a >= b:
         while True:
-            print('>A') # test
+            # print('>A') # test
             arr.append('>A')
             sosud_a = a
             if n == sosud_a:
                 check = True
                 break
 
-            print('A>B') # test
+            # print('A>B') # test
             arr.append('A>B')
             sosud_a = 0
             sosud_b = b
@@ -64,25 +64,25 @@ def a_ge_b(a, b, n):
 
             break
     
-    print('-----end----') # test
+    # print('-----end----') # test
     return check, arr
 ###################################
 def b_ge_a(a, b, n):
-    print('---b_ge_a---') # test
+    # print('---b_ge_a---') # test
     arr = list()
     sosud_a, sosud_b = 0, 0
     check = False
 
     if b >= a:
         while True:
-            print('>B') # test
+            # print('>B') # test
             arr.append('>B')
             sosud_b = b
             if n == sosud_b:
                 check = True
                 break
 
-            print('B>A') # test
+            # print('B>A') # test
             arr.append('B>A')
             sosud_b = 0
             sosud_a = a
@@ -92,25 +92,25 @@ def b_ge_a(a, b, n):
 
             break
     
-    print('-----end----') # test
+    # print('-----end----') # test
     return check, arr
 ###################################
 def a_le_b(a, b, n):
-    print('---a_le_b---') # test
+    # print('---a_le_b---') # test
     arr = list()
     sosud_a, sosud_b = 0, 0
     check = False
 
     if a <= b:
         while True:
-            print('>A') # test
+            # print('>A') # test
             arr.append('>A')
             sosud_a = a
             if n == sosud_a:
                 check = True
                 break
 
-            print('A>B') # test
+            # print('A>B') # test
             arr.append('A>B')
             sosud_a = 0 if sosud_b + a <= b else sosud_b + a - b
             if n == sosud_a:
@@ -123,25 +123,25 @@ def a_le_b(a, b, n):
             if sosud_b == b: # exit func
                 break
 
-    print('-----end----') # test
+    # print('-----end----') # test
     return check, arr
 ###################################
 def b_le_a(a, b, n):
-    print('---b_le_a---') # test
+    # print('---b_le_a---') # test
     arr = list()
     sosud_a, sosud_b = 0, 0
     check = False
 
     if b <= a:
         while True:
-            print('>B') # test
+            # print('>B') # test
             arr.append('>B')
             sosud_b = b
             if n == sosud_b:
                 check = True
                 break
 
-            print('B>A') # test
+            # print('B>A') # test
             arr.append('B>A')
             sosud_b = 0 if sosud_a + b <= a else sosud_a + b - a
             if n == sosud_b:
@@ -154,25 +154,25 @@ def b_le_a(a, b, n):
             if sosud_a == a: # exit func
                 break
 
-    print('-----end----') # test
+    # print('-----end----') # test
     return check, arr
 ###################################
 def a_le_2_b(a, b, n):
-    print('---a_le_2_b---') # test
+    # print('---a_le_2_b---') # test
     arr = list()
     sosud_a, sosud_b = 0, 0
     check = False
 
     if a <= b:
         while True:
-            print('>A') # test
+            # print('>A') # test
             arr.append('>A')
             sosud_a = a
             if n == sosud_a:
                 check = True
                 break
 
-            print('A>B') # test
+            # print('A>B') # test
             arr.append('A>B')
             sosud_a = 0 if sosud_b + a <= b else sosud_b + a - b
             if n == sosud_a:
@@ -186,12 +186,12 @@ def a_le_2_b(a, b, n):
                 flag = True
                 while True:
                     if flag:
-                        print('B>') # test
+                        # print('B>') # test
                         arr.append('B>')
                         sosud_b = 0
                         # flag = False
 
-                    print('A>B') # test
+                    # print('A>B') # test
                     arr.append('A>B')  
 
                     if flag:
@@ -213,7 +213,7 @@ def a_le_2_b(a, b, n):
                             check = True
                             break                 
 
-                    print('>A') # test
+                    # print('>A') # test
                     arr.append('>A')
                     sosud_a = a
                     if n == sosud_a:
@@ -224,25 +224,25 @@ def a_le_2_b(a, b, n):
                         break
                 break
 
-    print('-----end----') # test
+    # print('-----end----') # test
     return check, arr
 ###################################
 def b_le_2_a(a, b, n):
-    print('---b_le_2_a---') # test
+    # print('---b_le_2_a---') # test
     arr = list()
     sosud_a, sosud_b = 0, 0
     check = False
 
     if b <= a:
         while True:
-            print('>B') # test
+            # print('>B') # test
             arr.append('>B')
             sosud_b = b
             if n == sosud_b:
                 check = True
                 break
 
-            print('B>A') # test
+            # print('B>A') # test
             arr.append('B>A')
             sosud_b = 0 if sosud_a + b <= a else sosud_a + b - a
             if n == sosud_b:
@@ -256,12 +256,12 @@ def b_le_2_a(a, b, n):
                 flag = True
                 while True:
                     if flag:
-                        print('A>') # test
+                        # print('A>') # test
                         arr.append('A>')
                         sosud_a = 0
                         # flag = False
 
-                    print('B>A') # test
+                    # print('B>A') # test
                     arr.append('B>A')  
 
                     if flag:
@@ -283,7 +283,7 @@ def b_le_2_a(a, b, n):
                             check = True
                             break                 
 
-                    print('>B') # test
+                    # print('>B') # test
                     arr.append('>B')
                     sosud_b = b
                     if n == sosud_b:
@@ -294,7 +294,7 @@ def b_le_2_a(a, b, n):
                         break
                 break
 
-    print('-----end----') # test
+    # print('-----end----') # test
     return check, arr
 ###################################
 if __name__ == '__main__':
@@ -304,37 +304,37 @@ if __name__ == '__main__':
     
     if not check and not flag: 
         check, arr = a_ge_b(a, b, n)
-        print('a_ge_b')
+        # print('a_ge_b') # test
         if check: print(*arr, sep='\n')
         if check: flag = True
 
     if not check and not flag:
         check, arr = b_ge_a(a, b, n)
-        print('b_ge_a')
+        # print('b_ge_a') # test
         if check: print(*arr, sep='\n')
         if check: flag = True 
 
     if not check and not flag:
         check, arr = a_le_b(a, b, n)
-        print('a_le_b')
+        # print('a_le_b') # test
         if check: print(*arr, sep='\n')
         if check: flag = True 
 
     if not check and not flag:
         check, arr = b_le_a(a, b, n)
-        print('b_le_a')
+        # print('b_le_a') # test
         if check: print(*arr, sep='\n')
         if check: flag = True 
 
     if not check and not flag:
         check, arr = a_le_2_b(a, b, n)
-        print('a_le_2_b')
+        # print('a_le_2_b') # test
         if check: print(*arr, sep='\n')
         if check: flag = True 
 
     if not check and not flag:
         check, arr = b_le_2_a(a, b, n)
-        print('b_le_2_a')
+        # print('b_le_2_a') # test
         if check: print(*arr, sep='\n')
         if check: flag = True 
 
