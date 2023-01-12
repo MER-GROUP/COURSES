@@ -49,4 +49,12 @@ https://stepik.org/media/attachments/lesson/518491/tests_3072471.zip
 '''
 import csv
 
-pass
+n = int(input()) - 1
+# with open(file='019-deniro.csv', mode='rt', encoding='utf-8', newline='') as file_opener:
+with open(file='deniro.csv', mode='rt', encoding='utf-8', newline='') as file_opener:
+    csv_opener = csv.reader(file_opener)
+    arr = sorted(
+        csv_opener,
+        key=lambda x: int(x[n]) if x[n].isdigit() else  x[n]
+    )
+[print(f'{a},{b},{c}') for a, b, c in arr]
