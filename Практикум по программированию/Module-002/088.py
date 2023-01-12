@@ -302,42 +302,80 @@ if __name__ == '__main__':
     flag = False
     check = False
     
-    if not check and not flag: 
-        check, arr = a_ge_b(a, b, n)
-        # print('a_ge_b') # test
-        if check: print(*arr, sep='\n')
-        if check: flag = True
+    # if not check and not flag: 
+    #     check, arr = a_ge_b(a, b, n)
+    #     # print('a_ge_b') # test
+    #     if check: print(*arr, sep='\n')
+    #     if check: flag = True
 
-    if not check and not flag:
-        check, arr = b_ge_a(a, b, n)
-        # print('b_ge_a') # test
-        if check: print(*arr, sep='\n')
-        if check: flag = True 
+    # if not check and not flag:
+    #     check, arr = b_ge_a(a, b, n)
+    #     # print('b_ge_a') # test
+    #     if check: print(*arr, sep='\n')
+    #     if check: flag = True 
 
-    if not check and not flag:
-        check, arr = a_le_b(a, b, n)
-        # print('a_le_b') # test
-        if check: print(*arr, sep='\n')
-        if check: flag = True 
+    # if not check and not flag:
+    #     check, arr = a_le_b(a, b, n)
+    #     # print('a_le_b') # test
+    #     if check: print(*arr, sep='\n')
+    #     if check: flag = True 
 
-    if not check and not flag:
-        check, arr = b_le_a(a, b, n)
-        # print('b_le_a') # test
-        if check: print(*arr, sep='\n')
-        if check: flag = True 
+    # if not check and not flag:
+    #     check, arr = b_le_a(a, b, n)
+    #     # print('b_le_a') # test
+    #     if check: print(*arr, sep='\n')
+    #     if check: flag = True 
 
-    if not check and not flag:
-        check, arr = a_le_2_b(a, b, n)
-        # print('a_le_2_b') # test
-        if check: print(*arr, sep='\n')
-        if check: flag = True 
+    # if not check and not flag:
+    #     check, arr = a_le_2_b(a, b, n)
+    #     # print('a_le_2_b') # test
+    #     if check: print(*arr, sep='\n')
+    #     if check: flag = True 
 
-    if not check and not flag:
-        check, arr = b_le_2_a(a, b, n)
-        # print('b_le_2_a') # test
-        if check: print(*arr, sep='\n')
-        if check: flag = True 
+    # if not check and not flag:
+    #     check, arr = b_le_2_a(a, b, n)
+    #     # print('b_le_2_a') # test
+    #     if check: print(*arr, sep='\n')
+    #     if check: flag = True 
 
-    if not check and not flag:
+    # if not check and not flag:
+    #     print('Impossible')
+
+    res_arr = list()
+
+    check, arr = a_ge_b(a, b, n)
+    # if check: print(arr) # test
+    if check: res_arr.append(arr)
+
+    check, arr = b_ge_a(a, b, n)
+    # if check: print(arr) # test
+    if check: res_arr.append(arr)
+
+    check, arr = a_le_b(a, b, n)
+    # if check: print(arr) # test
+    if check: res_arr.append(arr)
+
+    check, arr = b_le_a(a, b, n)
+    # if check: print(arr) # test
+    if check: res_arr.append(arr)
+
+    check, arr = a_le_2_b(a, b, n)
+    # if check: print(arr) # test
+    if check: res_arr.append(arr)
+
+    check, arr = b_le_2_a(a, b, n)
+    # if check: print(arr) # test
+    if check: res_arr.append(arr)
+
+    # print(*res_arr, sep='\n') #test
+    if not res_arr:
         print('Impossible')
+    else:
+        print(
+            *min(
+                res_arr,
+                key=lambda x: len(x)
+            ),
+            sep='\n'
+        )
 ###################################
