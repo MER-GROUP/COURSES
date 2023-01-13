@@ -65,4 +65,50 @@ https://stepik.org/media/attachments/lesson/518491/tests_3069917.zip
 '''
 import csv
 
-pass
+def condense_csv(filename, id_name):
+    with open(file=filename, mode='rt', encoding='utf-8', newline='') as file_opener,\
+        open(file='condensed.csv', mode='wt', encoding='utf-8', newline='') as file_writener:
+
+        csv_opener = tuple(csv.reader(file_opener, delimiter=',', quoting=csv.QUOTE_NONE))
+        # print(csv_opener) # test
+
+        arr = [{id_name: v, k1: v1} for v, k1, v1 in csv_opener]
+        # print(arr) # test
+
+        id_one = list(arr[0].values())[0]
+        # print(id_one) # test
+
+        fieldnames = [id_name]
+        for d in arr:
+            if d[id_name] == id_one:
+                fieldnames += [list(d.keys())[1]]
+        # print(fieldnames) # test
+
+        arr_writener = list()
+        buff_writener = list()
+        i = 1
+        fieldnames_len = len(fieldnames) - 1
+        # print(f'fieldnames_len = {fieldnames_len}') # test
+
+        for line_dict in arr:
+            # print(line_dict) # test
+            # print(f'i = {i}') # test
+            if fieldnames_len >= i:
+                if 1 == i:
+                    buff_writener.append(list(line_dict.values())[0])
+                buff_writener.append(list(line_dict.values())[1])
+                if fieldnames_len == i:
+                    arr_writener.append(buff_writener.copy())
+                    buff_writener.clear()
+                    # print(arr_writener) # test
+                    i = 1
+                    continue
+            i += 1
+        # print(arr_writener) # test
+
+        csv_writener = csv.writer(file_writener, delimiter=',', quoting=csv.QUOTE_NONE)
+        csv_writener.writerow(fieldnames)
+        csv_writener.writerows(arr_writener)
+
+if __name__ == '__main__':
+    condense_csv('020-data.csv', id_name='ID')
