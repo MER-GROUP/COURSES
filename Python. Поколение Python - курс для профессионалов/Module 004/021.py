@@ -36,4 +36,22 @@ year,1-А,1-Б,2-А,2-Б,...
 '''
 import csv
 
-pass
+# with open(file='021-student_counts.csv', mode='rt', encoding='utf-8', newline='') as file_opener,\
+with open(file='student_counts.csv', mode='rt', encoding='utf-8', newline='') as file_opener,\
+    open(file='sorted_student_counts.csv', mode='wt', encoding='utf-8', newline='') as file_writener:
+    csv_opener = csv.DictReader(file_opener)
+
+    fieldnames = [csv_opener.fieldnames[0]] +\
+        sorted(csv_opener.fieldnames[1:], key=lambda x: (int(x.split('-')[0]), x.split('-')[1]))
+    # print(fieldnames) # test
+    csv_writener = csv.DictWriter(file_writener, fieldnames=fieldnames)
+    csv_writener.writeheader()
+
+    csv_writener.writerows(
+        [{k: v for k, v in [list(d.items())[0],] + \
+                sorted(
+                    list(d.items())[1:], 
+                    key=lambda x: (int(x[0].split('-')[0]), x[0].split('-')[1])
+                    )} \
+                for d in csv_opener]
+    )
