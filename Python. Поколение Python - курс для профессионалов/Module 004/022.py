@@ -37,4 +37,34 @@ https://stepik.org/media/attachments/lesson/518491/clue_hungry_student.txt
 '''
 import csv
 
-pass
+# with open(file='022-prices.csv', mode='rt', encoding='utf-8', newline='') as file_opener:
+with open(file='prices.csv', mode='rt', encoding='utf-8', newline='') as file_opener:
+    csv_opener = list(csv.reader(file_opener, delimiter=';'))
+
+csv_opener = tuple(zip(*csv_opener))
+arr = map(
+    lambda m, c: (csv_opener[0][c.index(str(m))], m, c[0]),
+    map(
+        min,
+        map(
+            lambda x: map(int, x[1:]),
+            csv_opener[1:]
+        )
+    ),
+    csv_opener[1:]
+)
+arr = list(arr)
+
+min_tovar = min(arr, key=lambda x: (int(x[1]), x[0]))[1]
+
+db = filter(
+    lambda x: x[1] == min_tovar,
+    arr
+)
+# db = list(db) 
+
+res = min(
+    db,
+    key=lambda x: (x[2], x[0])
+)
+print(f'{res[2]}: {res[0]}')
