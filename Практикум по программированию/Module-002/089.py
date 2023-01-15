@@ -23,4 +23,8 @@ Sample Input:
 Sample Output:
 3
 '''
-pass
+import sys
+
+# sys.stdin = open(file='089.csv', mode='rt', encoding='utf-8', newline='')
+tup = tuple(map(int,sys.stdin.readlines()))
+print(len(tup[: tup.index(0)]))
