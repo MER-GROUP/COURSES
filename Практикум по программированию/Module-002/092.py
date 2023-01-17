@@ -22,8 +22,11 @@ Sample Output:
 '''
 import sys
 
-sys.stdin = open(file='092.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='092.csv', mode='rt', encoding='utf-8', newline='')
 tup = tuple(map(int,sys.stdin.readlines()))
 
-# ans = sum(tup[: tup.index(0)]) / len(tup[: tup.index(0)])
-# print(int(ans) if ans.is_integer() else ans)
+ans = filter(
+    lambda x: not x % 2,
+    tup[: tup.index(0)]
+)
+print(len(tuple(ans)))
