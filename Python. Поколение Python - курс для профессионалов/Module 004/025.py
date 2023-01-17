@@ -38,3 +38,7 @@ club2 = {"name": "FC Barcelona", "country": "Spain", "founded": 1899,
 
 club3 = {"name": "FC Manchester United", "country": "England", "founded": 1878,
          "trainer": "Michael Carrick", "gaolkeeper": "D. De Gea", "league_position": 8}
+
+with open(file='data.json', mode='wt', encoding='utf-8', newline='') as file_writener:
+    arr = [club1, club2, club3]
+    json.dump(arr, file_writener, indent=3)
