@@ -41,3 +41,26 @@ https://stepik.org/media/attachments/lesson/623073/clue_different_types.txt
 '''
 import json
 
+# with open(file='029-data.json', mode='rt', encoding='utf-8', newline='') as file_opener,\
+with open(file='data.json', mode='rt', encoding='utf-8', newline='') as file_opener,\
+    open(file='updated_data.json', mode='wt', encoding='utf-8', newline='') as file_writener:
+    json_opener = json.load(file_opener, )
+
+    i = 0
+    while i < len(json_opener):
+        if isinstance(json_opener[i], str):
+            json_opener[i] = f'{json_opener[i]}!'
+        elif isinstance(json_opener[i], bool):
+            json_opener[i] = not json_opener[i]
+        elif isinstance(json_opener[i], int):
+            json_opener[i] += 1 
+        elif isinstance(json_opener[i], list):
+            json_opener[i] = json_opener[i] * 2
+        elif isinstance(json_opener[i], dict):
+            json_opener[i].update({"newkey": None})
+        else:
+            del json_opener[i]
+            continue
+        i += 1
+
+    json.dump(json_opener, file_writener)
