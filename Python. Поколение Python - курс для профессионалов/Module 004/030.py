@@ -50,4 +50,11 @@ https://stepik.org/media/attachments/lesson/623073/clue_data_merge.txt
 '''
 import json
 
-pass
+# with open(file='030-data1.json', mode='rt', encoding='utf-8', newline='') as file_opener_1,\
+#     open(file='030-data2.json', mode='rt', encoding='utf-8', newline='') as file_opener_2,\
+with open(file='data1.json', mode='rt', encoding='utf-8', newline='') as file_opener_1,\
+    open(file='data2.json', mode='rt', encoding='utf-8', newline='') as file_opener_2,\
+    open(file='data_merge.json', mode='wt', encoding='utf-8', newline='') as file_writener:
+    dictonary = json.load(file_opener_1)
+    dictonary.update(json.load(file_opener_2))
+    json.dump(dictonary, file_writener, indent=4)
