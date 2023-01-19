@@ -22,9 +22,8 @@ Sample Output:
 '''
 import sys
 
-sys.stdin = open(file='095.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='095.csv', mode='rt', encoding='utf-8', newline='')
 tup = tuple(map(int,sys.stdin.readlines()))
 
 arr = tup[: tup.index(0)]
-# ans = sum(1 for i in range(1, len(arr)) if arr[i] > arr[i-1])
-# print(ans)
+print(sorted(arr)[-2])
