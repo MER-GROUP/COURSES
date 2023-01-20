@@ -13,11 +13,49 @@
 
 Выходные данные
 Выведите ответ на задачу.
+
+Sample Input:
+1
+7
+9
+0
+Sample Output:
+7
+
+Sample Input:
+8
+9
+9
+9
+7
+7
+8
+0
+Sample Output:
+8
+
+Sample Input:
+7
+7
+6
+5
+0
+Sample Output:
+6
 '''
 import sys
 
-sys.stdin = open(file='096.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='096.csv', mode='rt', encoding='utf-8', newline='')
 tup = tuple(map(int,sys.stdin.readlines()))
 arr = tup[: tup.index(0)]
 
-print(arr)
+max_n = arr[0]
+max_prev_n = float('-Infinity')
+for i in arr[1:]:
+    if i > max_n:
+        max_n, max_prev_n = i, max_n
+    elif i > max_prev_n and not i == max_n:
+        max_prev_n = i
+print(max_prev_n)
+
+print(sorted(set(arr))[-2])
