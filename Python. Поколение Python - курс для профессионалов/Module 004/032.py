@@ -47,4 +47,14 @@ https://stepik.org/media/attachments/lesson/623073/clue_religion.txt
 '''
 import json
 
-pass
+# with open(file='032-countries.json', mode='rt', encoding='utf-8', newline='') as file_opener,\
+with open(file='countries.json', mode='rt', encoding='utf-8', newline='') as file_opener,\
+    open(file='religion.json', mode='wt', encoding='utf-8', newline='') as file_writener:
+    countries_list = json.load(file_opener)
+
+    religion_dict = dict()
+    for d in countries_list:
+        v, k = d.values()
+        religion_dict.setdefault(k, []).append(v)
+
+    json.dump(religion_dict, file_writener, indent=4)
