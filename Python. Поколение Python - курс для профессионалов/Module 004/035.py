@@ -64,6 +64,27 @@ https://stepik.org/media/attachments/lesson/623073/clue_pools.txt
 
 Примечание 4. При открытии файла используйте явное указание кодировки UTF-8.
 '''
-import json, csv
+import json
+from datetime import datetime
 
-pass
+pattern = '%H:%M'
+
+# with open(file='035-pools.json', mode='rt', encoding='utf-8', newline='') as file_opener:
+with open(file='pools.json', mode='rt', encoding='utf-8', newline='') as file_opener:
+    pools_list_dicts = filter(
+        lambda x: datetime.strptime(x['WorkingHoursSummer']['Понедельник'].split('-')[0], pattern).time() <=\
+            datetime.strptime('10:00', pattern).time() and\
+            datetime.strptime(x['WorkingHoursSummer']['Понедельник'].split('-')[1], pattern).time() >=\
+            datetime.strptime('12:00', pattern).time(),
+        json.load(fp=file_opener)
+    )
+# print(*pools_list_dicts) # test
+
+pool = max(
+    pools_list_dicts,
+    key=lambda x: (int(x['DimensionsSummer']['Length']), int(x['DimensionsSummer']['Width']))
+)
+# print(pool) # test
+
+print(f"{pool['DimensionsSummer']['Length']}x{pool['DimensionsSummer']['Width']}")
+print(pool['Address'])
