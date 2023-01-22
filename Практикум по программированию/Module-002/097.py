@@ -24,8 +24,28 @@ Sample Output:
 '''
 import sys
 
-sys.stdin = open(file='097.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='097.csv', mode='rt', encoding='utf-8', newline='')
 tup = tuple(map(int,sys.stdin.readlines()))
 arr = tup[: tup.index(0)]
 
-pass
+print(arr.count(max(arr)))
+
+max_n = float('-infinity')
+count_n = 0
+for i in arr:
+    if i > max_n:
+        max_n = i
+        count_n = 0
+    if max_n == i:
+        count_n += 1
+print(count_n)
+
+import heapq
+count_n = 1
+max_n, *arr = heapq.nlargest(len(arr), arr)
+for i in arr:
+    if i == max_n:
+        count_n += 1
+    else:
+        break
+print(count_n)
