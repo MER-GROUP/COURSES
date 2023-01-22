@@ -53,6 +53,17 @@ https://stepik.org/media/attachments/lesson/623073/clue_food1.txt
 
 Примечание 4. При открытии файла используйте явное указание кодировки UTF-8.
 '''
-import json, csv
+import json
+from operator import itemgetter
 
-pass
+# with open(file='037-food_services.json', mode='rt', encoding='utf-8', newline='') as file_opener:
+with open(file='food_services.json', mode='rt', encoding='utf-8', newline='') as file_opener:
+    district_dict = dict()
+    name_dict = dict()
+    for d in json.load(fp=file_opener):
+        district_dict[d['District']] = district_dict.get(d['District'], 0) + 1
+        if d['OperatingCompany']:
+            name_dict[d['OperatingCompany']] = name_dict.get(d['OperatingCompany'], 0) + 1 
+
+[print(f'{x[0]}: {x[1]}') for x in [max(district_dict.items(), key=itemgetter(1))]]
+[print(f'{x[0]}: {x[1]}') for x in [max(name_dict.items(), key=itemgetter(1))]]
