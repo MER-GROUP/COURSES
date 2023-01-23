@@ -26,8 +26,17 @@ Sample Output:
 '''
 import sys
 
-sys.stdin = open(file='098.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='098.csv', mode='rt', encoding='utf-8', newline='')
 tup = tuple(map(int,sys.stdin.readlines()))
-arr = tup[: tup.index(0)]
+# arr = tup[: tup.index(0)]
 
-pass
+arr = list()
+n = None
+n_prev = None
+for i in tup:
+    n, n_prev = i, n
+    if 0 == n and 0 == n_prev:
+        arr.pop()
+        break
+    arr.append(i)
+print(sum(arr))
