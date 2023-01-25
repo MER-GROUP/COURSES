@@ -34,6 +34,19 @@ Sample Output 2:
 '''
 import sys
 
-sys.stdin = open(file='099.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='099.csv', mode='rt', encoding='utf-8', newline='')
 tup = tuple(map(int,sys.stdin.readlines()))
 arr = tup[: tup.index(0)]
+
+max_n, count_n = 1, 1
+n, prev_n = None, None
+
+for i in arr:
+    n, prev_n = i, n
+    if n == prev_n:
+        count_n += 1
+        if count_n > max_n:
+            max_n = count_n
+    else:
+        count_n = 1
+print(max_n)
