@@ -20,5 +20,34 @@ https://stepik.org/media/attachments/lesson/547172/workbook.zip
 https://stepik.org/media/attachments/lesson/547172/clue_coef.txt
 '''
 from zipfile import ZipFile
+from operator import attrgetter, itemgetter
 
-pass
+# with ZipFile(file='041-workbook.zip', mode='r') as zip_opener:
+with ZipFile(file='workbook.zip', mode='r') as zip_opener:
+    files = zip_opener.infolist()
+    dictonary = dict()
+
+    for file in files:
+        # print(attrgetter('filename' ,'file_size', 'compress_size')(file))
+        # print(*map(attrgetter('file_size', 'compress_size'), [file]))
+        # print(file.file_size, file.compress_size)
+        tup = attrgetter('filename' ,'file_size', 'compress_size')(file)
+        key = tup[0].split('/')[-1] if tup[0].split('/')[-1] else tup[0].split('/')[-2]
+        # print(key) # test
+        if not file.is_dir():
+            dictonary[key] = dictonary.get(key, 0) + (tup[2] / tup[1]) * 100
+    # print(dictonary) # test
+
+    print(
+        min(
+            dictonary,
+            key=dictonary.get
+        )
+    )
+
+    # print(
+    #     min(
+    #         dictonary.items(),
+    #         key=itemgetter(1)
+    #     )
+    # )
