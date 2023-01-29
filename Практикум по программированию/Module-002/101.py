@@ -27,8 +27,15 @@ Sample Output:
 '''
 import sys
 
-sys.stdin = open(file='101.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='101.csv', mode='rt', encoding='utf-8', newline='')
 tup = tuple(map(int,sys.stdin.readlines()))
 arr = tup[: tup.index(0)]
 
-pass
+count_n = 0
+prev_n, n, next_n = int(), arr[0], int()
+
+for i in range(1, len(arr)-1):
+    prev_n, n, next_n = n, arr[i], arr[i+1]
+    if prev_n < n > next_n:
+        count_n += 1
+print(count_n)
