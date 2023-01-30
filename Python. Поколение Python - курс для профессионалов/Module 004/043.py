@@ -34,6 +34,22 @@ Hollow Knight Silksong.exe
 https://stepik.org/media/attachments/lesson/547172/workbook.zip
 https://stepik.org/media/attachments/lesson/547172/clue_format.txt
 '''
+'''
+<название файла>
+  Дата модификации файла: <дата изменения>
+  Объем исходного файла: <объем до сжатия> байт(а)
+  Объем сжатого файла: <объем после сжатия> байт(а)
+'''
 from zipfile import ZipFile
 
-pass
+# with ZipFile(file='043-workbook.zip', mode='r') as zip_opener:
+with ZipFile(file='workbook.zip', mode='r') as zip_opener:
+    files_zip = zip_opener.infolist()
+
+    for file in sorted(files_zip, key=lambda x: x.filename.split('/')[-1]):
+        if not file.is_dir():
+            print(file.filename.split('/')[-1])
+            print('  Дата модификации файла: {}-{:02}-{:02} {:02}:{:02}:{:02}'.format(*file.date_time))
+            print(f'  Объем исходного файла: {file.file_size} байт(а)')
+            print(f'  Объем сжатого файла: {file.compress_size} байт(а)')
+            print()
