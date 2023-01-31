@@ -14,7 +14,14 @@ Sample Output:
 '''
 import sys
 
-sys.stdin = open(file='105.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='105.csv', mode='rt', encoding='utf-8', newline='')
 tup = sys.stdin.read()
 
-pass
+print(min(tup, key=int), max(tup, key=int))
+
+# min_n = float('infinity')
+# max_n = float('-infinity')
+# for i in tup:
+#     if int(i) > max_n: max_n = int(i)
+#     if int(i) < min_n: min_n = int(i)
+# print(min_n, max_n)
