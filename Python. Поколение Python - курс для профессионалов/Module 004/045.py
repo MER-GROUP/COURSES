@@ -30,7 +30,20 @@ file_names = ['how to prove.pdf', 'fipi_demo_2022.pdf', 'Hollow Knight Silksong.
               'Alexandra Savior – Crying All the Time.mp3', 'homework.py', 'test.py']
 '''
 from zipfile import ZipFile
+# from os.path import getsize
 
 file_names = ['how to prove.pdf', 'fipi_demo_2022.pdf', 'Hollow Knight Silksong.exe',
               'code.jpeg', 'stepik.png', 'readme.txt', 'shopping_list.txt',
               'Alexandra Savior – Crying All the Time.mp3', 'homework.py', 'test.py']
+
+# with ZipFile(file='files.zip', mode='a') as zip_appender:
+#     for file in file_names:
+#         if 100 >= getsize(file):
+#             zip_appender.write(file)
+
+with ZipFile(file='files.zip', mode='a') as zip_appender:
+    for file in file_names:
+        with open(file=file, mode='rb') as file_opener:
+            file_size = len(file_opener.read())
+        if 100 >= file_size:
+            zip_appender.write(file)
