@@ -41,5 +41,50 @@ https://stepik.org/media/attachments/lesson/547172/clue_json.txt
 '''
 from zipfile import ZipFile
 import json
+from os import remove, rmdir, removedirs
+from os.path import basename, dirname, exists
+from shutil import rmtree
 
-pass
+with ZipFile(file='047-data.zip', mode='r') as zip_opener:
+    files_list_zip = zip_opener.infolist()
+    list_dicts = list()
+    dir_lists = list()
+    # zip_opener.printdir() # test
+
+    for file in files_list_zip:
+        if file.is_dir():
+            dir_lists.append(file.filename)
+        else:
+            try:
+                if file.filename.endswith('.json'):
+                    filename_in_zip = file.filename
+                    filename = basename(file.filename)
+                    zip_opener.extract(filename_in_zip, dirname(__file__))             
+
+                    with zip_opener.open(name=filename_in_zip, mode='r') as zip_file,\
+                        open(file=filename, mode='wb') as json_file:
+                        json_file.write(zip_file.read())
+                        json_file.close()
+
+                        with open(file=filename, mode='rt', encoding='utf-8', newline='') as file_opener:
+                            try:
+                                json_dict = json.load(fp=file_opener)
+                            except UnicodeDecodeError:
+                                pass
+
+                        list_dicts.append(json_dict)                   
+                        if exists(filename):
+                            remove(filename)
+                        if exists(filename_in_zip):
+                            remove(filename_in_zip)
+            except json.decoder.JSONDecodeError:
+                pass
+
+    for dir in dir_lists:
+        if exists(dir):
+            # rmdir(dir)
+            # removedirs(dir)
+            rmtree(dir)
+
+    # [print(l) for l in list_dicts] # test
+    # [print(d) for d in dir_lists] # test
