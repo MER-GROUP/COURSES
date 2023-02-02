@@ -41,11 +41,13 @@ https://stepik.org/media/attachments/lesson/547172/clue_json.txt
 '''
 from zipfile import ZipFile
 import json
-from os import remove, rmdir, removedirs
-from os.path import basename, dirname, exists
+from os import remove, rmdir
+from os.path import basename, dirname, exists, getsize
 from shutil import rmtree
+from operator import itemgetter
 
-with ZipFile(file='047-data.zip', mode='r') as zip_opener:
+# with ZipFile(file='047-data.zip', mode='r') as zip_opener:
+with ZipFile(file='data.zip', mode='r') as zip_opener:
     files_list_zip = zip_opener.infolist()
     list_dicts = list()
     dir_lists = list()
@@ -80,11 +82,23 @@ with ZipFile(file='047-data.zip', mode='r') as zip_opener:
             except json.decoder.JSONDecodeError:
                 pass
 
+    # [print(dir) for dir in dir_lists] # test
     for dir in dir_lists:
         if exists(dir):
-            # rmdir(dir)
-            # removedirs(dir)
-            rmtree(dir)
+            if getsize(dir):
+                rmtree(dir)
+            else:
+                rmdir(dir)
+            
 
     # [print(l) for l in list_dicts] # test
-    # [print(d) for d in dir_lists] # test
+    [print(d['first_name'], d['last_name']) for d in list(
+        filter(
+            lambda x: 'Arsenal' == x['team'],
+            sorted(
+                list_dicts,
+                key=itemgetter('first_name', 'last_name') # or
+                # key=lambda x: (x['first_name'], x['last_name']) # or
+            )
+        )
+    )]
