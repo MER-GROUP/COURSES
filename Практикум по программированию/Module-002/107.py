@@ -14,7 +14,12 @@ Sample Output:
 '''
 import sys
 
-sys.stdin = open(file='107.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='107.csv', mode='rt', encoding='utf-8', newline='')
 tup = sys.stdin.read()
 
-pass
+print(tup[::-1])
+
+# while int(tup):
+#     tup, c = divmod(int(tup), 10)
+#     print(c, end='')
+# print()
