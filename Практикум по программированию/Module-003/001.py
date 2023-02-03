@@ -26,7 +26,16 @@ Sample Output:
 '''
 import sys
 
-sys.stdin = open(file='001.csv', mode='rt', encoding='utf-8', newline='')
-arr = [int(i) for i in sys.stdin.read().split()]
+# sys.stdin = open(file='001.csv', mode='rt', encoding='utf-8', newline='')
+n, m = [int(i) for i in sys.stdin.read().split()]
 
-pass
+arr = [0 for _ in range(n)]
+i = 0
+idx = 0
+while i < m:
+    if idx == n:
+        idx = 0
+    arr[idx] += 1
+    idx += 1
+    i += 1
+print(max(arr))
