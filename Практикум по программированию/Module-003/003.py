@@ -25,7 +25,14 @@ It is 3 hours 40 minutes.
 '''
 import sys
 
-sys.stdin = open(file='003.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='003.csv', mode='rt', encoding='utf-8', newline='')
 n = int(sys.stdin.read())
+# print(f'It is {n // 60 // 60} hours {n // 60 % 60} minutes.')
 
-pass
+
+from datetime import datetime, timedelta
+
+d = datetime(1, 1, 1, 0, 0, 0)
+t = timedelta(seconds=n)
+d += t
+print(f'It is {d.hour} hours {d.minute} minutes.')
