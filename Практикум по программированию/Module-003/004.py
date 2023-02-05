@@ -21,7 +21,8 @@ It is 3 hours 0 minutes.
 '''
 import sys
 
-sys.stdin = open(file='004.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='004.csv', mode='rt', encoding='utf-8', newline='')
 n = int(sys.stdin.read())
 
-pass
+one_hour = 360 // 12
+print(f'It is {n // one_hour} hours {n % one_hour * 2} minutes.')
