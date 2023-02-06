@@ -17,7 +17,7 @@ no
 '''
 import sys
 
-sys.stdin = open(file='007.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='007.csv', mode='rt', encoding='utf-8', newline='')
 c = sys.stdin.read()
 
-pass
+print(('no', 'yes')[c.isdigit()])
