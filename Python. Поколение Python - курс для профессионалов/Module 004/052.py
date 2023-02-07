@@ -53,4 +53,19 @@ Sample Output 2:
 '''
 import pickle
 
-pass
+def sum_control(obj_pickle: dict|list) -> int:
+    if type(obj_pickle) is dict:
+        n = sum(filter(lambda x: type(x) is int, obj_pickle.keys()), 0)
+        return n
+    else:
+        arr = list(filter(lambda x: type(x) is int, obj_pickle))
+        n = max(arr) * min(arr) if len(arr) else 0
+        return n
+
+with open(file=input(), mode='rb') as file_opener:
+    obj_pickle = pickle.load(file=file_opener)
+
+if not int(input()) == sum_control(obj_pickle):
+    print('Контрольные суммы не совпадают')
+else:
+    print('Контрольные суммы совпадают') 
