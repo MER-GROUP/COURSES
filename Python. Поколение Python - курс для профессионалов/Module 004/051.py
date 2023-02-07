@@ -21,4 +21,7 @@ filter_dump('numbers.pkl', [1, '2', 3, 4, '5'], int)
 '''
 import pickle
 
-pass
+def filter_dump(filename: str, objects: list, typename: type):
+    with open(file=filename, mode='wb') as file_opener:
+        arr = [i for i in objects if type(i) is typename]
+        pickle.dump(arr, file=file_opener)
