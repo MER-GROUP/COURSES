@@ -23,8 +23,9 @@ Sample Output 2:
 A
 '''
 import sys
+from string import ascii_letters as ascii
 
-sys.stdin = open(file='009.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='009.csv', mode='rt', encoding='utf-8', newline='')
 c = sys.stdin.read()
 
-pass
+print((c.upper(), c.lower())['A' <= c <= 'Z'] if c in ascii else c)
