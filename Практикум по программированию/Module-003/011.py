@@ -17,7 +17,10 @@ Sample Output:
 '''
 import sys
 
-sys.stdin = open(file='011.csv', mode='rt', encoding='utf-8', newline='')
-arr = sys.stdin.read().split()
+# sys.stdin = open(file='011.csv', mode='rt', encoding='utf-8', newline='')
+# arr =list(map(lambda x: x.strip(), sys.stdin.readlines()))
+# arr = sum([s.split() for s in arr], [])
 
-pass
+# print(len(arr))   
+
+print(len(input().split()))
