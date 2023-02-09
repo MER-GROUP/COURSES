@@ -17,7 +17,7 @@ yes
 '''
 import sys
 
-sys.stdin = open(file='013.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='013.csv', mode='rt', encoding='utf-8', newline='')
 arr = sys.stdin.read()
 
-pass
+print(('no', 'yes')[arr == arr[::-1]])
