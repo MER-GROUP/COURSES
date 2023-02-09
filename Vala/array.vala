@@ -81,5 +81,31 @@ public static int main (string[] args) {
     int r2 = arr2.length;
     stdout.printf(r2.to_string() + "\n");
 
+    stdout.printf("----------\n");
+    int[] e = {};
+    for (int i=0; i<e.length ; i++){
+        stdout.printf(e[i].to_string());
+        print("\n");
+    }
+
+    print("zero\n");
+    int e_len0 = e.length;
+    stdout.printf(@"e_len0 = $(e_len0)\n");
+
+    e += 12;
+    e += 5;
+    e += 37;
+    for (int i=0; i<e.length ; i++){
+        stdout.printf(e[i].to_string());
+        print("\n");
+    }
+    int e_len = e.length;
+    stdout.printf(@"e_len = $(e_len)\n");
+    stdout.printf("e_len = %d", e_len);
+    print("\n");
+    stdout.printf(e_len.to_string() + "\n");
+
+    stdout.printf("----------\n");
+
     return 0;
 }
