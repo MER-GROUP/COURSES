@@ -19,7 +19,7 @@ yes
 '''
 import sys
 
-sys.stdin = open(file='015.csv', mode='rt', encoding='utf-8', newline='')
-arr = map(str.strip, sys.stdin.readlines())
+# sys.stdin = open(file='015.csv', mode='rt', encoding='utf-8', newline='')
+arr = tuple(map(str.strip, sys.stdin.readlines()))
 
-pass
+print(('no', 'yes')[arr[0] in arr[1]])
