@@ -33,20 +33,18 @@ def converter(s: str, n: str) -> tuple:
         )
     )
 
-sys.stdin = open(file='016.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='016.csv', mode='rt', encoding='utf-8', newline='')
 arr = tuple(
     map(
-        lambda x: tuple(x.split()),
+        lambda x: converter(*x.split()),
         sys.stdin.readlines()
     )
 )
+# print(arr) # test
 
-res = tuple(
-    map(
-        lambda x: converter(*x),
-        arr
-    )
-)
+a, b = 0, 0
+for x, y in arr:
+    a += x
+    b += y
 
-print(arr) # test
-print(res) # test
+print(a, b) 
