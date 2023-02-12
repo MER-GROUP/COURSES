@@ -33,13 +33,18 @@ def is_int(n):
     except ValueError:
         return False
 
-sys.stdin = open(file='018.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='018.csv', mode='rt', encoding='utf-8', newline='')
 arr = tuple(
     map(
         lambda x: int(x) if is_int(x) else x.strip(),
         sys.stdin
     )
 )
-print(arr) # test
+# print(arr) # test
 
-pass
+for c in arr[0]:
+    if ord(c) - arr[1] >= ord('A'):
+        print(chr(ord(c) - arr[1]), end='')
+    else:
+        print(chr((ord('Z') + 1) - (ord('A') - (ord(c) - arr[1]))), end='')
+print()
