@@ -16,13 +16,14 @@ nz d urp lren s bwz boom t a j ho vi
 '''
 import sys
 
-sys.stdin = open(file='020.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='020.csv', mode='rt', encoding='utf-8', newline='')
 arr = tuple(
     map(
         str.strip,
         sys.stdin.readlines()
     )
 )
-print(arr) # test
+# print(arr) # test
 
-pass
+# print(arr[0].replace('  ', ' ').replace('  ', ' '))
+print(' '.join(arr[0].split()))
