@@ -28,11 +28,22 @@ ABA
 '''
 import sys
 
-sys.stdin = open(file='022.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='022.csv', mode='rt', encoding='utf-8', newline='')
 arr = tuple(
     map(
         str.strip,
         sys.stdin.readlines()
     )
 )
-print(arr) # test
+# print(arr) # test
+
+word = arr[0]
+res = list()
+
+for i in range(len(word)):
+    for j in range(i + 1, len(word) + 1):
+        if word[i:j] == word[i:j][::-1] and 1 < len(word[i:j]):
+            res.append(word[i:j])
+# print(res) # test
+
+print(max(res, key=len, default=word[0]))
