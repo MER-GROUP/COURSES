@@ -31,7 +31,7 @@ Sample Output:
 '''
 import sys
 
-sys.stdin = open(file='023.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='023.csv', mode='rt', encoding='utf-8', newline='')
 arr = tuple(
     map(
         str.strip,
@@ -40,17 +40,23 @@ arr = tuple(
 )
 # print(arr) # test
 x, n = arr[0].split()
-print(x, n) # test
+# print(x, n) # test
 
-seq = dict()
-for i in range(int(n)-1):
-    for c in x:
-        seq[c] = seq.get(c, 0) + 1
+seq = list()
+for _ in range(int(n)-1):
+    for i, c in enumerate(x):
+        if 0 == i:
+            seq.append([c, 1])
+        elif c == seq[-1][0]:
+            seq[-1][1] += 1
+        else:
+            seq.append([c, 1])
     # print(seq) # test
 
     x = str()
-    for k, v in seq.items():
+    for k, v in seq:
         x += str(v) + k
-    print(x) # test
+    # print(x) # test
 
     seq.clear()
+print(x)
