@@ -18,6 +18,29 @@ Sample Output:
 '''
 import sys
 
-sys.stdin = open(file='025.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='025.csv', mode='rt', encoding='utf-8', newline='')
 arr = sys.stdin.read()
-print(arr) # test
+# print(arr) # test
+
+# print(bin(1))
+# print(bin(1)[2:])
+
+arr_res = list()
+for i, el in enumerate(arr):
+    if 0 == i:
+        arr_res.append(el)
+    elif el.isdigit():
+        if arr_res[-1].isdigit():
+            arr_res[-1] += el
+        else:
+            arr_res.append(el)
+    else:
+        arr_res.append(el)
+
+for el in arr_res:
+    if el.isdigit():
+        print(bin(int(el))[2:], end='')
+    else:
+        print(el, end='')
+
+print()
