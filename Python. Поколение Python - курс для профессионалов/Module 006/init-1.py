@@ -1,9 +1,11 @@
 print('------------------')
 
-pass
+my_set = set()
+my_set.discard(-1)
 
 print('------------------')
 
-pass
+my_set = set('aaabb  c      ddddd')
+print(my_set)
 
 print('------------------')
