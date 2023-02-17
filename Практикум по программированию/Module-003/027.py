@@ -26,6 +26,12 @@ loHel
 '''
 import sys
 
-sys.stdin = open(file='027.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='027.csv', mode='rt', encoding='utf-8', newline='')
 arr = sys.stdin.read()
-print(arr) # test
+# print(arr) # test
+
+first = arr[: len(arr) // 2 + (len(arr) % 2)]
+# print(first) # test
+second = arr[len(first) :]
+# print(second) # test
+print(second + first)
