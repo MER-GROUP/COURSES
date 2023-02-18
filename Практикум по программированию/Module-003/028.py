@@ -20,6 +20,8 @@ world! Hello,
 '''
 import sys
 
-sys.stdin = open(file='028.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='028.csv', mode='rt', encoding='utf-8', newline='')
 arr = sys.stdin.read()
-print(arr) # test
+# print(arr) # test
+
+print(arr[arr.find(' ')+1 :] + ' ' + arr[: arr.find(' ')])
