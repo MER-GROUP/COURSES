@@ -25,6 +25,13 @@ Sample Output 2:
 '''
 import sys
 
-sys.stdin = open(file='029.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='029.csv', mode='rt', encoding='utf-8', newline='')
 arr = sys.stdin.read()
-print(arr) # test
+# print(arr) # test
+
+if -1 != arr.find('f') == arr.rfind('f'):
+    print(arr.find('f'))
+elif not -1 == arr.find('f') and not -1 == arr.rfind('f'):
+    print(arr.find('f'), arr.rfind('f'))
+else:
+    pass
