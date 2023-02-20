@@ -18,8 +18,11 @@ In tobbit
 '''
 import sys  
 
-sys.stdin = open(file='031.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='031.csv', mode='rt', encoding='utf-8', newline='')
 arr = sys.stdin.read()
-print(arr) # test
+# print(arr) # test
 
-pass
+start = arr.lower().find('h')
+end = arr.lower().rfind('h')
+
+print(arr.replace(arr[start : end + 1], ''))
