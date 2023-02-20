@@ -19,8 +19,11 @@ In the hole in the ground there lived a e hole in the ground there lived a hobbi
 '''
 import sys  
 
-sys.stdin = open(file='033.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='033.csv', mode='rt', encoding='utf-8', newline='')
 arr = sys.stdin.read()
-print(arr) # test
+# print(arr) # test
 
-pass
+start = arr.lower().find('h')
+end = arr.lower().rfind('h')
+
+print(arr.replace(arr[start + 1 : end], arr[start + 1 : end] * 2))
