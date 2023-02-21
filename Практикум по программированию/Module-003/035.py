@@ -15,8 +15,8 @@ Bilbo.Bagginsbagend.hobbiton.shire.me
 '''
 import sys  
 
-sys.stdin = open(file='035.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='035.csv', mode='rt', encoding='utf-8', newline='')
 arr = sys.stdin.read()
-print(arr) # test
+# print(arr) # test
 
-pass
+print(arr.replace('@', ''))
