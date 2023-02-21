@@ -76,3 +76,12 @@ users = [User('Mary', 'Griffin', 'sonnen@yahoo.com', 'Basic'),
          User('Tracy', 'Wallace', 'sblack@me.com', 'Silver'),
          User('Russell', 'Smith', 'isaacson@comcast.net', 'Bronze'),
          User('Megan', 'Patterson', 'hoangle@outlook.com', 'Basic')]
+
+priority_dict = {'Gold': 0, 'Silver': 1, 'Bronze': 2, 'Basic': 3}
+
+for user in sorted(users, key=lambda x: (priority_dict[x.plan], x.email)):
+    # print(user) # test
+    print(f'{user.name} {user.surname}')
+    print(f'  {user._fields[2].capitalize()}: {user.email}')
+    print(f'  {user._fields[3].capitalize()}: {user.plan}')
+    print()
