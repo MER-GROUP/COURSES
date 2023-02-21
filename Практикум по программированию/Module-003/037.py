@@ -16,8 +16,9 @@ P*y*t*h*o*n
 '''
 import sys  
 
-sys.stdin = open(file='037.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='037.csv', mode='rt', encoding='utf-8', newline='')
 arr = sys.stdin.read()
-print(arr) # test
+# print(arr) # test
 
-pass
+# print('*'.join(list(arr)))
+print('*'.join(arr))
