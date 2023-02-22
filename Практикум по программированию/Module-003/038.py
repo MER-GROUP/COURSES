@@ -15,8 +15,8 @@ yton
 '''
 import sys  
 
-sys.stdin = open(file='038.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='038.csv', mode='rt', encoding='utf-8', newline='')
 arr = sys.stdin.read()
-print(arr) # test
+# print(arr) # test
 
-pass
+print(*[c for i, c in enumerate(arr) if i % 3], sep ='')
