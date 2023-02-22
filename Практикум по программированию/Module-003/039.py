@@ -20,9 +20,23 @@ Sample Output:
 2 3
 '''
 import sys  
+from collections import namedtuple
+from math import hypot
 
-sys.stdin = open(file='039.csv', mode='rt', encoding='utf-8', newline='')
-arr = sys.stdin.read()
-print(arr) # test
+# sys.stdin = open(file='039.csv', mode='rt', encoding='utf-8', newline='')
+_, *arr = map(str.strip, sys.stdin.read().splitlines())
+# print(*arr, sep='\n') # test
 
-pass
+coordinate = namedtuple('coordinate', ('x', 'y'))
+# coordinates = (coordinate(*map(int, el.split())) for el in arr) # or
+coordinates = (coordinate._make(map(int, el.split())) for el in arr) # or
+# print(*coordinates, sep='\n') # test
+# print(type(coordinates)) # test
+
+print(
+    *max(
+        coordinates,
+        # key=lambda x: hypot(*x) # or
+        key=lambda c: hypot(c.x, c.y) # or
+    )
+)
