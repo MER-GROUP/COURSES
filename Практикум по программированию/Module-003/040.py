@@ -7,7 +7,7 @@
 Сначала задано количество точек n, затем идет последовательность из n строк, 
 каждая из которых содержит два числа: координаты точки. 
 Величина n не превосходит 100, все исходные координаты – целые числа, 
-не превосходящие 103.
+не превосходящие 10^3.
 
 Выходные данные
 Выведите  координаты центра тяжести данного множества точек. 
@@ -24,9 +24,20 @@ Sample Output:
 '''
 import sys  
 from collections import namedtuple
+from statistics import mean
 
 sys.stdin = open(file='040.csv', mode='rt', encoding='utf-8', newline='')
 _, *arr = map(str.strip, sys.stdin.read().splitlines())
-print(*arr, sep='\n') # test
+# print(*arr, sep='\n') # test
 
-pass
+coords = namedtuple('coords', ('x', 'y'))
+arr = (coords._make(map(int, el.split())) for el in arr)
+# print(*arr) # test
+
+x, y = zip(*arr)
+x, y = float(mean(x)), float(mean(y))
+# print(f'{"1.12345678917"[:12]}') # test
+# print(f'{x} {y}') # test
+# print(f'{str(x)[:12]} {str(y)[:12]}') # test
+# print(f'{float(str(x)[:12])} {float(str(y)[:12])}') # test
+print(f'{int(x * 1e10) / 1e10} {int(y * 1e10) / 1e10}') # test
