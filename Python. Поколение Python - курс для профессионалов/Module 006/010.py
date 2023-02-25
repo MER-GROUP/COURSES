@@ -27,7 +27,35 @@ pairs — итерируемый объект, элементами которо
 https://stepik.org/media/attachments/lesson/590035/tests_3090786.zip
 GitHub
 https://github.com/python-generation/Professional/tree/main/Module_6/Module_6.5/Module_6.5.22
+
+Sample Input 1:
+result = wins([('Тимур', 'Артур'), ('Тимур', 'Дима'), ('Дима', 'Артур')])
+for winner, losers in sorted(result.items()):
+    print(winner, '->', *sorted(losers))
+Sample Output 1:
+Дима -> Артур
+Тимур -> Артур Дима
+
+Sample Input 2:
+result = wins([('Артур', 'Дима'), ('Артур', 'Тимур'), ('Артур', 'Анри'), ('Дима', 'Артур')])
+for winner, losers in sorted(result.items()):
+    print(winner, '->', *sorted(losers))
+Sample Output 2:
+Артур -> Анри Дима Тимур
+Дима -> Артур
 '''
 from collections import defaultdict, namedtuple
+users = namedtuple('users', ('win', 'lose'))
 
-pass
+def wins(pairs):
+    tup = tuple(map(users._make, pairs))
+    dd = defaultdict(set)
+    [dd[u.win].add(u.lose) for u in tup]
+    return dd
+    
+# result = wins([('Артур', 'Дима'), ('Артур', 'Тимур'),
+#                ('Артур', 'Анри'), ('Артур', 'Алина'),
+#                ('Артур', 'Илья'), ('Артур', 'Элина')])
+
+# for winner, losers in sorted(result.items()):
+#     print(winner, '->', *sorted(losers))
