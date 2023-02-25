@@ -26,7 +26,11 @@ import sys
 from collections import namedtuple
 from statistics import mean
 
-sys.stdin = open(file='040.csv', mode='rt', encoding='utf-8', newline='')
+def round_10(n: float) -> float:
+    start, end = str(n).split('.')
+    return float(start + '.' + end[:10])
+
+# sys.stdin = open(file='040.csv', mode='rt', encoding='utf-8', newline='')
 _, *arr = map(str.strip, sys.stdin.read().splitlines())
 # print(*arr, sep='\n') # test
 
@@ -36,8 +40,6 @@ arr = (coords._make(map(int, el.split())) for el in arr)
 
 x, y = zip(*arr)
 x, y = float(mean(x)), float(mean(y))
-# print(f'{"1.12345678917"[:12]}') # test
 # print(f'{x} {y}') # test
-# print(f'{str(x)[:12]} {str(y)[:12]}') # test
-# print(f'{float(str(x)[:12])} {float(str(y)[:12])}') # test
-print(f'{int(x * 1e10) / 1e10} {int(y * 1e10) / 1e10}') # test
+# print(f'{int(x * 1e10) / 1e10} {int(y * 1e10) / 1e10}') # or
+print(f'{round_10(x)} {(round_10(y))}') # or
