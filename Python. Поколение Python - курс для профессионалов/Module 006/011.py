@@ -56,4 +56,30 @@ coffee: Timur, Anri
 '''
 from collections import defaultdict, namedtuple
 
-pass
+def flip_dict(dict_of_lists: dict) -> defaultdict:
+    dd = defaultdict(list)
+
+    # keys = set(sum(dict_of_lists.values(), []))
+    keys = list()
+    for el in dict_of_lists.values():
+        for i in el:
+            if i not in keys:
+                keys.append(i)
+    # print(keys) # test
+
+    for key in keys:
+        for k, v in dict_of_lists.items():
+            if key in v:
+                _count = list(v).count(key)
+                for _ in range(_count):
+                    dd[key].append(k)
+    return dd
+
+# # tests
+# if __name__ == '__main__':
+#     data = data = {
+#         1: ['a', 'b', 'c'], 2: ['a', 'b', 'c', 'c'], 
+#         3: ['c', 'd', 'a'], 4: ['a', 'b', 'r', 'f'], 
+#         5: ['y', 'u', 'e', 'w']
+#     }
+#     print(flip_dict(data))
