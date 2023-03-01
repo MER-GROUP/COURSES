@@ -21,15 +21,12 @@ Sample Input:
 Sample Output:
 0.5
 '''
-import sys  
+import sys
 from collections import namedtuple
 coords = namedtuple('coords', ('x', 'y'))
 from math import hypot
 
-def sorted_sides(a: coords, b: coords, c: coords) -> bool:
-    pass
-
-def is_triangle(a: coords, b: coords, c: coords) -> bool:
+def sorted_sides(a: coords, b: coords, c: coords) -> tuple[float]:
     # sides of triangle
     ab, bc, ca = sorted(
         (
@@ -38,6 +35,11 @@ def is_triangle(a: coords, b: coords, c: coords) -> bool:
             hypot(c.x - a.x, c.y - a.y)
         )
     )
+    return (ab, bc, ca)
+
+def is_triangle(a: coords, b: coords, c: coords) -> bool:
+    # sides of triangle
+    ab, bc, ca = sorted_sides(a, b, c)
     return (True, False)[ca > ab + bc]
 
 def is_all_on_same_line(a: coords, b: coords, c: coords) -> bool:
@@ -45,17 +47,11 @@ def is_all_on_same_line(a: coords, b: coords, c: coords) -> bool:
 
 def heron(a: coords, b: coords, c: coords) -> float:
     # sides of triangle
-    ab, bc, ca = sorted(
-        (
-            hypot(a.x - b.x, a.y - b.y),
-            hypot(b.x - c.x, b.y - c.y),
-            hypot(c.x - a.x, c.y - a.y)
-        )
-    )
+    ab, bc, ca = sorted_sides(a, b, c)
     p = (ab + bc + ca) / 2
     return (p * (p - ab) * (p - bc) * (p - ca))**0.5
 
-sys.stdin = open(file='044.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='044.csv', mode='rt', encoding='utf-8', newline='')
 _, *arr = map(str.strip, sys.stdin.read().splitlines())
 # print(*arr, sep='\n') # test
 
