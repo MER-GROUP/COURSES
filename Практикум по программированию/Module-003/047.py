@@ -25,8 +25,9 @@ Petrov Sergey
 import sys
 from collections import namedtuple
 student = namedtuple('student', ('name', 'marks'))
+from statistics import mean
 
-sys.stdin = open(file='047.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='047.csv', mode='rt', encoding='utf-8', newline='')
 _, *arr = map(str.strip, sys.stdin.read().splitlines())
 # print(*arr, sep='\n') # test
 
@@ -36,6 +37,16 @@ arr = tuple(
         marks=[*map(int, el.rsplit(' ', maxsplit=3)[1:])]
     ) for el in arr
 )
-print(*arr) # test
+# print(*arr) # test
 
-pass
+max_mean = mean(max(arr, key=lambda x: mean(x.marks)).marks)
+print(
+    *map(
+        lambda x: x.name,
+        filter(
+            lambda x: mean(x.marks) == max_mean,
+            arr
+        )
+    ),
+    sep='\n'
+)
