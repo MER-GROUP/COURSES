@@ -31,7 +31,7 @@ import sys
 from collections import namedtuple
 student = namedtuple('student', ('name', 'marks'))
 
-sys.stdin = open(file='046.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='046.csv', mode='rt', encoding='utf-8', newline='')
 _, *arr = map(str.strip, sys.stdin.read().splitlines())
 # print(*arr, sep='\n') # test
 
@@ -41,6 +41,15 @@ arr = tuple(
         marks=[*map(int, el.rsplit(' ', maxsplit=3)[1:])]
     ) for el in arr
 )
-print(*arr) # test
+# print(*arr) # test
 
-pass
+print(
+    *map(
+        lambda x: x.name,
+        filter(
+            lambda x: 1 not in x.marks and 2 not in x.marks and 3 not in x.marks,
+            arr
+        )
+    ),
+    sep='\n'
+)
