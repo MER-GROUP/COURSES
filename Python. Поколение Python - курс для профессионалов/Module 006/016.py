@@ -46,4 +46,22 @@ Sample Output 2:
 '''
 from collections import OrderedDict
 
-pass
+def custom_sort(ordered_dict: OrderedDict, by_values: bool = False) -> None:
+    if by_values:
+        for k, _ in sorted(ordered_dict.items(), key=lambda x: x[1]):
+            ordered_dict.move_to_end(k)
+    else:
+        for k in sorted(ordered_dict):
+            ordered_dict.move_to_end(k)
+
+# tests
+if __name__ == '__main__':
+    # data = OrderedDict(Dustin=29, Anabel=17, Brian=40, Carol=16)
+    # custom_sort(data)
+    # print(data)
+    # # OrderedDict([('Anabel', 17), ('Brian', 40), ('Carol', 16), ('Dustin', 29)])
+
+    data = OrderedDict(Earth=3, Mercury=1, Mars=4, Venus=2)
+    custom_sort(data, by_values=True)
+    print(*data.items())
+    # ('Mercury', 1) ('Venus', 2) ('Earth', 3) ('Mars', 4)
