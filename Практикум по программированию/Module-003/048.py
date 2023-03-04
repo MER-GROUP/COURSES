@@ -44,7 +44,7 @@ Solovey Gavrila
 Zubok Anton
 '''
 import sys
-from collections import namedtuple
+from collections import namedtuple, defaultdict
 student = namedtuple('student', ('name', 'marks'))
 from statistics import mean
 
@@ -58,6 +58,12 @@ arr = tuple(
         marks=[*map(int, el.rsplit(' ', maxsplit=3)[1:])]
     ) for el in arr
 )
-print(*arr) # test
+# print(*arr) # test
 
-pass
+dictonary = defaultdict(list)
+[dictonary[mean(v)].append(k) for k, v in arr]
+
+mean_1_3 = sorted(dictonary.items(), reverse=True)[:3]
+print(mean_1_3) # test
+student_count = sum(len(i) for _, i in mean_1_3)
+print(student_count) # test
