@@ -44,11 +44,11 @@ Solovey Gavrila
 Zubok Anton
 '''
 import sys
-from collections import namedtuple
+from collections import namedtuple, defaultdict
 student = namedtuple('student', ('name', 'marks'))
 from statistics import mean
 
-sys.stdin = open(file='048.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='048.csv', mode='rt', encoding='utf-8', newline='')
 _, *arr = map(str.strip, sys.stdin.read().splitlines())
 # print(*arr, sep='\n') # test
 
@@ -58,6 +58,25 @@ arr = tuple(
         marks=[*map(int, el.rsplit(' ', maxsplit=3)[1:])]
     ) for el in arr
 )
-print(*arr) # test
+# print(*arr) # test
 
-pass
+dictonary = defaultdict(list)
+[dictonary[mean(v)].append(k) for k, v in arr]
+
+mean_1_3 = sorted(dictonary.items(), reverse=True)[:3]
+# print(mean_1_3) # test
+mean_1 = len(mean_1_3[0][1]) if 1 <= len(mean_1_3) else None
+# print(mean_1) # test
+mean_2 = len(mean_1_3[1][1]) if 2 <= len(mean_1_3) else None
+# print(mean_2) # test
+mean_3 = len(mean_1_3[2][1]) if 3 <= len(mean_1_3) else None
+# print(mean_3) # test
+
+if not mean_2 == None and 3 == mean_1 + mean_2:
+    for k, v in arr:
+        if mean(v) in tuple(i[0] for i in mean_1_3[:2]):
+            print(k)
+else:
+    for k, v in arr:
+        if mean(v) in tuple(i[0] for i in mean_1_3):
+            print(k)
