@@ -41,7 +41,7 @@ from collections import namedtuple, defaultdict
 student = namedtuple('student', ('surname' ,'name', 'classx', 'birthday'))
 from statistics import mean
 
-sys.stdin = open(file='050.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='050.csv', mode='rt', encoding='utf-8', newline='')
 _, *arr = map(str.strip, sys.stdin.read().splitlines())
 # print(*arr, sep='\n') # test
 
@@ -57,5 +57,5 @@ for i, el in enumerate(arr):
 # print(*arr_new) # test
 
 [print(s.classx, s.surname, s.name, s.birthday) for s in sorted(
-        arr_new, key=lambda x: (x.classx, x.surname)
+        arr_new, key=lambda x: (int(x.classx[:-1]), x.classx[-1], x.surname)
     )]
