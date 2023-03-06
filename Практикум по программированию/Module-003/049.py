@@ -31,7 +31,7 @@ from collections import namedtuple, defaultdict
 student = namedtuple('student', ('name', 'marks'))
 from statistics import mean
 
-sys.stdin = open(file='049.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='049.csv', mode='rt', encoding='utf-8', newline='')
 _, *arr = map(str.strip, sys.stdin.read().splitlines())
 # print(*arr, sep='\n') # test
 
@@ -41,6 +41,6 @@ arr = tuple(
         marks=[*map(int, el.rsplit(' ', maxsplit=3)[1:])]
     ) for el in arr
 )
-print(*arr) # test
+# print(*arr) # test
 
-pass
+[print(k) for k, _ in sorted(arr, key=lambda x: mean(x.marks), reverse=True)]
