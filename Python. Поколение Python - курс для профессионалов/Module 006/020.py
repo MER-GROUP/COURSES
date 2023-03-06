@@ -56,4 +56,13 @@ Sample Output 2:
 '''
 from collections import Counter
 
-pass
+def chat_to_digits(product: str, _count: int) -> int:
+    price = sum(map(ord, product.replace(' ', '')))
+    return (price, _count, price * _count)
+# print(chat_to_digits('лимон', 3)) # test
+
+products = Counter(input().split(','))
+max_len = len(max(products, key=len))
+for product, _count in sorted(products.items()):
+    # print(product.ljust(max_len,' '), _count) # test
+    print('{}: {} UC x {} = {} UC'.format(product.ljust(max_len,' '), *chat_to_digits(product, _count)))
