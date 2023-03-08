@@ -17,8 +17,13 @@ Sample Output:
 '''
 import sys
 
-sys.stdin = open(file='051.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='051.csv', mode='rt', encoding='utf-8', newline='')
 _, *arr = map(str.strip, sys.stdin.read().splitlines())
-print(*arr, sep='\n') # test
+# print(*arr, sep='\n') # test
 
-pass
+## 1
+print(len(set(map(int, ''.join(arr).split()))))
+
+## 2
+from collections import Counter
+print(len(Counter(''.join(arr).split()).keys()))
