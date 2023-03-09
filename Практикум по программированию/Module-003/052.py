@@ -45,7 +45,7 @@ YES
 import sys
 from collections import namedtuple
 
-sys.stdin = open(file='052.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='052.csv', mode='rt', encoding='utf-8', newline='')
 _, *arr = map(str.strip, sys.stdin.read().splitlines())
 # print(*arr, sep='\n') # test
 
@@ -56,6 +56,15 @@ arr = tuple(
             n=int(i.split()[-1]) if i.split()[-1].isdigit() else i.split()[-1]
         ) for i in arr
     )
-print(arr) # test
+# print(arr) # test
 
-pass
+_set = set()
+_list = list()
+for _request in arr:
+    if 'ADD' == _request.req:
+        _set.add(_request.n)
+    elif 'COUNT' == _request.req:
+        _list.append(len(_set))
+    elif 'PRESENT' == _request.req:
+        _list.append(('NO', 'YES')[_request.n in _set])
+print(*_list, sep='\n')
