@@ -40,4 +40,9 @@ Sample Output 3:
 '''
 from collections import Counter
 
-pass
+_count = tuple(reversed(Counter(input().lower().split()).most_common()))
+# print(_count) # test
+n_min = _count[0][1]
+res = list()
+[res.append(k) for k, v in sorted(_count, key=lambda x: (x[1], x[0])) if v == n_min]
+print(', '.join(res))
