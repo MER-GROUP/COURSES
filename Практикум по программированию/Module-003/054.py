@@ -20,8 +20,10 @@ Sample Output:
 '''
 import sys
 
-sys.stdin = open(file='054.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='054.csv', mode='rt', encoding='utf-8', newline='')
 arr = tuple(map(str.strip, sys.stdin.read().splitlines()))
-print(*arr, sep='\n') # test
+# print(*arr, sep='\n') # test
 
-pass
+print(
+    *sorted({*map(int, arr[0].split())}.intersection(map(int, arr[1].split())))
+)
