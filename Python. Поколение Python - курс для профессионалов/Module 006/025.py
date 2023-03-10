@@ -43,6 +43,11 @@ Sample Output 2:
 Слов длины 2: 2
 Слов длины 6: 3
 '''
-from collections import Counter
+from collections import Counter, defaultdict
 
-pass
+_tuple = input().split()
+_count = defaultdict(list)
+
+[_count[_len].append(_str) for _str in _tuple for _len in [Counter(_str).total()]]
+# print(_count) # test
+[print(f'Слов длины {k}: {len(v)}') for k, v in sorted(_count.items(), key=lambda x: len(x[1]))]
