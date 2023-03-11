@@ -37,4 +37,16 @@ Sample Output 2:
 '''
 from collections import Counter, defaultdict, namedtuple
 
-pass
+data = Counter('aksjaskfjsklfjdslkfjajfopewtoieqpwdpqworiiqjskanvmcxbmpewrqopkqwlmdzczmxvmvlnjpjqpkqzxvmbowiqeorewi')
+
+data.__dict__['min_values'] = lambda: [
+    i for i in data.most_common() if i[1] == min(data.values())
+]
+data.max_values = lambda: [
+    i for i in data.most_common() if i[1] == max(data.values())
+]
+
+if __name__ == '__main__':
+    # print(data.most_common())
+    print(data.max_values())
+    print(data.min_values())
