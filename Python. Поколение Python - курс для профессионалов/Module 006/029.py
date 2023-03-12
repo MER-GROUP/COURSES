@@ -38,4 +38,23 @@ True
 '''
 from collections import Counter
 
-pass
+# # for python 3.10
+# def scrabble(symbols, word):
+#     return Counter(symbols.lower()) >= Counter(word.lower())
+
+def scrabble(symbols, word):
+    _symbols =  Counter(symbols.lower())
+    _word =  Counter(word.lower())
+    for k in _word:
+        if k in _symbols:
+            if _word[k] <= _symbols[k]:
+                pass
+            else:
+                return False
+        else:
+            return False
+    else:
+        return True
+
+if __name__ == '__main__':
+    print(scrabble('bbbbbeeeeegggggggeeeeeekkkkk', 'Beegeek'))
