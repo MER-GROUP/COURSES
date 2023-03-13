@@ -35,5 +35,32 @@ https://stepik.org/media/attachments/lesson/635441/clue_free.txt
 Примечание 2. При открытии файла используйте явное указание кодировки UTF-8.
 '''
 from collections import Counter
+import csv, json
 
-pass
+# with open(file='031-quarter1.csv', mode='rt', encoding='utf-8', newline='') as _csv_1,\
+#     open(file='031-quarter2.csv', mode='rt', encoding='utf-8', newline='') as _csv_2,\
+#     open(file='031-quarter3.csv', mode='rt', encoding='utf-8', newline='') as _csv_3,\
+#     open(file='031-quarter4.csv', mode='rt', encoding='utf-8', newline='') as _csv_4,\
+#     open(file='031-prices.json', mode='rt', encoding='utf-8', newline='') as _json_1:
+with open(file='quarter1.csv', mode='rt', encoding='utf-8', newline='') as _csv_1,\
+    open(file='quarter2.csv', mode='rt', encoding='utf-8', newline='') as _csv_2,\
+    open(file='quarter3.csv', mode='rt', encoding='utf-8', newline='') as _csv_3,\
+    open(file='quarter4.csv', mode='rt', encoding='utf-8', newline='') as _csv_4,\
+    open(file='prices.json', mode='rt', encoding='utf-8', newline='') as _json_1:
+    
+    _coounter = Counter()
+    for k, *v in tuple(csv.reader(_csv_1, delimiter=','))[1:]:
+        _coounter.update({k: sum(map(int, v))})
+    for k, *v in tuple(csv.reader(_csv_2, delimiter=','))[1:]:
+        _coounter.update({k: sum(map(int, v))})
+    for k, *v in tuple(csv.reader(_csv_3, delimiter=','))[1:]:
+        _coounter.update({k: sum(map(int, v))})
+    for k, *v in tuple(csv.reader(_csv_4, delimiter=','))[1:]:
+        _coounter.update({k: sum(map(int, v))})
+    # print(_coounter) # test
+
+    _dict = json.load(fp=_json_1)
+    _sum = int()
+    for k, v in _coounter.most_common():
+        _sum += _dict[k] * v
+    print(_sum)
