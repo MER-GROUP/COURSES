@@ -19,8 +19,16 @@ Sample Output:
 import sys
 import decimal as d
 
-sys.stdin = open(file='058.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='058.csv', mode='rt', encoding='utf-8', newline='')
 _x, _y = tuple(map(d.Decimal, str(*map(str.strip, sys.stdin.read().splitlines())).split()))
-print(_x, _y) # test
+# print(_x, _y) # test
 
-pass
+_count = 1
+_sum = d.Decimal(_x)
+while _sum < _y:
+    _decimal = d.Decimal(_x)
+    for i in range(_count):
+        _decimal *= d.Decimal('1.7')
+    _sum += _decimal
+    _count += 1
+print(_count)
