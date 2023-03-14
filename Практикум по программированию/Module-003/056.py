@@ -27,9 +27,10 @@ Sample Output 2:
 YES
 '''
 import sys
+import decimal as d
 
-sys.stdin = open(file='056.csv', mode='rt', encoding='utf-8', newline='')
-arr = tuple(map(str.strip, sys.stdin.read().splitlines()))
-print(*arr, sep='\n') # test
+# sys.stdin = open(file='056.csv', mode='rt', encoding='utf-8', newline='')
+_tuple = tuple(map(lambda x: d.Decimal(x), map(str.strip, sys.stdin.read().splitlines())))
+# print(_tuple) # test
 
-pass
+print(('NO', 'YES')[sum(_tuple[:2]) == _tuple[2]])
