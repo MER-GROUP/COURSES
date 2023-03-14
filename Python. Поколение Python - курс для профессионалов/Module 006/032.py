@@ -71,5 +71,19 @@ Sample Output 2:
 0
 '''
 from collections import Counter
+import sys
 
-pass
+sys.stdin = open(file='032-tests.txt', mode='rt', encoding='utf-8', newline='')
+tup = tuple(map(str.strip, sys.stdin.readlines()))
+# print(tup) # test
+
+_counter = Counter(map(int, tup[0].split()))
+# print(_counter) # test
+
+_sum = int()
+for el in tup[2: ]:
+    book, price = map(int, el.split())
+    if book in _counter and 0 < _counter[book]:
+        _sum += price
+        _counter[book] -= 1
+print(_sum)
