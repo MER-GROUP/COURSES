@@ -35,5 +35,10 @@ https://stepik.org/media/attachments/lesson/634670/clue_zoo.txt
 Примечание 3. При открытии файла используйте явное указание кодировки UTF-8.
 '''
 from collections import ChainMap
+import json
 
-pass
+# with open(file='033-zoo.json', mode='rt', encoding='utf-8', newline='') as _file_opener:
+with open(file='zoo.json', mode='rt', encoding='utf-8', newline='') as _file_opener:
+    _chainmap = ChainMap(*(i for i in json.load(fp=_file_opener)))
+    # print(_chainmap) # test
+    print(sum(_chainmap.values()))
