@@ -42,35 +42,10 @@ _xyz, _, *_abcq = tuple(map(str.strip, sys.stdin.read().splitlines()))
 # print(_) # test
 # print(_abcq) # test
 
-_list_xyz = list()
-for i in map(d.Decimal, _xyz.split()):
-    _list_xyz.append(i)
-
-_list_abcq = list()
+_x, _y, _z = tuple(map(d.Decimal, _xyz.split()))
 for _str in _abcq:
-    _arr = tuple(map(d.Decimal,_str.split()))
-    _list_abcq.append(sum(_arr[:-1]) * _arr[-1])
-
-x, y, z = map(lambda x, y: x - y, _list_xyz, _list_abcq)
-if (x<=0) and (y<=0) and (z<=0):
-    print('YES') 
-else:
-    print('NO')
-# print(('NO', "YES")[all(map(lambda x, y: x - y <= 0, _list_xyz, _list_abcq))])
-
-"""
-var
-  x,y,z,a,b,c,q:real;
-  i:integer;
-begin
-  readln(x,y,z);
-  readln(i);
-  for i:=1 to i do begin
-    readln(a,b,c,q);
-    x:=x-a*q;
-    y:=y-b*q;
-    z:=z-c*q;
-  end;
-  if (x<=0) and (y<=0) and (z<=0) then writeln('YES') else writeln('NO');
-end.
-"""
+    _a, _b, _c, _d = tuple(map(d.Decimal, _str.split()))
+    _x -= _a * _d
+    _y -= _b * _d
+    _z -= _c * _d
+print(('NO', 'YES')[_x<=0 and _y<=0 and _z<=0])
