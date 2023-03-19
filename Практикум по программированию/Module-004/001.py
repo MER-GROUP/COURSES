@@ -19,7 +19,9 @@ Sample Output:
 '''
 import sys
 
-sys.stdin = open(file='001.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='001.csv', mode='rt', encoding='utf-8', newline='')
 _, *arr = tuple(map(str.strip, sys.stdin.read().splitlines()))
 arr = list(map(int, arr[0].split()))
-print(arr) # test
+# print(arr) # test
+
+[print(arr[_i], end=' ') for _i in range(0, len(arr), 2)]
