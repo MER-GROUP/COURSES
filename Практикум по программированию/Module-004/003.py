@@ -18,9 +18,9 @@ Sample Output:
 '''
 import sys
 
-sys.stdin = open(file='003.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='003.csv', mode='rt', encoding='utf-8', newline='')
 _, *arr = tuple(map(str.strip, sys.stdin.read().splitlines()))
 arr = list(map(int, arr[0].split()))
-print(arr) # test
+# print(arr) # test
 
-pass
+print(sum(1 for _i in filter(lambda x: 0 < x, arr)))
