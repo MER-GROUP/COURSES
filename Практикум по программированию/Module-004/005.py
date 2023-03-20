@@ -19,9 +19,15 @@ NO
 '''
 import sys
 
-sys.stdin = open(file='005.csv', mode='rt', encoding='utf-8', newline='')
+def compare(a: int, b: int) -> bool:
+    if (a < 0 and b < 0) or (a >= 0 and b >= 0):
+        return True
+    else:
+        return False
+
+# sys.stdin = open(file='005.csv', mode='rt', encoding='utf-8', newline='')
 _, *arr = tuple(map(str.strip, sys.stdin.read().splitlines()))
 arr = list(map(int, arr[0].split()))
-print(arr) # test
+# print(arr) # test
 
-pass
+print(('NO', 'YES')[any(compare(arr[_i-1], arr[_i]) for _i in range(1, len(arr)))])
