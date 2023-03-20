@@ -41,4 +41,32 @@ ChainMap({'name': 'Arthur', 'age': 20}, {'name': 'Timur'})
 '''
 from collections import ChainMap       
 
-pass
+# def deep_update(chainmap: ChainMap, key: str, value: ...) -> None:
+#     _check = False 
+#     for _dict in chainmap.maps:
+#         if key in _dict:
+#             _dict[key] = value
+#             _check = True
+
+#     if not _check:
+#         chainmap[key] = value
+
+def deep_update(chainmap, key, value):
+    changed = 0
+    for elem in chainmap.maps[1:]:
+        if key in elem:
+            elem[key] = value
+            changed += 1
+    if not changed:
+        chainmap.setdefault(key, value)
+
+if __name__ == '__main__':
+    chainmap = ChainMap({'city': 'Moscow'}, {'name': 'Arthur'}, {'name': 'Timur'})
+    print(chainmap)
+    deep_update(chainmap, 'name', 'Dima')
+    print(chainmap)
+
+    chainmap = ChainMap({'name': 'Arthur'}, {'name': 'Timur'})
+    print(chainmap)
+    deep_update(chainmap, 'age', 20)
+    print(chainmap)
