@@ -21,9 +21,11 @@ Sample Output:
 '''
 import sys
 
-sys.stdin = open(file='006.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='006.csv', mode='rt', encoding='utf-8', newline='')
 _, *arr = tuple(map(str.strip, sys.stdin.read().splitlines()))
 arr = list(map(int, arr[0].split()))
-print(arr) # test
+# print(arr) # test
 
-pass
+print(sum(arr[_i-2] < arr[_i-1] > arr[_i] for _i in range(2, len(arr))))
+
+#print(sum(a < b > c for a, b, c in zip(arr, arr[1:], arr[2:])))
