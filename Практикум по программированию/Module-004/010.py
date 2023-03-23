@@ -18,9 +18,21 @@ Sample Output:
 import sys
 from array import array
 
-sys.stdin = open(file='010.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='010.csv', mode='rt', encoding='utf-8', newline='')
 _, *arr = tuple(map(str.strip, sys.stdin.read().splitlines()))
 arr = array('i', list(map(int, arr[0].split())))
-print(arr) # test
+# print(arr) # test
 
-pass
+# print(max(arr)) # 1
+
+_max = float('-inf') # 2
+for _el in arr:
+    _max = max(_max, _el)
+print(_max)
+
+# input()
+# print(
+#     __import__('functools').reduce(
+#         lambda a, b: (a >= b) * a + (a < b) * b, [int(i) for i in input().split()]
+#     )
+# )
