@@ -21,9 +21,17 @@ Sample Output:
 import sys
 from array import array
 
-sys.stdin = open(file='011.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='011.csv', mode='rt', encoding='utf-8', newline='')
 _, *arr = tuple(map(str.strip, sys.stdin.read().splitlines()))
 arr = array('i', list(map(int, arr[0].split())))
-print(arr) # test
+# print(arr) # test
 
-pass
+# print(len(set(arr))) # 1
+
+_count = 1 # 2
+_el = arr[0]
+for _i in range(1, len(arr)):
+    if _el < arr[_i]:
+        _count += 1
+        _el = arr[_i]
+print(_count)
