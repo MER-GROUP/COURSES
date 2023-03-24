@@ -27,9 +27,9 @@ Sample Output:
 import sys
 from array import array
 
-sys.stdin = open(file='012.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='012.csv', mode='rt', encoding='utf-8', newline='')
 _, *arr, n = tuple(map(str.strip, sys.stdin.read().splitlines()))
 arr = array('i', list(map(int, arr[0].split())) + [int(n)])
-print(arr) # test
+# print(arr) # test
 
-pass
+print(len(arr) - sorted(arr).index(int(n)))
