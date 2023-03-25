@@ -23,11 +23,42 @@ Sample Output:
 '''
 import sys
 from array import array
-from copy import copy
 
 sys.stdin = open(file='015.csv', mode='rt', encoding='utf-8', newline='')
 arr = tuple(map(str.strip, sys.stdin.read().splitlines()))
-arr = array('i', list(map(int, arr[0].split())))
+arr = array('i', list(map(int, arr[0].split()[1:])))
 print(arr) # test
 
-pass
+_count = int()
+_exit = False
+_left = 2
+while _left<len(arr):
+    if arr[_left-2] == arr[_left-1] == arr[_left]:
+        _right = _left-2
+        while _right<len(arr)-1:
+            if arr[_right] == arr[_right+1]:
+                _count += 1
+                del arr[_right]
+                continue
+            else:
+                _count += 1
+                _exit = True
+                del arr[_right]
+                print('arr[_right] =', arr[_right]) ### test
+                if 1 <= _right and arr[_right-1] == arr[_right]:
+                    _exit = False
+                    while True:
+                        if 1 <= _right and arr[_right-1] == arr[_right]:
+                            _right -= 1
+                        else:
+                            _right -= 1
+                            _left = _right
+                            break
+                break
+            _right += 1
+    if _exit: 
+        print('_exit =', arr[_left]) ### test
+        break
+    _left += 1
+print(arr) # test
+print(_count)
