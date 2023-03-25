@@ -24,10 +24,25 @@ Sample Output:
 '''
 import sys
 from array import array
+from copy import copy
 
-sys.stdin = open(file='014.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='014.csv', mode='rt', encoding='utf-8', newline='')
 _, *arr, shift = tuple(map(str.strip, sys.stdin.read().splitlines()))
 arr = array('i', list(map(int, arr[0].split())))
 print(arr) # test
 
-pass
+# O(2N)
+_arr = copy(arr)
+if 0 < int(shift):
+    for _ in range(int(shift)):
+        for _i in range(1, len(_arr)):
+            _arr[_i-1], _arr[-1] = _arr[-1], _arr[_i-1]
+else:
+    for _ in range(abs(int(shift))):
+        for _i in range(-1, -len(_arr), -1):
+            _arr[_i], _arr[0] = _arr[0], _arr[_i]
+print(*_arr)
+
+# O(N)
+_arr3 = copy(arr)
+print(*[_arr3[(_ - int(shift)) % len(_arr3)] for _ in range(len(_arr3))])
