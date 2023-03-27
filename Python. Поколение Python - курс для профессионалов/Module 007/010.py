@@ -39,4 +39,17 @@ print(data)
 Sample Output 2:
 {'a': [1, 2, 3], 'b': [4, 5, 6], 'c': [7]}
 '''
-pass
+def add_to_list_in_dict(data: dict, key: str, element: ...) -> None:
+    try:
+        data[key].append(element)
+    except KeyError:
+        data[key] = [element]
+
+if __name__ == '__main__':
+    data = {'a': [1, 2, 3], 'b': [4, 5, 6]}
+    add_to_list_in_dict(data, 'c', 7)
+    print(data)
+
+    data = {'a': [1, 2, 3], 'b': [4, 5, 6]}
+    add_to_list_in_dict(data, 'b', 7)
+    print(data)
