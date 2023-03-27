@@ -1,8 +1,6 @@
 '''
-Четные индексы
-Выведите все элементы списка с четными индексами (то есть A[0], A[2], A[4], ...).
-
-Программа должна быть эффективной и не выполнять лишних действий!
+Больше предыдущего
+Дан список чисел. Выведите все элементы списка, которые больше предыдущего элемента.
 
 Входные данные
 Вводится список чисел. Все числа списка находятся на одной строке.
@@ -11,16 +9,16 @@
 Выведите ответ на задачу.
 
 Sample Input:
-1 2 3 4 5
+1 5 2 4 3
 Sample Output:
-1 3 5
+5 4
 '''
 import sys
 from array import array
 
-# sys.stdin = open(file='016.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='019.csv', mode='rt', encoding='utf-8', newline='')
 arr = tuple(map(str.strip, sys.stdin.read().splitlines()))
 arr = array('i', list(map(int, arr[0].split())))
 # print(arr) # test
 
-print(*arr[::2])
+print(*(arr[i] for i in range(1, len(arr)) if arr[i] > arr[i-1]))
