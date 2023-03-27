@@ -22,9 +22,9 @@ Sample Output 2:
 import sys
 from array import array
 
-sys.stdin = open(file='021.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='021.csv', mode='rt', encoding='utf-8', newline='')
 arr = tuple(map(str.strip, sys.stdin.read().splitlines()))
 arr = array('i', list(map(int, arr[0].split())))
-print(arr) # test
+# print(arr) # test
 
-pass
+print(sum(arr[i-1] < arr[i] > arr[i+1] for i in range(1, len(arr)-1)))
