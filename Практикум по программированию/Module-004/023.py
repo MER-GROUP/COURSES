@@ -18,9 +18,16 @@ Sample Output:
 import sys
 from array import array
 
-sys.stdin = open(file='023.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='023.csv', mode='rt', encoding='utf-8', newline='')
 arr = tuple(map(str.strip, sys.stdin.read().splitlines()))
 arr = array('i', list(map(int, arr[0].split())))
-print(arr) # test
+# print(arr) # test
 
-pass
+# print(min(filter(lambda x: 0 < x, arr))) # 1
+
+# 2
+_min = float('inf')
+for _el in arr:
+    if 0 < _el and _min > _el:
+        _min = _el
+print(_min)
