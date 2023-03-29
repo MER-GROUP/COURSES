@@ -58,4 +58,54 @@ except TypeError as e:
 Sample Output 3:
 Имя не является строкой
 '''
-pass
+def is_name(name: str) -> bool:
+    _count_upper_chr = 0
+    _count_digit = 0
+    _is_start_upper = False
+    
+    for _chr in name:
+        if _chr == _chr.upper() and not _chr.isdigit():
+            _count_upper_chr += 1
+        if _chr.isdigit():
+            _count_digit += 1
+        if _chr == _chr.upper() and not _chr.isdigit() and not _is_start_upper:
+            _is_start_upper = True
+
+    return all((1 == _count_upper_chr, not(_count_digit), _is_start_upper))
+
+def get_id(names: list, name: str) -> int:
+    try:
+        if not isinstance(name, str):
+            raise TypeError('Имя не является строкой')
+        elif not is_name(name):
+            raise ValueError('Имя не является корректным')
+        else:
+            return len(names) + 1
+    except TypeError:
+        # raise TypeError('Имя не является строкой') # or
+        raise # or
+    except ValueError:
+        # raise ValueError('Имя не является корректным') # or
+        raise # or
+    
+if __name__ == '__main__':
+    print('---TEST-1---')
+    names = ['Timur', 'Anri', 'Dima']
+    name = 'Arthur'
+    print(get_id(names, name))
+
+    print('---TEST-2---')
+    names = ['Timur', 'Anri', 'Dima', 'Arthur', 'Ruslan']
+    name = ['E', 'd', 'u', 'a', 'r', 'd']
+    try:
+        print(get_id(names, name))
+    except TypeError as e:
+        print(e)
+
+    print('---TEST-3---')
+    names = ['Timur', 'Anri', 'Dima', 'Arthur']
+    name = 'Ruslan1337'
+    try:
+        print(get_id(names, name))
+    except ValueError as e:
+        print(e)
