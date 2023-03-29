@@ -30,10 +30,21 @@ Sample Output 2:
 import sys
 from array import array
 
-sys.stdin = open(file='025.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='025.csv', mode='rt', encoding='utf-8', newline='')
 arr, petr = tuple(map(str.strip, sys.stdin.read().splitlines()))
 arr = array('i', list(map(int, arr.split())))
-print(arr) # test
-print(petr) # test
+# print(arr) # test
+# print(petr) # test
 
-pass
+# 1
+_count = 1
+for _el in arr:
+    if _el < int(petr):
+        break
+    _count += 1
+        
+print(_count)
+
+# # 2
+# arr = array('i', list(arr) + [int(petr)])
+# print(len(arr) - sorted(arr).index(int(petr)))
