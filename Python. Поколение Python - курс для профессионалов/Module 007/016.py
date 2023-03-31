@@ -66,4 +66,44 @@ except Exception as err:
 Sample Output 3:
 <class '__main__.LetterError'>
 '''
-pass
+class PasswordError(Exception):
+    pass
+
+class LengthError(PasswordError):
+    pass
+
+class LetterError(PasswordError):
+    pass
+
+class DigitError(PasswordError):
+    pass
+
+def is_good_password(string: str) -> bool:
+    try:
+        if 9 > len(string):
+            raise LengthError
+        elif string in (string.lower(), string.upper()) or not any((c.isalpha for c in string)):
+            raise LetterError
+        elif not any((d.isdigit() for d in string)):
+            raise DigitError
+        else:
+            return True
+    except LengthError:
+        raise
+    except LetterError:
+        raise
+    except DigitError:
+        raise
+
+if __name__ == '__main__':
+    try:
+        print(is_good_password('Short7'))
+    except Exception as err:
+        print(type(err))
+
+    print(is_good_password('еПQSНгиfУЙ70qE'))
+
+    try:
+        print(is_good_password('41157081231232'))
+    except Exception as err:
+        print(type(err))
