@@ -36,12 +36,24 @@ Sample Output 2:
 YES
 '''
 import sys
-from array import array
-from copy import copy
+# from array import array
+# from copy import copy
 
-sys.stdin = open(file='039.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='039.csv', mode='rt', encoding='utf-8', newline='')
 arr = tuple(map(str.strip, sys.stdin.read().splitlines()))
 # arr = array('i', list(map(int, arr[0].split())))
-print(arr) # test
+# print(arr) # test
 
-pass
+_exit = False
+for _figure in range(len(arr)):
+    x, y = map(int, arr[_figure].split())
+    for _figure_n in range(_figure+1, len(arr)):
+        xn, yn = map(int, arr[_figure_n].split())
+        if 0 == abs(x - xn) - abs(y - yn) or (x == xn or y == yn):
+            _exit = True
+            break
+    if _exit:
+        print('YES')
+        break
+else:
+    print('NO')
