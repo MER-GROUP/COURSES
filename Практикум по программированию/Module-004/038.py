@@ -23,12 +23,20 @@ Sample Output:
 I.....I...
 '''
 import sys
-from array import array
-from copy import copy
+# from array import array
+# from copy import copy
 
-sys.stdin = open(file='038.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='038.csv', mode='rt', encoding='utf-8', newline='')
 arr = tuple(map(str.strip, sys.stdin.read().splitlines()))
 # arr = array('i', list(map(int, arr[0].split())))
-print(arr) # test
+# print(arr) # test
 
-pass
+_len_bowling, _ = map(int, arr[0].split())
+_arr_bowling = ['I'] * _len_bowling
+# print(*_arr_bowling, sep='') # test
+
+for _str in arr[1:]:
+    _left, _right = map(int, _str.split())
+    for _i in range(_left-1, _right):
+        _arr_bowling[_i] = '.'
+print(*_arr_bowling, sep='')
