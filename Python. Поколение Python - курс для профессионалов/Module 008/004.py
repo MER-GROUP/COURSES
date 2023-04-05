@@ -35,7 +35,23 @@ Sample Input 2:
 Sample Output 2:
 0
 '''
-pass
+import sys
+# sys.stdin = open(file='004-test.txt', mode='rt', encoding='utf-8', newline='')
+_arr = list()
+for _i in sys.stdin:
+    if not '0' == _i.strip():
+        _arr.append(_i.strip())
+    else:
+        _arr.append(_i.strip())
+        break
+# print(_arr) # test
+
+def _reverse(arr: list) -> None:
+    def _rec(_i: int = 0) -> None:
+        if _i < len(arr):
+            _rec(_i+1)
+            print(arr[_i])
+    _rec()
 
 if __name__ == '__main__':
-    pass
+    _reverse(_arr)
