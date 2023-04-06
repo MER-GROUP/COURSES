@@ -38,7 +38,12 @@ Sample Output 2:
 ****
 *****
 '''
-pass
+def triangle(h):
+    def rec(height=h):
+        if 0 < height:
+            rec(height-1)
+            print('*' * height)
+    rec(h)
 
 if __name__ == '__main__':
-    pass
+    triangle(5)
