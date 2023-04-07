@@ -31,4 +31,34 @@ n = int(n)
 print(arr) # test
 print(n) # test
 
-pass
+# 1 - O(2N)
+_arr = copy(arr)
+for _ in range(abs(n)):
+    if 0 < n:
+        for i in range(len(_arr)-1):
+            _arr[i], _arr[-1] = _arr[-1], _arr[i]
+    else:
+        for i in range(-1, -len(_arr), -1):
+            _arr[i], _arr[0] = _arr[0], _arr[i]
+print(_arr)
+
+# 2 - O(2N)
+_arr2 = copy(arr)
+for _ in range(abs(n)):
+    if 0 < n:
+        for i in range(-1, -len(_arr2), -1):
+            _arr2[i-1], _arr2[i] = _arr2[i], _arr2[i-1]
+    else:
+        for i in range(len(_arr2)-1):
+            _arr2[i], _arr2[i+1] = _arr2[i+1], _arr2[i]
+print(_arr2)
+
+# 3 - O(N) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+_arr3 = copy(arr)
+_ost = abs(n) % len(_arr3) if abs(n) >= len(_arr3) else abs(n)
+print(_ost) ################ 
+if 0 < n:
+    _arr3 = _arr3[:_ost] + _arr3[_ost:]
+elif 0 > n:
+    _arr3 = _arr3[_ost:] + _arr3[:_ost]
+print(_arr3)
