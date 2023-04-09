@@ -32,7 +32,13 @@ Sample Input 3:
 Sample Output 3:
 15
 '''
-pass
+def sum_digits(n: int) -> int:
+    def rec(num: int = n) -> int:
+        if not num // 10:
+            return num % 10
+        else:
+            return (num % 10) + rec(num // 10)
+    return rec(n)
 
 if __name__ == '__main__':
-    pass
+    print(sum_digits(int(input())))
