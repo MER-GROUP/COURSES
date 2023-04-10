@@ -41,7 +41,12 @@ print(range_sum([1, 2, 3, 4, 5, 6, 7, 8, 9], 0, 0))
 Sample Output 3:
 1
 '''
-pass
+def range_sum(numbers: list[int], start: int, end: int):
+    def rec(arr: list = numbers, left: int = start, right: int = end):
+        if left == right:
+            return arr[left]
+        return arr[left] + rec(arr, left+1, right)
+    return rec(numbers, start, end)
 
 if __name__ == '__main__':
-    pass
+    print(range_sum([1, 2, 3, 4, 5, 6, 7, 8, 9], 3, 7))
