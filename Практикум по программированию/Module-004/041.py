@@ -23,11 +23,20 @@ import sys
 # from array import array
 # from copy import copy
 
-sys.stdin = open(file='041.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='041.csv', mode='rt', encoding='utf-8', newline='')
 n, *_ = tuple(map(str.strip, sys.stdin.read().splitlines()))
 # arr = array('i', list(map(int, arr.split())))
 n = int(n)
-print(n) # test
-arr = list()
+# print(n) # test
+arr = [[0] * n for i in range(n)]
+# [print(*i) for i in arr]
 
-pass
+for i in range(n):
+    for j in range(n):
+        if i < n-1-j:
+            arr[i][j] = 0
+        elif i == n-1-j:
+            arr[i][j] = 1
+        else:
+            arr[i][j] = 2
+[print(*i) for i in arr]
