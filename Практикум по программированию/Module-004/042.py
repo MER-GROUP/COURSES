@@ -25,12 +25,33 @@ import sys
 # from array import array
 # from copy import copy
 
-sys.stdin = open(file='042.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='042.csv', mode='rt', encoding='utf-8', newline='')
 n, *arr = tuple(map(str.strip, sys.stdin.read().splitlines()))
 # arr = array('i', list(map(int, arr.split())))
 n = int(n)
-print(n) # test
-# arr = [[0] * n for i in range(n)]
-[print(*i) for i in arr]
+# print(n) # test
+arr = [ list(map(int, arr[i].split())) for i in range(n)]
+# [print(*i) for i in arr]
 
-pass
+# 1
+if arr == list(map(list, zip(*arr))):
+    print('yes')
+else:
+    print('no')
+
+# 2
+_exit = False
+for coll in range(n):
+    for row in range(n):
+        if coll == row:
+            continue
+        elif arr[coll][row] == arr[row][coll]:
+            continue
+        else:
+            print('no')
+            _exit = True
+            break
+    if _exit:
+        break
+else:
+    print('yes')
