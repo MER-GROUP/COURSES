@@ -37,7 +37,29 @@ print(tribonacci(4))
 Sample Output 3:
 3
 '''
-pass
+# # без мемоизации
+# def tribonacci(n: int) -> int:
+#     def rec(num: int = n) -> int:
+#         if num in (1, 2, 3):
+#             return 1
+#         else:
+#             return rec(num-1) + rec(num-2) + rec(num-3)
+#     return rec(n)
+
+# с мемоизацией
+def tribonacci(n: int) -> int:
+    _cache = {1: 1, 2: 1, 3: 1}
+
+    def rec(num: int = n) -> int:
+        _tribonacci_n = _cache.get(num)
+        if _tribonacci_n is None:
+            _tribonacci_n = rec(num-1) + rec(num-2) + rec(num-3)
+            _cache[num] = _tribonacci_n
+        return _tribonacci_n
+    
+    return rec(n)
 
 if __name__ == '__main__':
-    pass
+    print(tribonacci(1))
+    print(tribonacci(7))
+    print(tribonacci(4))
