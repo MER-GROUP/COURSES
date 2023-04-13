@@ -26,19 +26,25 @@ Sample Input:
 Sample Output:
 9
 0
-
 '''
 import sys
 # from array import array
 # from copy import copy
 
-sys.stdin = open(file='043.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='043.csv', mode='rt', encoding='utf-8', newline='')
 nm, *arr = tuple(map(str.strip, sys.stdin.read().splitlines()))
 # arr = array('i', list(map(int, arr.split())))
 n, m = map(int, nm.split())
-print(n) # test
-print(m) # test
+# print(n) # test
+# print(m) # test
 arr = [list(map(int, arr[i].split())) for i in range(n)]
-[print(*i) for i in arr]
+# [print(*i) for i in arr]
 
-pass
+_index = int()
+_max = float('-inf')
+for i, el in enumerate(arr):
+    if _max < sum(el):
+        _max = sum(el)
+        _index = i
+print(_max)
+print(_index)
