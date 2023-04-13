@@ -44,7 +44,26 @@ print(len(sorted(result)))
 Sample Output 3:
 0
 '''
-pass
+def get_all_values(nested_dicts: int, key: str) -> set:
+    _set = set()
+    def rec(_dict: dict = nested_dicts):
+        if key in _dict:
+            _set.add(_dict[key])
+        for v in _dict.values():
+            if isinstance(v, dict):
+                rec(v)
+    rec(nested_dicts)
+    return _set
 
 if __name__ == '__main__':
-    pass
+    my_dict = {'users': {'Arthur': {'grades': [4, 4, 3], 'top_grade': 4}, 'Timur': {'grades': [5, 5, 5], 'top_grade': 5}}}
+    result = get_all_values(my_dict, 'top_grade')
+    print(*sorted(result))
+
+    my_dict = {'Arthur': {'hobby': 'videogames', 'drink': 'cacao'}, 'Timur': {'hobby': 'math'}}
+    result = get_all_values(my_dict, 'hobby')
+    print(*sorted(result))
+
+    my_dict = {'Arthur': {'hobby': 'videogames', 'drink': 'cacao'}, 'Timur': {'hobby': 'math'}}
+    result = get_all_values(my_dict, 'top_grade')
+    print(len(sorted(result)))
