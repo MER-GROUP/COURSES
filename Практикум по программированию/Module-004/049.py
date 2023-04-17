@@ -33,4 +33,12 @@ print(m) # test
 # arr = [list(map(int, arr[i].split())) for i in range(n)]
 # [print(*i) for i in arr]
 
-pass
+arr = [[0]*m for _ in range(n)]
+# [print(*i) for i in arr]
+for i in range(n):
+    for j in range(m):
+        if 0 in (i, j):
+            arr[i][j] = 1
+        else:
+            arr[i][j] = arr[i-1][j] + arr[i][j-1]
+[print(*i) for i in arr]
