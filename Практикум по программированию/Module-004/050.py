@@ -29,9 +29,98 @@ sys.stdin = open(file='050.csv', mode='rt', encoding='utf-8', newline='')
 nm = tuple(map(str.strip, sys.stdin.read().splitlines()))
 # arr = array('i', list(map(int, arr.split())))
 n, *m = map(int, nm[0].split())
-print(n) # test
-print(m) # test
+# print(n) # test
+# print(m) # test
 # arr = [list(map(int, arr[i].split())) for i in range(n)]
 # [print(*i) for i in arr]
 
-pass
+arr = [['.'] * (2*n+1) for i in range(2*n+1)]
+# [print(*i) for i in arr] # test
+digit = (2 * n + 1)**2 - 1
+# print(digit) # test
+i = 0
+j = 2 * n
+# print(f'i = {i}, j = {j}') # test
+up, right, left = [False] * 3
+down = True
+# print(f'up = {up}, right = {right}, left = {left}, down = {down}') # test
+
+while True:
+    # print('while') ##################
+
+    # down
+    if down:
+        if -1 < i < (2*n+1) \
+        and -1 < j < (2*n+1) \
+        and '.' == arr[i][j]:
+            print('down ###################') ###############################
+            print(f'i = {i}, j = {j}') ###################
+            arr[i][j] = digit
+            digit -= 1
+            i += 1  
+        else:
+            down = False
+            left = True
+            i -= 1
+            j -= 1
+            if 0 == digit: break
+            print('111111111111111111') ##################
+            print(f'i = {i}, j = {j}') ###################
+
+    # left
+    if left:
+        if -1 < i < (2*n+1) \
+        and -1 < j < (2*n+1) \
+        and '.' == arr[i][j]:
+            print('left ###################') ###############################
+            print(f'i = {i}, j = {j}') ###################
+            arr[i][j] = digit
+            digit -= 1
+            j -= 1
+        else:
+            left = False
+            up = True
+            j += 1
+            i -= 1
+            if 0 == digit: break
+            print('222222222222222222') ##################
+            print(f'i = {i}, j = {j}') ###################
+
+    # up
+    if up:
+        if -1 < i < (2*n+1) \
+        and -1 < j < (2*n+1) \
+        and '.' == arr[i][j]:
+            print('up ###################') ###############################
+            print(f'i = {i}, j = {j}') ###################
+            arr[i][j] = digit
+            digit -= 1
+            i -= 1
+        else:
+            up = False
+            right = True
+            i += 1
+            j += 1
+            if 0 == digit: break
+            print('3333333333333333333') ##################
+            print(f'i = {i}, j = {j}') ###################
+
+    # right
+    if right:
+        if -1 < i < (2*n+1) \
+        and -1 < j < (2*n+1) \
+        and '.' == arr[i][j]:
+            print('right ###################') ###############################
+            print(f'i = {i}, j = {j}') ###################
+            arr[i][j] = digit
+            digit -= 1
+            j += 1
+        else:
+            right = False
+            down = True
+            j -= 1
+            i += 1
+            if 0 == digit: break
+            print('4444444444444444444') ##################
+            print(f'i = {i}, j = {j}') ###################
+[print(*i) for i in arr] # test
