@@ -38,7 +38,14 @@ print(is_greater(data, 3))
 Sample Output 3:
 False
 '''
-pass
+def is_greater(lists: list, number: int) -> bool:
+    # return any(number < sum(i) for i in lists)
+    return any(map(lambda x: number < sum(x), lists))
 
 if __name__ == '__main__':
-    pass
+    data = [[-3, 4, 0, 1], [1, 1, -4], [0, 0], [9, 3]]
+    print(is_greater(data, 10))
+    data = [[0, 0, 1], [0, 1, 0], [1, 0, 0]]
+    print(is_greater(data, 2))
+    data = [[0, 1, 2], [0, 3], [1, 1, 1], [3]]
+    print(is_greater(data, 3))
