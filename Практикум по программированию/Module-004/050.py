@@ -29,9 +29,77 @@ sys.stdin = open(file='050.csv', mode='rt', encoding='utf-8', newline='')
 nm = tuple(map(str.strip, sys.stdin.read().splitlines()))
 # arr = array('i', list(map(int, arr.split())))
 n, *m = map(int, nm[0].split())
-print(n) # test
-print(m) # test
+# print(n) # test
+# print(m) # test
 # arr = [list(map(int, arr[i].split())) for i in range(n)]
 # [print(*i) for i in arr]
 
-pass
+arr = [['.'] * (2*n+1) for i in range(2*n+1)]
+digit = (2 * n + 1)**2 - 1
+i = 0
+j = 2 * n
+up, right, left = [False] * 3
+down = True
+
+while True:
+    # down
+    if down:
+        if -1 < i < (2*n+1) \
+        and -1 < j < (2*n+1) \
+        and '.' == arr[i][j]:
+            arr[i][j] = digit
+            digit -= 1
+            i += 1  
+        else:
+            down = False
+            left = True
+            i -= 1
+            j -= 1
+            if -1 == digit: break
+    # left
+    if left:
+        if -1 < i < (2*n+1) \
+        and -1 < j < (2*n+1) \
+        and '.' == arr[i][j]:
+            arr[i][j] = digit
+            digit -= 1
+            j -= 1
+        else:
+            left = False
+            up = True
+            j += 1
+            i -= 1
+            if -1 == digit: break
+    # up
+    if up:
+        if -1 < i < (2*n+1) \
+        and -1 < j < (2*n+1) \
+        and '.' == arr[i][j]:
+            arr[i][j] = digit
+            digit -= 1
+            i -= 1
+        else:
+            up = False
+            right = True
+            i += 1
+            j += 1
+            if -1 == digit: break
+    # right
+    if right:
+        if -1 < i < (2*n+1) \
+        and -1 < j < (2*n+1) \
+        and '.' == arr[i][j]:
+            arr[i][j] = digit
+            digit -= 1
+            j += 1
+        else:
+            right = False
+            down = True
+            j -= 1
+            i += 1
+            if -1 == digit: break
+
+for i in range(len(arr)):
+    for j in range(len(arr)):
+        print(str(arr[i][j]).rjust(3), end="")
+    print()
