@@ -35,26 +35,18 @@ n, *m = map(int, nm[0].split())
 # [print(*i) for i in arr]
 
 arr = [['.'] * (2*n+1) for i in range(2*n+1)]
-# [print(*i) for i in arr] # test
 digit = (2 * n + 1)**2 - 1
-# print(digit) # test
 i = 0
 j = 2 * n
-# print(f'i = {i}, j = {j}') # test
 up, right, left = [False] * 3
 down = True
-# print(f'up = {up}, right = {right}, left = {left}, down = {down}') # test
 
 while True:
-    # print('while') ##################
-
     # down
     if down:
         if -1 < i < (2*n+1) \
         and -1 < j < (2*n+1) \
         and '.' == arr[i][j]:
-            print('down ###################') ###############################
-            print(f'i = {i}, j = {j}') ###################
             arr[i][j] = digit
             digit -= 1
             i += 1  
@@ -63,17 +55,12 @@ while True:
             left = True
             i -= 1
             j -= 1
-            if 0 == digit: break
-            print('111111111111111111') ##################
-            print(f'i = {i}, j = {j}') ###################
-
+            if -1 == digit: break
     # left
     if left:
         if -1 < i < (2*n+1) \
         and -1 < j < (2*n+1) \
         and '.' == arr[i][j]:
-            print('left ###################') ###############################
-            print(f'i = {i}, j = {j}') ###################
             arr[i][j] = digit
             digit -= 1
             j -= 1
@@ -82,17 +69,12 @@ while True:
             up = True
             j += 1
             i -= 1
-            if 0 == digit: break
-            print('222222222222222222') ##################
-            print(f'i = {i}, j = {j}') ###################
-
+            if -1 == digit: break
     # up
     if up:
         if -1 < i < (2*n+1) \
         and -1 < j < (2*n+1) \
         and '.' == arr[i][j]:
-            print('up ###################') ###############################
-            print(f'i = {i}, j = {j}') ###################
             arr[i][j] = digit
             digit -= 1
             i -= 1
@@ -101,17 +83,12 @@ while True:
             right = True
             i += 1
             j += 1
-            if 0 == digit: break
-            print('3333333333333333333') ##################
-            print(f'i = {i}, j = {j}') ###################
-
+            if -1 == digit: break
     # right
     if right:
         if -1 < i < (2*n+1) \
         and -1 < j < (2*n+1) \
         and '.' == arr[i][j]:
-            print('right ###################') ###############################
-            print(f'i = {i}, j = {j}') ###################
             arr[i][j] = digit
             digit -= 1
             j += 1
@@ -120,7 +97,9 @@ while True:
             down = True
             j -= 1
             i += 1
-            if 0 == digit: break
-            print('4444444444444444444') ##################
-            print(f'i = {i}, j = {j}') ###################
-[print(*i) for i in arr] # test
+            if -1 == digit: break
+
+for i in range(len(arr)):
+    for j in range(len(arr)):
+        print(str(arr[i][j]).rjust(3), end="")
+    print()
