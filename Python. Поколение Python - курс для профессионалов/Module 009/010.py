@@ -50,7 +50,17 @@ print(zip_longest(*data))
 Sample Output 3:
 [(1, 'one', 'I'), (2, 'two', 'II'), (3, 'three', 'III'), (4, 'four', 'IV'), (5, 'five', 'V')]
 '''
-pass
+def zip_longest(*args, fill: str = None) -> list:
+    _max_list = len(max(args, key=len))
+    for i in range(len(args)):
+        if _max_list > len(args[i]):
+            args[i].extend([fill] * (_max_list - len(args[i])))
+    return list(zip(*args))
+    
 
 if __name__ == '__main__':
-    pass
+    print(zip_longest([1, 2, 3, 4, 5], ['a', 'b', 'c'], fill='_'))
+    data = [[1, 2, 3, 4, 5], ['one', 'two', 'three'], ['I', 'II']]
+    print(zip_longest(*data))
+    data = [[1, 2, 3, 4, 5], ['one', 'two', 'three', 'four', 'five'], ['I', 'II', 'III', 'IV', 'V']]
+    print(zip_longest(*data))
