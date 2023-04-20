@@ -1,6 +1,6 @@
 '''
-Заполнение змейкой
-Даны числа n и m. Создайте массив A[n][m] и заполните его змейкой (см. пример).
+Заполнение диагоналями
+Даны числа n и m. Создайте массив A[n][m] и заполните его, как показано на примере.
 
 Входные данные
 Программа получает на вход два числа n и m.
@@ -11,10 +11,10 @@
 Sample Input:
 4 10
 Sample Output:
-  0  1  2  3  4  5  6  7  8  9
- 19 18 17 16 15 14 13 12 11 10
- 20 21 22 23 24 25 26 27 28 29
- 39 38 37 36 35 34 33 32 31 30
+  0  1  3  6 10 14 18 22 26 30
+  2  4  7 11 15 19 23 27 31 34
+  5  8 12 16 20 24 28 32 35 37
+  9 13 17 21 25 29 33 36 38 39
 '''
 import sys
 # from array import array
@@ -25,19 +25,10 @@ sys.stdin = open(file='051.csv', mode='rt', encoding='utf-8', newline='')
 nm = tuple(map(str.strip, sys.stdin.read().splitlines()))
 # arr = array('i', list(map(int, arr.split())))
 n, m = map(int, nm[0].split())
-# print(n) # test
-# print(m) # test
+print(n) # test
+print(m) # test
 # arr = [list(map(int, arr[i].split())) for i in range(n)]
 arr = [['.']*m for i in range(n)]
-# [print(*i) for i in arr]
+[print(*i) for i in arr]
 
-i, j, di, dj = 0, 0, 0, 1
-for num in range(n*m):
-    arr[i][j] = str(num).rjust(3)
-    if arr[(i+di)%n][(j+dj)%m] not in('.'):
-        i += 1
-        j += dj
-        dj = -dj
-    i += di
-    j += dj
-[print(*i, sep='') for i in arr]
+pass
