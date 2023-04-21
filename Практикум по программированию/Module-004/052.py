@@ -45,6 +45,8 @@ for k in range(n+m):
         j = 0
         for i in range(1+di, n):
             try:
+                if 0 > m-1-j: 
+                    raise IndexError
                 arr[i][m-1-j] = str(num).rjust(3)
                 num += 1
                 j += 1
