@@ -20,15 +20,35 @@ import sys
 # from array import array
 # from copy import copy
 
-sys.stdin = open(file='051.csv', mode='rt', encoding='utf-8', newline='')
+sys.stdin = open(file='052.csv', mode='rt', encoding='utf-8', newline='')
 # nm, *arr = tuple(map(str.strip, sys.stdin.read().splitlines()))
 nm = tuple(map(str.strip, sys.stdin.read().splitlines()))
 # arr = array('i', list(map(int, arr.split())))
 n, m = map(int, nm[0].split())
-print(n) # test
-print(m) # test
+# print(n) # test
+# print(m) # test
 # arr = [list(map(int, arr[i].split())) for i in range(n)]
 arr = [['.']*m for i in range(n)]
-[print(*i) for i in arr]
+# [print(*i) for i in arr]
 
-pass
+num = 0
+di = 0
+for k in range(n+m):
+    if k <= m:
+        for i in range(k):
+            try:
+                arr[i][k-1-i] = str(num).rjust(3)
+                num += 1
+            except IndexError:
+                break
+    else:
+        j = 0
+        for i in range(1+di, n):
+            try:
+                arr[i][m-1-j] = str(num).rjust(3)
+                num += 1
+                j += 1
+            except IndexError:
+                break
+        di += 1
+[print(*i, sep='') for i in arr]
