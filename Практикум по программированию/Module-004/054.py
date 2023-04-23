@@ -31,10 +31,18 @@ nm, *tup = tuple(map(str.strip, sys.stdin.read().splitlines()))
 # arr = array('i', list(map(int, arr.split())))
 # n, m = map(int, nm[0].split())
 n, m = map(int, nm.split())
-print(n) # test
-print(m) # test
-print(tup) # test
+# print(n) # test
+# print(m) # test
+# print(tup) # test
 arr = [list(map(int, tup[i].split())) for i in range(n)]
-[print(*i) for i in arr]
+# [print(*i) for i in arr]
 
-pass
+# 1
+[print(*reversed(i)) for i in zip(*arr)]
+
+# 2
+arr2 = [[0]*n for _ in range(m)]
+for i in range(n):
+    for j in range(m):
+        arr2[j][i] = arr[n-i-1][j]
+[print(*i) for i in arr2]
