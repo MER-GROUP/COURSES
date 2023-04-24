@@ -43,7 +43,11 @@ Sample Input 3:
 Sample Output 3:
 100
 '''
-pass
+import sys
+# sys.stdin = open(file='014-tests.txt', mode='rt', encoding='utf-8', newline='')
 
 if __name__ == '__main__':
-    pass
+    arr = sys.stdin.read().split('\n')
+    print(
+        eval(max(arr, key=eval))
+    )
