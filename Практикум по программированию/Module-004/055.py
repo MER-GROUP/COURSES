@@ -26,13 +26,55 @@ import sys
 
 sys.stdin = open(file='055.csv', mode='rt', encoding='utf-8', newline='')
 nm, *tup = tuple(map(str.strip, sys.stdin.read().splitlines()))
-print(nm)
-print(tup)
+# print(nm)
+# print(tup)
 # arr = array('i', list(map(int, arr.split())))
 n, *m = map(int, nm.split())
-print(n)
+# print(n)
 # # arr = [list(map(int, tup[i].split())) for i in range(n)]
 arr = [[0]*n for _ in range(n)]
-[print(*i, sep='') for i in arr]
+# [print(*i, sep='') for i in arr]
 
-pass
+_right = n
+_down = n
+_left = 0
+_up = 0
+_check_left = False
+_exit_left = n
+
+while 0 < n:
+    # right
+    for j in range(_left, _right):
+        arr[_up][j] = 1
+    _right -= 1
+    n -= 1
+    if not n: break
+
+    # down
+    for i in range(_up, _down):
+        arr[i][_right] = 1
+    _right -= 1
+    _down -= 1
+    n -= 1
+    if not n: break
+
+    # left
+    if _check_left or 3 == _exit_left: 
+        _left += 1
+    for j in range(_right, _left-1, -1):
+        arr[_down][j] = 1
+        _check_left = True
+    _up += 1
+    _down -= 1
+    n -= 1
+    if not n: break
+
+    # up
+    for i in range(_down, _up, -1):
+        arr[i][_left] = 1
+    _left += 1
+    _up += 1
+    n -= 1
+    if not n: break
+
+[print(*i, sep='') for i in arr]
