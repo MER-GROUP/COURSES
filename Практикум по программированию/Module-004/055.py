@@ -40,7 +40,7 @@ _down = n
 _left = 0
 _up = 0
 _check_left = False
-_exit_left = n
+# _exit_left = n
 
 while 0 < n:
     # right
@@ -59,7 +59,8 @@ while 0 < n:
     if not n: break
 
     # left
-    if _check_left or 3 == _exit_left: 
+    # if _check_left or 3 == _exit_left: 
+    if _check_left: 
         _left += 1
     for j in range(_right, _left-1, -1):
         arr[_down][j] = 1
