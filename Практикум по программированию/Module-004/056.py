@@ -30,4 +30,7 @@ print(n)
 # arr = [[0]*n for _ in range(n)]
 # [print(*i, sep='') for i in arr]
 
-pass
+# 1
+from datetime import datetime, timedelta
+_datetime = datetime(year=1, month=1, day=1) + timedelta(days=n-1)
+print(_datetime.day, _datetime.month)
