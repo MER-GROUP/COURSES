@@ -34,3 +34,16 @@ print(n)
 from datetime import datetime, timedelta
 _datetime = datetime(year=1, month=1, day=1) + timedelta(days=n-1)
 print(_datetime.day, _datetime.month)
+
+# 2
+_db = {1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
+_month = 1
+_days = _db[1]
+_day = 1
+for i in range(1, n):
+    if i == _days:
+        _day = 0
+        _month += 1
+        _days += _db[_month]
+    _day += 1
+print(f'{_day} {_month}')
