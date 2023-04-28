@@ -54,7 +54,77 @@ verification('Ruslan_Chaniev', 'stepikstepik2', success, failure)
 Sample Output 2:
 Ruslan_Chaniev, попробуйте снова. Текст ошибки: в пароле нет ни одной заглавной буквы
 '''
-pass
+def verification(login: str, password: str, success: None, failure: None):
+    _password = ''.join(i for i in password if i.isascii())
+    _isupper = _password.isupper()
+    _islower = _password.islower()
+    _isalpha = _password.isalpha()
+    _isnumeric = _password.isnumeric()
+    _check_pswd = not any(
+        (_isupper, _islower, _isalpha, _isnumeric)
+    )
+    if _check_pswd:
+        success(login)
+    else:
+        _is_not_alpha_text = 'в пароле нет ни одной буквы' if not _password or _isnumeric else ''
+        _is_not_upper_text = 'в пароле нет ни одной заглавной буквы' if _islower else ''
+        _is_not_lower_text = 'в пароле нет ни одной строчной буквы' if _isupper else ''
+        _is_not_numeric_text = 'в пароле нет ни одной цифры' if _isalpha else ''
+        _text = str()
+        for _str in (_is_not_alpha_text, _is_not_upper_text, _is_not_lower_text, _is_not_numeric_text):
+                if _str:
+                    _text += _str
+                    break
+        failure(login, _text)
 
 if __name__ == '__main__':
-    pass
+    # 1 test-1
+    def success(login):
+        print(f'Привет, {login}!')
+    def failure(login, text):
+        print(f'{login}, попробуйте снова. Ошибка: {text}')
+    verification('timyrik20', 'Beegeek314', success, failure)
+
+    # 2 test-2
+    def success(login):
+        print(f'Здравствуйте, {login}!')
+    def failure(login, text):
+        print(f'{login}, попробуйте снова. Текст ошибки: {text}')
+    verification('Ruslan_Chaniev', 'stepikstepik2', success, failure)
+
+    # 3 test-7
+    def success(login):
+        print(f'Здравствуйте, {login}!')
+    def failure(login, text):
+        print(f'{login}, попробуйте снова. Текст ошибки: {text}')
+    verification('Arthur_Davletov', 'мойпароль123', success, failure)
+
+    # 4 test-8
+    def success(login):
+        print(f'Здравствуйте, {login}!')
+    def failure(login, text):
+        print(f'{login}, попробуйте снова. Текст ошибки: {text}')
+    verification('Arthur_Davletov', 'мойпарольbee123', success, failure)
+
+    # 4 test-9
+    def success(login):
+        print(f'Здравствуйте, {login}!')
+    def failure(login, text):
+        print(f'{login}, попробуйте снова. Текст ошибки: {text}')
+    verification('Arthur_Davletov', 'мойпарольBEE123', success, failure)
+
+    # # test
+    # print(sorted('мойпароль123', key=lambda x : (x.isnumeric(), not x.isascii())))
+    # print(sorted('мойпароль123', key=lambda x : (x.isnumeric(), not x.isascii()))[0].isascii())
+
+    # # test
+    # print(sorted('мойпарольbee123', key=lambda x : (x.isnumeric(), not x.isascii())))
+    # print(sorted('мойпарольbee123', key=lambda x : (x.isnumeric(), not x.isascii()))[0].isascii())
+
+    # # test
+    # print(sorted('мойпарольBEE123', key=lambda x : (x.isnumeric(), not x.isascii())))
+    # print(sorted('мойпарольBEE123', key=lambda x : (x.isnumeric(), not x.isascii()))[0].isascii())
+    # print('мойпарольBEE123'.isupper())
+    # print('мойпарольBEE123'.islower())
+    # print(''.isascii())
+    # print(' '.isascii())
