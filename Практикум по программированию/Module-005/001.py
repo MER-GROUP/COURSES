@@ -33,7 +33,7 @@ print(nm)
 print(tup)
 digit = int(digit)
 print(digit)
-arr = array('i', list(map(int, tup.split())))
+arr = array('i', map(int, tup.split()))
 print(arr)
 
 pass
