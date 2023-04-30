@@ -34,7 +34,21 @@ print(*words, sep=' to ', end=' LOVE')
 Sample Output 3:
 BLACK TO WHITE TO GREY TO BLACK-1 TO WHITE-1 TO PYTHON LOVE
 '''
-pass
+def print_new(*args, sep: str=" ", end: str="\n") -> str:
+    import sys
+    sys.stdout.write(
+        sep.upper().join(
+            map(
+                lambda x: x.upper() if isinstance(x, str) else str(x), 
+                args
+            )
+        ) + end.upper()
+    )
 
 if __name__ == '__main__':
-    pass
+    print = print_new
+    # print('max')
+    print('beegeek', [1, 2, 3], 4)
+    # print('bee', 'geek', sep=' and ', end=' wow')
+    # words = ('black', 'white', 'grey', 'black-1', 'white-1', 'python')
+    # print(*words, sep=' to ', end=' LOVE')
