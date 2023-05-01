@@ -29,11 +29,15 @@ from array import array
 
 sys.stdin = open(file='001.csv', mode='rt', encoding='utf-8', newline='')
 nm, tup, digit = tuple(map(str.strip, sys.stdin.read().splitlines()))
-print(nm)
-print(tup)
+# print(nm)
+# print(tup)
 digit = int(digit)
-print(digit)
+# print(digit)
 arr = array('i', map(int, tup.split()))
-print(arr)
+# print(arr)
 
-pass
+# 1
+print(arr.count(digit))
+
+# 2
+print(sum(i==digit for i in arr))
