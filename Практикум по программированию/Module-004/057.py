@@ -48,6 +48,7 @@ day_z, month_z, year_z = [None] * 3
 
 def is_leap(year: int) -> bool:
     # return not bool(year % 4) and bool(year % 100) and bool(year % 400) # or
+    # return __import__('calendar').isleap(year) # or
     return not bool(year % 4) and bool(year % 100) or not bool(year % 400) # or
 # print(f'is_leap = {is_leap(year)}') # test
 
