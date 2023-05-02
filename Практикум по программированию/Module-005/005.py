@@ -24,9 +24,16 @@ from array import array
 
 sys.stdin = open(file='005.csv', mode='rt', encoding='utf-8', newline='')
 nm, tup = tuple(map(str.strip, sys.stdin.read().splitlines()))
-print(nm)
-print(tup)
+# print(nm)
+# print(tup)
 arr = array('i', map(int, tup.split()))
-print(arr)
+# print(arr)
 
-pass
+# 1
+print(max(arr))
+
+# 2
+_max = float('-inf')
+for el in arr:
+    _max = max(el, _max)
+print(_max)
