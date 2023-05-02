@@ -30,14 +30,21 @@ from array import array
 
 sys.stdin = open(file='003.csv', mode='rt', encoding='utf-8', newline='')
 nm, tup, digit = tuple(map(str.strip, sys.stdin.read().splitlines()))
-print(nm)
-print(tup)
+# print(nm)
+# print(tup)
 digit = int(digit)
-print(digit)
+# print(digit)
 arr = array('i', map(int, tup.split()))
-print(arr)
+# print(arr)
 
 # 1
 print(min(arr, key=lambda x: abs(x-digit)))
 
 # 2
+_min = __import__("math").inf
+_el = None
+for el in arr:
+    if _min > abs(el - digit):
+        _min = abs(el - digit)
+        _el = el
+print(_el)
