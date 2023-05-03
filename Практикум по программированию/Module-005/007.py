@@ -28,9 +28,21 @@ from array import array
 
 sys.stdin = open(file='007.csv', mode='rt', encoding='utf-8', newline='')
 nm, tup = tuple(map(str.strip, sys.stdin.read().splitlines()))
-print(nm)
-print(tup)
+# print(nm)
+# print(tup)
 arr = array('i', map(int, tup.split()))
-print(arr)
+# print(arr)
 
-pass
+# 1
+_min, _next_min = min(arr[:2]), max(arr[:2])
+for el in arr[2:]:
+    if _min > el:
+        _next_min, _min = _min, el
+    elif el < _next_min > _min:
+        _next_min = el
+print(_min, _next_min)
+
+# 2
+print(min(arr), end=' ')
+arr.pop(arr.index(min(arr)))
+print(min(arr))
