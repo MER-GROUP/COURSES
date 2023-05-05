@@ -36,13 +36,15 @@ print(m)
 # print(arr)
 
 _arr = [list(map(int, el.split())) for el in tup]
-print(_arr) # test
+print(*_arr, sep='\n') # test
+print('----------')
 _min, _max = float('inf'), float('-inf')
 _index_row, _index_col, _count = -1, -1, 0
 
 step_row = step_col = max(n, m)
 
 for row in range(step_row):
+    # ----------------------------
     for col in range(step_col):
         try:
             if _min > _arr[row][col]:
@@ -53,19 +55,26 @@ for row in range(step_row):
                 index_col = col
         except IndexError:
             pass
-        # тритий цик надо
-        # ----------------------------
-
-        # ----------------------------
-        try:
-            if _max < _arr[col][row]:
-                _max = _arr[col][row]
-                index_row = row
-                _count = 0
-            elif _max == _arr[col][row]:
-                index_row = row
-        except IndexError:
-            pass
-    if _min == _max == _arr[row][col]:
-        _count += 1
+    # ----------------------------
+    print(f'_min = {_min}') # test
+    print(f'index_col = {index_col}') # test
+    # ----------------------------
+    for col2 in range(step_row):
+        for row2 in range(step_col):
+            try:
+                if _max < _arr[row2][col2]:
+                    _max = _arr[row2][col2]
+                    index_row = row2
+                    _count = 0
+                elif _max == _arr[row2][col2]:
+                    index_row = row2
+            except IndexError:
+                pass
+    # ----------------------------
+        if _min == _max == _arr[index_row][index_col]:
+            _count += 1
+    # ----------------------------
+    print(f'_max = {_max}') # test
+    print(f'index_row = {index_row}') # test
+    print('----------')
 print(_count)
