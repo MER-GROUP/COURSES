@@ -21,9 +21,8 @@ import sys
 # from array import array
 # from copy import copy
 
-sys.stdin = open(file='010.csv', mode='rt', encoding='utf-8', newline='')
-nm, tup = tuple(map(str.strip, sys.stdin.read().splitlines()))
-print(nm)
+sys.stdin = open(file='011.csv', mode='rt', encoding='utf-8', newline='')
+tup = tuple(map(str.strip, sys.stdin.read().splitlines()))
 print(tup)
 # n, m = map(int, nm.split())
 # print(n)
@@ -31,5 +30,9 @@ print(tup)
 # arr = array('i', map(int, tup.split()))
 # print(arr)
 
-# 1
-pass
+print(
+    tup[0][2:].replace(
+        str(max(tup[0][2:].split(), key=int)), 
+        str(min(tup[0][2:].split(), key=int))
+    )
+)
