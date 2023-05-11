@@ -27,10 +27,24 @@ arr = array('i', range(1, int(tup[0])+1))
 print(arr)
 
 # 1
-from bisect import bisect, bisect_right, insort_left, bisect_left, insort_right, insort
-print(bisect(arr, int(tup[0])))
-print(bisect_right(arr, int(tup[0])))
-print(bisect_left(arr, int(tup[0])))
-print(insort(arr, int(tup[0])))
-print(insort_left(arr, int(tup[0])))
-print(insort_right(arr, int(tup[0])))
+index, _count = -1, 0
+left, right = 0, len(arr)-1
+while left <= right and -1 == index:
+    mid = left + (right-left)//2
+    if int(tup[0])+1 == arr[mid]:
+        index = arr[mid]
+        _count += 1
+    else:
+        _count += 1
+        if int(tup[0])+1 < arr[mid]:
+            right = mid-1
+        else:
+            left = mid+1 
+print(_count)
+
+# 2
+def bi_searce(_arr: list, _el: int) -> int:
+    _count = 0
+    def rec():
+        ...
+    rec()
