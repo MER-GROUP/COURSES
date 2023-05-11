@@ -22,9 +22,9 @@ from array import array
 
 sys.stdin = open(file='013.csv', mode='rt', encoding='utf-8', newline='')
 tup = tuple(map(str.strip, sys.stdin.read().splitlines()))
-print(tup)
+# print(tup)
 arr = array('i', range(1, int(tup[0])+1))
-print(arr)
+# print(arr)
 
 # 1
 index, _count = -1, 0
@@ -45,11 +45,8 @@ print(_count)
 # 2
 def bi_searce(_arr: list, _el: int) -> int:
     def rec(_array: list) -> int:
-        if 1 == len(_array):
-            return 1
-        mid = len(_array)//2
-        print(f'mid = {mid}') ####################
-        if _el == _array[mid] or 0 == mid:
+        mid = (len(_array)-1)//2
+        if 1 == len(_array) or _el == _array[mid]:
             return 1
         elif _el < _array[mid]:
             return 1 + rec(_array[:mid])
