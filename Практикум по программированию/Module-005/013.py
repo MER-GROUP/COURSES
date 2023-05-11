@@ -44,7 +44,16 @@ print(_count)
 
 # 2
 def bi_searce(_arr: list, _el: int) -> int:
-    _count = 0
-    def rec():
-        ...
-    rec()
+    def rec(_array: list) -> int:
+        if 1 == len(_array):
+            return 1
+        mid = len(_array)//2
+        print(f'mid = {mid}') ####################
+        if _el == _array[mid] or 0 == mid:
+            return 1
+        elif _el < _array[mid]:
+            return 1 + rec(_array[:mid])
+        else:
+            return 1 + rec(_array[mid+1:])
+    return rec(_arr)
+print(bi_searce(arr, int(tup[0])+1))
