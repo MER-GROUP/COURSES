@@ -49,7 +49,12 @@ print(f(55))
 Sample Output 3:
 83237
 '''
-pass
+def generator_square_polynom(a: int, b: int, c: int):
+    # def inner(x: int):
+    #     return a * x**2 + b * x + c
+    # return inner
+    return lambda x: a * x**2 + b * x + c
 
 if __name__ == '__main__':
-    pass
+    f = generator_square_polynom(1, 2, 1)
+    print(f(5))
