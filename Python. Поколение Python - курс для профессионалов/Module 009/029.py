@@ -53,7 +53,27 @@ print(date_ru(today))
 Sample Output 3:
 2015-12-07
 '''
-pass
+from datetime import date
+
+def date_formatter(country_code: str):    
+    pattern = {
+        'ru': '%d.%m.%Y',
+        'us': '%m-%d-%Y',
+        'ca': '%Y-%m-%d',
+        'br': '%d/%m/%Y',
+        'fr': '%d.%m.%Y',
+        'pt': '%d-%m-%Y'
+    }
+    # def inner(_date: date) -> str:
+    #     return _date.strftime(pattern[country_code])
+    # return inner
+    return lambda x: x.strftime(pattern[country_code])
 
 if __name__ == '__main__':
-    pass
+    date_ru = date_formatter('ru')
+    today = date(2022, 1, 25)
+    print(date_ru(today))
+
+    date_ru = date_formatter('us')
+    today = date(2025, 1, 5)
+    print(date_ru(today))
