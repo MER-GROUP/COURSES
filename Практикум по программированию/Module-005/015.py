@@ -39,12 +39,20 @@ arr1 = array('i', sorted(map(int, tup[0].split())))
 print(arr1)
 arr2 = array('i', map(int, tup[1].split()))
 print(arr2)
+print('----------')
+
+# 0
+for el in arr2:
+    if el in arr1:
+        print(arr1.index(el)+1, end=' ')
+        print(abs(list(reversed(arr1)).index(el)-len(arr1)))
+    else:
+        print(0)
+print('----------')
 
 # 1
 from bisect import bisect_left, bisect_right
 for el in arr2:
-    # print((bisect_left(arr1, el)+1, 0)[el not in arr1], end=' ')
-    # print((bisect_right(arr1, el), '')[el not in arr1])
     left, right, n = bisect_left(arr1, el), bisect_right(arr1, el), len(arr1)
     print(f'{(0, left+1)[left < n and el == arr1[left]]}', end=' ')
     print(f'{("", right)[right-1 < n and el == arr1[right-1]]}')
