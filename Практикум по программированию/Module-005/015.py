@@ -53,69 +53,79 @@ print('----------')
 # 1
 from bisect import bisect_left, bisect_right
 for el in arr2:
-    left, right, n = bisect_left(arr1, el), bisect_right(arr1, el), len(arr1)
-    print(f'{(0, left+1)[left < n and el == arr1[left]]}', end=' ')
-    print(f'{("", right)[right-1 < n and el == arr1[right-1]]}')
+    left = bisect_left(arr1, el)
+    right = bisect_right(arr1, el)
+    if left == right:
+        print(0)
+    else:
+        print(left + 1, end=' ')
+        print(right)
 print('----------')
 
 # 2
 def binary_search_left(arr: list, el: int) -> int:
-    left, right = 0, len(arr)-1
+    left, right = 0, len(arr)
     while left < right:
             mid = left + (right-left)//2
             if arr[mid] < el:
                 left = mid + 1
             else:
-                right = mid - 1
-    return (0, left + 1)[el == arr[left]]
+                right = mid
+    return left
 
 def binary_search_right(arr: list, el: int) -> int:
-    left, right = 0, len(arr)-1
+    left, right = 0, len(arr)
     while left < right:
             mid = left + (right-left)//2
             if arr[mid] > el:
-                right = mid - 1
+                right = mid
             else:
                 left = mid + 1
-    return ("", right + 1)[el == arr[right]]
+    return right
 
 for el in arr2:
-    print(binary_search_left(arr1, el), end=' ')
-    print(binary_search_right(arr1, el))
+    left = binary_search_left(arr1, el)
+    right = binary_search_right(arr1, el)
+    if left == right:
+         print(0)
+    else:
+        print(left + 1, end=' ')
+        print(right)
 print('----------')
 
 # 3
 def binary_search_left_rec(arr: list, el: int) -> int:
-    _left, _right = 0, len(arr)-1
+    _left, _right = 0, len(arr)
     def rec(left: int = _left, right: int = _right):
         mid = left + (right-left)//2
         if not left < right:
-            return left-2 if left > right else left-1\
-                            if arr[left-1] == el else left
-        elif arr[mid] > el:
-            right = mid - 1
-        else:
+            return left
+        elif arr[mid] < el:
             left = mid + 1
+        else:
+            right = mid
         return rec(left, right)
     return rec(_left, _right)
 
 def binary_search_right_rec(arr: list, el: int) -> int:
-    _left, _right = 0, len(arr)-1
+    _left, _right = 0, len(arr)
     def rec(left: int = _left, right: int = _right):
         mid = left + (right-left)//2
         if not left < right:
             return right
-        elif arr[mid] == el:
-            return right-2 if left < right and arr[right] != el else right
-        elif arr[mid] < el:
-            left = mid + 1
+        elif arr[mid] > el:
+            right = mid
         else:
-            right = mid - 1
+            left = mid + 1
         return rec(left, right)
     return rec(_left, _right)
          
-
 for el in arr2:
-    print((0, binary_search_left_rec(arr1, el)+1)[el == arr1[binary_search_left_rec(arr1, el)]], end=' ')
-    print(("", binary_search_right_rec(arr1, el)+1)[el == arr1[binary_search_right_rec(arr1, el)]])
+    left = binary_search_left_rec(arr1, el)
+    right = binary_search_right_rec(arr1, el)
+    if left == right:
+         print(0)
+    else:
+        print(left + 1, end=' ')
+        print(right)
 print('----------')
