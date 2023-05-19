@@ -25,7 +25,19 @@ from array import array
 sys.stdin = open(file='016.csv', mode='rt', encoding='utf-8', newline='')
 _, *tup = tuple(map(str.strip, sys.stdin.read().splitlines()))
 print(tup)
-arr1 = array('i', sorted(map(int, tup[0].split())))
+arr1 = array('i', map(int, tup[0].split()))
 print(arr1)
 
-pass
+# 1
+_index = arr1.index(max(arr1))
+arr1[0], arr1[_index] = arr1[_index], arr1[0]
+print(*arr1)
+
+# 2
+_index, _max = float('-inf'), float('-inf')
+for i in range(len(arr1)):
+    if arr1[i] > _max:
+        _max = arr1[i]
+        _index = i
+arr1[0], arr1[_index] = arr1[_index], arr1[0]
+print(*arr1)
