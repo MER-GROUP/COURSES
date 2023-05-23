@@ -43,7 +43,13 @@ Sample Output 3:
 dict[str, str | list[int]]
 '''
 def top_grade(grades: dict[str, str | list[int]]) -> dict[str, str | int]:
-    ...
+    _dict = dict()
+    for k, v in grades.items():
+        if isinstance(v, list):
+            _dict['top_grade'] = max(v)
+        else:
+            _dict[k] = v
+    return _dict
 
 if __name__ == '__main__':
     info = {'name': 'Timur', 'grades': [30, 57, 99]}
