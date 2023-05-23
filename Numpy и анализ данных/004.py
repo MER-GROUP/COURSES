@@ -9,4 +9,4 @@ Sample Output:
 '''
 import numpy as np
 
-pass
+print(np.arange(1,21,2))
