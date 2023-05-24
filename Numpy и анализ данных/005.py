@@ -11,4 +11,4 @@ Sample Output:
 '''
 import numpy as np
 
-pass
+print(np.arange(1, 10.5, 0.5, dtype=float))
