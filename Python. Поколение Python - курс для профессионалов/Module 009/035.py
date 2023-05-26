@@ -41,7 +41,21 @@ Sample Output 2:
 ---- Нижний ломтик хлеба ----
 beegeek
 '''
-pass
+def sandwich(func: callable) -> callable:
+    def wrapper(*args, **kwargs) -> str:
+        print('---- Верхний ломтик хлеба ----')
+        _return = func(*args, **kwargs)
+        print('---- Нижний ломтик хлеба ----')
+        return _return
+    return wrapper
 
 if __name__ == '__main__':
-    pass
+    @sandwich
+    def add_ingredients(ingredients):
+        print(' | '.join(ingredients))
+    add_ingredients(['томат', 'салат', 'сыр', 'бекон'])
+
+    @sandwich
+    def beegeek():
+        return 'beegeek'  
+    print(beegeek())
