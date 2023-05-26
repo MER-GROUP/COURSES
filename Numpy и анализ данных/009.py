@@ -13,4 +13,5 @@ Sample Output:
 '''
 import numpy as np
 
-pass
+np.random.seed(32)
+print(np.random.rand(int(input())))
