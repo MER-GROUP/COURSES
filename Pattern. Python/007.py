@@ -33,8 +33,21 @@ identity(57)
 >>> identity
 57
 '''
-def introduce_on_debug():
-    ...
+# 1
+def introduce_on_debug(func):
+    def wrapper(*args, **kwargs):
+        if __debug__:
+            print(func.__name__)
+        print(func(*args, **kwargs))
+    return wrapper
+
+# # 2
+# def introduce_on_debug(func):
+#     def wrapper(*args, **kwargs):
+#         if debug:
+#             print(func.__name__)
+#         return func(*args, **kwargs)
+#     return wrapper
 
 @introduce_on_debug
 def identity(x):
