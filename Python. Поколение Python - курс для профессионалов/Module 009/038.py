@@ -8,7 +8,7 @@
 декорировать функции с произвольным количеством позиционных и именованных аргументов.
 
 Примечание 2. В тестирующую систему сдайте программу, содержащую только 
-необходимый декоратор reverse_args, но не код, вызывающий его.﻿
+необходимый декоратор reverse_args, но не код, вызывающий его.
 
 Примечание 3. Тестовые данные доступны по ссылкам:
 
@@ -33,7 +33,18 @@ print(concat('apple', 'cherry', 'melon'))
 Sample Output 2:
 meloncherryapple
 '''
-pass
+def reverse_args(func):
+    def wrapper(*args, **kwargs):
+        return func(*args[::-1], **kwargs)
+    return wrapper
 
 if __name__ == '__main__':
-    pass
+    @reverse_args
+    def power(a, n):
+        return a ** n   
+    print(power(2, 3))
+
+    @reverse_args
+    def concat(a, b, c):
+        return a + b + c  
+    print(concat('apple', 'cherry', 'melon'))
