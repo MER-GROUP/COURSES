@@ -28,9 +28,18 @@ print(identity(42, introduce=True))
 >>> identity
 42
 '''
+# def optional_introduce(func):
+#     def wrapper(*args, **kwargs):
+#         if 'introduce' in kwargs and kwargs['introduce']:
+#             print(func.__name__)
+#         return func(*args)
+#     return wrapper
+
 def optional_introduce(func):
-    def wrapper(*args, **kwargs):
-        return func(*args, **kwargs)
+    def wrapper(*args, introduce=False, **kwargs):
+        if introduce:
+            print(func.__name__)
+        return func(*args, **kwargs)  
     return wrapper
 
 @optional_introduce
@@ -40,3 +49,4 @@ def identity(x):
 if __name__ == '__main__':
     print(identity(20))
     print(identity(42, introduce=True))
+    print(identity(42, introduce=False))
