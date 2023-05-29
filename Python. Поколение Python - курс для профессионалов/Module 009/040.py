@@ -60,19 +60,13 @@ Sample Output 3:
 def takes_positive(func):
     def wrapper(*args, **kwargs):
         try:
-            print(f'kwargs = {kwargs}') ###############################
-            print(f'bool(kwargs) = {bool(kwargs)}') ###############################
-            if not all(map(lambda x: isinstance(x, int), args)):
-                if kwargs:
-                    print('111111111111111111') ##############################
-                    if not all(map(lambda x: isinstance(x, int), kwargs.values())):
-                        raise TypeError
+            if not all(map(lambda x: isinstance(x, int), args)):     
                 raise TypeError
-            elif any(map(lambda x: 1 > int(x), args)):
-                if kwargs:
-                    print('222222222222222222') ##############################
-                    if all(map(lambda x: 1 > int(x), kwargs.values())):
-                        raise TypeError
+            elif not all(map(lambda x: isinstance(x, int), kwargs.values())):
+                raise TypeError
+            elif any(map(lambda x: 1 > int(x), args)):      
+                raise ValueError
+            elif any(map(lambda x: 1 > int(x), kwargs.values())):
                 raise ValueError
             else:
                 return func(*args, **kwargs)
