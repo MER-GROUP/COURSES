@@ -13,4 +13,6 @@ Sample Output:
 '''
 import numpy as np
 
-pass
+a, b = map(float, input().split())
+arr = np.arange(-a, a+0.001, b).round(2)
+print(arr)
