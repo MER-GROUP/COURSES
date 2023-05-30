@@ -18,13 +18,26 @@ Sample Output:
 '''
 import sys
 from array import array
-# from copy import copy
+from copy import copy
 
-sys.stdin = open(file='019.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='019.csv', mode='rt', encoding='utf-8', newline='')
 _, *tup = tuple(map(str.strip, sys.stdin.read().splitlines()))
-print(tup)
+# print(tup)
 arr1 = array('i', map(int, tup[0].split()))
-print(arr1)
+# print(arr1)
 
 # 1
-pass
+print(*sorted(arr1))
+
+# 2
+arr2 = copy(arr1)
+def insert_sort(arr):
+    for i in range(1, len(arr)):
+        insert_el = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] > insert_el:
+            arr[j+1] = arr[j]
+            j -= 1
+        arr[j+1] = insert_el
+insert_sort(arr2)
+print(*arr2)
