@@ -23,11 +23,24 @@ import sys
 from array import array
 # from copy import copy
 
-sys.stdin = open(file='021.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='021.csv', mode='rt', encoding='utf-8', newline='')
 _, *tup = tuple(map(str.strip, sys.stdin.read().splitlines()))
-print(tup)
+# print(tup)
 arr1 = array('i', map(int, tup[0].split()))
-print(arr1)
+# print(arr1)
 
-# 1
-pass
+def buble_count(arr: list) -> int:
+    n = len(arr)
+    _count = 0
+    for i in range(n-1):
+        check = True
+        for j in range(n-1-i):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                check = False
+                _count += 1
+        if check:
+            break
+    return _count
+
+print(buble_count(arr1))
