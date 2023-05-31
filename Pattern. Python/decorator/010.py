@@ -105,7 +105,57 @@ print(sum_of_two(4, 2))
 
 6 # не потребовалось пересчитывать значение функции на аргументах 4, 2
 '''
-pass
+from functools import wraps
+
+def memoized(maxsize=None):
+    def new_memoized(func):
+        memory = {}
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            key = (args, tuple(sorted(kwargs.items())))
+            if key not in memory:
+                if maxsize is None:
+                    memory[key] = func(*args, **kwargs)
+                else:
+                    if maxsize < len(memory)+1:
+                        memory.pop(tuple(memory.keys())[-1])
+                    memory[key] = func(*args, **kwargs)
+            return memory[key]
+        return wrapper
+    return new_memoized
 
 if __name__ == '__main__':
-    pass
+    @memoized(maxsize=2)
+    def sum_of_two(a, b):
+        print(a, b, end='; ')
+        return a + b
+
+    print(sum_of_two(2, 0), '\n')
+    print(sum_of_two(2, 0), '\n')
+
+    print(sum_of_two(4, 2), '\n')
+    print(sum_of_two(4, 2), '\n')
+
+    print(sum_of_two(5, 0), '\n')
+    print(sum_of_two(5, 0), '\n')
+
+    print(sum_of_two(4, 2)) 
+
+    print('----------')
+
+    # ограничений на объём выделяемой памяти нет
+    @memoized(maxsize=None) 
+    def sum_of_two(a, b):
+        print(a, b)
+        return a + b
+        
+    print(sum_of_two(2, 0), '\n')
+    print(sum_of_two(2, 0), '\n')
+
+    print(sum_of_two(4, 2), '\n')
+    print(sum_of_two(4, 2), '\n')
+
+    print(sum_of_two(5, 0), '\n')
+    print(sum_of_two(5, 0), '\n')
+
+    print(sum_of_two(4, 2)) 
