@@ -10,4 +10,5 @@ Sample Output:
 '''
 import numpy as np
 
+
 print(np.ones(int(input()), dtype=float))
