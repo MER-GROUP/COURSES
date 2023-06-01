@@ -10,4 +10,4 @@ Sample Output:
 '''
 import numpy as np
 
-pass
+print(np.array(tuple(map(len, input().split()))))
