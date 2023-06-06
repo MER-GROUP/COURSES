@@ -28,12 +28,33 @@ Sample Output 2:
 '''
 import sys
 from array import array
-# from copy import copy
+from copy import copy
 
-sys.stdin = open(file='023.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='023.csv', mode='rt', encoding='utf-8', newline='')
 _, *tup = tuple(map(str.strip, sys.stdin.read().splitlines()))
-print(tup)
-arr1 = array('i', map(int, tup[0].split()))
-print(arr1)
+# print(tup)
+arr = array('i', map(int, tup[0].split()))
+# print(arr)
 
-pass
+# def insert_sort(arr: list) -> None:
+#     arr1 = copy(arr)
+#     n = len(arr1)
+#     for i in range(1, n):
+#         insert_element = arr1[i]
+#         j = i - 1
+#         while (0 <= j) and (arr1[j] > insert_element):
+#             arr1[j+1] = arr1[j]
+#             j -= 1
+#         arr1[j+1] = insert_element
+#         print(*arr1)
+# insert_sort(arr)
+
+def buble_sort(arr: list) -> None:
+    arr1 = copy(arr)
+    n = len(arr1)
+    for i in range(n-1):
+        for j in range(n-1-i):
+            if arr1[j] > arr1[j+1]:
+                arr1[j], arr1[j+1] = arr1[j+1],arr1[j]
+                print(*arr1)
+buble_sort(arr)
