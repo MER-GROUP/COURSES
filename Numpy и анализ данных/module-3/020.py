@@ -13,4 +13,8 @@ Sample Output:
 '''
 import numpy as np
 
-pass
+def convert_type(arr: np) -> np:
+    return arr.astype(dtype=str)
+
+if __name__ == '__main__':
+    print(convert_type(np.array(input().split())))
