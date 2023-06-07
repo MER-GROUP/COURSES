@@ -14,4 +14,5 @@ Sample Output:
 import numpy as np
 
 if __name__ == '__main__':
-    pass
+    arr = np.array(object=input().split(), dtype=np.float64).round(3)
+    print(arr.sum(), arr.dtype)
