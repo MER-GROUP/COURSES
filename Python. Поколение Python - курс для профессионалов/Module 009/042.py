@@ -41,7 +41,25 @@ Sample Output 2:
 '''
 from functools import wraps
 
-pass
+def returns_string(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        res = func(*args, **kwargs)
+        if not isinstance(res, str):
+            raise TypeError
+        return res
+    return wrapper
 
 if __name__ == '__main__':
-    pass
+    @returns_string
+    def beegeek():
+        return 'beegeek'  
+    print(beegeek())
+
+    @returns_string
+    def add(a, b):
+        return a + b
+    try:
+        print(add(3, 7))
+    except TypeError as e:
+        print(type(e))
