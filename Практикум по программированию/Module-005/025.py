@@ -21,6 +21,13 @@ from array import array
 
 sys.stdin = open(file='025.csv', mode='rt', encoding='utf-8', newline='')
 _, *tup = tuple(map(str.strip, sys.stdin.read().splitlines()))
-print(tup)
+# print(tup)
 arr = array('i', map(int, tup[0].split()))
-print(arr)
+# print(arr)
+
+# # 1
+# print(len(set(arr)))
+
+# 2
+from collections import Counter
+print(len(Counter(arr)))
