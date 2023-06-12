@@ -17,4 +17,7 @@ Sample Output:
 import numpy as np
 
 if __name__ == '__main__':
-    pass
+    arr = np.array(input().split(), dtype=int)
+    print(arr)
+    arr = np.delete(arr=arr, obj=int(input()))
+    print(arr)
