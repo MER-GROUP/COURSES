@@ -55,7 +55,29 @@ beegeek
 '''
 from functools import wraps
 
-pass
+def strip_range(start: int, end: int, char: str = '.'):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            res = func(*args, **kwargs)
+            n = len(res)
+            res = res[: start] + char * (end-start) + res[end :]
+            return res[: n]
+        return wrapper
+    return decorator
 
 if __name__ == '__main__':
-    pass
+    @strip_range(3, 5)
+    def beegeek():
+        return 'beegeek'    
+    print(beegeek())
+
+    @strip_range(3, 20, '_')
+    def beegeek():
+        return 'beegeek'    
+    print(beegeek())
+
+    @strip_range(20, 30)
+    def beegeek():
+        return 'beegeek'   
+    print(beegeek())
