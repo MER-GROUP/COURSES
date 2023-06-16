@@ -45,7 +45,29 @@ Sample Output 2:
 '''
 from functools import wraps
 
-pass
+def takes(*argsz, **kwargsz):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            _tuplez = tuple((*argsz, *kwargsz.values()))
+            _tuple = tuple((*args, *kwargs.values()))
+            for _type in _tuple:
+                if type(_type) not in _tuplez:
+                    raise TypeError
+            return func(*args, **kwargs)
+        return wrapper
+    return decorator
 
 if __name__ == '__main__':
-    pass
+    @takes(int, str)
+    def repeat_string(string, times):
+        return string * times
+    print(repeat_string('bee', 3))
+
+    @takes(list, bool, float, int)
+    def repeat_string(string, times):
+        return string * times
+    try:
+        print(repeat_string('bee', 4))
+    except TypeError as e:
+        print(type(e))
