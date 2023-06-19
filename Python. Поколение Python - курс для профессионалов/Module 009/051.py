@@ -45,7 +45,28 @@ Sample Output 2:
 '''
 from functools import wraps
 
-pass
+def ignore_exception(*argsz, **kwargsz):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            try:
+                return func(*args, **kwargs)
+            except argsz as e:
+                _e: str; _e = str(type(e)); _e = _e.split("'")[1]
+                print(f'Исключение {_e} обработано')
+            except Exception as e:
+                raise e
+        return wrapper
+    return decorator
 
 if __name__ == '__main__':
-    pass
+    @ignore_exception(ZeroDivisionError, TypeError, ValueError)
+    def f(x):
+        return 1 / x  
+    f(0)
+
+    min = ignore_exception(ZeroDivisionError)(min)
+    try:
+        print(min(1, '2', 3, [4, 5]))
+    except Exception as e:
+        print(type(e))

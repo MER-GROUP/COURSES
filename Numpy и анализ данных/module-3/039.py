@@ -16,4 +16,6 @@ Sample Output:
 import numpy as np
 
 if __name__ == '__main__':
-    pass
+    a = np.array(object=input().split(), dtype=int)
+    b = np.insert(arr=a, obj=0, values=int(input()))
+    print(f'{a}\n{b}')
