@@ -50,7 +50,32 @@ Sample Output 3:
 '''
 from functools import lru_cache
 
-pass
+@lru_cache
+def ways(n: int):
+    if 1 == n:
+        return 1
+    elif 1 > n:
+        return 0
+    else:
+        return ways(n-1) + ways(n-3) + ways(n-4)
+    
+# def ways(n):
+#     way = [0, 1, 1, 1, 2] + [0] * (n - 4)
+#     for i in range(5, n + 1):
+#         way[i] = way[i - 1] + way[i - 3] + way[i - 4]
+#     return way[n]
+
+# def ways(n):
+#     d = {1: 1, 2: 1, 3: 1, 4: 2, 5: 4}
+#     for i in range(6, n + 1):
+#         d[i] = d[i-4] + d[i-3] + d[i-1]
+#     return d[n]
 
 if __name__ == '__main__':
-    pass
+    print(ways(5))
+
+    print(ways(1))
+
+    print(ways(2))
+
+    print(ways(20))
