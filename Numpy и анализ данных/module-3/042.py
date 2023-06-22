@@ -1,5 +1,5 @@
 '''
-"Жизнь после падения "
+"Жизнь после падения"
 
 После крушения самолета на необитаемом острове, вы и другие выжившие обнаружили, 
 что у вас есть несколько одномерных массивов numpy с разными данными, 
@@ -21,7 +21,7 @@ Sample Input:
 13 5 3 11
 13 5 3 11
 13 5 3 11
-12
+10
 Sample Output:
 [13  5  3 11 13  5  3 11 13  5  3 11]
 int64
@@ -29,4 +29,10 @@ int64
 import numpy as np
 
 if __name__ == '__main__':
-    pass
+    n = int(input())
+    arr = np.array(object=[list(map(int, input().split())) for _ in range(n)])
+    m = int(input())
+    # a = np.concatenate(arr, dtype=np.int64)
+    a = np.concatenate(arr)
+    a = (a, np.resize(a, m))[m < a.size]
+    print(a)
