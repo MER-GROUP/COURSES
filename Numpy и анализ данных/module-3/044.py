@@ -28,4 +28,12 @@ Sample Output:
 import numpy as np
 
 if __name__ == '__main__':
-    pass
+    f = lambda x: (int, float)['.' in "".join(x)]
+    _a = input().split()
+    _b = input().split()
+    a = np.array(object=_a, dtype=f(_a))
+    b = np.array(object=_b, dtype=f(_b))
+    n = int(input())
+    c = np.concatenate((a, b)).astype(a.dtype)
+    d = np.resize(a=c, new_shape=n)
+    print(d)
