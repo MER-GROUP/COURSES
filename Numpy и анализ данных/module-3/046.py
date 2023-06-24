@@ -28,4 +28,15 @@ Sample Output:
 import numpy as np
 
 if __name__ == '__main__':
-    pass
+    _n = int(input())
+    _type = input()
+    _arrays = np.array(
+        object=[np.fromstring(input(), dtype=_type, sep=' ') for _ in range(_n)],
+        dtype=object
+    )
+    _m = int(input())
+
+    for arr in _arrays:
+        _arr = np.asarray(a=arr, dtype=_type)
+        _arr.resize(_m, refcheck=False)
+        print(_arr, end=' ')
