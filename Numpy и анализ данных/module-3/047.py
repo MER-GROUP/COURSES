@@ -20,4 +20,7 @@ Sample Output:
 import numpy as np
 
 if __name__ == '__main__':
-    pass
+    arr = np.array(object=input().split(), dtype=None)
+    n = int(input())
+    arr.resize(n)
+    print(arr)
