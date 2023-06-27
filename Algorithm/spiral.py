@@ -60,6 +60,7 @@ Sample Output 1:
 12 11 10 9  8
 """
 
+# 1
 def spiral(n: int, m: int) -> list:
     arr = [[0] * m for _ in range(n)]
     row, row_delta, col, col_delta = 0, 0, 0, 1
@@ -73,6 +74,57 @@ def spiral(n: int, m: int) -> list:
         row += row_delta
         col += col_delta
 
+    return arr
+
+# 2
+def spiral(n: int, m: int) -> list:
+    arr = [[0] * m for _ in range(n)]
+    num = iter(range(1, n * m + 1))
+
+    def spiral_rec(row: int, col: int) -> None: # spiral
+        if (n <= spiral_rec.row or 0 > spiral_rec.row)\
+            or (m <= spiral_rec.col or 0 > spiral_rec.col)\
+            or arr[row][col]: # exit
+            pass
+        else:
+            while True: # right
+                if spiral_rec.col >= m or arr[spiral_rec.row][spiral_rec.col]:
+                    spiral_rec.col -= 1
+                    spiral_rec.row += 1
+                    break
+                arr[spiral_rec.row][spiral_rec.col] = next(num)
+                spiral_rec.col += 1
+                
+            while True: # down
+                if spiral_rec.row >= n or arr[spiral_rec.row][spiral_rec.col]:
+                    spiral_rec.row -= 1
+                    spiral_rec.col -= 1
+                    break
+                arr[spiral_rec.row][spiral_rec.col] = next(num)
+                spiral_rec.row += 1
+                
+            while True: # left
+                if spiral_rec.col < 0 or arr[spiral_rec.row][spiral_rec.col]:
+                    spiral_rec.col += 1
+                    spiral_rec.row -= 1
+                    break
+                arr[spiral_rec.row][spiral_rec.col] = next(num)
+                spiral_rec.col -= 1
+                
+            while True: # up
+                if spiral_rec.row < 0 or arr[spiral_rec.row][spiral_rec.col]:
+                    spiral_rec.row += 1
+                    spiral_rec.col += 1
+                    break
+                arr[spiral_rec.row][spiral_rec.col] = next(num)
+                spiral_rec.row -= 1
+            
+            # rec
+            spiral_rec(spiral_rec.row, spiral_rec.col)
+
+    spiral_rec.row = 0
+    spiral_rec.col = 0
+    spiral_rec(spiral_rec.row, spiral_rec.col)
     return arr
 
 if __name__ == '__main__':
