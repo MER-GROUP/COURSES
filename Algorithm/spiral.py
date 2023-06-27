@@ -126,8 +126,44 @@ def spiral(n: int, m: int) -> list:
     spiral_rec(spiral_rec.row, spiral_rec.col)
     return arr
 
+# 3
+def spiral(n: int, m: int) -> list:
+    arr = [[0] * m for _ in range(n)]
+    col, row = 0, 0
+    num, ndim = 1, n * m + 1
+
+    while num < ndim:
+        for c in range(col, m-col): # right
+            arr[row][c] = num
+            num += 1
+
+        for r in range(row+1, n-row): # down
+            arr[row][r] = num
+            num += 1
+
+        for c in range(m-col-1, col-1, -1): # left
+            arr[row][c] = num
+            num += 1
+
+        for r in range(n-row, row-1, -1): # up
+            arr[row][r] = num
+            num += 1
+
+        col += 1 # shift col
+        row += 1 # shift row
+
+    return arr
+
 if __name__ == '__main__':
-    n, m = 4, 5
+    n, m = 5, 5
+    # n, m = 4, 5
+    # n, m = 1, 1
+    # n, m = 1, 5
+    # n, m = 2, 5
+    # n, m = 3, 5
+    # n, m = 5, 1
+    # n, m = 5, 2
+    # n, m = 5, 3
     for arr in spiral(n, m):
         for el in arr:
             print(str(el).ljust(4), end='')
