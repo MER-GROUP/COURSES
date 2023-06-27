@@ -118,9 +118,8 @@ def spiral(n: int, m: int) -> list:
                     break
                 arr[spiral_rec.row][spiral_rec.col] = next(num)
                 spiral_rec.row -= 1
-            
-            # rec
-            spiral_rec(spiral_rec.row, spiral_rec.col)
+                  
+            spiral_rec(spiral_rec.row, spiral_rec.col) # rec
 
     spiral_rec.row = 0
     spiral_rec.col = 0
