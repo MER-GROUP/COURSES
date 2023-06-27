@@ -60,6 +60,7 @@ Sample Output 1:
 12 11 10 9  8
 """
 
+# 1
 def spiral(n: int, m: int) -> list:
     arr = [[0] * m for _ in range(n)]
     row, row_delta, col, col_delta = 0, 0, 0, 1
@@ -75,8 +76,94 @@ def spiral(n: int, m: int) -> list:
 
     return arr
 
+# 2
+def spiral(n: int, m: int) -> list:
+    arr = [[0] * m for _ in range(n)]
+    num = iter(range(1, n * m + 1))
+
+    def spiral_rec(row: int, col: int) -> None: # spiral
+        if (n <= spiral_rec.row or 0 > spiral_rec.row)\
+            or (m <= spiral_rec.col or 0 > spiral_rec.col)\
+            or arr[row][col]: # exit
+            pass
+        else:
+            while True: # right
+                if spiral_rec.col >= m or arr[spiral_rec.row][spiral_rec.col]:
+                    spiral_rec.col -= 1
+                    spiral_rec.row += 1
+                    break
+                arr[spiral_rec.row][spiral_rec.col] = next(num)
+                spiral_rec.col += 1
+                
+            while True: # down
+                if spiral_rec.row >= n or arr[spiral_rec.row][spiral_rec.col]:
+                    spiral_rec.row -= 1
+                    spiral_rec.col -= 1
+                    break
+                arr[spiral_rec.row][spiral_rec.col] = next(num)
+                spiral_rec.row += 1
+                
+            while True: # left
+                if spiral_rec.col < 0 or arr[spiral_rec.row][spiral_rec.col]:
+                    spiral_rec.col += 1
+                    spiral_rec.row -= 1
+                    break
+                arr[spiral_rec.row][spiral_rec.col] = next(num)
+                spiral_rec.col -= 1
+                
+            while True: # up
+                if spiral_rec.row < 0 or arr[spiral_rec.row][spiral_rec.col]:
+                    spiral_rec.row += 1
+                    spiral_rec.col += 1
+                    break
+                arr[spiral_rec.row][spiral_rec.col] = next(num)
+                spiral_rec.row -= 1
+                  
+            spiral_rec(spiral_rec.row, spiral_rec.col) # rec
+
+    spiral_rec.row = 0
+    spiral_rec.col = 0
+    spiral_rec(spiral_rec.row, spiral_rec.col)
+    return arr
+
+# 3
+def spiral(n: int, m: int) -> list:
+    arr = [[0] * m for _ in range(n)]
+    col, row = 0, 0
+    num, ndim = 1, n * m + 1
+
+    while num < ndim:
+        for c in range(col, m-col): # right
+            arr[row][c] = num
+            num += 1
+
+        for r in range(row+1, n-row): # down
+            arr[row][r] = num
+            num += 1
+
+        for c in range(m-col-1, col-1, -1): # left
+            arr[row][c] = num
+            num += 1
+
+        for r in range(n-row, row-1, -1): # up
+            arr[row][r] = num
+            num += 1
+
+        col += 1 # shift col
+        row += 1 # shift row
+
+    return arr
+
 if __name__ == '__main__':
-    n, m = 4, 5
+    n, m = 5, 5
+    # n, m = 4, 5
+    # n, m = 1, 1
+    # n, m = 1, 5
+    # n, m = 2, 5
+    # n, m = 3, 5
+    # n, m = 5, 1
+    # n, m = 5, 2
+    # n, m = 5, 3
     for arr in spiral(n, m):
         for el in arr:
             print(str(el).ljust(4), end='')
