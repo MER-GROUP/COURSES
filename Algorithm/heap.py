@@ -18,6 +18,7 @@ def heapify(arr: list, i: int, *, heap='max') -> None:
     # индекс правого дочернего элемента
     right_child = 2*i + 2 
     
+    # определяем вид кучи - по убыванию или возростанию
     if 'max' == heap:
         # left_child меьше или равно n
         # и left_child больше, чем current_element
