@@ -136,21 +136,55 @@ def spiral(n: int, m: int) -> list:
         for c in range(col, m-col): # right
             arr[row][c] = num
             num += 1
+        if not num < ndim: break # exit if only one row
 
         for r in range(row+1, n-row): # down
-            arr[row][r] = num
+            arr[r][m-col-1] = num
+            num += 1
+        if not num < ndim: break # exit if only one col
+
+        for c in range(m-col-2, col-1, -1): # left
+            arr[n-row-1][c] = num
             num += 1
 
-        for c in range(m-col-1, col-1, -1): # left
-            arr[row][c] = num
-            num += 1
-
-        for r in range(n-row, row-1, -1): # up
-            arr[row][r] = num
+        for r in range(n-row-2, row, -1): # up
+            arr[r][col] = num
             num += 1
 
         col += 1 # shift col
         row += 1 # shift row
+
+    return arr
+
+# 4
+def spiral(n: int, m: int) -> list:
+    arr = [[0] * m for _ in range(n)]
+    row_top, row_down = 0, n
+    col_left, col_right = 0, m
+    num, ndim = 1, n * m + 1
+
+    while num < ndim:
+        for col in range(col_left, col_right): # left
+            arr[row_top][col] = num
+            num += 1
+
+        for row in range(row_top+1, row_down): # down
+            arr[row][col_right-1] = num
+            num += 1
+        if not num < ndim: break # exit if only one row or col
+
+        for col in range(col_right-2, col_left-1, -1): # left
+            arr[row_down-1][col] = num
+            num += 1
+
+        for row in range(row_down-2, row_top, -1): # up
+            arr[row][col_left] = num
+            num += 1
+
+        row_top += 1 # shift row_top
+        col_right -= 1 # shift col_right
+        row_down -= 1 # shift row_down
+        col_left += 1 # shift col_left
 
     return arr
 
