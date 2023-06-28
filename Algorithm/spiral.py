@@ -156,6 +156,38 @@ def spiral(n: int, m: int) -> list:
 
     return arr
 
+# 4
+def spiral(n: int, m: int) -> list:
+    arr = [[0] * m for _ in range(n)]
+    row_top, row_down = 0, n
+    col_left, col_right = 0, m
+    num, ndim = 1, n * m + 1
+
+    while num < ndim:
+        for col in range(col_left, col_right): # left
+            arr[row_top][col] = num
+            num += 1
+
+        for row in range(row_top+1, row_down): # down
+            arr[row][col_right-1] = num
+            num += 1
+        if not num < ndim: break # exit if only one row or col
+
+        for col in range(col_right-2, col_left-1, -1): # left
+            arr[row_down-1][col] = num
+            num += 1
+
+        for row in range(row_down-2, row_top, -1): # up
+            arr[row][col_left] = num
+            num += 1
+
+        row_top += 1 # shift row_top
+        col_right -= 1 # shift col_right
+        row_down -= 1 # shift row_down
+        col_left += 1 # shift col_left
+
+    return arr
+
 if __name__ == '__main__':
     n, m = 5, 5
     # n, m = 4, 5
