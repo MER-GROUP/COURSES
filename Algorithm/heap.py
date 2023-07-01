@@ -71,6 +71,10 @@ def heap_min(arr: list) -> None:
         # создаем кучу по возростанию
         heapify(arr, i, heap='min')
 
+# heap_insert - вставка нового элемента в кучу
+def heap_insert (arr: list, value: int, *, heap='max') -> None:
+    ...
+
 if __name__ == '__main__':
     from random import randint
 
