@@ -71,6 +71,23 @@ def heap_min(arr: list) -> None:
         # создаем кучу по возростанию
         heapify(arr, i, heap='min')
 
+# heap - создать max/min кучу
+def heap(arr: list, *, heap='max') -> None:
+    # размер кучи
+    n = len(arr)
+    # цикл от первого индекса нелистового узла до 0
+    for i in range(n//2 - 1, -1, -1):
+        # создаем кучу по убыванию/возростанию
+        heapify(arr, i, heap=heap)
+
+# heap_insert - вставка нового элемента в max/min кучу
+def heap_insert (_arr: list, _value: int, *, _heap='max') -> None:
+    # добавляем новое значение/узел в конец бинарной кучи
+    _arr.append(_value)
+    # создаем/обновляем max/min кучу
+    heap(_arr, heap=_heap)
+
+
 if __name__ == '__main__':
     from random import randint
 
@@ -82,6 +99,10 @@ if __name__ == '__main__':
     b = [3, 9, 2, 1, 4, 5]
     c = [3, 9, 2, 1, 4, 5]
     d = [3, 9, 2, 1, 4, 5]
+    c1 = [3, 9, 2, 1, 4, 5]
+    d1 = [3, 9, 2, 1, 4, 5]
+    e = [3, 9, 2, 1, 4, 5]
+    e1 = [3, 9, 2, 1, 4, 5]
     
     print('----------origin:--------')
     print(a)
@@ -102,3 +123,23 @@ if __name__ == '__main__':
     print(d)
     heap_min(d)
     print(d)
+
+    print('----------heap_max1:----------')
+    print(c)
+    heap(c, heap='max')
+    print(c)
+
+    print('----------heap_min2:----------')
+    print(d)
+    heap(d, heap='min')
+    print(d)
+
+    print('----------heap_insert-max:----------')
+    print(e)
+    heap_insert(e, 333, _heap='max')
+    print(e)
+
+    print('----------heap_insert-min:----------')
+    print(e1)
+    heap_insert(e1, 333, _heap='min')
+    print(e1)
