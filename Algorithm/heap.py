@@ -1,92 +1,96 @@
 # heapify - создать кучу
-def heapify(arr: list, i: int, *, heap='max') -> None:
+def heapify(_arr: list, _i: int, *, _heap='max') -> None:
     """
     функция heapify - создать кучу\n
-    \t arr - массив\n
-    \t i - первый нелистовой узел, его индекс равен n/2 - 1\n
-    \t heap='max|min' - максимальный или минимальный начальный элемент кучи\n
-    i - индекс текущего узла\n
-    arr[i] - текущий элемент массива - current_element\n
-    n - размер массива (кучи)
+    \t _arr - массив\n
+    \t _i - первый нелистовой узел, его индекс равен _n/2 - 1\n
+    \t _heap='max|min' - максимальный или минимальный начальный элемент кучи\n
+    _i - индекс текущего узла\n
+    _arr[_i] - текущий элемент массива - _current_element\n
+    _n - размер массива (кучи)
     """
     # размер кучи
-    n = len(arr) - 1
+    _n = len(_arr) - 1
     # индекс наибольшего/наименьшего узла
-    largest_smallest = i 
+    _largest_smallest = _i 
     # индекс левого дочернего элемента
-    left_child = 2*i + 1 
+    _left_child = 2*_i + 1 
     # индекс правого дочернего элемента
-    right_child = 2*i + 2 
+    _right_child = 2*_i + 2 
     
     # определяем вид кучи - по убыванию или возростанию
-    if 'max' == heap:
-        # left_child меьше или равно n
-        # и left_child больше, чем current_element
-        # то largest_smallest присваивается left_child
-        # largest_smallest - сдесь это наибольший индекс
-        if left_child <= n and arr[left_child] > arr[largest_smallest]:
-            largest_smallest = left_child
-        # right_child меьше или равно n
-        # и right_child больше, чем current_element
-        # то largest_smallest присваивается right_child
-        # largest_smallest - сдесь это наибольший индекс
-        if right_child <= n and arr[right_child] > arr[largest_smallest]:
-            largest_smallest = right_child
+    if 'max' == _heap:
+        # _left_child меьше или равно _n
+        # и _left_child больше, чем _current_element
+        # то _largest_smallest присваивается _left_child
+        # _largest_smallest - сдесь это наибольший индекс
+        if _left_child <= _n and _arr[_left_child] > _arr[_largest_smallest]:
+            _largest_smallest = _left_child
+        # _right_child меьше или равно _n
+        # и _right_child больше, чем _current_element
+        # то _largest_smallest присваивается _right_child
+        # _largest_smallest - сдесь это наибольший индекс
+        if _right_child <= _n and _arr[_right_child] > _arr[_largest_smallest]:
+            _largest_smallest = _right_child
     else:
-        # left_child меьше или равно n
-        # и left_child меьше, чем current_element
-        # то largest_smallest присваивается left_child
-        # largest_smallest - сдесь это наименьший индекс
-        if left_child <= n and arr[left_child] < arr[largest_smallest]:
-            largest_smallest = left_child
-        # right_child меьше или равно n
-        # и right_child меьше, чем current_element
-        # то largest_smallest присваивается right_child
-        # largest_smallest - сдесь это наименьший индекс
-        if right_child <= n and arr[right_child] < arr[largest_smallest]:
-            largest_smallest = right_child
+        # _left_child меьше или равно _n
+        # и _left_child меньше, чем _current_element
+        # то _largest_smallest присваивается _left_child
+        # _largest_smallest - сдесь это наименьший индекс
+        if _left_child <= _n and _arr[_left_child] < _arr[_largest_smallest]:
+            _largest_smallest = _left_child
+        # _right_child меьше или равно _n
+        # и _right_child меьше, чем _current_element
+        # то _largest_smallest присваивается _right_child
+        # _largest_smallest - сдесь это наименьший индекс
+        if _right_child <= _n and _arr[_right_child] < _arr[_largest_smallest]:
+            _largest_smallest = _right_child
     
     # если индекс наибольшего/наименьшего узла не равен индексу текущего узла
-    # обменяем значения largest_smallest и current_element
-    if not largest_smallest == i:
-        arr[i], arr[largest_smallest] = arr[largest_smallest], arr[i]
+    # обменяем значения _largest_smallest и _current_element
+    if not _largest_smallest == _i:
+        _arr[_i], _arr[_largest_smallest] = _arr[_largest_smallest], _arr[_i]
         # рекурсивно создаем кучу
-        heapify(arr, largest_smallest, heap=heap)
+        heapify(_arr=_arr, _i=_largest_smallest, _heap=_heap)
 
 # heap_max - создать max кучу
-def heap_max(arr: list) -> None:
+def heap_max(_arr: list) -> None:
     # размер кучи
-    n = len(arr)
+    _n = len(_arr)
     # цикл от первого индекса нелистового узла до 0
-    for i in range(n//2 - 1, -1, -1):
+    for _i in range(_n//2 - 1, -1, -1):
         # создаем кучу по убыванию
-        heapify(arr, i, heap='max')
+        heapify(_arr=_arr, _i=_i, _heap='max')
 
 # heap_min - создать min кучу
-def heap_min(arr: list) -> None:
+def heap_min(_arr: list) -> None:
     # размер кучи
-    n = len(arr)
+    _n = len(_arr)
     # цикл от первого индекса нелистового узла до 0
-    for i in range(n//2 - 1, -1, -1):
+    for _i in range(_n//2 - 1, -1, -1):
         # создаем кучу по возростанию
-        heapify(arr, i, heap='min')
+        heapify(_arr=_arr, _i=_i, _heap='min')
 
 # heap - создать max/min кучу
-def heap(arr: list, *, heap='max') -> None:
+def heap(_arr: list, *, _heap='max') -> None:
     # размер кучи
-    n = len(arr)
+    _n = len(_arr)
     # цикл от первого индекса нелистового узла до 0
-    for i in range(n//2 - 1, -1, -1):
+    for _i in range(_n//2 - 1, -1, -1):
         # создаем кучу по убыванию/возростанию
-        heapify(arr, i, heap=heap)
+        heapify(_arr=_arr, _i=_i, _heap=_heap)
 
 # heap_insert - вставка нового элемента в max/min кучу
 def heap_insert (_arr: list, _value: int, *, _heap='max') -> None:
     # добавляем новое значение/узел в конец бинарной кучи
     _arr.append(_value)
     # создаем/обновляем max/min кучу
-    heap(_arr, heap=_heap)
+    heap(_arr=_arr, _heap=_heap)
 
+# heap_increase_key -  заменяет элемент кучи на новый ключ со значением, 
+# не меньшим/не большим значения исходного элемента
+def heap_increase_key(_arr: list, _i: int, _key: int, *, _heap='max') -> None:
+    ...
 
 if __name__ == '__main__':
     from random import randint
@@ -111,7 +115,7 @@ if __name__ == '__main__':
     # heapify(b, (len(a)//2) - 1)
     print(b)
     # heapify(b, 0)
-    heapify(b, 0, heap='max')
+    heapify(b, 0, _heap='max')
     print(b)
 
     print('----------heap_max:----------')
@@ -126,12 +130,12 @@ if __name__ == '__main__':
 
     print('----------heap_max1:----------')
     print(c)
-    heap(c, heap='max')
+    heap(c, _heap='max')
     print(c)
 
     print('----------heap_min2:----------')
     print(d)
-    heap(d, heap='min')
+    heap(d, _heap='min')
     print(d)
 
     print('----------heap_insert-max:----------')
