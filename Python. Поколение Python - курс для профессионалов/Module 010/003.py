@@ -50,15 +50,31 @@ print(*filterfalse(lambda x: x >= 3, numbers))
 Sample Output 3:
 1 2
 '''
+from functools import wraps
+
+def decorator(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        predicate, iterable, *_ = args
+        if predicate is None:
+            predicate = lambda x: not bool(x)
+            return func(predicate, iterable)
+        return func(lambda x: not predicate(x), iterable)
+    return wrapper
+
+@decorator
 def filterfalse(predicate, iterable):
-    ...
+    return filter(predicate, iterable)
 
 if __name__ == '__main__':
     objects = [0, 1, True, False, 17, []]
     print(*filterfalse(None, objects))
+    # >>> 0 False []
 
     numbers = (1, 2, 3, 4, 5)
     print(*filterfalse(lambda x: x % 2 == 0, numbers))
+    # >>> 1 3 5
 
     numbers = [1, 2, 3, 4, 5]
     print(*filterfalse(lambda x: x >= 3, numbers))
+    # >>> 1 2
