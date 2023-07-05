@@ -46,7 +46,17 @@ Sample Output 2:
 [4, 9]
 [5, 10]
 '''
-pass
+def transpose(matrix: list) -> list:
+    return list(map(list, zip(*matrix)))
 
 if __name__ == '__main__':
-    pass
+    matrix = [[1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]]
+    for row in transpose(matrix):
+        print(row)
+
+    matrix = [[1, 2, 3, 4, 5],
+            [6, 7, 8, 9, 10]]
+    for row in transpose(matrix):
+        print(row)
