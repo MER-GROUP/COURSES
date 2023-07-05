@@ -2,7 +2,7 @@
 def heapify(_arr: list, _i: int, *, _heap='max') -> None:
     """
     функция heapify - создать кучу\n
-    \t _arr - массив\n
+    \t _arr - массив/куча\n
     \t _i - первый нелистовой узел, его индекс равен _n/2 - 1\n
     \t _heap='max|min' - максимальный или минимальный начальный элемент кучи\n
     _i - индекс текущего узла\n
@@ -90,7 +90,39 @@ def heap_insert (_arr: list, _value: int, *, _heap='max') -> None:
 # heap_increase_key -  заменяет элемент кучи на новый ключ со значением, 
 # не меньшим/не большим значения исходного элемента
 def heap_increase_key(_arr: list, _i: int, _key: int, *, _heap='max') -> None:
-    ...
+    """
+    функция heap_increase_key - заменяет элемент кучи на новый ключ со значением\n
+    не меньшим/не большим значения исходного элемента\n
+    \t _arr - массив/куча\n
+    \t _i - первый нелистовой узел, его индекс равен _n/2 - 1\n
+    \t _key - новый ключ со значением\n
+    \t _heap='max|min' - максимальный или минимальный начальный элемент кучи\n
+    _i - индекс текущего узла\n
+    _arr[_i] - текущий элемент массива - _current_element\n
+    _n - размер массива (кучи)
+    """
+    # определяем вид кучи - по убыванию или возростанию
+    if 'max' == _heap:
+        ...
+    else:
+        ...
+    # индекс кучи который необходимо обновить
+    _arr[_i] = _key
+
+
+# Heap_Increase_Key(A, i, key)
+#   if key < A[i]
+#     then error "Новый ключ меньше предыдущего"
+#   A[i] ← key
+#   while i > 1 и A[⌊i/2⌋] < A[i]
+#     do Обменять A[i] ↔ A[⌊i/2⌋]
+#       i ← ⌊i/2⌋
+
+
+# Heap_Insert(A, key)
+#   A.heap_size ← A.heap_size+1
+#   A[A.heap_size] ← -∞
+#   Heap_Increase_Key(A, A.heap_size, key)
 
 if __name__ == '__main__':
     from random import randint
