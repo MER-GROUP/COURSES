@@ -16,4 +16,6 @@ Sample Output:
 import numpy as np
 
 if __name__ == '__main__':
-    pass
+    a = np.fromstring(string=input(), dtype=int, sep=' ')
+    b = a[3:-2]
+    print(f'{a}\n{b}')
