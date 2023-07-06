@@ -18,3 +18,33 @@ for i in range(100, 1000):
         print(i, i, i)
 
 print('----------')
+
+class add(int):
+    def __call__(self, value):
+        return add(self + value)
+    
+print(add())
+print(add(1))
+print(add(1)(2))
+print(add(1)(2)(3))
+print(add(1)(2)(3)(4))
+print(add(1)(2)(3)(4)(5))
+print('*****')
+add_two = add(2)
+print(add_two)
+print(add_two + 5)
+print(add_two(3))
+print(add_two(3)(5))
+print('*****')
+print(add(2) + add(10))
+print(add(10) - add(10))
+print(add(3) * add(10))
+print('*****')
+add_two = add(2)
+print(add_two + add(1000))
+print(add_two + add_two)
+print(add_two * 10)
+print(add_two // 2)
+print(add_two / 2)
+
+print('----------')
