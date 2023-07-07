@@ -34,7 +34,17 @@ print(is_iterator(beegeek))
 Sample Output 3:
 True
 '''
-pass
+from _collections_abc import Iterator
+# from collections.abc import Iterator
+
+def is_iterator(obj: object) -> bool:
+    return isinstance(obj, Iterator)
 
 if __name__ == '__main__':
-    pass
+    print(is_iterator([1, 2, 3, 4, 5]))
+
+    beegeek = map(str.upper, 'beegeek')
+    print(is_iterator(beegeek))
+
+    beegeek = filter(None, [0, 0, 1, 1, 0, 1])
+    print(is_iterator(beegeek))
