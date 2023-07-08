@@ -15,4 +15,10 @@ Sample Output:
 import numpy as np
 
 if __name__ == '__main__':
-    pass
+    arr = np.fromstring(string=input(), dtype=int, sep=' ')
+    for i in range(arr.size):
+        if i in range(arr.size-3, arr.size):
+            arr[i] = 1
+        elif i % 2:
+            arr[i] = 0
+    print(arr)
