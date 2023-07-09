@@ -18,4 +18,10 @@ Sample Output:
 import numpy as np
 
 if __name__ == '__main__':
-    pass
+    data = np.fromstring(string=input(), dtype=int, sep=' ')
+    data_res = np.zeros(0, dtype=int)
+    for i, el in enumerate(data):
+        if i in range(5): continue
+        # if 0!=i%3: data_res = np.append(arr=data_res, values=el)
+        if i%3: data_res = np.append(arr=data_res, values=el)
+    print(data_res)
