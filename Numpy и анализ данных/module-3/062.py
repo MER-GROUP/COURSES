@@ -17,4 +17,6 @@ Sample Output:
 import numpy as np
 
 if __name__ == '__main__':
-    pass
+    directions = np.fromstring(string=input(), dtype=int, sep=' ')
+    north_directions = directions[directions==0]
+    print(north_directions[1::2])
