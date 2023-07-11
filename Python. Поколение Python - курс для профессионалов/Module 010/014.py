@@ -38,7 +38,27 @@ print(list(squares))
 Sample Output 3:
 [1]
 '''
-pass
+class Square:
+    def __init__(self, n: int) -> None:
+        self.n = n
+        self.count = 0
+
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        self.count += 1
+        if self.count > self.n:
+            raise StopIteration
+        return self.count**2
 
 if __name__ == '__main__':
-    pass
+    squares = Square(2)
+    print(next(squares))
+    print(next(squares))
+
+    squares = Square(10)
+    print(list(squares))
+
+    squares = Square(1)
+    print(list(squares))
