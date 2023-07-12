@@ -101,13 +101,34 @@ def heap_increase_key(_arr: list, _i: int, _key: int, *, _heap='max') -> None:
     _arr[_i] - текущий элемент массива - _current_element\n
     _n - размер массива (кучи)
     """
+    # пользовательское исключение на функцию heap_increase_key
+    class heap_increase_key_error(Exception):
+        pass
+
     # определяем вид кучи - по убыванию или возростанию
     if 'max' == _heap:
-        ...
+        # если новый элемент меньше текущего родителя
+        # то он может оказаться и меньше своего сына
+        # что недопустимо в max куче
+        if _key < _arr[_i]:
+            raise heap_increase_key_error(
+                'a key must be greater or equal to the current'
+            )
+        # индекс кучи который необходимо обновить
+        _arr[_i] = _key
+        # ##################################################################################
+        while _i > 1 and _arr[_i//2] < _arr[_i]:
+            ...
     else:
-        ...
-    # индекс кучи который необходимо обновить
-    _arr[_i] = _key
+        # если новый элемент больше текущего родителя
+        # то он может оказаться и больше своего сына
+        # что недопустимо в min куче
+        if _key > _arr[_i]:
+            raise heap_increase_key_error(
+                'a key must be less or equal to the current'
+            )
+        # индекс кучи который необходимо обновить
+        _arr[_i] = _key
 
 
 # Heap_Increase_Key(A, i, key)
@@ -178,4 +199,14 @@ if __name__ == '__main__':
     print('----------heap_insert-min:----------')
     print(e1)
     heap_insert(e1, 333, _heap='min')
+    print(e1)
+
+    print('----------heap_increase_key Exception for max:----------')
+    print(e)
+    # heap_increase_key(e, _i=1, _key=8, _heap='max')
+    print(e)
+
+    print('----------heap_increase_key Exception for min:----------')
+    print(e1)
+    # heap_increase_key(e1, _i=1, _key=5, _heap='min')
     print(e1)
