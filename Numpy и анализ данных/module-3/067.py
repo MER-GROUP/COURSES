@@ -17,7 +17,15 @@ Sample Output:
 '''
 import numpy as np
 
-pass
-
 if __name__ == '__main__':
-    pass
+    arr = np.fromstring(string=input(), dtype=int, sep=' ')
+    arr_index = np.fromstring(string=input(), dtype=int, sep=' ')
+    arr_pay = np.fromstring(string=input(), dtype=int, sep=' ')
+
+    # arr_pay = iter(np.fromstring(string=input(), dtype=int, sep=' '))
+    # for i in arr_index:
+    #     arr[i] = next(arr_pay)
+
+    arr[arr_index] = arr_pay
+
+    print(arr)
