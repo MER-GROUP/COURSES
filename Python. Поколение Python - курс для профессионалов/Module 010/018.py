@@ -50,7 +50,40 @@ Sample Output 2:
 король бубен
 туз червей
 '''
-pass
+class CardDeck:
+    def __init__(self) -> None:
+        self.card_suit = ('пик', 'треф', 'бубен', 'червей')
+        self.card_suit_len = len(self.card_suit)
+        self.card_suit_index = 0
+
+        self.card_number = tuple(map(str, range(2, 11))) + ('валет', 'дама', 'король', 'туз')
+        self.card_number_len = len(self.card_number)
+        self.card_number_index = 0
+
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        if self.card_number_index == self.card_number_len:
+            self.card_number_index = 0
+            self.card_suit_index += 1
+
+        if self.card_suit_index == self.card_suit_len:
+            raise StopIteration
+
+        card_number = self.card_number[self.card_number_index]
+        card_suit = self.card_suit[self.card_suit_index]
+        self.card_number_index += 1
+
+        return ' '.join((card_number, card_suit))
 
 if __name__ == '__main__':
-    pass
+    cards = CardDeck()
+    print(next(cards))
+    print(next(cards))
+
+    cards = list(CardDeck())
+    print(cards[9])
+    print(cards[23])
+    print(cards[37])
+    print(cards[51])
