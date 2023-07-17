@@ -23,4 +23,11 @@ Sample Output:
 import numpy as np
 
 if __name__ == '__main__':
-    pass
+    a = np.fromstring(string=input(), dtype=int, sep=' ')
+    arr_index = np.fromstring(string=input(), dtype=int, sep=' ')
+    arr_data = np.fromstring(string=input(), dtype=int, sep=' ')
+
+    print(a)
+    b = a.copy()
+    b[arr_index] = arr_data
+    print(b)
