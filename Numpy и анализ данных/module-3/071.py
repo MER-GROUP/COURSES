@@ -22,7 +22,13 @@ Sample Output:
 '''
 import numpy as np
 
-pass
-
 if __name__ == '__main__':
-    pass
+    arr = np.fromstring(string=input(), dtype=None, sep=' ')
+    arr = arr * 3
+    arr = arr / 2
+    arr = arr + 10
+    average = arr.sum()/arr.size
+    # arr_index = np.array(object=tuple(i for i, el in enumerate(arr) if el < average))
+    arr_index = list(i for i, el in enumerate(arr) if el < average)
+    print(arr_index)
+    print(arr)
