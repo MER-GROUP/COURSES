@@ -42,7 +42,18 @@ Sample Output 2:
 from __future__ import annotations
 from _collections_abc import Generator
 
-pass
+def alternating_sequence(count: int = None) -> Generator:
+        index, num = 0, 1
+        if count is None: count = float('inf')
+        while index < count:
+            yield (num, num*-1)[not num % 2]
+            num += 1
+            index += 1
 
 if __name__ == '__main__':
-    pass
+    generator = alternating_sequence()
+    print(next(generator))
+    print(next(generator))
+
+    generator = alternating_sequence(10)
+    print(*generator)
