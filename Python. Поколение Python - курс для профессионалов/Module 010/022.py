@@ -45,7 +45,42 @@ print(*xrange)
 Sample Output 4:
 5 6 7 8 9
 '''
-pass
+from __future__ import annotations
+from _collections_abc import Iterator
+
+class Xrange:
+    def __init__(self, start: int|float, end: int|float, step: int|float = 1) -> None:
+        self.start = start
+        self.end = end
+        self.step = step
+
+    def __iter__(self) -> Iterator:
+        return self
+    
+    def __next__(self) -> int|float:
+        if self.start == self.end\
+            or (0 > self.step and self.start <= self.end)\
+            or (0 < self.step and self.start >= self.end):
+                raise StopIteration
+        _return = self.start
+        self.start += self.step
+        return _return
 
 if __name__ == '__main__':
-    pass
+    evens = Xrange(0, 10, 2) # 1
+    print(*evens)
+
+    xrange = Xrange(0, 3, 0.5) # 2
+    print(*xrange, sep='; ')
+
+    xrange = Xrange(10, 1, -1) # 3
+    print(*xrange)
+
+    xrange = Xrange(5, 10) # 4
+    print(*xrange)
+
+    xrange = Xrange(10, -21, -6) # 15
+    print(list(xrange)) # >>> [10, 4, -2, -8, -14, -20]
+
+    xrange = Xrange(5, 48.51, 1.5) # 20
+    print(tuple(xrange)) # >>>
