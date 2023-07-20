@@ -40,16 +40,48 @@ Sample Output 2:
 '''
 from __future__ import annotations
 from _collections_abc import Generator
-from datetime import datetime, date
+from datetime import date, timedelta
 
-def dates(start: date) -> Generator:
-    ...
+def dates(start: date, count: int = None) -> Generator:
+    _count = 0
+    try:
+        while not _count == count:
+            yield start
+            start += timedelta(days=1)
+            _count += 1
+    except OverflowError:
+        return
             
 if __name__ == '__main__':
+    # 1
     generator = dates(date(2022, 3, 8))
     print(next(generator))
     print(next(generator))
     print(next(generator))
 
-    generator = dates(date(2022, 3, 8), 5
+    # 2
+    generator = dates(date(2022, 3, 8), 5)
     print(*generator)
+
+    # 3
+    generator = dates(date(9999, 1, 7))
+
+    for _ in range(348):
+        next(generator)
+
+    print(next(generator))
+    print(next(generator))
+    print(next(generator))
+    print(next(generator))
+    print(next(generator))
+    print(next(generator))
+    print(next(generator))
+    print(next(generator))
+    print(next(generator))
+    print(next(generator))
+    print(next(generator))
+
+    try:
+        print(next(generator))
+    except StopIteration:
+        print('Error')
