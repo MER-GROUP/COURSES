@@ -25,5 +25,11 @@ import numpy as np
 
 if __name__ == '__main__':
     arr = np.fromstring(string=input(), dtype=None, sep=' ')
-    # while 100 > np.amin():
-    #     ...
+    count = 0
+
+    while 100 > np.amin(arr):
+        arr += (arr*0.15)
+        count += 1
+        
+    print(count)
+    print(arr)
