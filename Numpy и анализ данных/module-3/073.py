@@ -21,4 +21,7 @@ Sample Output:
 import numpy as np
 
 if __name__ == '__main__':
-    pass
+    arr = np.fromstring(string=input(), dtype=None, sep=' ')
+    for i in range(2, 7):
+        arr **= i
+    print(arr.min(), arr, sep='\n')
