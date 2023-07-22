@@ -150,6 +150,13 @@ def heap_increase_key(_arr: list, _i: int, _key: int, *, _heap='max') -> None:
             # обновляем индекс сына
             _i = _parent
 ###############################################################################################
+# heap_insert_increase - вставка нового элемента в max/min кучу через увеличение
+def heap_insert_increase (_arr: list, _value: int, *, _heap='max') -> None:
+    # добавляем новое значение/узел в конец бинарной кучи
+    _arr.append(_value)
+    # создаем/обновляем max/min кучу через увеличение
+    heap_increase_key(_arr=_arr, _i=len(_arr)-1, _key=_value, _heap=_heap)
+###############################################################################################
 if __name__ == '__main__':
     from random import randint
 
@@ -225,5 +232,15 @@ if __name__ == '__main__':
     print('----------heap_increase_key for min:----------')
     print(e1)
     heap_increase_key(e1, _i=5, _key=1, _heap='min')
+    print(e1)
+
+    print('----------heap_insert_increase for max:----------')
+    print(e)
+    heap_insert_increase(e, _value=3, _heap='max')
+    print(e)
+
+    print('----------heap_insert_increase for min:----------')
+    print(e1)
+    heap_insert_increase(e1, _value=5, _heap='min')
     print(e1)
 ###############################################################################################
