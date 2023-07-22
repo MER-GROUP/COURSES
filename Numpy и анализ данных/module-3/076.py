@@ -21,7 +21,11 @@ b
 '''
 import numpy as np
 
-pass
-
 if __name__ == '__main__':
-    pass
+    a, b = (np.fromstring(string=input(), dtype=None, sep=' ') for _ in range(2))
+    # print(a, b, sep='\n')
+    print(
+        ('b', 'a')[
+            ((a<b).sum() < a.size - (a<b).sum()).astype(dtype=int)
+        ]
+    )
