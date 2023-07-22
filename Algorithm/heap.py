@@ -1,3 +1,4 @@
+###############################################################################################
 # heapify - создать кучу
 def heapify(_arr: list, _i: int, *, _heap='max') -> None:
     """
@@ -52,7 +53,7 @@ def heapify(_arr: list, _i: int, *, _heap='max') -> None:
         _arr[_i], _arr[_largest_smallest] = _arr[_largest_smallest], _arr[_i]
         # рекурсивно создаем кучу
         heapify(_arr=_arr, _i=_largest_smallest, _heap=_heap)
-
+###############################################################################################
 # heap_max - создать max кучу
 def heap_max(_arr: list) -> None:
     # размер кучи
@@ -61,7 +62,7 @@ def heap_max(_arr: list) -> None:
     for _i in range(_n//2 - 1, -1, -1):
         # создаем кучу по убыванию
         heapify(_arr=_arr, _i=_i, _heap='max')
-
+###############################################################################################
 # heap_min - создать min кучу
 def heap_min(_arr: list) -> None:
     # размер кучи
@@ -70,7 +71,7 @@ def heap_min(_arr: list) -> None:
     for _i in range(_n//2 - 1, -1, -1):
         # создаем кучу по возростанию
         heapify(_arr=_arr, _i=_i, _heap='min')
-
+###############################################################################################
 # heap - создать max/min кучу
 def heap(_arr: list, *, _heap='max') -> None:
     # размер кучи
@@ -79,14 +80,14 @@ def heap(_arr: list, *, _heap='max') -> None:
     for _i in range(_n//2 - 1, -1, -1):
         # создаем кучу по убыванию/возростанию
         heapify(_arr=_arr, _i=_i, _heap=_heap)
-
+###############################################################################################
 # heap_insert - вставка нового элемента в max/min кучу
 def heap_insert (_arr: list, _value: int, *, _heap='max') -> None:
     # добавляем новое значение/узел в конец бинарной кучи
     _arr.append(_value)
     # создаем/обновляем max/min кучу
     heap(_arr=_arr, _heap=_heap)
-
+###############################################################################################
 # heap_increase_key -  заменяет элемент кучи на новый ключ со значением, 
 # не меньшим/не большим значения исходного элемента
 def heap_increase_key(_arr: list, _i: int, _key: int, *, _heap='max') -> None:
@@ -120,9 +121,13 @@ def heap_increase_key(_arr: list, _i: int, _key: int, *, _heap='max') -> None:
         # и обновленный элемент (сын) больше родителя (элемента с индексом _i//2) 
         while _i > 0 and _arr[_i//2] < _arr[_i]:
             # меняем местами сына и родителя
-            _arr[_i], _arr[_i//2] = _arr[_i//2], _arr[_i]
+            # если индекс родителя равен 1 то заменяем его на 0
+            # а так постоянно делим на 2 без остатка
+            _son = _i
+            _parent = (0, _i//2)[1 < _i//2]
+            _arr[_son], _arr[_parent] = _arr[_parent], _arr[_son]
             # обновляем индекс сына
-            _i = _i//2
+            _i = _parent
     else:
         # если новый элемент больше текущего родителя
         # то он может оказаться и больше своего сына
@@ -133,25 +138,25 @@ def heap_increase_key(_arr: list, _i: int, _key: int, *, _heap='max') -> None:
             )
         # индекс кучи который необходимо обновить
         _arr[_i] = _key
-        # ##################################################################################
-        while ...:
-            ...
-
-
-# Heap_Increase_Key(A, i, key)
-#   if key < A[i]
-#     then error "Новый ключ меньше предыдущего"
-#   A[i] ← key
-#   while i > 1 и A[⌊i/2⌋] < A[i]
-#     do Обменять A[i] ↔ A[⌊i/2⌋]
-#       i ← ⌊i/2⌋
-
-
-# Heap_Insert(A, key)
-#   A.heap_size ← A.heap_size+1
-#   A[A.heap_size] ← -∞
-#   Heap_Increase_Key(A, A.heap_size, key)
-
+        # покуда индекс обновленного элемента (сын) больше 1
+        # и обновленный элемент (сын) меньше родителя (элемента с индексом _i//2) 
+        while _i > 0 and _arr[_i//2] > _arr[_i]:
+            # меняем местами сына и родителя
+            # если индекс родителя равен 1 то заменяем его на 0
+            # а так постоянно делим на 2 без остатка
+            _son = _i
+            _parent = (0, _i//2)[1 < _i//2]
+            _arr[_son], _arr[_parent] = _arr[_parent], _arr[_son]
+            # обновляем индекс сына
+            _i = _parent
+###############################################################################################
+# heap_insert_increase - вставка нового элемента в max/min кучу через увеличение
+def heap_insert_increase (_arr: list, _value: int, *, _heap='max') -> None:
+    # добавляем новое значение/узел в конец бинарной кучи
+    _arr.append(_value)
+    # создаем/обновляем max/min кучу через увеличение
+    heap_increase_key(_arr=_arr, _i=len(_arr)-1, _key=_value, _heap=_heap)
+###############################################################################################
 if __name__ == '__main__':
     from random import randint
 
@@ -218,9 +223,24 @@ if __name__ == '__main__':
     # heap_increase_key(e1, _i=1, _key=5, _heap='min')
     print(e1)
 
-
     print('----------heap_increase_key for max:----------')
     print(e)
     # heap_increase_key(e, _i=5, _key=8, _heap='max')
     heap_increase_key(e, _i=5, _key=888, _heap='max')
     print(e)
+
+    print('----------heap_increase_key for min:----------')
+    print(e1)
+    heap_increase_key(e1, _i=5, _key=1, _heap='min')
+    print(e1)
+
+    print('----------heap_insert_increase for max:----------')
+    print(e)
+    heap_insert_increase(e, _value=3, _heap='max')
+    print(e)
+
+    print('----------heap_insert_increase for min:----------')
+    print(e1)
+    heap_insert_increase(e1, _value=5, _heap='min')
+    print(e1)
+###############################################################################################
