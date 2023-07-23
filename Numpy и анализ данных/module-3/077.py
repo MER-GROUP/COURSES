@@ -20,4 +20,7 @@ Sample Output:
 import numpy as np
 
 if __name__ == '__main__':
-    pass
+    arr = np.fromstring(string=input(), dtype=None, sep=' ')
+    red = arr[0] * arr[1] * arr[-1]
+    green = arr[2] * arr[3] * arr[-1]
+    print((('красный', 'ничья')[int(red == green)], 'зеленый')[int(red < green)])
