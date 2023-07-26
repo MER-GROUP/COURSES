@@ -54,21 +54,19 @@ Sample Output 2:
 import numpy as np
 
 if __name__ == '__main__':
-    a, b, c, d, e, f = (np.fromstring(string=input(), dtype=None, sep=' ') for _ in range(6))
-
-'''
-    https://mathsolver.microsoft.com/ru/solve-problem/%60left%60%7B%20%60begin%7Barray%7D%20%7B%20l%20%7D%20%7B%20a%20x%20%2B%20b%20y%20%3D%20c%20%7D%20%60%60%20%7B%20d%20x%20%2B%20e%20y%20%3D%20f%20%7D%20%60end%7Barray%7D%20%60right.
-
+    """
     a*x + b*y = c
-    b*y = c - a*x
-    y = (c - a*x)/b
+    d*x - e*y = f
+    """
+    a, b, c, d, e, f = (np.fromstring(string=input(), dtype=None, sep=' ') for _ in range(6))
+    arr_x = np.zeros_like(a=a)
+    arr_y = np.zeros_like(a=a)
 
-    d*x + e*y = f
-    e*y = f - d*x
-    y = (f - d*x)/e
+    for _a, _b, _c, _d, _e, _f, i in zip(a, b, c, d, e, f, range(a.size)):
+        arr_x[i] = (_f*_b + _e*_c)/(_d*_b + _a*_e)
 
-    (c - a*x)/b = (f - d*x)/e
+    for _a, _b, _c, _d, _e, _f, _x, i in zip(a, b, c, d, e, f, arr_x, range(a.size)):
+        arr_y[i] = (_c - _a*_x)/_b
 
-    x = -1*((b*f - e*c)/(e*a - b*d))
-    y = -1*((d*x - f)/e)
-'''
+    print(arr_x)
+    print(arr_y)
