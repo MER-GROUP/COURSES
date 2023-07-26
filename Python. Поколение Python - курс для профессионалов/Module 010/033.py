@@ -40,7 +40,14 @@ False
 from __future__ import annotations
 from _collections_abc import Generator
 
-pass
+def is_prime(number: int) -> Generator:
+    return (all(number % i for i in range(2, int(number**0.5)+1)), False)[2 > number]
             
 if __name__ == '__main__':
-    pass
+    print(is_prime(7)) # 1
+ 
+    print(is_prime(8)) # 2
+
+    print(is_prime(1)) # 3
+
+    print(is_prime(16)) # 4
