@@ -48,4 +48,6 @@ Sample Output:
 import numpy as np
 
 if __name__ == '__main__':
-    pass
+    V = np.fromstring(string=input(), dtype=None, sep=' ')
+    R = np.fromstring(string=input(), dtype=None, sep=' ')
+    print(V/R)
