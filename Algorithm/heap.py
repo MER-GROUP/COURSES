@@ -157,6 +157,10 @@ def heap_insert_increase (_arr: list, _value: int, *, _heap='max') -> None:
     # создаем/обновляем max/min кучу через увеличение
     heap_increase_key(_arr=_arr, _i=len(_arr)-1, _key=_value, _heap=_heap)
 ###############################################################################################
+# heap_remove - удаление указанного элемента в max/min куче
+def heap_remove (_arr: list, _value: int, *, _heap='max') -> None:
+    ...
+###############################################################################################
 if __name__ == '__main__':
     from random import randint
 
