@@ -39,7 +39,14 @@ Sample Output 3:
 from __future__ import annotations
 from _collections_abc import Generator, Iterable, Iterator
 
-pass
+def all_together(*args) -> Generator:
+    yield from (j for i in args for j in i)
             
 if __name__ == '__main__':
-    pass
+    objects = [range(3), 'bee', [1, 3, 5], (2, 4, 6)]
+    print(*all_together(*objects))
+
+    objects = [[1, 2, 3], [(0, 0), (1, 1)], {'geek': 1}]
+    print(*all_together(*objects))
+
+    print(list(all_together()))
