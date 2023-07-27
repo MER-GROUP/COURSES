@@ -39,7 +39,22 @@ Sample Output 2:
 from __future__ import annotations
 from _collections_abc import Generator
 
-pass
+def palindromes() -> Generator:
+    def is_palindrom(n: int) -> bool:
+        return (False, True)[str(n) ==str(n)[::-1]]
+    
+    n = 1
+    while True:
+        if is_palindrom(n):
+            yield n
+        n += 1
             
 if __name__ == '__main__':
-    pass
+    generator = palindromes()
+    print(next(generator))
+    print(next(generator))
+    print(next(generator))
+
+    generator = palindromes()
+    numbers = [next(generator) for _ in range(30)]
+    print(*numbers)

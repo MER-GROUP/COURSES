@@ -23,4 +23,6 @@ Sample Output:
 import numpy as np
 
 if __name__ == '__main__':
-    pass
+    a = np.fromstring(string=input(), dtype=None, sep=' ')
+    b = np.fromstring(string=input(), dtype=None, sep=' ')
+    print(a + b / a)
