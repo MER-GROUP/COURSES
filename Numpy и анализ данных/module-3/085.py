@@ -16,4 +16,8 @@ Sample Output:
 import numpy as np
 
 if __name__ == '__main__':
-    pass
+    a, b = (
+        np.fromstring(string=input(), dtype=None, sep=' ')
+        for _ in range(2)
+    )
+    print((a > b) & (a != 0))
