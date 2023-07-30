@@ -35,4 +35,10 @@ False
 import numpy as np
 
 if __name__ == '__main__':
-    pass
+    x0, v, v0, a = map(float, input().split())
+    t = np.fromstring(string=input(), dtype=None, sep=' ')
+
+    x1 = x0 + v*t
+    x2 = v0*t+a*t**2/2
+
+    print(np.all(a=(x1 > x2)))
