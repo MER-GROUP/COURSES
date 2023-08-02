@@ -26,8 +26,19 @@ https://stepik.org/media/attachments/lesson/673155/data.csv
 Примечание 4. При открытии файла используйте явное указание кодировки UTF-8.
 '''
 from _collections_abc import Generator
-
-pass
+import csv
 
 if __name__ == '__main__':
-    pass
+    with open(file='data.csv', mode='rt', encoding='utf-8', newline='') as file_open:
+    # with open(file='040-data.csv', mode='rt', encoding='utf-8', newline='') as file_open:
+        csv_file = csv.DictReader(f=file_open, delimiter=',', quotechar=None, quoting=csv.QUOTE_NONE)
+        # print(csv_file.fieldnames)
+        
+        round_a = (
+            i.get(csv_file.fieldnames[-2])
+            for i in csv_file 
+            if 'a' == i.get(csv_file.fieldnames[-1])
+        )
+        round_int = map(int, round_a)
+        result = sum(round_int)
+        print(result)
