@@ -38,7 +38,18 @@ short line another short line ... end of file
 '''
 from _collections_abc import Generator
 
-pass
+def nonempty_lines(file: str) -> Generator:
+    file_open = open(file=file, mode='rt', encoding='utf-8', newline='')
+    f1 = map(str.strip, file_open)
+    f2 = filter(lambda x: x != '', f1)
+    f3 = map(lambda x: x if len(x) < 26 else '...', f2)
+    return f3
 
 if __name__ == '__main__':
-    pass
+    lines = nonempty_lines('042-file1.txt')
+    print(next(lines))
+    print(next(lines))
+    print(next(lines))
+    print(next(lines))
+
+    print(*nonempty_lines('042-file2.txt'))
