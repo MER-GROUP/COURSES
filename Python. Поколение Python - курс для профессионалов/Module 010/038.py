@@ -39,7 +39,19 @@ Sample Output 3:
 from _collections_abc import Generator
 
 def parse_ranges(seq: str)-> Generator:
-    ...
+    _seq1 = (
+        ab
+        for ab in seq.split(',')
+    )
+    _seq2 = (
+        s.split('-')
+        for s in _seq1
+    )
+    return (
+        i
+        for a, b in _seq2
+            for i in range(int(a), int(b)+1)
+    )
 
 if __name__ == '__main__':
     print(*parse_ranges('1-2,4-4,8-10'))

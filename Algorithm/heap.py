@@ -171,7 +171,8 @@ def heap_remove (_arr: list, _value: int, *, _heap='max') -> None:
     
     # определяем вид кучи - по убыванию или возростанию
     if 'max' == _heap:
-        ...
+        # обновляем max-кучу
+        heapify(_arr=_arr, _i=_index_current, _heap='max')
     else:
         ...
 ###############################################################################################
@@ -261,4 +262,9 @@ if __name__ == '__main__':
     print(e1)
     heap_insert_increase(e1, _value=5, _heap='min')
     print(e1)
+
+    print('----------heap_remove for max:----------')
+    print(e)
+    heap_remove(e, _value=9, _heap='max')
+    print(e)
 ###############################################################################################
