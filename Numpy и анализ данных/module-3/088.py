@@ -14,7 +14,18 @@ Sample Output:
 '''
 import numpy as np
 
-pass
+def filter_golden_chests(arr: np) -> np:
+    lt = arr < 5
+    gt = arr > 10
+    idx = lt | gt
+    return arr[idx]
 
 if __name__ == '__main__':
-    pass
+    print(
+        filter_golden_chests(
+            np.array(
+                object='4 7 10 7 5 12 9 8 9 6 6 3 14 7 11 9 14 7 12 6 6 11'.split(),
+                dtype=int
+            )
+        )
+    )
