@@ -49,9 +49,29 @@ Sample Output:
 from _collections_abc import Generator
 
 def txt_to_dict() -> Generator:
-    with open(file='043-planets.txt', mode='rt', encoding='utf-8', newline='') as file_open:
-        ...
+    # with open(file='043-planets.txt', mode='rt', encoding='utf-8', newline='') as file_open:
+    with open(file='planets.txt', mode='rt', encoding='utf-8', newline='') as file_open:
+        keys, values = list(), list()
+        for _string in file_open:
+            if not _string.strip():
+                continue
+
+            k, v = _string.split('=')
+            keys.append(k.strip())
+            values.append(v.strip())
+
+            if 4 == len(keys):
+                yield dict(zip(keys, values))
+                keys, values = list(), list()
 
 if __name__ == '__main__':
     planets = txt_to_dict()
-    # print(next(planets))
+    print(next(planets))
+    print(next(planets))
+    print(next(planets))
+    print(next(planets))
+    print(next(planets))
+    print(next(planets))
+    print(next(planets))
+    print(next(planets))
+    print(next(planets))
