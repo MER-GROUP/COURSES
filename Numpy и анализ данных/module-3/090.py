@@ -24,7 +24,15 @@ Sample Output:
 '''
 import numpy as np
 
-pass
+def getArrayElementsDivisibleByThree(arr: np) -> np:
+    return arr[0==arr%3]
 
 if __name__ == '__main__':
-    pass
+    print(
+        getArrayElementsDivisibleByThree(
+            np.array(
+                object='-5 -11 8 5 3 -3 -11 -1 6 -6 10 -9 -5 7 -6 -8 11 5 -7 -5 9 11'.split(),
+                dtype=int
+            )
+        )
+    )
