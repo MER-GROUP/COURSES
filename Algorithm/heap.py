@@ -174,7 +174,8 @@ def heap_remove (_arr: list, _value: int, *, _heap='max') -> None:
         # обновляем max-кучу
         heapify(_arr=_arr, _i=_index_current, _heap='max')
     else:
-        ...
+        # обновляем min-кучу
+        heapify(_arr=_arr, _i=_index_current, _heap='min')
 ###############################################################################################
 if __name__ == '__main__':
     from random import randint
@@ -267,4 +268,9 @@ if __name__ == '__main__':
     print(e)
     heap_remove(e, _value=9, _heap='max')
     print(e)
+
+    print('----------heap_remove for min:----------')
+    print(e1)
+    heap_remove(e1, _value=1, _heap='min')
+    print(e1)
 ###############################################################################################
