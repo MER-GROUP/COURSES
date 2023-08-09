@@ -40,7 +40,15 @@ b e e g e e k
 '''
 from _collections_abc import Generator, Iterable
 
-pass
+def stop_on(iterable: Iterable, obj: object) -> Generator:
+    for i in iterable:
+        if i == obj:
+            break
+        yield i
 
 if __name__ == '__main__':
-    pass
+    numbers = [1, 2, 3, 4, 5]
+    print(*stop_on(numbers, 4))
+
+    iterator = iter('beegeek')
+    print(*stop_on(iterator, 'a'))
