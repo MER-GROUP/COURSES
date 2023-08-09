@@ -177,6 +177,11 @@ def heap_remove (_arr: list, _value: int, *, _heap='max') -> None:
         # обновляем min-кучу
         heapify(_arr=_arr, _i=_index_current, _heap='min')
 ###############################################################################################
+# heap_peek - возвращает максимальный/минимальный элемент из max/min кучи без удаления узла
+def heap_peek (_arr: list) -> None:
+    # возвращаем максимальный/минимальный элемент из max/min кучи без удаления узла
+    return _arr[0]
+###############################################################################################
 if __name__ == '__main__':
     from random import randint
 
@@ -272,5 +277,15 @@ if __name__ == '__main__':
     print('----------heap_remove for min:----------')
     print(e1)
     heap_remove(e1, _value=1, _heap='min')
+    print(e1)
+
+    print('----------heap_peek for max:----------')
+    print(e)
+    print(heap_peek(e))
+    print(e)
+
+    print('----------heap_peek for min:----------')
+    print(e1)
+    print(heap_peek(e1))
     print(e1)
 ###############################################################################################
