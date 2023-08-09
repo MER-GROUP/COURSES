@@ -28,7 +28,15 @@ Sample Output:
 '''
 import numpy as np
 
-pass
+def selectInterestingItems(arr: np) -> np:
+    return arr[(0==arr%2) & (5<arr)]
 
 if __name__ == '__main__':
-    pass
+    print(
+        selectInterestingItems(
+            np.array(
+                object='6 7 2 -1 -4 2 -10 11 7 6 -10 -7 5 11 -3 6 -1 -12 1 -2 -10 5'.split(),
+                dtype=int
+            )
+        )
+    )
