@@ -42,7 +42,38 @@ Sample Output 2:
 '''
 from _collections_abc import Generator, Iterable
 
-pass
+def pairwise(iterable: Iterable) -> Generator:
+    try:
+        it = iter(iterable)
+        _current = next(it)
+        _next = next(it)
+
+        for cur in it:
+            yield _current, _next
+            _next, _current = cur, _next
+
+        yield _current, _next
+        _next, _current = cur, _next
+        yield _next, None
+    
+    except StopIteration:
+        if not iterable:
+            yield from iterable
+        else:
+            yield _current, None
 
 if __name__ == '__main__':
-    pass
+    # 1
+    numbers = [1, 2, 3, 4, 5]
+    print(*pairwise(numbers))
+
+    # 2
+    iterator = iter('stepik')
+    print(*pairwise(iterator))
+
+    # 6
+    iterator = pairwise('A')
+    print(next(iterator))
+
+    # 8
+    print(list(pairwise([])))
