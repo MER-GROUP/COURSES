@@ -182,6 +182,21 @@ def heap_peek (_arr: list) -> object:
     # возвращаем максимальный/минимальный элемент из max/min кучи без удаления узла
     return _arr[0]
 ###############################################################################################
+# heap_extract_peek - извлекает максимальный/минимальный элемент 
+# из max/min кучи c удалением узла
+def heap_extract_peek(_arr: list) -> object:
+    # пользовательское исключение на функцию heap_extract_peek
+    class heap_extract_peek_error(Exception):
+        pass
+
+    # если куча пуста то кидаем исключение (выводим ошибку)
+    if not _arr:
+        raise heap_extract_peek_error(
+                'a key must be greater or equal to the current'
+            )
+    
+    ...
+###############################################################################################
 if __name__ == '__main__':
     from random import randint
 
