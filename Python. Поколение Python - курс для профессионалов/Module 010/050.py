@@ -34,9 +34,15 @@ Sample Output 2:
 '''
 from __future__ import annotations
 from _collections_abc import Generator, Iterator, Iterable, Callable
-from itertools import count
+from itertools import count, accumulate
 
-pass
+def factorials(n: int) -> Iterator:
+    return accumulate(iterable=range(1, n+1), func=lambda x, y: x * y)
 
 if __name__ == '__main__':
-    pass
+    numbers = factorials(6)
+    print(*numbers)
+
+    numbers = factorials(2)
+    print(next(numbers))
+    print(next(numbers))
