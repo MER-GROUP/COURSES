@@ -19,7 +19,18 @@ Sample Output:
 '''
 import numpy as np
 
-pass
+def get_common_elements(arr1: np, arr2: np) -> np:
+    return arr1[
+        np.isin(
+            element=arr1,
+            test_elements=arr2
+        )
+    ]
 
 if __name__ == '__main__':
-    pass
+    print(
+        get_common_elements(
+            np.array(object='1 2 3 4 5'.split(), dtype=int),
+            np.array(object='2 2 6 0'.split(), dtype=int)
+        )
+    )
