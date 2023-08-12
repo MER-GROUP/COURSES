@@ -192,7 +192,7 @@ def heap_extract_peek(_arr: list) -> object:
     # если куча пуста то кидаем исключение (выводим ошибку)
     if not _arr:
         raise heap_extract_peek_error(
-                'a key must be greater or equal to the current'
+                'a heap is empty'
             )
     
     ...
@@ -303,4 +303,9 @@ if __name__ == '__main__':
     print(e1)
     print(heap_peek(e1))
     print(e1)
+
+    print('----------heap_extract_peek Exception for empty heap:----------')
+    print(e)
+    # print(heap_extract_peek([]))
+    print(e)
 ###############################################################################################
