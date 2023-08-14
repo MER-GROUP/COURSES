@@ -19,7 +19,13 @@ Sample Output:
 '''
 import numpy as np
 
-pass
+def count_greater(arr1: np, arr2: np) -> np:
+    return arr1[arr1 > arr2.max()]
 
 if __name__ == '__main__':
-    pass
+    print(
+        count_greater(
+            np.array(object='1 2 3 4 5 6'.split(), dtype=int),
+            np.array(object='1 2 3 4 4 4 4'.split(), dtype=int)
+        )
+    )
