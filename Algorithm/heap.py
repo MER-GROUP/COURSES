@@ -184,7 +184,7 @@ def heap_peek (_arr: list) -> object:
 ###############################################################################################
 # heap_extract_peek - извлекает максимальный/минимальный элемент 
 # из max/min кучи c удалением узла
-def heap_extract_peek(_arr: list) -> object:
+def heap_extract_peek(_arr: list, *, _heap='max') -> object:
     # пользовательское исключение на функцию heap_extract_peek
     class heap_extract_peek_error(Exception):
         pass
@@ -195,7 +195,12 @@ def heap_extract_peek(_arr: list) -> object:
                 'a heap is empty'
             )
     
-    ...
+    # извлекаем max/min элемент кучи
+    peek = _arr[0]
+    # удаляем извлеченный max/min элемент кучи
+    heap_remove(_arr=_arr, _value=peek, _heap=_heap)
+    # возвращаем max/min элемент кучи
+    return peek
 ###############################################################################################
 if __name__ == '__main__':
     from random import randint
@@ -308,4 +313,14 @@ if __name__ == '__main__':
     print(e)
     # print(heap_extract_peek([]))
     print(e)
+
+    print('----------heap_extract_peek for max:----------')
+    print(e)
+    print(heap_extract_peek(e))
+    print(e)
+
+    print('----------heap_extract_peek for min:----------')
+    print(e1)
+    print(heap_extract_peek(e1, _heap='min'))
+    print(e1)
 ###############################################################################################
