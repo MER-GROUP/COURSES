@@ -41,7 +41,13 @@ from __future__ import annotations
 from _collections_abc import Generator, Iterator, Iterable, Callable
 import itertools as it
 
-pass
+def sum_of_digits(iterable: Iterable):
+    _chain = it.chain.from_iterable(map(str, iterable))
+    return sum(map(int, _chain))
 
 if __name__ == '__main__':
-    pass
+    print(sum_of_digits([13, 20, 41, 2, 2, 5]))
+
+    print(sum_of_digits((1, 2, 3, 4, 5, 6, 7, 8, 9, 10)))
+
+    print(sum_of_digits([123456789]))
