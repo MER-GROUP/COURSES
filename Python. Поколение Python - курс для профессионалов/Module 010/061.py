@@ -46,7 +46,19 @@ from __future__ import annotations
 from _collections_abc import Generator, Iterator, Iterable, Callable
 import itertools as it
 
-pass
+def max_pair(iterable: Iterable) -> int|float:
+    return sum(
+        max(
+            it.pairwise(iterable),
+            key=sum
+        )
+    )
 
 if __name__ == '__main__':
-    pass
+    print(max_pair([1, 8, 2, 4, 3]))
+
+    iterator = iter([1, 2, 3, 4, 5])
+    print(max_pair(iterator))
+
+    iterator = iter([0, 0, 0, 0, 0, 0, 0, 0, 0])
+    print(max_pair(iterator))
