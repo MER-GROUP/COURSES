@@ -47,7 +47,19 @@ from __future__ import annotations
 from _collections_abc import Generator, Iterator, Iterable, Callable
 import itertools as it
 
-pass
+def ncycles(iterable: Iterable, times: int) -> Iterator|Generator:
+    _iterable1 = tuple(iterable)
+    while times:
+        _iterable2 = it.tee(_iterable1, 1)
+        yield from it.chain.from_iterable(_iterable2)
+        # yield from iter(*_iterable2)
+        times -= 1
 
 if __name__ == '__main__':
-    pass
+    print(*ncycles([1, 2, 3, 4], 3))
+
+    iterator = iter('bee')
+    print(*ncycles(iterator, 4))
+
+    iterator = iter([1])
+    print(*ncycles(iterator, 10))
