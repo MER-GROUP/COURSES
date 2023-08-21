@@ -17,7 +17,7 @@ Sample Output:
 '''
 import numpy as np
 
-pass
-
 if __name__ == '__main__':
-    pass
+    arr1 = np.fromstring(string=input(), dtype=int, sep=' ')
+    arr2 = np.array(object=['True'==i for i in input().split()], dtype=bool)
+    print(arr1[~arr2])
