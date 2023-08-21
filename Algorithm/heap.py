@@ -168,14 +168,8 @@ def heap_remove (_arr: list, _value: int, *, _heap='max') -> None:
     _arr[_index_current], _arr[_index_last] = _arr[_index_last], _arr[_index_current]
     # удаляем последний элемент кучи
     _arr.pop()
-    
-    # определяем вид кучи - по убыванию или возростанию
-    if 'max' == _heap:
-        # обновляем max-кучу
-        heapify(_arr=_arr, _i=_index_current, _heap='max')
-    else:
-        # обновляем min-кучу
-        heapify(_arr=_arr, _i=_index_current, _heap='min')
+    # обновляем max/min кучу
+    heapify(_arr=_arr, _i=_index_current, _heap=_heap)
 ###############################################################################################
 # heap_peek - возвращает максимальный/минимальный элемент из max/min кучи без удаления узла
 def heap_peek (_arr: list) -> object:
@@ -201,6 +195,11 @@ def heap_extract_peek(_arr: list, *, _heap='max') -> object:
     heap_remove(_arr=_arr, _value=peek, _heap=_heap)
     # возвращаем max/min элемент кучи
     return peek
+###############################################################################################
+# heap_sort - сортировать max/min кучу по возростанию/убыванию
+# (пирамидальная сортировка)
+def heap_sort(_arr: list, *, _heap='max') -> None:
+    ...
 ###############################################################################################
 if __name__ == '__main__':
     from random import randint
