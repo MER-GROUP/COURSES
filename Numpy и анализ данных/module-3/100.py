@@ -20,7 +20,14 @@ Sample Output:
  'NissanAltima' 'SubaruLegacy' 'VolkswagenPassat']
 '''
 import numpy as np
-from datetime import datetime, time
 
 if __name__ == '__main__':
-    pass
+    auto, price = (
+        np.array(
+            object=input().split(),
+            dtype=None
+        )
+        for _ in range(2)
+    )
+    price = price.astype(float)
+    print(auto[45_000 < price])
