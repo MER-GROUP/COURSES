@@ -199,7 +199,8 @@ def heap_extract_peek(_arr: list, *, _heap='max') -> object:
 # heap_sort - сортировать max/min кучу по возростанию/убыванию
 # (пирамидальная сортировка)
 def heap_sort(_arr: list, *, _heap='max') -> None:
-    ...
+    # создаем max/min кучу
+    heap(_arr=_arr, _heap=_heap)
 ###############################################################################################
 if __name__ == '__main__':
     from random import randint
