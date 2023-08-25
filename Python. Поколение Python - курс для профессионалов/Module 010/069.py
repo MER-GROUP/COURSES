@@ -48,4 +48,27 @@ from __future__ import annotations
 from _collections_abc import Generator, Iterator, Iterable, Callable
 import itertools as it
 
-pass
+def ranges(numbers: int) -> list[tuple]:
+    arr = list()
+    numbers_it = iter(numbers)
+    arr.append([next(numbers_it)])
+    for el in numbers_it:
+        if 1 == abs(arr[-1][-1] - el):
+            arr[-1].extend([el])
+        else:
+            arr.append([el])
+
+    return list(
+        (t[0], t[-1]) 
+        for t in arr
+    )
+
+if __name__ == '__main__':
+    numbers = [1, 2, 3, 4, 7, 8, 10]
+    print(ranges(numbers))
+
+    numbers = [1, 3, 5, 7]
+    print(ranges(numbers))
+
+    numbers = [1, 2, 3, 4, 5, 6, 7]
+    print(ranges(numbers))
