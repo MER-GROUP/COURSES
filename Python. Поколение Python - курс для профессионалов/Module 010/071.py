@@ -18,7 +18,28 @@ from __future__ import annotations
 from _collections_abc import Generator, Iterator, Iterable, Callable
 import itertools as it
 
-pass
-
 if __name__ == '__main__':
     wallet = [100, 100, 50, 50, 50, 50, 20, 20, 20, 10, 10, 10, 10, 10, 5, 5, 1, 1, 1, 1, 1]
+
+    n = len(wallet)
+    # n = 2
+    c = 0
+    while n:
+        combinations = it.combinations(wallet, n)
+        combinations_sort = map(sorted, combinations)
+        combinations_tuple = map(tuple, combinations)
+        # print('----------------') #####
+        # print(*combinations_sort) #####
+        # print('----------------') #####
+        # print(*combinations_tuple) #####
+        combinations_set = set(combinations_tuple)
+        # print('----------------') #####
+        # print(combinations_set) #####
+
+        for el in combinations_set:
+            if 100 == sum(el):
+                c += 1
+
+        n -= 1
+
+    print(c)
