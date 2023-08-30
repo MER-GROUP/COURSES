@@ -75,3 +75,12 @@ tasks = [('Отдых', 'поспать днем', 3),
         ('Уборка', 'убраться на кухне', 3),
         ('Отдых', 'погулять утром', 1),
         ('Курс по ооп', 'обсудить задачи', 2)]
+tasks.sort(key=lambda x: (x[0], x[-1]))
+# print(tasks)
+tasks_groupby = groupby(tasks, key=lambda x: x[0])
+for key, group in tasks_groupby:
+    print(f'{key}:')
+    for i, g in enumerate(group, 1):
+        space = ' ' * 4
+        print(f'{space}{i}. {g[1]}')
+    print()

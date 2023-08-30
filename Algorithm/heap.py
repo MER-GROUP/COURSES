@@ -15,9 +15,9 @@ def heapify(_arr: list, _i: int, *, _heap='max') -> None:
     # индекс наибольшего/наименьшего узла
     _largest_smallest = _i 
     # индекс левого дочернего элемента
-    _left_child = 2*_i + 1 
+    _left_child = 2 *_i + 1 
     # индекс правого дочернего элемента
-    _right_child = 2*_i + 2 
+    _right_child = 2 *_i + 2 
     
     # определяем вид кучи - по убыванию или возростанию
     if 'max' == _heap:
@@ -201,6 +201,11 @@ def heap_extract_peek(_arr: list, *, _heap='max') -> object:
 def heap_sort(_arr: list, *, _heap='max') -> None:
     # создаем max/min кучу
     heap(_arr=_arr, _heap=_heap)
+    # размер кучи
+    _n = len(_arr) - 1
+    # цикл от последнего индекса до 0-го индекса включительно
+    for _i in range(_n, -1, -1):
+        ...
 ###############################################################################################
 if __name__ == '__main__':
     from random import randint

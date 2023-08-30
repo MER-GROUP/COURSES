@@ -27,19 +27,22 @@ Sample Output 2:
  'Memphis - Philadelphia' 'Washington - Dallas']
 '''
 import numpy as np
-from datetime import datetime, date
+from datetime import datetime
+from dateutil.parser import parse
 
 def return_route(routes_array: np, dates_array: np) -> np:
-    # dates_array = dates_array.astype(datetime)
-    dates_array = dates_array.astype(np.datetime64)
-    start = date(year=dates_array[0].year, month=dates_array[0].month, day=10)
-    end = date(year=dates_array[0].year, month=dates_array[0].month, day=20)
-    # print(dates_array)
-    # print(dates_array.dtype)
-    # print(dates_array[0])
-    return routes_array[start <= dates_array <= end]
+    dates_array = np.array(
+        object=[datetime.strptime(i, '%Y-%m-%d').date() for i in dates_array]
+    )
+
+    start = datetime(year=dates_array[0].year, month=dates_array[0].month, day=10).date()
+    end = datetime(year=dates_array[0].year, month=dates_array[0].month, day=20).date()
+
+    return routes_array[(start <= dates_array) & (dates_array <= end)]
 
 if __name__ == '__main__':
     directions = 'New York - Los Angeles, San Francisco - Chicago, Seattle - Miami, Houston - Boston, Atlanta - Las Vegas, Denver - Washington, Portland - Austin, Dallas - San Diego, Boston - Philadelphia, Nashville - Memphis, Miami - Seattle, Chicago - New York, Las Vegas - Atlanta, Los Angeles - San Francisco, Washington - Denver, Austin - Portland, San Diego - Dallas, Philadelphia - Nashville, Memphis - Houston, New Orleans - Phoenix, Toronto - Montreal, Calgary - Vancouver, Montreal - Toronto, Vancouver - Calgary, Phoenix - New Orleans, Detroit - Pittsburgh, Cleveland - Cincinnati, Indianapolis - Kansas City, St. Louis - Minneapolis, Kansas City - Indianapolis'.split(', ')
     dates = '2023-04-06, 2023-04-23, 2023-04-02, 2023-04-25, 2023-04-22, 2023-04-04, 2023-04-05, 2023-04-01, 2023-04-13, 2023-04-20, 2023-04-17, 2023-04-21, 2023-04-03, 2023-04-15, 2023-04-08, 2023-04-11, 2023-04-19, 2023-04-28, 2023-04-18, 2023-04-10, 2023-04-16, 2023-04-14, 2023-04-29, 2023-04-26, 2023-04-30, 2023-04-24, 2023-04-07, 2023-04-12, 2023-04-27, 2023-04-09'.split(', ')
-    return_route(np.array(directions), np.array(dates))
+    print(
+        return_route(np.array(directions), np.array(dates))
+    )
