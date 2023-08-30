@@ -16,21 +16,21 @@ Sample Output:
 Апельсин Мандарин Грейпфрут
 '''
 import numpy as np
-from datetime import datetime
-from dateutil.parser import parse
+# from datetime import datetime
+# from dateutil.parser import parse
 
 def return_item(item, old_price, new_price):
     arr_item_20_percent = old_price * 0.2
-    print(arr_item_20_percent) ###
+    # print(arr_item_20_percent) ###
     arr_difference = old_price - new_price
-    print(arr_difference) ###
+    # print(arr_difference) ###
     arr2_less_arr1 = new_price < old_price
-    print(arr2_less_arr1) ###
+    # print(arr2_less_arr1) ###
 
-    return (
+    return ' '.join(
         item[
             (arr2_less_arr1) &
-            (20 < arr_difference)
+            (arr_item_20_percent < arr_difference)
         ]
     )
 
@@ -43,11 +43,11 @@ if __name__ == '__main__':
         for _ in range(3)
     )
 
-    print('-----------------------------')
-    print(item)
-    print('-----------------------------')
-    print(old_price)
-    print('-----------------------------')
-    print(new_price)
-    print('-----------------------------')
+    # print('-----------------------------')
+    # print(item)
+    # print('-----------------------------')
+    # print(old_price)
+    # print('-----------------------------')
+    # print(new_price)
+    # print('-----------------------------')
     print(return_item(item, old_price.astype(int), new_price.astype(int)))
