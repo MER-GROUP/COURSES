@@ -86,50 +86,19 @@ items = [Item('Обручальное кольцо', 7, 49_000),
 if __name__ == '__main__':
     m = int(input())
     n = len(items)
-    items.sort(key=lambda x: x.mass)
-    # print(items) ###
     res = None
-    check = True
+    res_price = None
 
     for i in range(1, n+1):
         for combs in it.combinations(items, i):
-            mass = 0
-            backpack = list()
-            j = 0
-            # print('-------------') #####
-            # print(combs, 'i =', i) #####
-            # print('-------------') #####
-            for el in combs:
-                mass += el.mass
-                j += 1
-                if mass <= m:
-                    # print('-------------') #####
-                    # print(el.name) #####
-                    # print(el, 'i =', i) #####
-                    # print('-------------') #####
-                    backpack.append(el.name)
-                else:
-                    if i == j:
-                        res = backpack.copy()
-                    mass = 0
-                    break
+            mass = sum(i.mass for i in combs)
+            price = sum(i.price for i in combs)
+            if not res and mass <= m:
+                res = combs
+                res_price = price
+            elif res and mass <= m and res_price <= price: ### подумать
+                res = combs
     if res:
         print(*sorted(res), sep='\n')
     else:
         print('Рюкзак собрать не удастся')
-
-
-
-# Золотая монета			8
-# Мобильный телефон		200
-# Наушники				150
-# Обручальное кольцо		7
-# Ручка Паркер			20
-# 						385
-
-# Золотая монета				8
-# Лимитированные кроссовки	300
-# Наушники					150
-# Обручальное кольцо			7
-# Ручка Паркер				20
-# 							485
