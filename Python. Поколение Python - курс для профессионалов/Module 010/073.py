@@ -87,7 +87,7 @@ if __name__ == '__main__':
     m = int(input())
     n = len(items)
     res = None
-    res_price = None
+    arr = list()
 
     for i in range(1, n+1):
         for combs in it.combinations(items, i):
@@ -95,10 +95,17 @@ if __name__ == '__main__':
             price = sum(i.price for i in combs)
             if not res and mass <= m:
                 res = combs
-                res_price = price
-            elif res and mass <= m and res_price <= price: ### подумать
-                res = combs
+                arr.append(res)
+            elif res \
+                and mass < m:
+                    res = combs
+                    arr.append(res)
     if res:
-        print(*sorted(res), sep='\n')
+        # m1, p1 = 0, 0
+        for s in sorted(sorted(arr, key=lambda x: -sum(i.price for i in x))[0]):
+            print(s.name)
+        #     m1 += s.mass
+        #     p1 += s.price
+        # print(f'm1 = {m1} p1 = {p1}')
     else:
         print('Рюкзак собрать не удастся')
