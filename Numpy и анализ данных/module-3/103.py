@@ -15,21 +15,33 @@ Alice Bob Charlie Dave Eve Frank Grace Harry Iris Jack Kate Liam Mia Nate Olivia
 Sample Output:
 Alice Bob Charlie Nate Quinn
 '''
+# import numpy as np
+# from datetime import datetime, timedelta
+# from dateutil.parser import parse
+
+# def return_names(names: np, dates: np) -> np:
+#     _date = datetime.strptime('2022-03-22', '%Y-%m-%d').date()
+
+#     my_dates = [
+#         datetime(
+#             int(str(i).split('-')[0]), 
+#             int(str(i).split('-')[1]), 
+#             int(str(i).split('-')[2])
+#         ).date()
+#         for i in dates
+#     ]
+#     dates = np.array(
+#         object=my_dates,
+#         dtype=None
+#     )
+
+#     return ' '.join(names[timedelta(60) < (_date - dates)])
+
 import numpy as np
 from datetime import datetime, timedelta
-from dateutil.parser import parse
 
 def return_names(names: np, dates: np) -> np:
-    _date = datetime.strptime('2022-03-22', '%Y-%m-%d').date()
-    # print(dates) #####
-    # print(dates.dtype) #####
-    # my_dates = [datetime.strptime(i, '%Y-%m-%d').date() for i in dates]
-    my_dates = [datetime.strptime(dates[i], '%Y-%m-%d').date() for i in range(dates.size)]
-    dates = np.array(
-        object=my_dates,
-        dtype=None
-    )
-    # print(dates) #####
+    _date = datetime.strptime('2022-03-22', '%Y-%m-%d')
     return ' '.join(names[timedelta(60) < (_date - dates)])
 
 if __name__ == '__main__':
