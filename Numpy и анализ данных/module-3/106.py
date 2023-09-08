@@ -22,7 +22,15 @@ import numpy as np
 from datetime import datetime, timedelta
 from dateutil.parser import parse
 
-pass
+def find_less_10(items: np, prices: np, quantities: np) -> np:
+    return items[(10>prices.astype(int)) & (6<=quantities.astype(int))]
 
 if __name__ == '__main__':
-    pass
+    items, prices, quantities = (
+        np.array(
+            object=input().split(', '),
+            dtype=None
+        )
+        for _ in range(3)
+    )
+    print(find_less_10(items, prices, quantities))
