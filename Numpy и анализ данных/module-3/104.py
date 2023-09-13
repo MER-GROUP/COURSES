@@ -17,7 +17,19 @@ import numpy as np
 from datetime import datetime, timedelta
 from dateutil.parser import parse
 
-pass
+def get_calories(dishes: np, calories: np) -> str:
+    return " ".join(dishes[300 > calories])
 
 if __name__ == '__main__':
-    pass
+    print(
+        get_calories(
+            np.array(
+                object='Омлет, Овсяная каша, Яблочный пирог, Салат Цезарь, Борщ, Рыба на гриле, Куриный суп, Сырники, Мясной рулет, Печенье, Гречневая каша, Пицца, Шашлык, Картофель фри, Паста с морепродуктами, Котлеты из куриного филе, Жареный рис, Блины, Суп из шампиньонов, Гренки с сыром'.split(', '),
+                dtype=str
+            ),
+            np.array(
+                object='290 140 240 350 250 390 120 280 450 200 180 460 420 330 410 390 380 150 210 290'.split(' '),
+                dtype=int
+            )
+        )
+    )
