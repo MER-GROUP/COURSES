@@ -31,4 +31,4 @@ a - 10, B - 11, c - 12, D - 13, E - 14, F - 15, G - 16
 Sample Output 3:
 1 0 B 1 1 1 2 D 1 3 E 1 4 F 1 5 1 6
 '''
-regex = r''
+regex = r'[0-9A-F]'
