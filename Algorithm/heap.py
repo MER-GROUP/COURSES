@@ -53,6 +53,62 @@ def heapify(_arr: list, _i: int, *, _heap='max') -> None:
         _arr[_i], _arr[_largest_smallest] = _arr[_largest_smallest], _arr[_i]
         # рекурсивно создаем кучу
         heapify(_arr=_arr, _i=_largest_smallest, _heap=_heap)
+##############################################################################################################################################################################################
+# heapify_n - создать кучу n-го размера
+def heapify_n(_arr: list, _i: int, _n: int, *, _heap='max') -> None:
+    """
+    функция heapify - создать кучу\n
+    \t _arr - массив/куча\n
+    \t _i - первый нелистовой узел, его индекс равен _n/2 - 1\n
+    \t _n - размерность кучи\n
+    \t _heap='max|min' - максимальный или минимальный начальный элемент кучи\n
+    _i - индекс текущего узла\n
+    _arr[_i] - текущий элемент массива - _current_element\n
+    _n - размер массива (кучи)
+    """
+    # размер кучи
+    _n = _n
+    # индекс наибольшего/наименьшего узла
+    _largest_smallest = _i 
+    # индекс левого дочернего элемента
+    _left_child = 2 *_i + 1 
+    # индекс правого дочернего элемента
+    _right_child = 2 *_i + 2 
+    
+    # определяем вид кучи - по убыванию или возростанию
+    if 'max' == _heap:
+        # _left_child меьше или равно _n
+        # и _left_child больше, чем _current_element
+        # то _largest_smallest присваивается _left_child
+        # _largest_smallest - сдесь это наибольший индекс
+        if _left_child <= _n and _arr[_left_child] > _arr[_largest_smallest]:
+            _largest_smallest = _left_child
+        # _right_child меьше или равно _n
+        # и _right_child больше, чем _current_element
+        # то _largest_smallest присваивается _right_child
+        # _largest_smallest - сдесь это наибольший индекс
+        if _right_child <= _n and _arr[_right_child] > _arr[_largest_smallest]:
+            _largest_smallest = _right_child
+    else:
+        # _left_child меьше или равно _n
+        # и _left_child меньше, чем _current_element
+        # то _largest_smallest присваивается _left_child
+        # _largest_smallest - сдесь это наименьший индекс
+        if _left_child <= _n and _arr[_left_child] < _arr[_largest_smallest]:
+            _largest_smallest = _left_child
+        # _right_child меьше или равно _n
+        # и _right_child меьше, чем _current_element
+        # то _largest_smallest присваивается _right_child
+        # _largest_smallest - сдесь это наименьший индекс
+        if _right_child <= _n and _arr[_right_child] < _arr[_largest_smallest]:
+            _largest_smallest = _right_child
+    
+    # если индекс наибольшего/наименьшего узла не равен индексу текущего узла
+    # обменяем значения _largest_smallest и _current_element
+    if not _largest_smallest == _i:
+        _arr[_i], _arr[_largest_smallest] = _arr[_largest_smallest], _arr[_i]
+        # рекурсивно создаем кучу
+        heapify_n(_arr=_arr, _i=_largest_smallest, _n=_n, _heap=_heap)
 ###############################################################################################
 # heap_max - создать max кучу
 def heap_max(_arr: list) -> None:
@@ -205,7 +261,10 @@ def heap_sort(_arr: list, *, _heap='max') -> None:
     _n = len(_arr) - 1
     # цикл от последнего индекса до 0-го индекса включительно
     for _i in range(_n, -1, -1):
-        ...
+        # меняем первый и i-й элемент(последний)
+        _arr[0], _arr[_i] = _arr[_i], _arr[0]
+        # обновляем кучу n-го размера
+        heapify_n(_arr=_arr, _i=0, _n=_i-1, _heap=_heap)
 ###############################################################################################
 if __name__ == '__main__':
     from random import randint
@@ -327,5 +386,15 @@ if __name__ == '__main__':
     print('----------heap_extract_peek for min:----------')
     print(e1)
     print(heap_extract_peek(e1, _heap='min'))
+    print(e1)
+
+    print('----------heap_sort for max:----------')
+    print(e)
+    print(heap_sort(e, _heap='max')) # ?????????????????????????????????
+    print(e)
+
+    print('----------heap_sort for min:----------')
+    print(e1)
+    print(heap_sort(e1, _heap='min')) # ?????????????????????????????????
     print(e1)
 ###############################################################################################

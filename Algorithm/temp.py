@@ -48,3 +48,16 @@ print(add_two // 2)
 print(add_two / 2)
 
 print('----------')
+
+arr = [1, 2, 3, 4, 5]
+arr_slice = arr[:4]
+
+print(arr)
+print(arr_slice)
+
+arr_slice.sort(reverse=True)
+
+print(arr)
+print(arr_slice)
+
+print('----------')
