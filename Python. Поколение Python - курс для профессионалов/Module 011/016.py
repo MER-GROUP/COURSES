@@ -28,4 +28,4 @@ Sample Input 2:
 Sample Output 2:
 <!-- header of page -->
 '''
-regex = r''
+regex = r'<!--.*?-->'
