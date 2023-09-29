@@ -31,6 +31,23 @@ import sys
 from array import array
 # from copy import copy
 
+def heapify_max(arr: array, index: int, size: int):
+    parrent = index
+    left = 2*index + 1
+    right = 2*index + 2
+
+    if left < size and arr[left] > arr[parrent]:
+        parrent = left
+    if right < size and arr[right] > arr[parrent]:
+        parrent = right
+    if not parrent == index:
+        arr[index], arr[parrent] = arr[parrent], arr[index]
+        heapify_max(arr, parrent, size)
+
+def heap_max(arr: array):
+    for i in reversed(range((len(arr)-1) // 2)):
+        heapify_max(arr, i, len(arr))
+
 if __name__ == '__main__':
     sys.stdin = open(file='027.csv', mode='rt', encoding='utf-8', newline='')
     n, *tup = tuple(map(str.strip, sys.stdin.read().splitlines()))
