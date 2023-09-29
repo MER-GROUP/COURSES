@@ -20,10 +20,40 @@ import sys
 from array import array
 # from copy import copy
 
-sys.stdin = open(file='026.csv', mode='rt', encoding='utf-8', newline='')
-_, *tup = tuple(map(str.strip, sys.stdin.read().splitlines()))
-print(tup)
-arr = array('i', map(int, tup[0].split()))
-print(arr)
+def heapify_max(arr: array, index: int, size: int):
+    parrent = index
+    left = 2*index + 1
+    right = 2*index + 2
 
-pass
+    if left < size and arr[left] > arr[parrent]:
+        parrent = left
+    if right < size and arr[right] > arr[parrent]:
+        parrent = right
+    if not parrent == index:
+        arr[index], arr[parrent] = arr[parrent], arr[index]
+        heapify_max(arr, parrent, size)
+
+def heap_max(arr: array):
+    for i in reversed(range((len(arr)-1) // 2)):
+        heapify_max(arr, i, len(arr))
+
+def heap_max_sort(arr: array):
+    for i in reversed(range(len(arr))):
+        arr[0], arr[i] = arr[i], arr[0]
+        heapify_max(arr, 0, i)
+
+if __name__ == '__main__':
+    sys.stdin = open(file='026.csv', mode='rt', encoding='utf-8', newline='')
+    _, *tup = tuple(map(str.strip, sys.stdin.read().splitlines()))
+    # print(tup)
+    arr = array('i', map(int, tup[0].split()))
+    # print(arr)
+
+    heap_max(arr)
+    # print(arr) # test
+    heap_max_sort(arr)
+    print(*arr)
+
+    # print(list((range(len(arr))))) # test
+    # print(list(reversed(range(len(arr))))) # test
+    # print(list(reversed(range(len(arr)-1)))) # test
