@@ -29,4 +29,4 @@ okokokoko okokokokkkkkk
 Sample Output 3:
 okokokok okokokok
 '''
-regex = r'(.+)\1{3,}'
+regex = r'(ok)\1{2,}'
