@@ -19,16 +19,31 @@ N чисел – сама последовательность.
 Выходные данные должны содержать N − K + 1 строк – минимумы 
 для каждого положения “окна”.
 
+Sample Input:
+7 3
+1 3 2 4 5 3 1
 
+Sample Output:
+1
+2
+2
+3
+1
 '''
 import sys
 from array import array
 # from copy import copy
 
 if __name__ == '__main__':
-    sys.stdin = open(file='028.csv', mode='rt', encoding='utf-8', newline='')
+    # sys.stdin = open(file='028.csv', mode='rt', encoding='utf-8', newline='')
     n, *tup = tuple(map(str.strip, sys.stdin.read().splitlines()))
-    print(n)
-    print(tup)
+    # print(n)
+    # print(tup)
     arr = array('i', map(int, tup[0].split()))
-    print(arr)
+    # print(arr)
+
+    size, otrezok = map(int, n.split())
+    for i in range(size):
+        if otrezok <= size:
+            print(min(arr[i:otrezok]))
+        otrezok += 1
