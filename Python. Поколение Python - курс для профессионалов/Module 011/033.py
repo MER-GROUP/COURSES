@@ -29,4 +29,4 @@ atri_c_irtjfien
 Sample Output 3:
 tri_c_irt
 '''
-regex = r''
+regex = r'(.)(.)(.)(.)(.)\4\3\2\1'
