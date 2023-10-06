@@ -32,4 +32,4 @@ Sample Input 3:
 1-2-3-4-5-6-7-89-w9--99
 Sample Output 3:
 '''
-regex = r''
+regex = r'\b\d{2}(-?|(---)?|\.?)\d{2}\1\d{2}\1\d{2}\b'
