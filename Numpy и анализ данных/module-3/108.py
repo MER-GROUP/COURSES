@@ -20,10 +20,12 @@ Sample Output:
 [ 47 105  50  84  81 109]
 '''
 import numpy as np
-from datetime import datetime, timedelta
-from dateutil.parser import parse
-
-pass
+from sys import stdin
+stdin = open(file='108.csv', mode='rt', encoding='utf-8', newline='')
 
 if __name__ == '__main__':
-    pass
+    a, b = (np.fromstring(string=line, dtype=int, sep=' ') for line in map(str.strip, stdin))
+    if a.size == b.size:
+        print(np.add(a, b))
+    else:
+        print('Размеры двух массивов не совпадают, суммирование невозможно')
