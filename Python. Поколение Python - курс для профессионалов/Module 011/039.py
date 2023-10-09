@@ -53,6 +53,15 @@ from sys import stdin
 
 if __name__ == '__main__':
     stdin = open(file='039-test.csv', mode='rt', encoding='utf-8', newline='')
-    pattern = r''
+    pattern = r'^_' +\
+                r'\d+' +\
+                r'[a-zA-Z]*' +\
+                r'_?$'
     
-    pass
+    for password in map(str.strip, stdin):
+        # print(password) # test
+        match = re.fullmatch(pattern, password)
+        if match:
+            print('True')
+        else:
+            print('False')
