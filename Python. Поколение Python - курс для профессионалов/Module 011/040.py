@@ -44,6 +44,9 @@ from sys import stdin
 
 if __name__ == '__main__':
     stdin = open(file='040-test.csv', mode='rt', encoding='utf-8', newline='')
-    pattern = r''
+    pattern = r'(\w{2,})\1'
     
-    pass
+    for word in map(str.strip, stdin):
+        match = re.fullmatch(pattern, word)
+        if match:
+            print(match.group())
