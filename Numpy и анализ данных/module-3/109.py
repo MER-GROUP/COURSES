@@ -31,4 +31,6 @@ stdin = open(file='109.csv', mode='rt', encoding='utf-8', newline='')
 
 if __name__ == '__main__':
     a, b = (np.fromstring(string=line, dtype=int, sep=' ') for line in map(str.strip, stdin))
-    pass
+    print(
+        *np.power(a, b[0])
+    )
