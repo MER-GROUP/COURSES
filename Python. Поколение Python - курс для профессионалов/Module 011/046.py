@@ -51,4 +51,15 @@ from sys import stdin
 
 if __name__ == '__main__':
     stdin = open(file='046-test.csv', mode='rt', encoding='utf-8', newline='')
-    pattern = r''
+    text, word = map(str.strip, stdin)
+    # print(text, word, sep='\n') # test
+    pattern = rf'\B{word}\B'
+
+    print(
+        len(
+            re.findall(
+                pattern,
+                text
+            )
+        )
+    )
