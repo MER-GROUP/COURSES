@@ -44,10 +44,22 @@ import __future__
 import re
 from sys import stdin
 
+def abbreviate(_str: str) -> str:
+    arr = _str.split()
+    print(arr)
+    abr = ''
+    pattern = rf'[A-Z]'
+    for s in arr:
+        abr += s[0].upper()
+        match = re.findall(pattern, s[1:])
+        if match:
+            abr += ''.join(match)
+    return abr
+
 if __name__ == '__main__':
     stdin = open(file='050-test.csv', mode='rt', encoding='utf-8', newline='')
-    word = map(str.strip, stdin)
-    print(*word) # test
-    pattern = rf''
+    words = map(str.strip, stdin)
+    # print(*words) # test
+    # pattern = rf''
 
-    pass
+    print(abbreviate(*words))
