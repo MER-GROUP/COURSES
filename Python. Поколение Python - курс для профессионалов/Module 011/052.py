@@ -61,10 +61,29 @@ import __future__
 # from _collections_abc import Sequence
 import re
 from sys import stdin
+from collections import defaultdict
 
 if __name__ == '__main__':
     stdin = open(file='052-test.csv', mode='rt', encoding='utf-8', newline='')
     # sentense = map(str.strip, stdin)
     sentense = stdin.read()
-    print(sentense) # test
-    pattern = rf''
+    # print(sentense) # test
+    # print('------') # test
+    # pattern = rf'<[^/].+?>'
+    # pattern = rf'<.+?>'
+    pattern = rf'<[^/].*?>'
+    ddict = defaultdict(list)
+
+    # print(re.findall(pattern, sentense,re.MULTILINE))
+    for string in re.findall(pattern, sentense,re.MULTILINE):
+        _string = string[1:-1]
+        # print(f'_string = {_string}') # test
+        key, *values = _string.split()
+        # print(f'KEY = {key}, VALUE = {values}') # test
+        ddict[key].extend(values)
+
+    for key in sorted(ddict):
+        space = ' '
+        print(f'{key}:{space*bool(len(ddict[key]))}', end='')
+        arr = sorted(set(elems.split('=')[0] for elems in ddict[key] if '=' in elems))
+        print(', '.join(arr))
