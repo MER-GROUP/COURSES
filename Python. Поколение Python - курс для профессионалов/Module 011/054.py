@@ -40,7 +40,11 @@ from sys import stdin
 # from collections import defaultdict
 
 def normalize_whitespace(string: str) -> str:
-    ...
+    return re.sub(
+        pattern=r'\s{2,}',
+        repl=r' ',
+        string=string
+    )
 
 if __name__ == '__main__':
     stdin = open(file='054-test.csv', mode='rt', encoding='utf-8', newline='')
@@ -50,4 +54,4 @@ if __name__ == '__main__':
     print('------') # test
     pattern = rf''
 
-    pass
+    print(normalize_whitespace(sentense))
