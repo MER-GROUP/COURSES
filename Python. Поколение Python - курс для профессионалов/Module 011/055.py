@@ -55,16 +55,29 @@ import re
 from sys import stdin
 # from collections import defaultdict
 
+import keyword
+# print(keyword.kwlist)
+# print("|".join(keyword.kwlist))
+# print("|".join(f"({item})" for item in keyword.kwlist))
+
 def normalize_whitespace(string: str) -> str:
-    return re.sub(
-        pattern=r'\s{2,}',
-        repl=r' ',
-        string=string
-    )
+    # print(rf'{"|".join(f"({item})" for item in keyword.kwlist)}') # test
+
+    # return re.sub(
+    #     pattern=rf'{"|".join(f"({item.lower()})" for item in reversed(sorted(keyword.kwlist, key=len)))}',
+    #     repl=r'<kw>',
+    #     string=string,
+    #     flags=re.IGNORECASE
+    # )
+
+    # return rf'{"|".join(f"({item.lower()})" for item in keyword.kwlist)}'
+    # return string
+    pattern = '|'.join(keyword.kwlist)
+    return re.sub(fr'\b({pattern})\b', r'<kw>', string, flags=re.I)
 
 if __name__ == '__main__':
     stdin = open(file='055-test.csv', mode='rt', encoding='utf-8', newline='')
-    # sentense = map(str.strip, stdin)
+    # sentense = map(str, stdin)
     sentense = stdin.read()
     print(sentense) # test
     print('------') # test
