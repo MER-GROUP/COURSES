@@ -71,11 +71,20 @@ import re
 from sys import stdin
 
 def func(string: str) -> str:
+    # return re.sub(
+    #     pattern=rf'(\d+)\(([a-z]+)\)',
+    #     repl=rf'\g<2>' + rf'\g<1>',
+    #     string=string
+    # )
+    pattern=rf'(\d+)\(([a-z]+)\)'
+    digit, abc = re.search(pattern, string).group(1, 2)
     return re.sub(
-        pattern=rf' ',
-        repl=r' ',
-        string=string
+        pattern=rf'(\d+)\(([a-z]+)\)',
+        repl=abc * int(digit),
+        string=string,
+        count=1
     )
+
 
 if __name__ == '__main__':
     stdin = open(file='057-test.csv', mode='rt', encoding='utf-8', newline='')
@@ -84,5 +93,8 @@ if __name__ == '__main__':
     print(sentense) # test
     print('------') # test
     pattern = rf''
+
+    while sentense != func(sentense):
+        sentense = func(sentense)
 
     print(func(sentense))
