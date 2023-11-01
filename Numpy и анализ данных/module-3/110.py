@@ -35,5 +35,19 @@ from sys import stdin
 stdin = open(file='110.csv', mode='rt', encoding='utf-8', newline='')
 
 if __name__ == '__main__':
-    a = (np.fromstring(string=line, dtype=int, sep=' ') for line in map(str.strip, stdin))
-    pass
+    # a = (np.fromstring(string=line, dtype=int, sep=' ') for line in map(str.strip, stdin))
+    arr = np.fromstring(
+        string=stdin.read(),
+        dtype=int,
+        sep = ' '
+    )
+    # print(arr) # test #
+    # print(type(arr)) # test #
+
+    # growth_rate(t)=(ln(income)(t)−ln(income)(t−1))∗100
+    growth_rate_t = np.log(arr[1:])
+    # print(growth_rate_t) # test #
+    growth_rate_t_1 = np.log(arr[:-1])
+    # print(growth_rate_t_1) # test #
+    growth_rate = (growth_rate_t - growth_rate_t_1) * 100
+    print(*growth_rate.round(2))
