@@ -97,7 +97,29 @@ import re
 from sys import stdin
 
 def func(string: str) -> str:
-    ...
+    # pattern = rf'(#.+)|(\s*\"\"\"[\w\s]*?\"\"\")'
+    # pattern = rf'([ ]+#.+)|(\n#.+)|(\s*\"\"\"[\w\s]*?\"\"\")'
+    # pattern = rf'(\n[ ]+#.+)|(\n#.+)|(\s*\"\"\"[\w\s]*?\"\"\")'
+    # pattern = rf'(#.+)|(\n[ ]+#.+)|(\n#.+)|(\s*\"\"\"[\w\s]*?\"\"\")' # 1-2 completed
+    # pattern = rf'(#.+)|(\n[ ]+#.+)|(\n#.+)|(\s*\"\"\"[\w\s\.\':,()=-]+?\"\"\")' # 1-3 completed
+    # pattern = rf'(#.+)|(\n[ ]+#.+)|(\n#.+)|(\s*\"\"\"[\w\s\.\'/:,()=-]+?\"\"\")' # 1-4 completed
+    pattern = rf'(#.+)|(\n[ ]+#.+)|(\n#.+)|(\s*\"\"\"[\w\s\.\'\`\[\]/:,()=-]+?\"\"\")' # 1-5 completed
+
+    # test = re.findall(pattern, string, re.MULTILINE) # test #
+    # print(test) # test #
+
+    # test = re.finditer(pattern, string, re.MULTILINE) # test #
+    # for it in test:
+    #     print(it.groups())
+    #     # print(it.group(2, 3))
+
+    return re.sub(
+        pattern,
+        rf'',
+        string,
+        re.MULTILINE
+        # re.MULTILINE | re.DOTALL
+    )
 
 if __name__ == '__main__':
     stdin = open(file='059-test.csv', mode='rt', encoding='utf-8', newline='')
