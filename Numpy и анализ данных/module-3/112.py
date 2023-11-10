@@ -35,5 +35,13 @@ if __name__ == '__main__':
         dtype=float,
         sep = ' '
     )
-    print(arr) # test #
-    print(type(arr)) # test #
+    # print(arr) # test #
+    # print(type(arr)) # test #
+
+    h = arr[-1]
+    arr.resize(arr.size-1)
+
+    # print(arr) # test #
+    # print(h) # test #
+
+    print(*np.round(h * np.tan(np.deg2rad(arr)), 3))
