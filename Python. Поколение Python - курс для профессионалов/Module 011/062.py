@@ -43,15 +43,36 @@ import __future__
 import re
 from sys import stdin
 
-def func(string: str) -> str:
-    ...
+def multiple_split(string: str, delimiters: list[str]) -> list:
+    pattern = []
+    for i, el in enumerate(delimiters):
+        buff = []
+        for el2 in el:
+            if el2 not in '[]^':
+                buff.append(f'[{el2}]')
+            else:
+                buff.append(f'[\{el2}]')
+        pattern.append(''.join(buff))
+
+    # pattern = map(lambda x: fr'(?:{x})'.replace('^', '\^'), pattern)
+    pattern = map(lambda x: fr'(?:{x})', pattern)
+    pattern = '|'.join(pattern)
+    # print(pattern) # test #
+
+    return re.split(
+        pattern=rf'{pattern}',
+        string=string,
+        flags=re.MULTILINE
+    )
 
 if __name__ == '__main__':
-    stdin = open(file='062-test.csv', mode='rt', encoding='utf-8', newline='')
-    # sentense = map(str, stdin)
-    sentense = stdin.read()
-    print(sentense) # test
-    print('------') # test
-    pattern = rf''
+    # stdin = open(file='062-test.csv', mode='rt', encoding='utf-8', newline='')
+    # # sentense = map(str, stdin)
+    # sentense = stdin.read()
+    # print(sentense) # test
+    # print('------') # test
+    # pattern = rf''
 
-    print(func(sentense), sep=', ')
+    print(multiple_split('beegeek-python.stepik', ['.', '-']))
+    print(multiple_split('Timur---Arthur+++Dima****Anri', ['---', '+++', '****']))
+    print(multiple_split('timur.^[+arthur.^[+dima.^[+anri.^[+roma.^[+ruslan', ['.^[+']))
