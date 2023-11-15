@@ -1,0 +1,16 @@
+итого 477K
+drwxrwxrwx 1 root root 4,0K ноя  4 20:03 .
+drwxrwxrwx 1 root root    0 сен 29 23:50 ..
+-rwxrwxrwx 1 root root 1,8K ноя  4 19:57 case2.sh
+-rwxrwxrwx 1 root root  689 окт 21 16:14 case.sh
+drwxrwxrwx 1 root root 4,0K окт  2 23:39 dir
+drwxrwxrwx 1 root root    0 сен 29 23:59 dir_new
+-rwxrwxrwx 1 root root    0 окт 17 21:37 exapmle01.jpeg
+-rwxrwxrwx 1 root root    0 окт 17 21:37 exapmle02.jpeg
+-rwxrwxrwx 1 root root    0 окт 17 21:37 exapmle03.jpeg
+-rwxrwxrwx 1 root root    0 окт 17 21:37 exapmle04.jpeg
+-rwxrwxrwx 1 root root    0 окт 17 21:37 exapmle05.jpeg
+-rwxrwxrwx 1 root root   34 окт  9 22:58 file.txt
+drwxrwxrwx 1 root root 4,0K окт 19 23:05 for
+-rwxrwxrwx 1 root root 454K ноя  4 19:40 ls-output.txt
+-rwxrwxrwx 1 root root    0 ноя  4 20:04 test.txt
