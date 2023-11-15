@@ -40,6 +40,18 @@ shift # shift all args of this script on the left
 echo "##################################"
 
 case ${action} in
+    # headers
+    h1)
+        Output "[[ $( ${SELF} id ${text} ) ]]\n=== ${text}"
+        # Output "[[$($SELF id $text)]]\n=== $text"
+    ;;
+    h2)
+        Output "[[ $( ${SELF} id ${text} ) ]]\n==== ${text}"
+    ;;
+    h3)
+        Output "[[ $( ${SELF} id ${text} ) ]]\n==== ${text}"
+    ;;
+    # lists
 	*)
 		#
 	;;
