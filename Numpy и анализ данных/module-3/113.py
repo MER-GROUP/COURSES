@@ -39,14 +39,42 @@ Sample Output:
 [60.]
 '''
 import numpy as np
-from sys import stdin
-stdin = open(file='113.csv', mode='rt', encoding='utf-8', newline='')
+# from sys import stdin
+# stdin = open(file='113.csv', mode='rt', encoding='utf-8', newline='')
 
 if __name__ == '__main__':
-    arr = np.fromstring(
-        string=stdin.read(),
-        dtype=float,
-        sep = ' '
-    )
-    print(arr) # test #
-    print(type(arr)) # test #
+    # arr = np.fromstring(
+    #     string=stdin.read(),
+    #     dtype=float,
+    #     sep = ' '
+    # )
+    # print(arr) # test #
+    # print(type(arr)) # test #
+
+    a = np.array(object=input().split(), dtype=float)
+    b = np.array(object=input().split(), dtype=float)
+    c = np.array(object=input().split(), dtype=float)
+
+    alfa = (b**2 + c**2 - a**2)/(2*b*c)
+    beta = (a**2 + c**2 - b**2)/(2*a*c)
+    gama = (a**2 + b**2 - c**2)/(2*a*b)
+
+    # print(alfa)
+    # print(beta)
+    # print(gama)
+
+    alfa = np.arccos(alfa)
+    beta = np.arccos(beta)
+    gama = np.arccos(gama)
+
+    # alfa = np.arccos(np.deg2rad(alfa))
+    # beta = np.arccos(np.deg2rad(beta))
+    # gama = np.arccos(np.deg2rad(gama))
+
+    # print(alfa)
+    # print(beta)
+    # print(gama)
+
+    print(np.rad2deg(alfa).round(1))
+    print(np.rad2deg(beta).round(1))
+    print(np.rad2deg(gama).round(1))
