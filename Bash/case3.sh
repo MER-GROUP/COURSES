@@ -22,7 +22,9 @@ echo "${BOOK_ASC}"
 echo "##################################"
 
 SELF=${0} # name of this script
+echo "SELF is ${SELF}" # for test
 action=${1} # first arg of this script
+echo "action is ${action}" # for test
 shift # shift all args of this script on the left
 
 [ -x /usr/bin/xsel -a ${#} -lt 1 ] && {
@@ -41,19 +43,35 @@ echo "##################################"
 
 case ${action} in
     # headers
-    h1)
+    h1 )
         Output "[[ $( ${SELF} id ${text} ) ]]\n=== ${text}"
         # Output "[[$($SELF id $text)]]\n=== $text"
     ;;
-    h2)
+    h2 )
         Output "[[ $( ${SELF} id ${text} ) ]]\n==== ${text}"
     ;;
-    h3)
+    h3 )
         Output "[[ $( ${SELF} id ${text} ) ]]\n==== ${text}"
     ;;
+    
     # lists
-	*)
-		#
+    bul | bullet )
+        # echo "This is bul" # for test
+        Output "* ${text}"
+    ;;
+    nul | number | order* )
+        Output ". ${text}"
+    ;;
+    term )
+        Output "term_here::\n ${text}"
+    ;;
+
+    # paragraphs
+    #
+
+    # other
+	* )
+		echo "Your arg is ${action}" # for test
 	;;
 esac
 
