@@ -26,7 +26,7 @@ Sample Output:
 '''
 import numpy as np
 from sys import stdin
-stdin = open(file='115.csv', mode='rt', encoding='utf-8', newline='')
+# stdin = open(file='115.csv', mode='rt', encoding='utf-8', newline='')
 
 if __name__ == '__main__':
     arr = np.fromstring(
@@ -34,7 +34,7 @@ if __name__ == '__main__':
         dtype=float,
         sep = ' '
     )
-    print(arr) # test #
-    print(type(arr)) # test #
+    # print(arr) # test #
+    # print(type(arr)) # test #
 
-    pass
+    print(*np.sqrt(arr).round(3))
