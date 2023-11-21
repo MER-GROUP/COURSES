@@ -263,6 +263,98 @@ print('##################################')
 
 print('##################################')
 
-print(input().replace(' ', ';'))
+# print(input().replace(' ', ';'))
+
+print('##################################')
+
+# print('Тема занятия "спецсимволы"')
+
+print('##################################')
+
+# print('\\'.join(input().split()))
+
+print('##################################')
+
+# print(input().replace(' ', '\'', 1).replace(' ', '\"'))
+
+print('##################################')
+
+# print(r'C:\WINDOWS\System32\drivers\etc\hosts')
+
+print('##################################')
+
+# print('"' + input() + '"')
+
+print('##################################')
+
+# print("Уважаемый {0} {1}! Поздравляем Вас с {2}-летием!".format(input(), input(), input()))
+
+print('##################################')
+
+# print("Габариты: {0} x {1} x {2}".format(*input().split()))
+
+print('##################################')
+
+# print(f'{min(arr:=input().split())} {max(arr)}')
+
+print('##################################')
+
+# print(f'г. {input()}, ул. {input()}, д. {input()}, кв. {input()}')
+
+print('##################################')
+
+# a, b = (float(input()) for _ in range(2))
+# print(f'Вы можете получить {int(b // a)}$ за {int(b)} рублей по курсу {a}')
+
+print('##################################')
+
+# print(list(map(int, input().split())))
+
+print('##################################')
+
+# cities = input().split()
+# print()
+
+print('##################################')
+
+# cities = input().split()
+# print("Москва" in cities)
+
+print('##################################')
+
+# cities = input().split()
+# print(cities[-1])
+# print((lambda cities=input().split(): cities[~0])())
+
+print('##################################')
+
+# marks = list(map(int, input().split()))
+# print(round(sum(marks)/len(marks), 1))
+
+print('##################################')
+
+# book = [input() for _ in range(4)]
+# del book[1]
+# book[1] = 'Пушкин'
+# book[2] = float(book[2]) * 2
+# print(book)
+
+print('##################################')
+
+# print(max(arr:=list(map(int, input().split()))), min(arr), sum(arr))
+
+print('##################################')
+
+# print(*sorted(arr:=list(map(int, input().split())), reverse=True))
+
+print('##################################')
+
+# cities = ["Москва", "Тверь", "Вологда"] + input().split()
+# print(*cities)
+
+print('##################################')
+
+cities = input().split() + ["Москва", "Тверь", "Вологда"]
+print(*cities)
 
 print('##################################')
