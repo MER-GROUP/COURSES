@@ -67,7 +67,39 @@ case ${action} in
     ;;
 
     # paragraphs
-    #
+    bold )
+        Output "*${text}*"
+    ;;
+    i | italic* | itl )
+        Output "_${text}_"
+    ;;
+    c | constant | cons )
+        Output "+${text}+"
+    ;;
+    type | constantbold )
+        Output "*+${text}+*"
+    ;;
+    var | constantitalic )
+        Output "_++${text}++_"
+    ;;
+    sub | subscript )
+        Output "~${text}~"
+    ;;
+    sup | superscript )
+        Output "^${text}^"
+    ;;
+    foot )
+        Output "footnote:[${text}]"
+    ;;
+    url | link )
+        Output "link:\$\$${text}\$\$[]"
+    ;;
+    esc | escape )
+        Output "\$\$${text}\$\$[]"
+    ;;
+
+    # tools
+    # ...
 
     # other
 	* )
