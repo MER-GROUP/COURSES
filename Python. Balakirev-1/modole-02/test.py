@@ -419,7 +419,149 @@ print('##################################')
 
 print('##################################')
 
-arr = input().split()
-print(arr[2], arr[0][0] + '.' + arr[1][0] + '.')
+# arr = list(map(int, input().split()))
+# arr.sort()
+# print(*arr[:3])
+
+print('##################################')
+
+# arr = list(map(int, input().split()))
+# # arr[-1] = 1 == arr[-1] % 2
+# arr[-1] = not not arr[-1] % 2
+# print(*arr)
+
+print('##################################')
+
+# arr = list(map(int, input().split()))
+# print(arr.count(2))
+
+print('##################################')
+
+# arr = list(map(str, input().split()))
+# arr.sort()
+# arr.pop(0)
+# print(*arr)
+
+print('##################################')
+
+# a = [5.4, 6.7, 10.4]
+# a.append(list(map(int, input().split())))
+# print(a)
+
+print('##################################')
+
+# a = [5.4, 6.7, 10.4]
+# a.append(list(map(int, input().split())))
+# print(a)
+
+print('##################################')
+
+# a = []
+# a.append(input().split())
+# a.append(input().split())
+# a.append(input().split())
+# print(a)
+
+print('##################################')
+
+# a = []
+# a.append(list(map(int, input().split())))
+# a.append(list(map(int, input().split())))
+# a.append(list(map(int, input().split())))
+# print(a[0][-1], a[1][-1], a[2][-1])
+
+print('##################################')
+
+# t = [["Скажи-ка", "дядя", "ведь", "не", "даром"],
+#     ["Я", "Python", "выучил", "с", "каналом"],
+#     ["Балакирев", "что", "раздавал?"]]
+
+# print(input() in sum(t, []))
+
+print('##################################')
+
+# a, b = map(float, input().split())
+# print(a if a > b else b)
+
+print('##################################')
+
+# print(
+#     'ДА' 
+#     if (s:=input().lower()) == s[::-1] 
+#     else 
+#     'НЕТ'
+# )
+
+print('##################################')
+
+# m, n = map(int, input().split())
+# if not m % n:
+#     print(m // n)
+# else:
+#     print(f'{m} на {n} нацело не делится')
+
+print('##################################')
+
+# a, b, c = map(int, input().split())
+# print('ДА' if c**2 == a**2 + b**2 else 'НЕТ')
+
+print('##################################')
+
+# a = input()[-1]
+# if '7' == a:
+#     print('ДА')
+# else:
+#     print('НЕТ')
+
+print('##################################')
+
+# a = input()
+# if 't' in a and 'h' in a and 'o' in a:
+#     print('ДА')
+# else:
+#     print('НЕТ')
+
+print('##################################')
+
+# a = input().split()
+# if 'Москва' in a:
+#     a.remove('Москва')
+# print(*a)
+
+print('##################################')
+
+# a, b, c, d = map(int, input().split())
+
+# if (a-2 >= c and b-2 >= d) or (a-2 >= d and b-2 >= c):
+#     print('ДА')
+# else:
+#     print('НЕТ')
+
+print('##################################')
+
+# a = input()
+
+# if sum(map(int, a[:3])) == sum(map(int, a[3:])):
+#     print('ДА')
+# else:
+#     print('НЕТ')
+
+print('##################################')
+
+# a = float(input())
+
+# if (a % 5) <= 3:
+#     print('green')
+# else:
+#     print('red')
+
+print('##################################')
+
+a = float(input())
+
+if (a % 5) <= 3:
+    print('green')
+else:
+    print('red')
 
 print('##################################')
