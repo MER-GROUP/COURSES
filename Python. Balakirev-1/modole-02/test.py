@@ -557,11 +557,159 @@ print('##################################')
 
 print('##################################')
 
-a = float(input())
+# a = float(input())
 
-if (a % 5) <= 3:
-    print('green')
-else:
-    print('red')
+# if (a % 5) <= 3:
+#     print('green')
+# else:
+#     print('red')
+
+print('##################################')
+
+# m = '''1. Введение в Python
+# 2. Строки и списки
+# 3. Условные операторы
+# 4. Циклы
+# 5. Словари, кортежи и множества
+# 6. Выход'''.split('\n')
+
+# # print(m) # test
+
+# n = input()
+
+# if n == m[0][0]:
+#     print(m[0])
+# elif n == m[1][0]:
+#     print(m[1])
+# elif n == m[2][0]:
+#     print(m[2])
+# elif n == m[3][0]:
+#     print(m[3])
+# elif n == m[4][0]:
+#     print(m[4])
+# elif n == m[5][0]:
+#     print(m[5])
+
+print('##################################')
+
+# a, b, c = map(int, input().split())
+
+# if b >= a <= c:
+#     print(a)
+# elif a >= b <= c:
+#     print(b)
+# else:
+#     print(c)
+
+print('##################################')
+
+# a = float(input())
+
+# if a <= 60:
+#     print(1)
+# elif a <= 64:
+#     print(2)
+# elif a <= 69:
+#     print(3)
+# else:
+#     print(4)
+
+print('##################################')
+
+# a = float(input())
+
+# if a <= 60:
+#     print(1)
+# elif a <= 64:
+#     print(2)
+# elif a <= 69:
+#     print(3)
+# else:
+#     print(4)
+
+print('##################################')
+
+# a = int(input())
+# arr = 'понедельник, вторник, среда, четверг, пятница, суббота, воскресенье'.split(', ')
+
+# if 1 == a:
+#     print(arr[0])
+# elif 2 == a:
+#     print(arr[1])
+# elif 3 == a:
+#     print(arr[2])
+# elif 4 == a:
+#     print(arr[3])
+# elif 5 == a:
+#     print(arr[4])
+# elif 6 == a:
+#     print(arr[5])
+# elif 7 == a:
+#     print(arr[6])
+
+print('##################################')
+
+# a = int(input())
+# arr = '31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31'.split(', ')
+
+# if 1 == a:
+#     print(arr[0])
+# elif 2 == a:
+#     print(arr[1])
+# elif 3 == a:
+#     print(arr[2])
+# elif 4 == a:
+#     print(arr[3])
+# elif 5 == a:
+#     print(arr[4])
+# elif 6 == a:
+#     print(arr[5])
+# elif 7 == a:
+#     print(arr[6])
+# elif 8 == a:
+#     print(arr[7])
+# elif 9 == a:
+#     print(arr[8])
+# elif 10 == a:
+#     print(arr[9])
+# elif 11 == a:
+#     print(arr[10])
+# elif 12 == a:
+#     print(arr[11])
+
+print('##################################')
+
+# m, n = map(int, input().split())
+# month = list(map(int, '31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31'.split(', ')))
+
+# _prev, _next, _month_prev, _month_next = (None for _ in range(4))
+
+# if 1 == n:
+#     _prev = month[m-2]
+#     _month_prev = m-1
+# else:
+#     _prev = n - 1
+#     _month_prev = m
+
+# if month[m-1] == n:
+#     _next = 1
+#     _month_next = m+1 if 11 >= m else 1
+# else:
+#     _next = n+1
+#     _month_next = m
+
+# print(f'{_month_prev:02}.{_prev:02} {_month_next:02}.{_next:02}')
+
+print('##################################')
+
+# k = int(input())
+# arr = 'понедельник, вторник, среда, четверг, пятница, суббота, воскресенье'.split(', ')
+# print(arr[(k%7)-1])
+
+print('##################################')
+
+k = int(input())
+arr = 'понедельник, вторник, среда, четверг, пятница, суббота, воскресенье'.split(', ')
+print(arr[(k%7)-1])
 
 print('##################################')
