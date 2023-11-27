@@ -19,18 +19,25 @@ Sample Output:
 '''
 import numpy as np
 from sys import stdin
-stdin = open(file='120.csv', mode='rt', encoding='utf-8', newline='')
+# stdin = open(file='120.csv', mode='rt', encoding='utf-8', newline='')
 
 if __name__ == '__main__':
     arr = np.fromstring(
         string=stdin.read(),
-        dtype=int,
+        # dtype=int,
+        dtype=float,
         sep = ' '
     )
-    print(arr) # test #
-    print(type(arr)) # test #
+    # print(arr) # test #
+    # print(type(arr)) # test #
 
     # arr1, arr2 = (np.fromstring(string=i, dtype=float, sep=' ') for i in stdin)
     # print(arr1, arr2, sep='\n')
 
-    pass
+    # print(np.round(np.exp(arr)-1, 2))
+    # print(np.round(np.expm1(arr), 2))
+    res = np.round(np.exp(arr)-1, 2)
+  
+    for i in res:
+        print(i, end=' ')
+    print()
