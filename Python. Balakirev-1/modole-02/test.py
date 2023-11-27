@@ -708,8 +708,72 @@ print('##################################')
 
 print('##################################')
 
-k = int(input())
-arr = 'понедельник, вторник, среда, четверг, пятница, суббота, воскресенье'.split(', ')
-print(arr[(k%7)-1])
+# print(
+#     d:= a if (a:=float(input())) >= (b:=float(input())) else b
+# )
+
+print('##################################')
+
+# print(
+#     msg:= 'кратно 3' if not (a:=float(input())) % 3 else 'не кратно 3'
+# )
+
+print('##################################')
+
+# print(
+#     msg:= 'палиндром' if (a:=input().lower()) == a[::-1] else 'не палиндром'
+# )
+
+print('##################################')
+
+# print(
+#     msg:= 'True' if (a:=int(input())) == 1 else 'False'
+# )
+
+print('##################################')
+
+# print(
+#     msg:= a + 1 if 0 <=(a:=int(input())) < 59 else 0
+# )
+
+print('##################################')
+
+# m = ['до', 'ре', 'ми', 'фа', 'соль', 'ля', 'си']
+# arr = map(int, input().split())
+
+# func = lambda x: '#'+x if x in 'дофа' else x
+
+# print(
+#     *(func(m[i-1]) for i in arr)
+# )
+
+print('##################################')
+
+# m = ['до', 'ре', 'ми', 'фа', 'соль', 'ля', 'си']
+# arr = map(int, input().split())
+
+# func = lambda x: '#'+x if x in 'дофа' else x
+
+# print(
+#     *(func(m[i-1]) for i in arr)
+# )
+
+print('##################################')
+
+# n, m = map(int, input().split())
+
+# while n <= m:
+#     print(n**2, end=' ')
+#     n += 1
+# print()
+
+print('##################################')
+
+n, m = map(int, input().split())
+
+while n <= m:
+    print(n**2, end=' ')
+    n += 1
+print()
 
 print('##################################')
