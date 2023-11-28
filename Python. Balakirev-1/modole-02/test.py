@@ -769,11 +769,138 @@ print('##################################')
 
 print('##################################')
 
-n, m = map(int, input().split())
+# x = float(input())
+# i = 2
+# while 11 > i:
+#     print(round(x * i, 1), end=' ')
+#     i += 1
+# print()
 
-while n <= m:
-    print(n**2, end=' ')
-    n += 1
-print()
+print('##################################')
+
+# s = 0
+# while (n:= int(input())):
+#     s += n
+# print(s)
+
+print('##################################')
+
+# s = input()
+# arr = []
+# i = 0
+# n = len(s)
+# while i < n:
+#     if 0 == i:
+#         arr.append(s[i])
+#     else:
+#         if '-' == arr[-1] and '-' == s[i]:
+#             pass
+#         else:
+#             arr.append(s[i])
+#     i += 1
+# print(''.join(arr))
+
+print('##################################')
+
+# n = int(input())
+# m = 1
+# while n:
+#     m *= (n % 10)
+#     n //= 10
+# print(m)
+
+print('##################################')
+
+# n = int(input())
+# a, b = 1, 1
+
+# while n:
+#     print(a, end=' ')
+#     a, b = b, (a+b)
+#     n -= 1
+# print()
+
+print('##################################')
+
+# n = int(input())
+# a = 1
+# p = 1
+
+# while 0 < n:
+#     p *= 2
+#     n -= 4
+# print(p)
+
+print('##################################')
+
+# n = int(input())
+# s = 1000
+
+# while n:
+#     s += s * 0.05
+#     n -= 1
+# print(round(s, 2))
+
+print('##################################')
+
+# n, m = map(int, input().split())
+
+# n += (n%2) == 0
+# while n <= m:
+#     print(n, end=' ')
+#     n += 2
+# print()
+
+print('##################################')
+
+# i = 100
+# while 1000 > i:
+#     if 43 == i % 47 and not i %3:
+#         print(i, end=' ')
+#     i += 1
+# print()
+
+print('##################################')
+
+# i = 100
+# while 1000 > i:
+#     if 43 == i % 47 and not i %3:
+#         print(i, end=' ')
+#     i += 1
+# print()
+
+print('##################################')
+
+# p = [0] * 10
+# c = 0
+
+# while True:
+#     i = int(input())
+#     if 1 == p[i]:
+#         continue
+#     elif not 1 == p[i]:
+#         c += 1
+#         p[i] = 1
+#     if 5 == c:
+#         break
+
+# print(*p)
+
+print('##################################')
+
+p = [0] * 10
+c = 0
+
+while True:
+    i = int(input())
+    if 1 == p[i]:
+        continue
+    elif not 1 == p[i]:
+        c += 1
+        p[i] = 1
+    if 5 == c:
+        break
+
+print(*p)
 
 print('##################################')
