@@ -99,7 +99,13 @@ case ${action} in
     ;;
 
     # tools
-    # ...
+    id )
+        Output $( echo ${text} | tr -s '_' ' ' | tr '[:upper:]' '[:lower:]' | tr -d ':punct:' \
+            | tr -s ' ' '_' )
+    ;;
+    index )
+        # ...
+    ;;
 
     # other
 	* )
