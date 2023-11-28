@@ -40,4 +40,9 @@ if __name__ == '__main__':
 #     print(type(arr)) # test #
 
     arr1, arr2, arr3 = (np.fromstring(string=i, dtype=float, sep=' ') for i in stdin)
-    print(arr1, arr2, arr3, sep='\n')
+    # print(arr1, arr2, arr3, sep='\n')
+
+    _isclose = np.isclose(arr1, arr2, atol=arr3[0])
+    # print(_isclose)
+
+    print(np.all(_isclose))
