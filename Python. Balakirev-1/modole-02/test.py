@@ -888,19 +888,131 @@ print('##################################')
 
 print('##################################')
 
-p = [0] * 10
-c = 0
+# s = 1
 
-while True:
-    i = int(input())
-    if 1 == p[i]:
+# while n:= int(input()):
+#     if 0 > n:
+#         continue
+#     s *= n
+
+# print(s)
+
+print('##################################')
+
+# arr = input().split()
+# i, _len = 0, len(arr)
+# while i < _len:
+#     if 5 > len(arr[i]):
+#         print('НЕТ')
+#         break
+#     i += 1
+# else:
+#     print('ДА')
+
+print('##################################')
+
+# arr = input().split()
+# i, _len = 0, len(arr)
+# while i < _len:
+#     if arr[i][0].lower() == arr[i][-1].lower():
+#         print('ДА')
+#         break
+#     i += 1
+# else:
+#     print('НЕТ')
+
+print('##################################')
+
+# n = int(input())
+# i = 1
+# while i <= n < 100:
+#     if not i % 3 and not i % 5:
+#         print(i, end=' ')
+#     i += 1
+# else:
+#     if 100 <= n:
+#         print('слишком большое значение n')
+#     else:
+#         print()
+
+print('##################################')
+
+# n = int(input())
+# i = 1
+# while i <= n < 100:
+#     if not i % 3 and not i % 5:
+#         print(i, end=' ')
+#     i += 1
+# else:
+#     if 100 <= n:
+#         print('слишком большое значение n')
+#     else:
+#         print()
+
+print('##################################')
+
+# n = int(input())
+# i = 1
+# while i <= n and 1 < n:
+#     if i**2 > n:
+#         print(i)
+#         break
+#     i += 1
+# else:
+#     print(2)
+
+print('##################################')
+
+# n = int(input())
+# i = 1
+# while i <= n and 1 < n:
+#     if i**2 > n:
+#         print(i)
+#         break
+#     i += 1
+# else:
+#     print(2)
+
+print('##################################')
+
+# n = int(input())
+# i = 1
+# x = 10
+# while x <= n:
+#     x += x * 0.1
+#     i += 1
+# print(i)
+
+print('##################################')
+
+# import sys
+
+# # считывание списка из входного потока
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# # здесь продолжайте программу (используйте список lst_in)
+# i, _len = 0, len(lst_in)
+# while i < _len:
+#     if ' ' in lst_in[i]:
+#         i += 1
+#         continue
+#     print(lst_in[i], end=' ')
+#     i += 1
+
+print('##################################')
+
+import sys
+
+# считывание списка из входного потока
+lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# здесь продолжайте программу (используйте список lst_in)
+i, _len = 0, len(lst_in)
+while i < _len:
+    if ' ' in lst_in[i]:
+        i += 1
         continue
-    elif not 1 == p[i]:
-        c += 1
-        p[i] = 1
-    if 5 == c:
-        break
-
-print(*p)
+    print(lst_in[i], end=' ')
+    i += 1
 
 print('##################################')
