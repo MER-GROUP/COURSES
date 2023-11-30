@@ -1001,18 +1001,100 @@ print('##################################')
 
 print('##################################')
 
-import sys
+# print(*range(11))
 
-# считывание списка из входного потока
-lst_in = list(map(str.strip, sys.stdin.readlines()))
+print('##################################')
 
-# здесь продолжайте программу (используйте список lst_in)
-i, _len = 0, len(lst_in)
-while i < _len:
-    if ' ' in lst_in[i]:
-        i += 1
-        continue
-    print(lst_in[i], end=' ')
-    i += 1
+# print(*range(10, -1, -1))
+
+print('##################################')
+
+# print(*range(10, -1, -1))
+
+print('##################################')
+
+# print(*range(-10, -1, 2))
+
+print('##################################')
+
+# print(*range(1, 20, 3))
+
+print('##################################')
+
+# arr = map(int, input().split())
+# s = 0
+# for i in arr:
+#     if i % 2:
+#         s += i
+# print(s)
+
+print('##################################')
+
+# arr = input().split()
+# for i in arr:
+#     print(len(i), end=' ')
+# print()
+
+print('##################################')
+
+# n = int(input())
+# for i in range(1, n+1):
+#     if not n % i:
+#         print(i)
+# print()
+
+print('##################################')
+
+# n = int(input())
+# for i in range(2, int(n**0.5)+1):
+#     if not n % i:
+#         print('НЕТ')
+#         break
+# else:
+#     print('ДА')
+
+print('##################################')
+
+# n = int(input())
+# for i in range(2, int(n**0.5)+1):
+#     if not n % i:
+#         print('НЕТ')
+#         break
+# else:
+#     print('ДА')
+
+print('##################################')
+
+# список - использование много раз
+_list = [1, 2, 3]
+print(_list) # [1, 2, 3]
+print(_list) # [1, 2, 3]
+print(_list) # [1, 2, 3]
+
+# список - использование много раз через распаковку
+# (эта тема еще будет дальше)
+print(*_list) # 1 2 3
+print(*_list) # 1 2 3
+print(*_list) # 1 2 3
+
+# итератор - создаем итератор 
+_it = iter(_list)
+
+# выводим ссылку на итератор - т.к. мы выводим ссылку то можно её много раз выводить
+print(_it) # <list_iterator object at 0x7f9ee98ffeb0>
+print(_it) # <list_iterator object at 0x7f9ee98ffeb0>
+print(_it) # <list_iterator object at 0x7f9ee98ffeb0>
+
+# итератор - использование только раз через распаковку
+# (эта тема еще будет дальше)
+print(*_it) # 1 2 3
+print(*_it) # ничего
+print(*_it) # ничего
+
+# цикл for когда перебирает итератор он сразу его распаковывает а map и есть итератор
+_map_iterator = map(int, '123')
+print(*_map_iterator) # 1 2 3
+print(*_map_iterator) # ничего
+print(*_map_iterator) # ничего
 
 print('##################################')
