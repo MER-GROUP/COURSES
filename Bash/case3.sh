@@ -31,6 +31,7 @@ shift # shift all args of this script on the left
 	text=$( xsel -b )
 	function Output { # args 
 		echo -en "${*}" | xsel -bi
+        echo -en "this is new text: ${*}\n" # for test
 	}
 } || {
 	text=${*}
@@ -44,8 +45,9 @@ echo "##################################"
 case ${action} in
     # headers
     h1 )
-        Output "[[ $( ${SELF} id ${text} ) ]]\n=== ${text}"
+        # Output "[[ $( ${SELF} id ${text} ) ]]\n=== ${text}"
         # Output "[[$($SELF id $text)]]\n=== $text"
+        Output "[[$( id ${user} )]]\n=== ${text}" # for test
     ;;
     h2 )
         Output "[[ $( ${SELF} id ${text} ) ]]\n==== ${text}"
