@@ -1065,36 +1065,130 @@ print('##################################')
 
 print('##################################')
 
-# список - использование много раз
-_list = [1, 2, 3]
-print(_list) # [1, 2, 3]
-print(_list) # [1, 2, 3]
-print(_list) # [1, 2, 3]
+# # список - использование много раз
+# _list = [1, 2, 3]
+# print(_list) # [1, 2, 3]
+# print(_list) # [1, 2, 3]
+# print(_list) # [1, 2, 3]
 
-# список - использование много раз через распаковку
-# (эта тема еще будет дальше)
-print(*_list) # 1 2 3
-print(*_list) # 1 2 3
-print(*_list) # 1 2 3
+# # список - использование много раз через распаковку
+# # (эта тема еще будет дальше)
+# print(*_list) # 1 2 3
+# print(*_list) # 1 2 3
+# print(*_list) # 1 2 3
 
-# итератор - создаем итератор 
-_it = iter(_list)
+# # итератор - создаем итератор 
+# _it = iter(_list)
 
-# выводим ссылку на итератор - т.к. мы выводим ссылку то можно её много раз выводить
-print(_it) # <list_iterator object at 0x7f9ee98ffeb0>
-print(_it) # <list_iterator object at 0x7f9ee98ffeb0>
-print(_it) # <list_iterator object at 0x7f9ee98ffeb0>
+# # выводим ссылку на итератор - т.к. мы выводим ссылку то можно её много раз выводить
+# print(_it) # <list_iterator object at 0x7f9ee98ffeb0>
+# print(_it) # <list_iterator object at 0x7f9ee98ffeb0>
+# print(_it) # <list_iterator object at 0x7f9ee98ffeb0>
 
-# итератор - использование только раз через распаковку
-# (эта тема еще будет дальше)
-print(*_it) # 1 2 3
-print(*_it) # ничего
-print(*_it) # ничего
+# # итератор - использование только раз через распаковку
+# # (эта тема еще будет дальше)
+# print(*_it) # 1 2 3
+# print(*_it) # ничего
+# print(*_it) # ничего
 
-# цикл for когда перебирает итератор он сразу его распаковывает а map и есть итератор
-_map_iterator = map(int, '123')
-print(*_map_iterator) # 1 2 3
-print(*_map_iterator) # ничего
-print(*_map_iterator) # ничего
+# # цикл for когда перебирает итератор он сразу его распаковывает а map и есть итератор
+# _map_iterator = map(int, '123')
+# print(*_map_iterator) # 1 2 3
+# print(*_map_iterator) # ничего
+# print(*_map_iterator) # ничего
+
+print('##################################')
+
+# arr = input().lower().split()
+# # print(arr) # tests
+
+# prev, curr = None, None
+# for i, a in enumerate(arr):
+#     if 0 == i:
+#         prev = a[-1] if not a[-1] in 'ьъы' else a[-2]
+#         continue
+#     curr = a[0]
+#     # print(f'prev = {prev} curr = {curr}') # tests
+#     if not prev == curr:
+#         print('НЕТ')
+#         break
+#     prev = a[-1] if not a[-1] in 'ьъы' else a[-2]
+# else:
+#     print('ДА')
+
+print('##################################')
+
+# n = int(input())
+# s = 0
+# for i in range(1, n):
+#     if not i % 3 or not i % 5:
+#         s += i
+# print(s) 
+
+print('##################################')
+
+# arr = input()
+# prev, curr, check = None, None, False
+# for i, c in enumerate(arr):
+#     if 0 == i:
+#         prev = c
+#         continue
+#     curr = c
+#     if prev + curr == 'ра':
+#         check = True
+#         print(i - 1, end=' ')
+#     prev = curr
+# print('' if check else -1)
+
+print('##################################')
+
+# arr = input()
+# for i, c in enumerate(arr):
+#     if 0 == i and not '+' == c:
+#         print('НЕТ')
+#         break
+#     elif 1 == i and not '7' == c:
+#         print('НЕТ')
+#         break
+#     elif 2 == i and not '(' == c:
+#         print('НЕТ')
+#         break
+#     elif 6 == i and not ')' == c:
+#         print('НЕТ')
+#         break
+#     elif i in (10, 13) and not '-' == c:
+#         print('НЕТ')
+#         break
+#     elif not i in (0, 1, 2, 6, 10, 13) and not c.isdigit():
+#         print('НЕТ')
+#         break
+# else:
+#     print('ДА')
+
+print('##################################')
+
+# s = '+7(xxx)xxx-xx-xx'
+# n = input().rjust(len(s))
+# for i, item in enumerate(n):
+#     if s[i] == item or item.isdigit():
+#     # if s[i] == item or s[i] == 'x' and item.isdigit():
+#         continue
+#     print('НЕТ')
+#     break
+# else:
+#     print('ДА')
+
+print('##################################')
+
+s = '+7(xxx)xxx-xx-xx'
+n = input().rjust(len(s))
+for i, item in enumerate(n):
+    if s[i] == item or item.isdigit():
+    # if s[i] == item or s[i] == 'x' and item.isdigit():
+        continue
+    print('НЕТ')
+    break
+else:
+    print('ДА')
 
 print('##################################')
