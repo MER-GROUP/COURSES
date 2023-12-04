@@ -4,7 +4,8 @@ echo "##################################"
 echo "\${#} = ${#}"
 # BOOK_ASC="~/WORK/PYTHON/LinuxTests/dir/" # error
 # BOOK_ASC="/home/red/WORK/PYTHON/LinuxTests/dir/"
-BOOK_ASC="${HOME}/WORK/PYTHON/LinuxTests/dir/"
+# BOOK_ASC="${HOME}/WORK/PYTHON/LinuxTests/dir/"
+BOOK_ASC="${HOME}/WORK/PYTHON/MyPROG/COURSES/Bash/"
 # cd ${BOOK_ASC}
 
 echo "${BOOK_ASC}"
@@ -14,6 +15,7 @@ echo "${BOOK_ASC}"
 	exit 1
 }
 
+# cd "${BOOK_ASC}" || {
 \cd "${BOOK_ASC}" || {
 	echo "FATAL: can't cd to '$BOOK_ASC'!"
 	exit 2
@@ -47,7 +49,11 @@ case ${action} in
     h1 )
         # Output "[[ $( ${SELF} id ${text} ) ]]\n=== ${text}"
         # Output "[[$($SELF id $text)]]\n=== $text"
-        Output "[[$( id ${user} )]]\n=== ${text}" # for test
+        # Output "[[$( id ${user} )]]\n=== ${text}" # for test
+        Output "[[$( pwd = ${pwd} )]]\n=== ${text}" # for test
+        echo "###############"
+        echo "SELF = ${SELF}"
+        echo "###############"
     ;;
     h2 )
         Output "[[ $( ${SELF} id ${text} ) ]]\n==== ${text}"
