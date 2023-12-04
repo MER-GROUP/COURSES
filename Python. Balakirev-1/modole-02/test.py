@@ -1180,15 +1180,131 @@ print('##################################')
 
 print('##################################')
 
-s = '+7(xxx)xxx-xx-xx'
-n = input().rjust(len(s))
-for i, item in enumerate(n):
-    if s[i] == item or item.isdigit():
-    # if s[i] == item or s[i] == 'x' and item.isdigit():
-        continue
-    print('НЕТ')
-    break
-else:
-    print('ДА')
+# s = input()
+# buf = ''
+# res = 0
+# check = True
+# sign_prev, sign_curr = None, None
+
+# for i, item in enumerate(s):
+#     if 0 == i:
+#         buf = item
+#         continue
+#     elif item.isdigit():
+#         buf += item
+#     elif ' ' == item:
+#         if sign_prev is None and check:
+#             check = False
+#             res += int(buf)
+#             buf = ''
+#         continue
+#     elif item in '-+':
+#         if sign_prev is None and check:
+#             check = False
+#             res += int(buf)
+#             buf = ''
+#         sign_curr = item
+#         if not sign_prev is None:
+#             res += int(buf) if '+' == sign_prev else -int(buf)
+#             buf = ''
+#         sign_prev = sign_curr
+# res += int(buf) if '+' == sign_prev else -int(buf)
+
+# print(res)
+
+print('##################################')
+
+# # # version 1
+# # arr = map(lambda x: int(x)**2, input().split())
+# # print(*arr)
+
+# # version 2
+# arr = list(map(int, input().split()))
+# for i, item in enumerate(arr):
+#     arr[i] = item**2
+# print(*arr)
+
+print('##################################')
+
+# # arr = list(map(int, input().split()))
+# arr = input().split()
+# for i in arr:
+#     print((i + ' ') * 2, end='')
+# print()
+
+print('##################################')
+
+# arr = list(map(float, input().split()))
+# _min = float('inf')
+# for i in arr:
+#     if _min > i:
+#         _min = i
+# print(_min)
+
+print('##################################')
+
+# arr = list(map(float, input().split()))
+# for i, item in enumerate(arr):
+#     if 0 > item:
+#         arr[i] = -1.0
+# print(*arr)
+
+print('##################################')
+
+# arr = input().split()
+# it = iter(arr)
+# print(next(it))
+# print(next(it))
+
+print('##################################')
+
+# arr = input()
+# it = iter(arr)
+# for i in it:
+#     if ' ' == i: break
+#     print(i, end='')
+# print()
+
+print('##################################')
+
+# arr = input()
+# print(*iter(arr))
+
+print('##################################')
+
+# n = int(input())
+# arr = []
+
+# for i in range(n):
+#     buff = [1] * n
+#     buff[n-1] = 5
+#     arr.append(buff)
+
+# for a in arr:
+#     print(*a)
+
+print('##################################')
+
+# n = int(input())
+
+# lst = [[1] * n] * n
+# print(lst, sep='\n') # test
+# lst[0][n-1] = 5
+# print(lst, sep='\n') # test
+
+# for i in lst:
+#     print(*i)
+
+print('##################################')
+
+n = int(input())
+
+lst = [[1] * n] * n
+print(lst, sep='\n') # test
+lst[0][n-1] = 5
+print(lst, sep='\n') # test
+
+for i in lst:
+    print(*i)
 
 print('##################################')
