@@ -40,4 +40,20 @@ if __name__ == '__main__':
     # print(arr1, arr2, sep='\n')
 
     arr1, *_ = (np.fromstring(string=i, dtype=float, sep=' ') for i in stdin)
-    print(arr1, sep='\n')
+    # print(arr1, sep='\n')
+
+    check1 = np.sin(arr1) > np.cos(arr1)
+    # print(check1) # test
+    check2 = np.arctan(arr1) < arr1**0.5
+    # print(check2) # test
+    mask = check1 & check2
+    # print(mask) # test
+    # print(arr1[mask]) # test
+    arr2 = arr1[mask]
+    # print(arr2) # test
+    mask2 = arr2 < 1
+    print(*arr2[mask2])
+
+    # mask = (1 > arr1) & (0.78 < arr1)
+    # # print(mask) # test
+    # print(*arr1[mask])
