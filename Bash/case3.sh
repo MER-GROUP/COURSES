@@ -50,10 +50,18 @@ case ${action} in
         # Output "[[ $( ${SELF} id ${text} ) ]]\n=== ${text}"
         # Output "[[$($SELF id $text)]]\n=== $text"
         # Output "[[$( id ${user} )]]\n=== ${text}" # for test
-        Output "[[$( pwd = ${pwd} )]]\n=== ${text}" # for test
-        echo "###############"
-        echo "SELF = ${SELF}"
-        echo "###############"
+
+        # Output "[[$( pwd = ${pwd} )]]\n=== ${text}" # for test
+        # echo "###############"
+        # echo "SELF = ${SELF}"
+        # echo "###############"
+        # # echo "SELF = $( echo "${SELF} id ${text}" )"
+        # # echo "SELF = $( echo "${SELF} id ${text}" )"
+        # echo "SELF = $( echo ${SELF} id ${text} )"
+        # echo "###############"
+
+        # Output "[[ $( echo "${SELF} id ${text}" ) ]]\n=== ${text}"
+        Output "[[ $( echo ${SELF} id ${text} ) ]]\n=== ${text}"
     ;;
     h2 )
         Output "[[ $( ${SELF} id ${text} ) ]]\n==== ${text}"
