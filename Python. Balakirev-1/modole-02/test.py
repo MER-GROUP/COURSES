@@ -1297,14 +1297,45 @@ print('##################################')
 
 print('##################################')
 
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = list(map(str.strip, sys.stdin))
+# # print(lst_in) # test 
+
+# # здесь продолжайте программу (используйте список lst_in)
+# for i, s in enumerate(lst_in):
+#     while lst_in[i].count(' ') or lst_in[i].count('--'):
+#         lst_in[i] = lst_in[i].replace('  ', ' ').replace(' ', '-').replace('--', '-')
+
+# for s in lst_in:
+#     print(s)
+
+print('##################################')
+
+# n = int(input())
+
+# for i in range(2, n):
+#     for j in range(2, int(i**0.5)+1):
+#         # print(f'j = {j}') # test
+#         if not i % j:
+#             break
+#     else:
+#         print(i, end=' ')
+# print()
+
+print('##################################')
+
 n = int(input())
 
-lst = [[1] * n] * n
-print(lst, sep='\n') # test
-lst[0][n-1] = 5
-print(lst, sep='\n') # test
-
-for i in lst:
-    print(*i)
+for i in range(2, n):
+    for j in range(2, int(i**0.5)+1):
+        # print(f'j = {j}') # test
+        if not i % j:
+            break
+    else:
+        print(i, end=' ')
+print()
 
 print('##################################')
