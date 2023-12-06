@@ -34,6 +34,7 @@ shift # shift all args of this script on the left
 	function Output { # args 
 		echo -en "${*}" | xsel -bi
         echo -en "this is new text: ${*}\n" # for test
+        echo -en "PWD is: $PWD \n" # for test
 	}
 } || {
 	text=${*}
@@ -61,7 +62,13 @@ case ${action} in
         # echo "###############"
 
         # Output "[[ $( echo "${SELF} id ${text}" ) ]]\n=== ${text}"
-        Output "[[ $( echo ${SELF} id ${text} ) ]]\n=== ${text}"
+        # Output "[[ $( echo ${SELF} id ${text} ) ]]\n=== ${text}" # < ----- !!!
+
+        # Output $( echo ${SELF} id ${text} )
+        # Output $( ${SELF} id ${text} )
+        Output $( bash ${SELF} id ${text} ) # < ----- !!!
+        # Output $( echo ${text} | tr -s '_' ' ' | tr '[:upper:]' '[:lower:]' | tr -d ':punct:' \
+        #     | tr -s ' ' '_' )
     ;;
     h2 )
         Output "[[ $( ${SELF} id ${text} ) ]]\n==== ${text}"
