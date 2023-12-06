@@ -1327,15 +1327,88 @@ print('##################################')
 
 print('##################################')
 
-n = int(input())
+import sys
 
-for i in range(2, n):
-    for j in range(2, int(i**0.5)+1):
-        # print(f'j = {j}') # test
-        if not i % j:
-            break
-    else:
-        print(i, end=' ')
-print()
+# считывание списка из входного потока
+sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+s = sys.stdin
+lst_in = [list(map(int, x.strip().split())) for x in s]
+
+# здесь продолжайте программу (используйте список lst_in)
+print(*lst_in, sep='\n') # test
+
+check = False
+n = 5
+
+# for y in range(n):
+#     for x in range(n):
+#         if lst_in[y][x]:
+#             if -1 not in (y-1, x-1) and 1 == lst_in[y-1][x-1]:
+#                 check = True
+#                 break
+#             elif -1 not in (y-1,) and 1 == lst_in[y-1][x]:
+#                 check = True
+#                 break
+#             elif -1 not in (y-1,) and n not in (x+1,) and 1 == lst_in[y-1][x+1]:
+#                 check = True
+#                 break
+
+#             elif -1 not in (x-1,) and 1 == lst_in[y][x-1]:
+#                 check = True
+#                 break
+#             elif n not in (x+1,) and 1 == lst_in[y][x+1]:
+#                 check = True
+#                 break
+
+#             elif -1 not in (x-1,) and n not in (y+1,) and 1 == lst_in[y+1][x-1]:
+#                 check = True
+#                 break
+#             elif n not in (y+1,) and 1 == lst_in[y+1][x]:
+#                 check = True
+#                 break
+#             elif n not in (x+1, y+1) and 1 == lst_in[y+1][x+1]:
+#                 check = True
+#                 break
+#     if check:
+#         break
+# else:
+#     print('ДА')
+
+for y in range(n):
+    for x in range(n):
+        if lst_in[y][x]:
+            y1 = y-1 if 0 <= y-1 else y
+            x1 = x-1 if 0 <= x-1 else x
+            y2 = 3 if not y-1 == -1 else 2
+            x2 = 3 if not x-1 == -1 else 2
+            print(f'y = {y}, x = {x}') # test
+            print(f'y1 = {y1}, x1 = {x1}') # test
+            print(f'y2 = {y2}, x2 = {x2}') # test
+            _arr = []
+            for i in range(y1, y1+y2):
+                _sum = 0
+                for j in range(x1, x1+x2):
+                    print(f'i = {i}', end=' ') # test
+                    print(f'j = {j}') # test
+                    # if not n in (i, j):
+                    #     _sum += lst_in[i][j]
+                    _sum += lst_in[i][j]
+                _arr.append(_sum)
+            print(_arr) # test
+            if _arr[-2]: 
+                _arr[-2] = 0
+            print(_arr) # test
+            print(_arr[-1]) # test
+            print(_arr[-2]) # test
+            if 0 < sum(_arr): 
+                check = True
+                break
+    if check:   
+        break
+else:
+    print('ДА')
+
+# print(*lst_in, sep='\n') # test
+if check: print('НЕТ')
 
 print('##################################')
