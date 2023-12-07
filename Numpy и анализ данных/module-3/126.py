@@ -46,5 +46,15 @@ if __name__ == '__main__':
 #     print(arr) # test #
 #     print(type(arr)) # test #
 
-    arr1, arr2, arr3, *_ = (np.fromstring(string=i, dtype=float, sep=' ') for i in stdin)
+    arr1, arr2, arr3, *_ = (np.fromstring(string=i, dtype=int, sep=' ') for i in stdin)
     print(arr1, arr2, arr3, sep='\n')
+
+    arr_new = []
+    print(arr_new)
+
+    for i in arr1:
+        for j in arr2:
+            if abs(i-j) < arr3[0]:
+                arr_new.append([i, j])
+
+    print(*np.array(arr_new, int))
