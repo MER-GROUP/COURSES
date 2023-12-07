@@ -1327,88 +1327,182 @@ print('##################################')
 
 print('##################################')
 
-import sys
+# import sys
 
-# считывание списка из входного потока
-sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
-s = sys.stdin
-lst_in = [list(map(int, x.strip().split())) for x in s]
+# # считывание списка из входного потока
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+# s = sys.stdin
+# lst_in = [list(map(int, x.strip().split())) for x in s]
 
-# здесь продолжайте программу (используйте список lst_in)
-print(*lst_in, sep='\n') # test
+# # здесь продолжайте программу (используйте список lst_in)
+# # print(*lst_in, sep='\n') # test
 
-check = False
-n = 5
+# check = False
+# n = 5
+
+# # for y in range(n):
+# #     for x in range(n):
+# #         if lst_in[y][x]:
+# #             if -1 not in (y-1, x-1) and 1 == lst_in[y-1][x-1]:
+# #                 check = True
+# #                 break
+# #             elif -1 not in (y-1,) and 1 == lst_in[y-1][x]:
+# #                 check = True
+# #                 break
+# #             elif -1 not in (y-1,) and n not in (x+1,) and 1 == lst_in[y-1][x+1]:
+# #                 check = True
+# #                 break
+
+# #             elif -1 not in (x-1,) and 1 == lst_in[y][x-1]:
+# #                 check = True
+# #                 break
+# #             elif n not in (x+1,) and 1 == lst_in[y][x+1]:
+# #                 check = True
+# #                 break
+
+# #             elif -1 not in (x-1,) and n not in (y+1,) and 1 == lst_in[y+1][x-1]:
+# #                 check = True
+# #                 break
+# #             elif n not in (y+1,) and 1 == lst_in[y+1][x]:
+# #                 check = True
+# #                 break
+# #             elif n not in (x+1, y+1) and 1 == lst_in[y+1][x+1]:
+# #                 check = True
+# #                 break
+# #     if check:
+# #         break
+# # else:
+# #     print('ДА')
 
 # for y in range(n):
 #     for x in range(n):
 #         if lst_in[y][x]:
-#             if -1 not in (y-1, x-1) and 1 == lst_in[y-1][x-1]:
-#                 check = True
-#                 break
-#             elif -1 not in (y-1,) and 1 == lst_in[y-1][x]:
-#                 check = True
-#                 break
-#             elif -1 not in (y-1,) and n not in (x+1,) and 1 == lst_in[y-1][x+1]:
-#                 check = True
-#                 break
+#             y1 = y-1 if 0 <= y-1 else y
+#             x1 = x-1 if 0 <= x-1 else x
 
-#             elif -1 not in (x-1,) and 1 == lst_in[y][x-1]:
-#                 check = True
-#                 break
-#             elif n not in (x+1,) and 1 == lst_in[y][x+1]:
-#                 check = True
-#                 break
+#             y2 = 3 if -1 < y-1 < n and y+1 < n else 2
+#             x2 = 3 if -1 < x-1 < n and x+1 < n else 2
 
-#             elif -1 not in (x-1,) and n not in (y+1,) and 1 == lst_in[y+1][x-1]:
+#             # print(f'y = {y}, x = {x}') # test
+#             # print(f'y1 = {y1}, x1 = {x1}') # test
+#             # print(f'y2 = {y2}, x2 = {x2}') # test
+
+#             _arr = []
+#             for i in range(y1, y1+y2):
+#                 _sum = 0
+#                 for j in range(x1, x1+x2):
+#                     # print(f'i = {i}', end=' ') # test
+#                     # print(f'j = {j}') # test
+#                     # if not n in (i, j):
+#                     #     _sum += lst_in[i][j]
+#                     _sum += lst_in[i][j]
+#                 _arr.append(_sum)
+#             # print(_arr) # test
+#             # if _arr[-2]: 
+#             #     _arr[-2] = 0
+
+#             # print(_arr) # test
+#             # print(_arr[-1]) # test
+#             # print(_arr[-2]) # test
+
+#             # if 0 < sum(_arr): 
+#             #     check = True
+#             #     break
+
+#             if sum(_arr) > 1:
 #                 check = True
-#                 break
-#             elif n not in (y+1,) and 1 == lst_in[y+1][x]:
-#                 check = True
-#                 break
-#             elif n not in (x+1, y+1) and 1 == lst_in[y+1][x+1]:
-#                 check = True
-#                 break
+#                 break 
+#     if check:   
+#         break
+# else:
+#     print('ДА')
+
+# # print(*lst_in, sep='\n') # test
+# if check: print('НЕТ')
+
+print('##################################')
+
+# import sys
+
+# # считывание списка из входного потока
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+# s = sys.stdin
+# lst_in = [list(map(int, x.strip().split())) for x in s]
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # print(*lst_in, sep='\n')
+
+# n = 5
+# check = False
+# for i in range(n):
+#     for j in range(i, n-1):
+#         # if i == j:
+#         #     continue
+#         if not lst_in[i][j+1] == lst_in[j+1][i]:
+#             check = True
+#             print('НЕТ')
+#             break
 #     if check:
 #         break
 # else:
 #     print('ДА')
 
-for y in range(n):
-    for x in range(n):
-        if lst_in[y][x]:
-            y1 = y-1 if 0 <= y-1 else y
-            x1 = x-1 if 0 <= x-1 else x
-            y2 = 3 if not y-1 == -1 else 2
-            x2 = 3 if not x-1 == -1 else 2
-            print(f'y = {y}, x = {x}') # test
-            print(f'y1 = {y1}, x1 = {x1}') # test
-            print(f'y2 = {y2}, x2 = {x2}') # test
-            _arr = []
-            for i in range(y1, y1+y2):
-                _sum = 0
-                for j in range(x1, x1+x2):
-                    print(f'i = {i}', end=' ') # test
-                    print(f'j = {j}') # test
-                    # if not n in (i, j):
-                    #     _sum += lst_in[i][j]
-                    _sum += lst_in[i][j]
-                _arr.append(_sum)
-            print(_arr) # test
-            if _arr[-2]: 
-                _arr[-2] = 0
-            print(_arr) # test
-            print(_arr[-1]) # test
-            print(_arr[-2]) # test
-            if 0 < sum(_arr): 
-                check = True
-                break
-    if check:   
-        break
-else:
-    print('ДА')
+print('##################################')
 
-# print(*lst_in, sep='\n') # test
-if check: print('НЕТ')
+# arr = list(map(int, input().split()))
+# n = len(arr)
+# for i in range(n-1):
+#     for j in range(i+1, n):
+#         if arr[i] > arr[j]:
+#             arr[i], arr[j] = arr[j], arr[i]
+# print(*arr)
+
+print('##################################')
+
+# arr = list(map(int, input().split()))
+# n = len(arr)
+# for i in range(n-1):
+#     for j in range(n-i-1):
+#         if arr[j] > arr[j+1]:
+#             arr[j], arr[j+1] = arr[j+1], arr[j]
+# print(*arr)
+
+print('##################################')
+
+# n = int(input())
+# # n = 221
+# arr = list(reversed([1, 2, 4, 8, 16, 32, 64]))
+# res = []
+# i = 0
+# while n:
+#     if 0 < n:
+#         n -= arr[i]
+#         res.append(arr[i])
+#     elif 0 > n:
+#         n += arr[i]
+#         res.pop()
+#         i += 1
+# print(*res)
+
+print('##################################')
+
+def get_str(lst):
+    return ' '.join(map(str, lst))
+
+
+size = 10
+pascal_triangle_lst = []
+
+for i in range(size):
+    row = [1] * (i + 1)
+    for j in range(1, i):
+        row[j] = pascal_triangle_lst[i - 1][j - 1] + pascal_triangle_lst[i - 1][j]
+    pascal_triangle_lst.append(row)
+
+width = len(get_str(pascal_triangle_lst[-1]))
+
+
+for line in pascal_triangle_lst:
+    print(get_str(line).center(width))
 
 print('##################################')
