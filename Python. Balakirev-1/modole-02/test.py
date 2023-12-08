@@ -1486,23 +1486,117 @@ print('##################################')
 
 print('##################################')
 
-def get_str(lst):
-    return ' '.join(map(str, lst))
+# def get_str(lst):
+#     return ' '.join(map(str, lst))
 
 
-size = 10
-pascal_triangle_lst = []
+# size = 10
+# pascal_triangle_lst = []
 
-for i in range(size):
-    row = [1] * (i + 1)
-    for j in range(1, i):
-        row[j] = pascal_triangle_lst[i - 1][j - 1] + pascal_triangle_lst[i - 1][j]
-    pascal_triangle_lst.append(row)
+# for i in range(size):
+#     row = [1] * (i + 1)
+#     for j in range(1, i):
+#         row[j] = pascal_triangle_lst[i - 1][j - 1] + pascal_triangle_lst[i - 1][j]
+#     pascal_triangle_lst.append(row)
 
-width = len(get_str(pascal_triangle_lst[-1]))
+# width = len(get_str(pascal_triangle_lst[-1]))
 
 
-for line in pascal_triangle_lst:
-    print(get_str(line).center(width))
+# for line in pascal_triangle_lst:
+#     print(get_str(line).center(width))
+
+print('##################################')
+
+# lst = [abs(float(x)) for x in input().split()]
+# print(lst)
+
+print('##################################')
+
+# lst = [int(x) for x in input()]
+# print(lst)
+
+print('##################################')
+
+# n= int(input())
+# lst = [[1 if i == j else 0 for j in range(n)] for i in range(n)]
+# for i in lst:
+#     print(*i)
+
+print('##################################')
+
+# lst = [s for s in input().split() if 5 < len(s)]
+# print(*lst)
+
+print('##################################')
+
+# lst = [s for s in input().split() if 5 < len(s)]
+# print(*lst)
+
+print('##################################')
+
+# n = int(input())
+# print(
+#     *[
+#         i for i in range(1, n+1)
+#         if not n % i
+#     ]
+# )
+
+print('##################################')
+
+# n= int(input())
+# lst = [[i]*n for i in range(n)]
+# for i in lst:
+#     print(*i)
+
+print('##################################')
+
+# print(*[item for i, item in enumerate(input().split()) if not i % 2])
+
+print('##################################')
+
+# arr1 = [int(x) for x in input().split()]
+# arr2 = [int(x) for x in input().split()]
+# # print(*[x + y for x, y in zip(arr1, arr2)])
+# print(*[x + arr2[i] for i, x in enumerate(arr1)])
+
+print('##################################')
+
+# arr1 = [int(x) for x in input().split()]
+# arr2 = [int(x) for x in input().split()]
+# # print(*[x + y for x, y in zip(arr1, arr2)])
+# print(*[x + arr2[i] for i, x in enumerate(arr1)])
+
+print('##################################')
+
+# it = iter(input().split())
+# lst = [[x, int(next(it))] for x in it]
+# print(lst)
+
+print('##################################')
+
+# print(...)
+
+print('##################################')
+
+import sys
+
+# считывание списка из входного потока
+sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+s = sys.stdin
+lst_in = [list(map(int, x.strip().split())) for x in s]
+
+# здесь продолжайте программу (используйте список lst_in)
+print(
+    [
+        lst_in[i][j] 
+        for i in range(len(lst_in)-1, -1, -1)
+            for j in range(len(lst_in)-1, -1, -1)
+    ]
+)
+
+print(
+    *sum(...,[])
+)
 
 print('##################################')
