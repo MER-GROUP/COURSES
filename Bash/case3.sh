@@ -62,11 +62,12 @@ case ${action} in
         # echo "###############"
 
         # Output "[[ $( echo "${SELF} id ${text}" ) ]]\n=== ${text}"
-        # Output "[[ $( echo ${SELF} id ${text} ) ]]\n=== ${text}" # < ----- !!!
+        # Output "[[ $( echo ${SELF} id ${text} ) ]]\n=== ${text}"
+        Output "[[ $( bash ${SELF} id ${text} ) ]]\n=== ${text}" # < ----- !!!
 
         # Output $( echo ${SELF} id ${text} )
         # Output $( ${SELF} id ${text} )
-        Output $( bash ${SELF} id ${text} ) # < ----- !!!
+        # Output $( bash ${SELF} id ${text} ) # < ----- !!!
         # Output $( echo ${text} | tr -s '_' ' ' | tr '[:upper:]' '[:lower:]' | tr -d ':punct:' \
         #     | tr -s ' ' '_' )
     ;;
@@ -127,7 +128,17 @@ case ${action} in
             | tr -s ' ' '_' )
     ;;
     index )
-        # ...
+        egrep '^=== ' ch*.asciidoc | egrep -v '^ch00.asciidoc' \
+            > ${BOOK_ASC}/index.txt && {
+                echo "Updated: ${BOOK_ASC}/index.txt"
+                exit 0
+            } || {
+                echo "FAILED to update: ${BOOK_ASC}/index.txt"
+                exit 1
+            }
+    ;;
+    return )
+        #...
     ;;
 
     # other
