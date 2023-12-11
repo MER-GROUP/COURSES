@@ -1579,24 +1579,154 @@ print('##################################')
 
 print('##################################')
 
+# import sys
+
+# # считывание списка из входного потока
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+# s = sys.stdin
+# lst_in = [list(map(int, x.strip().split())) for x in s]
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # 1
+# # print(
+# #     [
+# #         lst_in[i][j] 
+# #         for i in range(len(lst_in)-1, -1, -1)
+# #             for j in range(len(lst_in)-1, -1, -1)
+# #     ]
+# # )
+
+# # 2
+# print(*sum(list(map(lambda x: list(reversed(*x)), zip(reversed(lst_in)))), []))
+
+print('##################################')
+
+# import sys
+
+# # считывание списка из входного потока
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+# s = sys.stdin
+# # lst_in = [list(map(int, x.strip().split())) for x in s]
+
+# # lst_in = [list(map(int, x.strip().split())) for x in s.read()]
+# lst_in = [list(map(int, x.strip().split())) for x in s.read().split()]
+# print(lst_in)
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # 1
+# # print(
+# #     [
+# #         lst_in[i][j] 
+# #         for i in range(len(lst_in)-1, -1, -1)
+# #             for j in range(len(lst_in)-1, -1, -1)
+# #     ]
+# # )
+
+# # 2
+# # print(*sum(list(map(lambda x: list(reversed(*x)), zip(reversed(lst_in)))), []))
+
+# # 3
+# # import sys
+# # print(
+# #     list(
+# #         map(
+# #             int, 
+# #             sys.stdin.read().split()
+# #         )
+# #     )[::-1]
+# # )
+
+print('##################################')
+
+# import sys
+
+# # считывание списка из входного потока
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+# s = sys.stdin
+# lst_in = list(map(int, s.read().split()))
+# # print(lst_in) # test
+
+# # n = len(lst_in)
+# n = int(len(lst_in) ** 0.5)
+
+# arr = [
+#     lst_in[i: i+n]
+#     for i, item in enumerate(lst_in)
+#         if not i % n
+# ]
+# print(arr)
+
+print('##################################')
+
+# t = ["– Скажи-ка, дядя, ведь не даром",
+#     "Я Python выучил с каналом",
+#     "Балакирев что раздавал?",
+#     "Ведь были ж заданья боевые,",
+#     "Да, говорят, еще какие!",
+#     "Недаром помнит вся Россия",
+#     "Как мы рубили их тогда!"
+#     ]
+
+# lst = [[j for j in i.split() if 3 < len(j)] for i in t]
+
+# print(lst)
+
+print('##################################')
+
+# import sys
+
+# # считывание списка из входного потока
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+# s = sys.stdin
+# lst_in = [list(map(int, x.strip().split())) for x in s]
+
+# # здесь продолжайте программу (используйте список lst_in)
+# A = [[lst_in[j][i] for j in range(len(lst_in))] for i in range(len(lst_in[0]))]
+# for row in A:
+#     print(*row)
+
+print('##################################')
+
+# d = input().split()
+# # print(d)
+# arr = tuple(map(lambda x: (x.split('=')[0], int(x.split('=')[1])), d))
+# # print(arr)
+# d = dict(arr)
+# # print(d)
+# print(*sorted(d.items()))
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = list(map(str.strip, sys.stdin))
+# # print(lst_in) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# d = {
+#     int(k): v 
+#     for item in lst_in 
+#         for k, v in [item.split('=')]
+# }
+# print(*sorted(d.items()))
+
+print('##################################')
+
 import sys
+sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
 
 # считывание списка из входного потока
-sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
-s = sys.stdin
-lst_in = [list(map(int, x.strip().split())) for x in s]
+lst_in = list(map(str.strip, sys.stdin))
+# print(lst_in) # test
 
 # здесь продолжайте программу (используйте список lst_in)
-print(
-    [
-        lst_in[i][j] 
-        for i in range(len(lst_in)-1, -1, -1)
-            for j in range(len(lst_in)-1, -1, -1)
-    ]
-)
-
-print(
-    *sum(...,[])
-)
+d = {
+    int(k): v 
+    for item in lst_in 
+        for k, v in [item.split('=')]
+}
+print(*sorted(d.items()))
 
 print('##################################')
