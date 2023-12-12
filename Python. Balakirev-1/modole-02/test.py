@@ -1714,19 +1714,202 @@ print('##################################')
 
 print('##################################')
 
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin.read().split()
+# # print(lst_in) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# d = {
+#     k: v 
+#     for item in lst_in 
+#         for k, v in [item.split('=')]
+# }
+
+# if  'house' in d and 'True' in d  and '5' in d:
+#     print('ДА')
+# else:
+#     print('НЕТ') 
+
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin.read().split()
+# # print(lst_in) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# d = {
+#     k: v 
+#     for item in lst_in 
+#         for k, v in [item.split('=')]
+# }
+# # print(d) # test
+
+# while 'False' in d or '3' in d:
+#     try:
+#         del d['False']
+#     except KeyError:
+#         pass
+
+#     try:
+#         del d['3']
+#     except KeyError:
+#         pass
+
+# print(*sorted(d.items()))
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin.read().split()
+# # print(lst_in) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# d = {}
+# for item in lst_in:
+#     for k, v in [(item[:2], item)]:
+#         # d[k] = d.setdefault(k, []) + [v]
+#         d[k] = d.get(k, []) + [v]
+# # print(d) # test
+
+# print(*sorted(d.items()))
+
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin
+# # print(lst_in) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# d = {}
+# for item in lst_in:
+#     for v, k in [item.split()]:
+#         # d[k] = d.setdefault(k, []) + [v]
+#         # d[k] = d.get(k, []) + [v]
+#         d.setdefault(k, []).append(v)
+# # print(d) # test
+
+# print(*sorted(d.items()))
+
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin
+# # print(lst_in) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# d = {}
+# for k in map(int, lst_in):
+#     if not k:
+#         break
+#     if not k in d:
+#         d[k] = round(k**0.5, 2)
+#         print(d[k])
+#     else:
+#         print(f'значение из кэша: {d[k]}')
+
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin
+# # print(lst_in) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# d = {}
+# for k in map(str.strip, lst_in):
+#     if not k in d:
+#         d[k] = f'HTML-страница для адреса {k}'
+#         print(d[k])
+#     else:
+#         print(f'Взято из кэша: {d[k]}')
+
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin
+# # print(lst_in) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# d = {}
+# for k in map(str.strip, lst_in):
+#     if not k in d:
+#         d[k] = f'HTML-страница для адреса {k}'
+#         print(d[k])
+#     else:
+#         print(f'Взято из кэша: {d[k]}')
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin.read().strip()
+# # print(lst_in) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# d = {
+#     ' ': '-...-', 'Ё': '.', 'А': '.-', 'Б': '-...', 'В': '.--', 
+#     'Г': '--.', 'Д': '-..', 'Е': '.', 'Ж': '...-', 'З': '--..', 
+#     'И': '..', 'Й': '.---', 'К': '-.-', 'Л': '.-..', 'М': '--', 
+#     'Н': '-.', 'О': '---', 'П': '.--.', 'Р': '.-.', 'С': '...', 
+#     'Т': '-', 'У': '..-', 'Ф': '..-.', 'Х': '....', 'Ц': '-.-.', 
+#     'Ч': '---.', 'Ш': '----', 'Щ': '--.-', 'Ъ': '--.--', 
+#     'Ы': '-.--', 'Ь': '-..-', 'Э': '..-..', 'Ю': '..--', 'Я': '.-.-'
+# }
+
+# _len = len(lst_in)
+# for i, c in enumerate(map(str.upper, lst_in), 1):
+#     if i == _len:
+#         print(d[c])
+#     else:
+#         print(d[c], end=' ')
+
+print('##################################')
+
 import sys
-sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
 
 # считывание списка из входного потока
-lst_in = list(map(str.strip, sys.stdin))
+lst_in = sys.stdin.read().strip()
 # print(lst_in) # test
 
 # здесь продолжайте программу (используйте список lst_in)
 d = {
-    int(k): v 
-    for item in lst_in 
-        for k, v in [item.split('=')]
+    ' ': '-...-', 'Ё': '.', 'А': '.-', 'Б': '-...', 'В': '.--', 
+    'Г': '--.', 'Д': '-..', 'Е': '.', 'Ж': '...-', 'З': '--..', 
+    'И': '..', 'Й': '.---', 'К': '-.-', 'Л': '.-..', 'М': '--', 
+    'Н': '-.', 'О': '---', 'П': '.--.', 'Р': '.-.', 'С': '...', 
+    'Т': '-', 'У': '..-', 'Ф': '..-.', 'Х': '....', 'Ц': '-.-.', 
+    'Ч': '---.', 'Ш': '----', 'Щ': '--.-', 'Ъ': '--.--', 
+    'Ы': '-.--', 'Ь': '-..-', 'Э': '..-..', 'Ю': '..--', 'Я': '.-.-'
 }
-print(*sorted(d.items()))
+
+_len = len(lst_in)
+for i, c in enumerate(map(str.upper, lst_in), 1):
+    if i == _len:
+        print(d[c])
+    else:
+        print(d[c], end=' ')
 
 print('##################################')
