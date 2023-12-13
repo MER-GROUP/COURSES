@@ -1887,29 +1887,186 @@ print('##################################')
 
 print('##################################')
 
-import sys
+# import sys
 # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
 
+# # считывание списка из входного потока
+# lst_in = sys.stdin.read().strip()
+# # print(lst_in) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# d = {
+#     ' ': '-...-', 'Ё': '.', 'А': '.-', 'Б': '-...', 'В': '.--', 
+#     'Г': '--.', 'Д': '-..', 'Е': '.', 'Ж': '...-', 'З': '--..', 
+#     'И': '..', 'Й': '.---', 'К': '-.-', 'Л': '.-..', 'М': '--', 
+#     'Н': '-.', 'О': '---', 'П': '.--.', 'Р': '.-.', 'С': '...', 
+#     'Т': '-', 'У': '..-', 'Ф': '..-.', 'Х': '....', 'Ц': '-.-.', 
+#     'Ч': '---.', 'Ш': '----', 'Щ': '--.-', 'Ъ': '--.--', 
+#     'Ы': '-.--', 'Ь': '-..-', 'Э': '..-..', 'Ю': '..--', 'Я': '.-.-'
+# }
+
+# for m in lst_in.split():
+#     i = tuple(d.values()).index(m)
+#     k = tuple(d.keys())[i]
+#     print(k.lower().replace('ё', 'е'), end='')
+# print()
+
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin.read().strip()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# d = dict.fromkeys(lst_in.split())
+
+# print(*d.keys())
+
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin.read().strip()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# d = dict.fromkeys(lst_in.split())
+
+# print(*d.keys())
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# d = {}
+# for line in lst_in:
+#     k, v = line.split()
+#     d.setdefault(int(k), []).append(v)
+
+# for k, v in d.items():
+#     print(f'{k}: {", ".join(v)}')
+
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# d = {}
+# for line in lst_in:
+#     k, v = line.split()
+#     d.setdefault(int(k), []).append(v)
+
+# for k, v in d.items():
+#     print(f'{k}: {", ".join(v)}')
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# things = {'карандаш': 20, 'зеркальце': 100, 'зонт': 500, 'рубашка': 300, 
+#           'брюки': 1000, 'бумага': 200, 'молоток': 600, 'пила': 400, 'удочка': 1200,
+#           'расческа': 40, 'котелок': 820, 'палатка': 5240, 'брезент': 2130, 'спички': 10}
+# N = int(lst_in) * 1000
+# # print(N) # test
+
+# s = 0
+# d = {}
+# for k, v in sorted(things.items(), key=lambda x: -x[1]):
+#     s += v
+#     if v >= N:
+#         continue
+#     elif s <= N:
+#         d.setdefault(k, v)
+#     elif s > N:
+#         s -= v
+#     elif s == N:
+#         break
+# print(*d)
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# things = {'карандаш': 20, 'зеркальце': 100, 'зонт': 500, 'рубашка': 300, 
+#           'брюки': 1000, 'бумага': 200, 'молоток': 600, 'пила': 400, 'удочка': 1200,
+#           'расческа': 40, 'котелок': 820, 'палатка': 5240, 'брезент': 2130, 'спички': 10}
+# N = int(lst_in) * 1000
+# # print(N) # test
+
+# s = 0
+# d = {}
+# for k, v in sorted(things.items(), key=lambda x: -x[1]):
+#     s += v
+#     if v >= N:
+#         continue
+#     elif s <= N:
+#         d.setdefault(k, v)
+#     elif s > N:
+#         s -= v
+#     if s == N:
+#         break
+# print(*d)
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# t = (3.4, -56.7)
+# t += tuple(map(int, lst_in.split()))
+# print(t)
+
+print('##################################')
+
+import sys
+sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
 # считывание списка из входного потока
-lst_in = sys.stdin.read().strip()
+lst_in = sys.stdin.read()
 # print(lst_in) # test
+# print(lst_in.split()) # test
 
 # здесь продолжайте программу (используйте список lst_in)
-d = {
-    ' ': '-...-', 'Ё': '.', 'А': '.-', 'Б': '-...', 'В': '.--', 
-    'Г': '--.', 'Д': '-..', 'Е': '.', 'Ж': '...-', 'З': '--..', 
-    'И': '..', 'Й': '.---', 'К': '-.-', 'Л': '.-..', 'М': '--', 
-    'Н': '-.', 'О': '---', 'П': '.--.', 'Р': '.-.', 'С': '...', 
-    'Т': '-', 'У': '..-', 'Ф': '..-.', 'Х': '....', 'Ц': '-.-.', 
-    'Ч': '---.', 'Ш': '----', 'Щ': '--.-', 'Ъ': '--.--', 
-    'Ы': '-.--', 'Ь': '-..-', 'Э': '..-..', 'Ю': '..--', 'Я': '.-.-'
-}
-
-_len = len(lst_in)
-for i, c in enumerate(map(str.upper, lst_in), 1):
-    if i == _len:
-        print(d[c])
-    else:
-        print(d[c], end=' ')
+pass
 
 print('##################################')
