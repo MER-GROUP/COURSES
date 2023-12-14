@@ -2058,15 +2058,167 @@ print('##################################')
 
 print('##################################')
 
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# t = tuple(lst_in.split())
+# if 'Москва' not in t:
+#     t += 'Москва',
+# print(*t)
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# t = tuple(lst_in.split())
+# if 'Ульяновск' in t:
+#     t = t[:t.index('Ульяновск')] + t[t.index('Ульяновск')+1:]
+# print(*t)
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# t = tuple(w for w in lst_in.lower().split() if 'ва' in w)
+# print(*t)
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# t = tuple(map(int, lst_in.split()))
+# buff = []
+# t2 = ()
+# for i in t:
+#     if i not in buff:
+#         buff.append(i)
+#         t2 += i,
+# print(*t2)
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# t0 = tuple(map(int, lst_in.split()))
+# t = tuple(i for i, item in enumerate(t0) if 1 < t0.count(item))
+# print(*t)
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# t = ((1, 0, 0, 0, 0),
+#      (0, 1, 0, 0, 0),
+#      (0, 0, 1, 0, 0),
+#      (0, 0, 0, 1, 0),
+#      (0, 0, 0, 0, 1))
+# N = int(lst_in)
+
+# t2 = ()
+# for i in range(N):
+#     buff = ()
+#     for j in range(N):
+#         buff += t[i][j],
+#     t2 += tuple(buff), 
+
+# for i in t2:
+#     print(*i)
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# menu = tuple(tuple(i.split()) for i in map(str.strip, lst_in))
+# print(menu)
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# s = set(map(float, input().split()))
+# print(*sorted(s))
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# s = set(map(str, input().lower().split()))
+# print(len(s))
+
+print('##################################')
+
 import sys
 sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
 
 # считывание списка из входного потока
-lst_in = sys.stdin.read()
+lst_in = sys.stdin
 # print(lst_in) # test
 # print(lst_in.split()) # test
 
 # здесь продолжайте программу (используйте список lst_in)
-pass
+s = set(map(str, input().lower().split()))
+print(len(s))
 
 print('##################################')
