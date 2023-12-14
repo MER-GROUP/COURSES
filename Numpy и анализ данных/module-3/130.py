@@ -42,5 +42,8 @@ if __name__ == '__main__':
     # arr1, arr2, arr3, *_ = (np.fromstring(string=i, dtype=int, sep=' ') for i in stdin)
     # print(arr1, arr2, arr3, sep='\n')
 
-    arr1, *_ = (np.fromstring(string=i, dtype=int, sep=' ') for i in stdin)
+    arr1, *_ = (np.fromstring(string=i, dtype=float, sep=' ') for i in stdin)
     print(arr1)
+
+    positive_mean = arr1[np.where(0 < arr1)].mean()
+    print(*np.where(0 > arr1, positive_mean, arr1).round(3))
