@@ -2209,16 +2209,149 @@ print('##################################')
 
 print('##################################')
 
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# s = set(
+#     map(
+#         int,
+#         filter(
+#             lambda x: x.isdigit(), 
+#             input()
+#         )
+#     )
+# )
+# if s:
+#     print(*sorted(s))
+# else:
+#     print('НЕТ')
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# s = set(map(str.strip, lst_in))
+# print(len(s))
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# s = set(map(lambda x: x.split(':')[0].strip(), lst_in))
+# print(len(s))
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# lst_in = sys.stdin
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# s = set(x for x in map(str.strip, lst_in) if not 'q' == x)
+# print(len(s))
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(line.split()) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# s = arr1 & arr2
+# print(*sorted(s))
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(int, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# s = arr1 - arr2
+# print(*sorted(s))
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(int, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# s = arr1 ^ arr2
+# print(*sorted(s))
+
+print('##################################')
+
 import sys
 sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
 
 # считывание списка из входного потока
-lst_in = sys.stdin
+# lst_in = sys.stdin.read()
+lst_in = sys.stdin.readlines()
 # print(lst_in) # test
 # print(lst_in.split()) # test
 
 # здесь продолжайте программу (используйте список lst_in)
-s = set(map(str, input().lower().split()))
-print(len(s))
+arr1, arr2, *_ = (set(map(int, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+s = arr1 ^ arr2
+print(*sorted(s))
 
 print('##################################')
