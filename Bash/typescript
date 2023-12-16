@@ -1,0 +1,15 @@
+Script started on 2023-12-16 17:06:46+03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="65" LINES="29"]
+[?2004h]0;red@red: ~/WORK/PYTHON/MyPROG/COURSES/Bash[01;32mred@red[00m:[01;34m~/WORK/PYTHON/MyPROG/COURSES/Bash[00m$ ls -\[K[K[K
+[?2004l[0m[01;32marray2.sh[0m      [01;32meat_more.txt[0m    [01;32mfile2[0m          [34;42mPhotos[0m
+[01;32marray3.sh[0m      [01;32mexapmle01.jpeg[0m  [01;32mfile2.txt[0m      [01;32mred[0m
+[01;32marray.sh[0m       [01;32mexapmle02.jpeg[0m  [01;32mfile3[0m          [01;32mtest[0m
+[01;32mcase2.sh[0m       [01;32mexapmle03.jpeg[0m  [01;32mfile.txt[0m       [01;32mtest.txt[0m
+[01;32mcase3.sh[0m       [01;32mexapmle04.jpeg[0m  [34;42mfor[0m            [01;32mtypescript[0m
+[01;32mcase.sh[0m        [01;32mexapmle05.jpeg[0m  [01;32mindex.txt[0m      [01;32mДва_слова.txt[0m[K
+[01;32mch02.asciidoc[0m  [01;32mfile[0m            [01;32mls-error.txt[0m
+[34;42mdir[0m            [01;32mfile0[0m           [01;32mls-output.txt[0m
+[34;42mdir_new[0m        [01;32mfile1[0m           [01;32mls.txt[0m
+[?2004h]0;red@red: ~/WORK/PYTHON/MyPROG/COURSES/Bash[01;32mred@red[00m:[01;34m~/WORK/PYTHON/MyPROG/COURSES/Bash[00m$ exit
+[?2004lexit
+
+Script done on 2023-12-16 17:08:00+03:00 [COMMAND_EXIT_CODE="0"]

@@ -138,7 +138,14 @@ case ${action} in
             }
     ;;
     return )
-        #...
+        for output in examples/*/*.out; do
+            code=${output/out/sh}
+            echo "Re-running code for: ${code} > ${output}"
+            ${code} > ${output}
+        done
+    ;;
+    cleanup )
+        # ...
     ;;
 
     # other
