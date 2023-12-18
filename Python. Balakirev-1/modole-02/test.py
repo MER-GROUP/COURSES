@@ -2336,6 +2336,152 @@ print('##################################')
 
 print('##################################')
 
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# print('ДА' if arr1 == arr2 else 'НЕТ')
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# # print(arr2) # test
+
+# print('ДОПУЩЕН' if '2' not in arr1 else 'НЕ ДОПУЩЕН')
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# print('ДА' if arr2 >= arr1 else 'НЕТ')
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# n = int(next(iter(arr1)))
+# check1 = {2, 3, 5}
+# check2 = {i for i in range(2, int(n**0.5) + 1) if not n % i}
+
+# print('ДА' if check1 <= check2 else 'НЕТ')
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# d = {k: v for k, v in enumerate(arr1[1:], int(arr1[0]))}
+# print(d.get(4))
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# s = {*map(str.strip, lst_in)}
+# print(len(s))
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# s = {s.lower() for s in arr1 if 3 <= len(s)}
+# print(len(s))
+
+print('##################################')
+
 import sys
 sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
 
@@ -2346,12 +2492,12 @@ lst_in = sys.stdin.readlines()
 # print(lst_in.split()) # test
 
 # здесь продолжайте программу (используйте список lst_in)
-arr1, arr2, *_ = (set(map(int, line.split())) for line in lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+arr1, *_ = (tuple(map(str.strip, line.lower().split())) for line in lst_in)
 
-# print(arr1) # test
+print(arr1) # test
 # print(arr2) # test
 
-s = arr1 ^ arr2
-print(*sorted(s))
+pass
 
 print('##################################')
