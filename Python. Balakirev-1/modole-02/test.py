@@ -2482,20 +2482,75 @@ print('##################################')
 
 print('##################################')
 
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.lower().split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# d = {
+#     k: arr1.count(k)
+#     for k in set(arr1)
+# }
+
+# print(d.get('и', 0))
+
+print('##################################')
+
+# import sys
+# # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# # lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# d = {
+#     k: {line_copy.split(':')[1].strip() for line_copy in lst_in if line_copy.split(':')[0]==k}
+#     for line in lst_in
+#         for k, _ in [line.split(':')]
+# }
+
+# # print(d)
+
+print('##################################')
+
 import sys
 sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
 
 # считывание списка из входного потока
 # lst_in = sys.stdin.read()
 lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
 # print(lst_in) # test
 # print(lst_in.split()) # test
 
 # здесь продолжайте программу (используйте список lst_in)
 # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
-arr1, *_ = (tuple(map(str.strip, line.lower().split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
 
-print(arr1) # test
+# print(arr1) # test
 # print(arr2) # test
 
 pass
