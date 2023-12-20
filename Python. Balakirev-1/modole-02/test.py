@@ -2535,12 +2535,12 @@ print('##################################')
 
 print('##################################')
 
-import sys
-sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
 
 # считывание списка из входного потока
 # lst_in = sys.stdin.read()
-lst_in = sys.stdin.readlines()
+# lst_in = sys.stdin.readlines()
 # lst_in = list(map(str.strip, sys.stdin.readlines()))
 
 # print(lst_in) # test
@@ -2553,6 +2553,184 @@ lst_in = sys.stdin.readlines()
 # print(arr1) # test
 # print(arr2) # test
 
-pass
+# def my_func():
+#     print("It's my first function")
+          
+# my_func()
+
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+# def my_func():
+#     name, last_name = input().split()
+#     print(f'Уважаемый, {name} {last_name}! Вы верно выполнили это задание!')
+          
+# my_func()
+
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+# def my_func(weigth: float) -> None:
+#     print(f'Предмет имеет вес: {weigth} кг.')
+          
+# my_func(float(input()))
+
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+# def my_func(arr: list) -> None:
+#     print(f'Min = {min(arr, key=int)}, max = {max(arr, key=int)}, sum = {sum(map(int, arr))}')
+          
+# my_func(input().split())
+
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+# def my_func(width: int, height: int) -> None:
+#     print(f'Периметр прямоугольника, равен {2*(width+height)}')
+          
+# my_func(*map(int, input().split()))
+
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+# def my_func(mail: str) -> None:
+#     if 1 == mail.count('@') and 1 == mail.count('.'):
+#         for c in mail:
+#             # print(c) # test
+#             if not 'a' <= c <= 'z'\
+#                 and not 'A' <= c <= 'Z'\
+#                 and not '0' <= c <= '9'\
+#                 and not c in ('_', '.', '@'):
+#                     print('НЕТ')
+#                     break
+#         else:
+#             print('ДА')
+#     else:
+#         print('НЕТ')
+          
+# my_func(input())
+
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+def my_func(mail: str) -> None:
+    if 1 == mail.count('@') and 1 == mail.count('.'):
+        for c in mail:
+            # print(c) # test
+            if not 'a' <= c <= 'z'\
+                and not 'A' <= c <= 'Z'\
+                and not '0' <= c <= '9'\
+                and not c in ('_', '.', '@'):
+                    print('НЕТ')
+                    break
+        else:
+            print('ДА')
+    else:
+        print('НЕТ')
+          
+my_func(input())
 
 print('##################################')
