@@ -145,7 +145,7 @@ case ${action} in
         done
     ;;
     cleanup )
-        # ...
+        rm -fv {ch??,app?}.{pdf,xml,html} book.{xml,html} docbook-xsl.css
     ;;
 
     # other
