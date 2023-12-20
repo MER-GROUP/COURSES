@@ -2716,21 +2716,44 @@ print('##################################')
 # print(arr1) # test
 # print(arr2) # test
 
-def my_func(mail: str) -> None:
-    if 1 == mail.count('@') and 1 == mail.count('.'):
-        for c in mail:
-            # print(c) # test
-            if not 'a' <= c <= 'z'\
-                and not 'A' <= c <= 'Z'\
-                and not '0' <= c <= '9'\
-                and not c in ('_', '.', '@'):
-                    print('НЕТ')
-                    break
-        else:
-            print('ДА')
-    else:
-        print('НЕТ')
-          
-my_func(input())
+# passwd = input()
+# if 8 <= len(passwd)\
+#     and any(c == c.upper() for c in passwd if not c.isdigit())\
+#     and any(c == c.lower() for c in passwd if not c.isdigit()):
+#         print('YES')
+# else:
+#         print('NO')
+
+# print([c == c.upper() for c in passwd if not c.isdigit()])
+
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+passwd = input()
+if 8 <= len(passwd)\
+    and any(c == c.upper() for c in passwd if not c.isdigit())\
+    and any(c == c.lower() for c in passwd if not c.isdigit()):
+        print('YES')
+else:
+        print('NO')
+
+# print([c == c.upper() for c in passwd if not c.isdigit()])
 
 print('##################################')
