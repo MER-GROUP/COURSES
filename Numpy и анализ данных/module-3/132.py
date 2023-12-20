@@ -28,5 +28,14 @@ if __name__ == '__main__':
     # arr1, arr2, arr3, *_ = (np.fromstring(string=i, dtype=int, sep=' ') for i in stdin)
     # print(arr1, arr2, arr3, sep='\n')
 
-    arr1, *_ = (np.fromstring(string=i, dtype=float, sep=' ') for i in stdin)
-    print(arr1)
+    arr1, *_ = (np.fromstring(string=i, dtype=int, sep=' ') for i in stdin)
+
+    print(np.where(50 < arr1))
+    inds = np.where(50 < arr1)
+    a = arr1[inds]
+    print(a)
+    print(a[:1])
+    try:
+        print(arr1[np.where(50 < arr1)][0])
+    except IndexError:
+        pass
