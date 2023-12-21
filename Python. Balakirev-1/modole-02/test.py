@@ -2746,14 +2746,194 @@ print('##################################')
 # print(arr1) # test
 # print(arr2) # test
 
-passwd = input()
-if 8 <= len(passwd)\
-    and any(c == c.upper() for c in passwd if not c.isdigit())\
-    and any(c == c.lower() for c in passwd if not c.isdigit()):
-        print('YES')
-else:
-        print('NO')
+# def func(x: float) -> float:
+#     return x ** 2
 
-# print([c == c.upper() for c in passwd if not c.isdigit()])
+# print(func(float(input())))
 
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+# def is_triangle(a: int, b: int, c: int) -> bool:
+#     # return min(a, b, c) + (a + b + c - max(a, b, c) - min(a, b, c)) > max(a, b, c)
+#     return sum(sorted([a, b, c])[:2]) > sorted([a, b, c])[2]
+
+# print(is_triangle(*map(int, input().split())))
+
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+# def is_large(s: str) -> bool:
+#     return 2 < len(s)
+
+# print(is_large(input()))
+
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+# def is_even(x: int) -> bool:
+#     return not x % 2
+
+# for i in iter(input, '1'):
+#     if is_even(int(i)):
+#         print(i)
+
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+# def is_odd(x: int) -> bool:
+#     return x % 2
+
+
+# lst = [*filter(is_odd, map(int, input().split()))]
+# print(*lst)
+
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+# tp = input()
+# if 'RECT' == tp:
+#     def get_sq(a: int, b: int) -> int:
+#         return a * b
+# else:
+#     def get_sq(a: int) -> int:
+#         return a * a
+    
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+# def func(s: str) -> bool:
+#     return not 6 > len(s)
+
+# lst = [*filter(func, input().split())]
+# print(*lst)
+    
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+def func(s: str) -> bool:
+    return not 6 > len(s)
+
+lst = [*filter(func, input().split())]
+print(*lst)
+    
 print('##################################')
