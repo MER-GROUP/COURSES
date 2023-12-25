@@ -67,7 +67,7 @@ case ${action} in
 
         # Output $( echo ${SELF} id ${text} )
         # Output $( ${SELF} id ${text} )
-        # Output $( bash ${SELF} id ${text} ) # < ----- !!!
+        # Output $( bash ${SELF} id ${text} ) # < ----- !!!!!
         # Output $( echo ${text} | tr -s '_' ' ' | tr '[:upper:]' '[:lower:]' | tr -d ':punct:' \
         #     | tr -s ' ' '_' )
     ;;
@@ -123,11 +123,11 @@ case ${action} in
     ;;
 
     # tools
-    id )
+    id ) # tools
         Output $( echo ${text} | tr -s '_' ' ' | tr '[:upper:]' '[:lower:]' | tr -d ':punct:' \
             | tr -s ' ' '_' )
     ;;
-    index )
+    index ) # tools
         egrep '^=== ' ch*.asciidoc | egrep -v '^ch00.asciidoc' \
             > ${BOOK_ASC}/index.txt && {
                 echo "Updated: ${BOOK_ASC}/index.txt"
@@ -137,20 +137,27 @@ case ${action} in
                 exit 1
             }
     ;;
-    return )
+    return ) # tools
         for output in examples/*/*.out; do
             code=${output/out/sh}
             echo "Re-running code for: ${code} > ${output}"
             ${code} > ${output}
         done
     ;;
-    cleanup )
+    cleanup ) ## tools
         rm -fv {ch??,app?}.{pdf,xml,html} book.{xml,html} docbook-xsl.css
     ;;
 
     # other
-	* )
+	* ) ### other
 		echo "Your arg is ${action}" # for test
+        \cd -
+        ( echo "Usage:" 
+        egrep '\)[[:space:]]+#' $0 
+        echo ''
+        egrep '\)[[:space:]]+##' $0 
+        echo ''
+        egrep '\)[[:space:]]+###' $0 ) | grep "${1:-.}" | more
 	;;
 esac
 
