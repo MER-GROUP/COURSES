@@ -3084,10 +3084,99 @@ print('##################################')
 # print(arr1) # test
 # print(arr2) # test
 
-sentence = input()
-n = len(sentence)
-s1 = sentence[:n//2]
-s2 = sentence[n//2:]
-print(s1.capitalize(), s2.capitalize(), sep='')
+# def get_nod(a: int, b: int) -> int:
+#     if a < b:
+#         a, b = b, a
+#     while not 0 == b:
+#         a, b = b, a % b
+#     return a
+
+# print(get_nod(15, 121050))
+    
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+# def get_nod(a: int, b: int) -> int:
+#     # if a < b:
+#     #     a, b = b, a
+#     while not 0 == b:
+#         print(f'a = {a}, b = {b}')
+#         a, b = b, a % b
+#         print(f'a = {a}, b = {b}')
+#     return a
+
+# print(get_nod(121050, 15))
+# print(get_nod(15, 121050))
+
+# print('---------')
+# print(121050%15)
+# print(15%121050)
+    
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+# def get_rect_value(a: float, b: float, type=0):
+#     if not type:
+#         return 2 * (a + b)
+#     return a * b
+    
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+def get_rect_value(a: float, b: float, type=0):
+    if not type:
+        return 2 * (a + b)
+    return a * b
     
 print('##################################')
