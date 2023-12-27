@@ -3174,9 +3174,215 @@ print('##################################')
 # print(arr1) # test
 # print(arr2) # test
 
-def get_rect_value(a: float, b: float, type=0):
-    if not type:
-        return 2 * (a + b)
-    return a * b
+# def check_password(passwd: str, chars='$%!?@#') -> bool:
+#     return any(c in chars for c in passwd) and 7 < len(passwd)
+
+# print(check_password('12345678!'))
+    
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+# def func(sentense: str, sep: str='-') -> str:
+#     t = {'ё': 'yo', 'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ж': 'zh',
+#      'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'п': 'p',
+#      'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch', 'ш': 'sh',
+#      'щ': 'shch', 'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya'}
+    
+#     return ''.join(sep if ' ' == x else t.get(x, x) for x in sentense.lower())
+
+# s = input()
+# print(func(s))
+# print(func(s, sep='+'))
+    
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+# def func(sentense: str, tag: str='h1') -> str:
+#     return f'<{tag}>{sentense}</{tag}>'
+
+# s = input()
+# print(func(s))
+# print(func(s, tag='div'))
+    
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+# def func(sentense: str, tag: str='h1', up: bool=True) -> str:
+#     tag = tag.upper() if up else tag
+#     return f'<{tag}>{sentense}</{tag}>'
+
+# s = input()
+# # print(func(s))
+# print(func(s, tag='div'))
+# print(func(s, tag='div', up=False))
+    
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+# def get_even(*args):
+#     return [x for x in args if not x % 2]
+
+# print(get_even(*map(int, '45 4 8 11 12 0'.split())))
+    
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+# def get_biggest_city(*args):
+#     return max(args, key=len)
+
+# print(get_biggest_city(*'Питер Москва Самара Воронеж'.split()))
+    
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+# def get_data_fig(*args, **kwargs):
+#     p = (sum(args), )
+#     if 'type' in kwargs:
+#         p += (kwargs['type'],)
+#     if 'color' in kwargs:
+#         p += (kwargs['color'],)
+#     if 'closed' in kwargs:
+#         p += (kwargs['closed'],)
+#     if 'width' in kwargs:
+#         p += (kwargs['width'],)
+#     return p
+
+# print(get_data_fig(1, 2, 3, 4, type=True))
+    
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# print(lst_in.split()) # test
+
+# здесь продолжайте программу (используйте список lst_in)
+# arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# print(arr1) # test
+# print(arr2) # test
+
+def get_data_fig(*args, **kwargs):
+    p = (sum(args), )
+    if 'type' in kwargs:
+        p += (kwargs['type'],)
+    if 'color' in kwargs:
+        p += (kwargs['color'],)
+    if 'closed' in kwargs:
+        p += (kwargs['closed'],)
+    if 'width' in kwargs:
+        p += (kwargs['width'],)
+    return p
+
+print(get_data_fig(1, 2, 3, 4, type=True))
     
 print('##################################')
