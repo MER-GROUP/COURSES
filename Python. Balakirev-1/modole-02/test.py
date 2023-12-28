@@ -3356,12 +3356,234 @@ print('##################################')
 # import sys
 # sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
 
-# считывание списка из входного потока
-# lst_in = sys.stdin.read()
-# lst_in = sys.stdin.readlines()
-# lst_in = list(map(str.strip, sys.stdin.readlines()))
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# # lst_in = sys.stdin.readlines()
+# lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
 
 # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# def is_isolate(i: int, j: int, arr: list) -> bool:
+#     n = len(arr)
+#     s = 0
+
+#     # for i_1 in range(i-1, i-1+3):
+#     #     for j_1 in range(j-1, j-1+3):
+#     #         s += arr[i_1][j_1]
+#     #         print(arr[i_1][j_1], end=' ') # test
+#     #     print() # test
+#     # print(f's = {s}') # test
+#     # return False if 1 == s else True
+
+#     if 0 == i:
+#         start_i = i
+#         end_i = start_i + 2
+#     elif n-1 == i:
+#         start_i = i-1
+#         end_i = start_i + 2
+#     else:
+#         start_i = i-1
+#         end_i = start_i + 3
+
+#     if 0 == j:
+#         start_j = j
+#         end_j = start_j + 2
+#     elif n-1 == j:
+#         start_j = j-1
+#         end_j = start_j + 2
+#     else:
+#         start_j = j-1
+#         end_j = start_j + 3
+
+#     for i_1 in range(start_i, end_i):
+#         for j_1 in range(start_j, end_j):
+#             s += arr[i_1][j_1]
+#             # print(arr[i_1][j_1], end=' ') # test
+#         # print() # test
+#     # print(f's = {s}') # test
+#     return False if 1 == s else True
+
+# def verify(arr: list) -> bool:
+#     for i, item_i in enumerate(arr):
+#         for j, item_j in enumerate(item_i):
+#             if 1 == item_j:
+#                 if is_isolate(i, j, arr):
+#                     return False
+#     return True
+
+# print(verify(lst_in))
+    
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# # lst_in = sys.stdin.readlines()
+# lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
+
+# print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# # def is_isolate(i: int, j: int, arr: list) -> bool:
+# #     n = len(arr)
+# #     s = 0
+
+# #     # for i_1 in range(i-1, i-1+3):
+# #     #     for j_1 in range(j-1, j-1+3):
+# #     #         s += arr[i_1][j_1]
+# #     #         print(arr[i_1][j_1], end=' ') # test
+# #     #     print() # test
+# #     # print(f's = {s}') # test
+# #     # return False if 1 == s else True
+
+# #     if 0 == i:
+# #         start_i = i
+# #         end_i = start_i + 2
+# #     elif n-1 == i:
+# #         start_i = i-1
+# #         end_i = start_i + 2
+# #     else:
+# #         start_i = i-1
+# #         end_i = start_i + 3
+
+# #     if 0 == j:
+# #         start_j = j
+# #         end_j = start_j + 2
+# #     elif n-1 == j:
+# #         start_j = j-1
+# #         end_j = start_j + 2
+# #     else:
+# #         start_j = j-1
+# #         end_j = start_j + 3
+
+# #     for i_1 in range(start_i, end_i):
+# #         for j_1 in range(start_j, end_j):
+# #             s += arr[i_1][j_1]
+# #             # print(arr[i_1][j_1], end=' ') # test
+# #         # print() # test
+# #     # print(f's = {s}') # test
+# #     return False if 1 == s else True
+
+# # def verify(arr: list) -> bool:
+# #     for i, item_i in enumerate(arr):
+# #         for j, item_j in enumerate(item_i):
+# #             if 1 == item_j:
+# #                 if is_isolate(i, j, arr):
+# #                     return False
+# #     return True
+
+# # def is_isolate(matrix, x, y):
+# #     n = len(matrix)
+# #     for i in range(-1, 2):
+# #         for j in range(-1, 2):
+# #             if 0 <= x + i < n and 0 <= y + j < n:
+# #                 if (i or j) and matrix[x + i][y + j]:
+# #                     return False
+# #     return True
+    
+
+# # def verify(matrix):
+# #     n = len(matrix)
+# #     for i in range(n):
+# #         for j in range(n):
+# #             if matrix[i][j] == 1 and not is_isolate(matrix, i, j):
+# #                 return False
+# #     return True
+
+# def is_isolate(m):
+#     for i in range(len(m) - 1):
+#         k=''.join(map(str, map(sum, (zip(m[i], m[i + 1])))))
+#         print(k) # test
+#         if '2' in k or '11' in k: return False
+#     return True
+
+# def verify(m):
+#     return is_isolate(m)
+
+# print(verify(lst_in))
+    
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# # lst_in = sys.stdin.readlines()
+# lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
+
+# print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# def str_min(s1: str, s2: str) -> str:
+#     return s1 if s1 < s2 else s2
+
+# def str_min3(s1: str, s2: str, s3: str) -> str:
+#     return str_min(s1, s2) if str_min(s1, s2) < s3 else s3
+
+# def str_min4(s1: str, s2: str, s3: str, s4: str) -> str:
+#     return str_min3(s1, s2, s3) if str_min3(s1, s2, s3) < s4 else s4
+    
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# lst_in = list(map(int, sys.stdin.read().split()))
+# # lst_in = sys.stdin.readlines()
+# # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
+
+# print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# *lst, x, y, z = lst_in
+# print(*lst)
+    
+print('##################################')
+
+import sys
+sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# считывание списка из входного потока
+# lst_in = sys.stdin.read()
+lst_in = list(map(int, sys.stdin.read().split()))
+# lst_in = sys.stdin.readlines()
+# lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
+
+print(lst_in) # test
 # print(lst_in.split()) # test
 
 # здесь продолжайте программу (используйте список lst_in)
@@ -3371,18 +3593,6 @@ print('##################################')
 # print(arr1) # test
 # print(arr2) # test
 
-def get_data_fig(*args, **kwargs):
-    p = (sum(args), )
-    if 'type' in kwargs:
-        p += (kwargs['type'],)
-    if 'color' in kwargs:
-        p += (kwargs['color'],)
-    if 'closed' in kwargs:
-        p += (kwargs['closed'],)
-    if 'width' in kwargs:
-        p += (kwargs['width'],)
-    return p
-
-print(get_data_fig(1, 2, 3, 4, type=True))
+pass
     
 print('##################################')
