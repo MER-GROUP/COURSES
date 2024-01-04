@@ -4,19 +4,21 @@ echo "###################################"
 # case ${filename} in
 case ${1} in
     ./* )
-        echo -ne "local"
+        echo -ne "local\n"
     ;&
-    [^/]* )
+    # [^/]* )
+    111 )
         echo -ne "relative\n"
     ;;&
     /* )
-        echo -ne "absolute"
+        echo -ne "absolute\n"
     ;&
     */* )
-        echo -ne "pathname"
-    ;;
+        echo -ne "pathname\n"
+    # ;;
+    ;;&
     * )
-        echo -ne "filename"
+        echo -ne "filename\n"
     ;;
 esac
 
