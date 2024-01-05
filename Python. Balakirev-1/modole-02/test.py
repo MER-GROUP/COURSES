@@ -3705,16 +3705,46 @@ print('##################################')
     
 print('##################################')
 
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# lst_in = sys.stdin.read().strip()
+# # lst_in = sys.stdin.read().split()
+# # lst_in = list(map(int, sys.stdin.read().split()))
+# # lst_in = sys.stdin.readlines()
+# # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
+# # lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
+# # lst_in = map(lambda x: x.strip().split('='), sys.stdin.readlines())
+# # lst_in = list(map(str.split, sys.stdin.readlines()))
+
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# res = lst_in.find('Сакура')
+# print(res if not -1 == res else 'Это письмо не Сакуре')
+    
+print('##################################')
+
 import sys
 sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
 
 # считывание списка из входного потока
 # lst_in = sys.stdin.read()
+lst_in = sys.stdin.read().strip()
 # lst_in = sys.stdin.read().split()
 # lst_in = list(map(int, sys.stdin.read().split()))
 # lst_in = sys.stdin.readlines()
 # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
-lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
+# lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
 # lst_in = map(lambda x: x.strip().split('='), sys.stdin.readlines())
 # lst_in = list(map(str.split, sys.stdin.readlines()))
 
@@ -3728,6 +3758,7 @@ lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
 # print(arr1) # test
 # print(arr2) # test
 
-pass
+res = lst_in.find('Сакура')
+print(res if not -1 == res else 'Это письмо не Сакуре')
     
 print('##################################')
