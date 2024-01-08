@@ -3734,14 +3734,83 @@ print('##################################')
     
 print('##################################')
 
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# # lst_in = sys.stdin.read().strip()
+# lst_in = int(sys.stdin.read().strip())
+# # lst_in = sys.stdin.read().split()
+# # lst_in = list(map(int, sys.stdin.read().split()))
+# # lst_in = sys.stdin.readlines()
+# # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
+# # lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
+# # lst_in = map(lambda x: x.strip().split('='), sys.stdin.readlines())
+# # lst_in = list(map(str.split, sys.stdin.readlines()))
+
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# def get_rec_N(N):
+#     if 1 < N:
+#         get_rec_N(N-1)
+#     print(N)
+
+# get_rec_N(lst_in)
+    
+print('##################################')
+
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# # lst_in = sys.stdin.read().strip()
+# # lst_in = int(sys.stdin.read().strip())
+# # lst_in = sys.stdin.read().split()
+# lst_in = list(map(int, sys.stdin.read().split()))
+# # lst_in = sys.stdin.readlines()
+# # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
+# # lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
+# # lst_in = map(lambda x: x.strip().split('='), sys.stdin.readlines())
+# # lst_in = list(map(str.split, sys.stdin.readlines()))
+
+# # print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# def get_rec_sum(arr, index=0):
+#     if len(arr) == index+1:
+#         return arr[index]
+#     return arr[index] + get_rec_sum(arr, index+1)
+
+# print(get_rec_sum(lst_in))
+    
+print('##################################')
+
 import sys
 sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
 
 # считывание списка из входного потока
 # lst_in = sys.stdin.read()
-lst_in = sys.stdin.read().strip()
+# lst_in = sys.stdin.read().strip()
+# lst_in = int(sys.stdin.read().strip())
 # lst_in = sys.stdin.read().split()
-# lst_in = list(map(int, sys.stdin.read().split()))
+lst_in = list(map(int, sys.stdin.read().split()))
 # lst_in = sys.stdin.readlines()
 # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
 # lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
@@ -3758,7 +3827,11 @@ lst_in = sys.stdin.read().strip()
 # print(arr1) # test
 # print(arr2) # test
 
-res = lst_in.find('Сакура')
-print(res if not -1 == res else 'Это письмо не Сакуре')
+def get_rec_sum(arr, index=0):
+    if len(arr) == index+1:
+        return arr[index]
+    return arr[index] + get_rec_sum(arr, index+1)
+
+print(get_rec_sum(lst_in))
     
 print('##################################')
