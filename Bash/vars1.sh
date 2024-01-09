@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 echo "###################################"
 
-# pass
+FILE="Vitkovskaja"
+
+echo "This is FILE"
+echo "This is $FILE"
+echo "This is ${FILE}"
+echo "This is ${#FILE}"
 
 echo "###################################"
