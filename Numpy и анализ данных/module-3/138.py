@@ -48,4 +48,9 @@ if __name__ == '__main__':
     print(arr1) # test
     print(arr2) # test
 
-    pass
+    limit = 60000
+    # mask_limit = arr1.astype(dtype=int)[arr1.astype(dtype=int)<limit]
+    mask_limit = np.where(arr1.astype(dtype=int)<=limit, True, False)
+    # print(~mask_limit) # test
+    # print(mask_limit) # test
+    print(arr2[~mask_limit], arr2[mask_limit])
