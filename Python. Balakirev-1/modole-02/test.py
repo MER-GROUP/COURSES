@@ -3958,10 +3958,9 @@ sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
 # считывание списка из входного потока
 # lst_in = sys.stdin.read()
 # lst_in = sys.stdin.read().strip()
-lst_in = int(sys.stdin.read().strip())
 # lst_in = int(sys.stdin.read().strip())
 # lst_in = sys.stdin.read().split()
-# lst_in = list(map(int, sys.stdin.read().split()))
+lst_in = list(map(int, sys.stdin.read().split()))
 # lst_in = sys.stdin.readlines()
 # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
 # lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
@@ -3978,14 +3977,7 @@ print(lst_in) # test
 # print(arr1) # test
 # print(arr2) # test
 
-def get_path(n):
-    if 1 == n:
-        return 1
-    elif 2 == n:
-        return 2
-    else:
-        return get_path(n-1) + get_path(n-2)
-
-print(get_path(lst_in))
+def merge_arr(arr: list):
+    ...
 
 print('##################################')
