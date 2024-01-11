@@ -45,4 +45,5 @@ if __name__ == '__main__':
     print(arr1) # test
     # print(arr2) # test
 
-    pass
+    print(*arr1[np.where(50 < arr1)])
+    # print(*arr1[np.where(50 < arr1, True, False)])
