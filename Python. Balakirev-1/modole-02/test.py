@@ -3952,6 +3952,66 @@ print('##################################')
 
 print('##################################')
 
+# import sys
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# # lst_in = sys.stdin.read().strip()
+# # lst_in = int(sys.stdin.read().strip())
+# # lst_in = sys.stdin.read().split()
+# lst_in = list(map(int, sys.stdin.read().split()))
+# # lst_in = sys.stdin.readlines()
+# # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
+# # lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
+# # lst_in = map(lambda x: x.strip().split('='), sys.stdin.readlines())
+# # lst_in = list(map(str.split, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# def merge_arr(arr1: list, arr2: list) -> list:
+#     arr1_len = len(arr1)
+#     arr2_len = len(arr2)
+#     arr_new = []
+#     arr1_it = 0
+#     arr2_it = 0
+
+#     while arr1_it < arr1_len and arr2_it < arr2_len:
+#         if arr1[arr1_it] < arr2[arr2_it]:
+#             arr_new += [arr1[arr1_it]]
+#             arr1_it += 1
+#         else:
+#             arr_new += [arr2[arr2_it]]
+#             arr2_it += 1
+#     arr_new += arr1[arr1_it:]
+#     arr_new += arr2[arr2_it:]
+
+#     return arr_new
+
+# def split_arr(arr: list):
+#     middle = len(arr) // 2
+#     arr1 = arr[:middle]
+#     arr2 = arr[middle:]
+
+#     if 1 < len(arr1):
+#         arr1 = split_arr(arr1)
+#     if 1 < len(arr2):
+#         arr2 = split_arr(arr2)
+
+#     return merge_arr(arr1, arr2)
+
+# print(*split_arr(lst_in))
+
+print('##################################')
+
 import sys
 sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
 
@@ -3977,7 +4037,37 @@ print(lst_in) # test
 # print(arr1) # test
 # print(arr2) # test
 
-def merge_arr(arr: list):
-    ...
+def merge_arr(arr1: list, arr2: list) -> list:
+    arr1_len = len(arr1)
+    arr2_len = len(arr2)
+    arr_new = []
+    arr1_it = 0
+    arr2_it = 0
+
+    while arr1_it < arr1_len and arr2_it < arr2_len:
+        if arr1[arr1_it] < arr2[arr2_it]:
+            arr_new += [arr1[arr1_it]]
+            arr1_it += 1
+        else:
+            arr_new += [arr2[arr2_it]]
+            arr2_it += 1
+    arr_new += arr1[arr1_it:]
+    arr_new += arr2[arr2_it:]
+
+    return arr_new
+
+def split_arr(arr: list):
+    middle = len(arr) // 2
+    arr1 = arr[:middle]
+    arr2 = arr[middle:]
+
+    if 1 < len(arr1):
+        arr1 = split_arr(arr1)
+    if 1 < len(arr2):
+        arr2 = split_arr(arr2)
+
+    return merge_arr(arr1, arr2)
+
+print(*split_arr(lst_in))
 
 print('##################################')
