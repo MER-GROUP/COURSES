@@ -24,3 +24,20 @@ echo "usage: ${FILE##*Vitkov} namesfile datafile"
 echo "usage: ${0##*/} namesfile datafile"
 
 echo "###################################"
+
+echo "usage: ${FILE#Vit} namesfile datafile"
+echo "usage: ${FILE##Vit} namesfile datafile"
+echo "usage: ${FILE#*Vit} namesfile datafile"
+echo "usage: ${FILE##*Vit} namesfile datafile"
+
+echo "###################################"
+
+echo "usage: ${FILE#*k} namesfile datafile"
+echo "usage: ${FILE##*k} namesfile datafile"
+
+echo "###################################"
+
+echo "usage: ${FILE%k*} namesfile datafile"
+echo "usage: ${FILE%%k*} namesfile datafile"
+
+echo "###################################"
