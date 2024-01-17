@@ -54,4 +54,11 @@ if __name__ == '__main__':
     print(arr1) # test
     # print(arr2) # test
 
-    pass
+    arr_color = np.array(object=['зеленый' for _ in range(*arr1)], dtype=np.str_)
+    arr_index = np.arange(1, *arr1+1)
+    # print(arr_color) # test
+    # print(arr_index) # test
+    arr_color = np.where(0 == arr_index % 3, 'красный', arr_color)
+    arr_color = np.where(0 == arr_index % 5, 'синий', arr_color)
+    arr_color = np.where(((0 == arr_index % 3) & (0 == arr_index % 5)), 'желтый', arr_color)
+    print(arr_color)
