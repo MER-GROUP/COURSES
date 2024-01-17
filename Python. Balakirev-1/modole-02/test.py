@@ -4381,6 +4381,165 @@ print('##################################')
 
 print('##################################')
 
+# import sys
+# _stdin = sys.stdin
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# # lst_in = sys.stdin.read().strip()
+# # lst_in = int(sys.stdin.read().strip())
+# # lst_in = sys.stdin.read().split()
+# lst_in = list(map(int, sys.stdin.read().split()))
+# # lst_in = list(map(float, sys.stdin.read().split()))
+# # lst_in = sys.stdin.readlines()
+# # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
+# # lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
+# # lst_in = map(lambda x: x.strip().split('='), sys.stdin.readlines())
+# # lst_in = list(map(str.split, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# sys.stdin = _stdin
+
+# def counter_add(n):
+#     def inner(k):
+#         return k + n
+#     return inner
+
+# print(counter_add(2)(int(input())))
+# # cnt = counter_add(2)
+# # k = int(input())
+# # print(cnt(k))
+
+print('##################################')
+
+# import sys
+# _stdin = sys.stdin
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# # lst_in = sys.stdin.read().strip()
+# # lst_in = int(sys.stdin.read().strip())
+# # lst_in = sys.stdin.read().split()
+# lst_in = list(map(int, sys.stdin.read().split()))
+# # lst_in = list(map(float, sys.stdin.read().split()))
+# # lst_in = sys.stdin.readlines()
+# # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
+# # lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
+# # lst_in = map(lambda x: x.strip().split('='), sys.stdin.readlines())
+# # lst_in = list(map(str.split, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# sys.stdin = _stdin
+
+# def func(c='h1'):
+#     def inner(s):
+#         return f'<{c}>{s}</{c}>'
+#     return inner
+
+# print(func()(input()))
+
+print('##################################')
+
+# import sys
+# _stdin = sys.stdin
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# # lst_in = sys.stdin.read().strip()
+# # lst_in = int(sys.stdin.read().strip())
+# # lst_in = sys.stdin.read().split()
+# lst_in = list(map(int, sys.stdin.read().split()))
+# # lst_in = list(map(float, sys.stdin.read().split()))
+# # lst_in = sys.stdin.readlines()
+# # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
+# # lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
+# # lst_in = map(lambda x: x.strip().split('='), sys.stdin.readlines())
+# # lst_in = list(map(str.split, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# sys.stdin = _stdin
+
+# def func(c='h1'):
+#     def inner(s):
+#         return f'<{c}>{s}</{c}>'
+#     return inner
+
+# print(func(input())(input()))
+
+print('##################################')
+
+# import sys
+# _stdin = sys.stdin
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# # lst_in = sys.stdin.read().strip()
+# # lst_in = int(sys.stdin.read().strip())
+# # lst_in = sys.stdin.read().split()
+# lst_in = list(map(int, sys.stdin.read().split()))
+# # lst_in = list(map(float, sys.stdin.read().split()))
+# # lst_in = sys.stdin.readlines()
+# # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
+# # lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
+# # lst_in = map(lambda x: x.strip().split('='), sys.stdin.readlines())
+# # lst_in = list(map(str.split, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# sys.stdin = _stdin
+
+# def func(tp='list'):
+#     def inner(s):
+#         if 'list' == tp:
+#             obj = list(map(int, s.split()))
+#         else:
+#             obj = tuple(map(int, s.split()))
+#         return obj
+#     return inner
+
+# print(func(input())(input()))
+
+print('##################################')
+
 import sys
 _stdin = sys.stdin
 sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
@@ -4410,6 +4569,15 @@ print(lst_in) # test
 
 sys.stdin = _stdin
 
-pass
+def func(tp='list'):
+    def inner(s):
+        if 'list' == tp:
+            obj = list(map(int, s.split()))
+        else:
+            obj = tuple(map(int, s.split()))
+        return obj
+    return inner
+
+print(func(input())(input()))
 
 print('##################################')
