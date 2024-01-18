@@ -40,8 +40,12 @@ if __name__ == '__main__':
 
     # arr1, arr2, *_ = (np.array(object=i.split(), dtype=str) for i in stdin)
     # arr1, arr2, *_ = (np.fromstring(string=i, dtype=int, sep=' ') for i in stdin)
-    arr1, *_ = (np.fromstring(string=i, dtype=int, sep=' ') for i in stdin)
+    arr1, arr2, *_ = (np.array(i.split(), dtype=int) for i in stdin)
+    # arr1, *_ = (np.fromstring(string=i, dtype=int, sep=' ') for i in stdin)
     print(arr1) # test
-    # print(arr2) # test
+    print(arr2) # test
 
-    pass
+    arr1 = np.where(1 > arr1, 1, arr1)
+    arr2 = np.where(1 > arr2, 1, arr2)
+
+    print(*np.where(arr1 < arr2, arr1 * 2, arr1 - 2))
