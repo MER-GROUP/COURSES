@@ -36,4 +36,4 @@ if __name__ == '__main__':
     print(arr1) # test
     # print(arr2) # test
 
-    pass
+    print(f'Средний рост студентов в группе: {np.mean(arr1).round(1)} см')
