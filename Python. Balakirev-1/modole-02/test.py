@@ -4620,16 +4620,58 @@ print('##################################')
 
 print('##################################')
 
+# import sys
+# _stdin = sys.stdin
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# lst_in = sys.stdin.read().strip()
+# # lst_in = int(sys.stdin.read().strip())
+# # lst_in = sys.stdin.read().split()
+# # lst_in = list(map(int, sys.stdin.read().split()))
+# # lst_in = list(map(float, sys.stdin.read().split()))
+# # lst_in = sys.stdin.readlines()
+# # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
+# # lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
+# # lst_in = map(lambda x: x.strip().split('='), sys.stdin.readlines())
+# # lst_in = list(map(str.split, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# sys.stdin = _stdin
+
+# def decor_sort(func):
+#     def wrapper(*args, **kwargs):
+#         return sorted(func(*args, **kwargs))
+#     return wrapper
+
+# @decor_sort
+# def get_list(s: str) -> list:
+#     return list(map(int, s.split()))
+
+# print(*get_list(lst_in))
+
+print('##################################')
+
 import sys
 _stdin = sys.stdin
 sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
 
 # считывание списка из входного потока
 # lst_in = sys.stdin.read()
-# lst_in = sys.stdin.read().strip()
+lst_in = sys.stdin.read().strip()
 # lst_in = int(sys.stdin.read().strip())
 # lst_in = sys.stdin.read().split()
-lst_in = list(map(int, sys.stdin.read().split()))
+# lst_in = list(map(int, sys.stdin.read().split()))
 # lst_in = list(map(float, sys.stdin.read().split()))
 # lst_in = sys.stdin.readlines()
 # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
