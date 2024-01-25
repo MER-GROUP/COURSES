@@ -39,4 +39,5 @@ if __name__ == '__main__':
     print(arr1) # test
     # print(arr2) # test
 
-    pass
+    res = np.std(arr1).round(1)
+    print(f'Стандартное отклонение весов женщин в возрастной категории 18-30 лет: {res} кг')
