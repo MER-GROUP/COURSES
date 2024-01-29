@@ -5001,6 +5001,56 @@ print('##################################')
 
 print('##################################')
 
+# import sys
+# _stdin = sys.stdin
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# lst_in = sys.stdin.read().strip()
+# # lst_in = int(sys.stdin.read().strip())
+# # lst_in = sys.stdin.read().split()
+# # lst_in = sys.stdin.read().split('\n')
+# # lst_in = list(map(int, sys.stdin.read().split()))
+# # lst_in = list(map(float, sys.stdin.read().split()))
+# # lst_in = map(str.strip, sys.stdin.readlines())
+# # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
+# # lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
+# # lst_in = map(lambda x: x.strip().split('='), sys.stdin.readlines())
+# # lst_in = list(map(str.split, sys.stdin.readlines()))
+# # lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, arr2, *_ = lst_in
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+# # arr1 = tuple(int(i) for i in lst_in.split())
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# sys.stdin = _stdin
+
+# def decor_param(tag='h1'):
+#     from functools import wraps
+#     def decor(func):
+#         @wraps(func)
+#         def wrapper(*args, **kwargs):
+#             return f'<{tag}>{func(*args, **kwargs)}</{tag}>'
+#         return wrapper
+#     return decor
+
+# @decor_param(tag='div')
+# def small_reg(s: str) -> str:
+#     return s.lower()
+
+# print(small_reg(s = input()))
+
+print('##################################')
+
 import sys
 _stdin = sys.stdin
 sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
