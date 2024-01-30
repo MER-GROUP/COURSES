@@ -5051,6 +5051,64 @@ print('##################################')
 
 print('##################################')
 
+# import sys
+# _stdin = sys.stdin
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# lst_in = sys.stdin.read().strip()
+# # lst_in = int(sys.stdin.read().strip())
+# # lst_in = sys.stdin.read().split()
+# # lst_in = sys.stdin.read().split('\n')
+# # lst_in = list(map(int, sys.stdin.read().split()))
+# # lst_in = list(map(float, sys.stdin.read().split()))
+# # lst_in = map(str.strip, sys.stdin.readlines())
+# # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
+# # lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
+# # lst_in = map(lambda x: x.strip().split('='), sys.stdin.readlines())
+# # lst_in = list(map(str.split, sys.stdin.readlines()))
+# # lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, arr2, *_ = lst_in
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+# # arr1 = tuple(int(i) for i in lst_in.split())
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# sys.stdin = _stdin
+
+# def decor_param(chars='!?'):
+#     def decor(func):
+#         @__import__('functools').wraps(func)
+#         def wrapper(*args, **kwargs):
+#             s = func(*args, **kwargs)
+#             for c in chars:
+#                 s = s.replace(c, '-')
+#             while '--' in s:
+#                 s = s.replace('--', '-')
+#             return s
+#         return wrapper
+#     return decor
+
+# @decor_param(chars="?!:;,. ")
+# def kiril_to_latin(s: str) -> str:
+#     t = {'ё': 'yo', 'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ж': 'zh',
+#         'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'п': 'p',
+#         'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch', 'ш': 'sh',
+#         'щ': 'shch', 'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya'}
+#     return ''.join(map(lambda x: t.get(x, x), s.lower()))
+
+# print(kiril_to_latin('Декораторы - это круто!'))
+
+print('##################################')
+
 import sys
 _stdin = sys.stdin
 sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
