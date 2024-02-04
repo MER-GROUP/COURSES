@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 '''
 Рассчитать дисперсию
 
@@ -37,4 +38,4 @@ if __name__ == '__main__':
     print(arr1) # test
     # print(arr2) # test
 
-    pass
+    print(f'Дисперсия оценок учеников в классе равна: {np.var(arr1).round(1)}')
