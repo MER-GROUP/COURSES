@@ -5503,6 +5503,174 @@ print('##################################')
 
 print('##################################')
 
+# import sys
+# _stdin = sys.stdin
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# # lst_in = sys.stdin.read().strip()
+# # lst_in = int(sys.stdin.read().strip())
+# # lst_in = sys.stdin.read().split()
+# # lst_in = sys.stdin.read().split('\n')
+# # lst_in = list(map(int, sys.stdin.read().split()))
+# # lst_in = list(map(float, sys.stdin.read().split()))
+# # lst_in = map(str.strip, sys.stdin.readlines())
+# # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
+# # lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
+# # lst_in = map(lambda x: x.strip().split('='), sys.stdin.readlines())
+# # lst_in = list(map(str.split, sys.stdin.readlines()))
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, arr2, *_ = lst_in
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+# # arr1 = tuple(int(i) for i in lst_in.split())
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# sys.stdin = _stdin
+
+# gen = (x for x in range(2, 10_001))
+
+print('##################################')
+
+# import sys
+# _stdin = sys.stdin
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# # lst_in = sys.stdin.read().strip()
+# # lst_in = int(sys.stdin.read().strip())
+# # lst_in = sys.stdin.read().split()
+# # lst_in = sys.stdin.read().split('\n')
+# # lst_in = list(map(int, sys.stdin.read().split()))
+# # lst_in = list(map(float, sys.stdin.read().split()))
+# # lst_in = map(str.strip, sys.stdin.readlines())
+# # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
+# # lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
+# # lst_in = map(lambda x: x.strip().split('='), sys.stdin.readlines())
+# # lst_in = list(map(str.split, sys.stdin.readlines()))
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, arr2, *_ = lst_in
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+# # arr1 = tuple(int(i) for i in lst_in.split())
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# sys.stdin = _stdin
+
+# # ввод значений a и b (переменные a и b не менять!)
+# a, b = map(int, input().split())
+
+# # здесь продолжайте программу
+# tp = tuple(x**2 for x in range(a, b+1))
+# print(tp)
+
+print('##################################')
+
+# import sys
+# _stdin = sys.stdin
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# # lst_in = sys.stdin.read().strip()
+# # lst_in = int(sys.stdin.read().strip())
+# # lst_in = sys.stdin.read().split()
+# # lst_in = sys.stdin.read().split('\n')
+# # lst_in = list(map(int, sys.stdin.read().split()))
+# # lst_in = list(map(float, sys.stdin.read().split()))
+# # lst_in = map(str.strip, sys.stdin.readlines())
+# # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
+# # lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
+# # lst_in = map(lambda x: x.strip().split('='), sys.stdin.readlines())
+# # lst_in = list(map(str.split, sys.stdin.readlines()))
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, arr2, *_ = lst_in
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+# # arr1 = tuple(int(i) for i in lst_in.split())
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# sys.stdin = _stdin
+
+# # ввод значений a и b (переменные a и b не менять!)
+# a, b = map(int, input().split())
+
+# # здесь продолжайте программу
+# gen = (abs(x) for x in range(a, b+1))
+# for i in range(5):
+#     print(next(gen))
+
+print('##################################')
+
+# import sys
+# _stdin = sys.stdin
+# sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
+
+# # считывание списка из входного потока
+# # lst_in = sys.stdin.read()
+# # lst_in = sys.stdin.read().strip()
+# # lst_in = int(sys.stdin.read().strip())
+# # lst_in = sys.stdin.read().split()
+# # lst_in = sys.stdin.read().split('\n')
+# # lst_in = list(map(int, sys.stdin.read().split()))
+# # lst_in = list(map(float, sys.stdin.read().split()))
+# # lst_in = map(str.strip, sys.stdin.readlines())
+# # lst_in = list(map(lambda x: list(map(int, x.split())), sys.stdin.readlines()))
+# # lst_in = list(map(lambda x: x.strip().split('='), sys.stdin.readlines()))
+# # lst_in = map(lambda x: x.strip().split('='), sys.stdin.readlines())
+# # lst_in = list(map(str.split, sys.stdin.readlines()))
+# lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# print(lst_in) # test
+# # print(lst_in.split()) # test
+
+# # здесь продолжайте программу (используйте список lst_in)
+# # arr1, arr2, *_ = (set(map(str.strip, line.split())) for line in lst_in)
+# # arr1, arr2, *_ = lst_in
+# # arr1, *_ = (tuple(map(str.strip, line.split())) for line in lst_in)
+# # arr1 = tuple(int(i) for i in lst_in.split())
+
+# # print(arr1) # test
+# # print(arr2) # test
+
+# sys.stdin = _stdin
+
+# # ввод значений a и b (переменные a и b не менять!)
+# # a, b = map(int, input().split())
+# a = int(input())
+
+# # здесь продолжайте программу
+# gen = (abs(x) for x in range(-a, a+1))
+# gen2 = (x**3 for x in gen)
+# for i in range(4):
+#     print(next(gen2), end=' ')
+# print()
+
+print('##################################')
+
 import sys
 _stdin = sys.stdin
 sys.stdin = open(file='test.csv', mode='rt', encoding='utf-8', newline='')
@@ -5536,6 +5704,15 @@ print(lst_in) # test
 
 sys.stdin = _stdin
 
-pass
+# ввод значений a и b (переменные a и b не менять!)
+# a, b = map(int, input().split())
+a = int(input())
+
+# здесь продолжайте программу
+gen = (abs(x) for x in range(-a, a+1))
+gen2 = (x**3 for x in gen)
+for i in range(4):
+    print(next(gen2), end=' ')
+print()
 
 print('##################################')
